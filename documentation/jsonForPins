@@ -1,0 +1,7 @@
+{
+  owner: **,  // string
+  lat: **,  // float
+  lon: **,  // float
+  time: **,  // int
+  type: ** // string
+}
