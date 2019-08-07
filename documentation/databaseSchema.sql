@@ -1,29 +1,20 @@
 
 create table users(
-	id int PRIMARY KEY,
+	id bigint PRIMARY KEY,
   	user_name text not null,
   	password text not null,
-  	permissions text not null
+  	role integer not null
 );
 
-create table videos(
-	id int PRIMARY KEY,
-  	name text,
-  	uploadedBy int,
-  	url text,
-  	FOREIGN KEY (uploadedBy) REFERENCES users(id)
-);
-
-create table images(
-	id int PRIMARY KEY,
-  	name text,
-  	uploadedBy int,
-  	url text,
-  	FOREIGN KEY (uploadedBy) REFERENCES users(id)
+create table media (
+	uid bigint PRIMARY KEY,
+	title text,
+	url text not null,
+	type integer,
 );
 
 create table articles(
-	id int PRIMARY KEY,
+	id bigint PRIMARY KEY,
   	summary text,
   	writenBy int,
   	FOREIGN KEY (writenBy) REFERENCES users(id)
@@ -31,12 +22,11 @@ create table articles(
 
 
 create table pins(
-	id int PRIMARY KEY,
-  	long float NOT NUll,
-  	lat float NOT NUll,
+	uid bigint PRIMARY KEY,
+  	longitude float NOT NUll,
+  	latitude float NOT NUll,
   	discription text,
-  	article int,
-    FOREIGN KEY (article) REFERENCES articles(id)
+	time bigint not null
 );
 
 
@@ -51,8 +41,13 @@ create table feedback(
 	id int PRIMARY KEY,
   	name text,
   	email text,
-  	feedback text
+  	feedback text,
+	state boolean not null
 );
 
-
+create table pinlinkarticle(
+	pin_id bigint references pins(uid),
+	article_id bigint references articles(id),
+	primary key (pin_id, article_id)
+);
 
