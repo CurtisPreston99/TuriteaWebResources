@@ -1,7 +1,20 @@
-{
-  owner: **,  // string
-  lat: **,  // float
-  lon: **,  // float
-  time: **,  // int
-  type: ** // string
-}
+[
+  {
+    uid: **, //int
+    owner: **,  // string
+    lat: **,  // float
+    lon: **,  // float
+    time: **,  // int
+    description: **, //string
+    type: ** // string
+  },
+  {
+    uid: **, //int
+    owner: **,  // string
+    lat: **,  // float
+    lon: **,  // float
+    time: **,  // int
+    description: **, //string
+    type: ** // string
+  }
+]
