@@ -37,11 +37,11 @@ create table subscription(
 );
 
 
-create table feedback(
-	id int PRIMARY KEY,
-  	name text,
-  	email text,
-  	feedback text,
+create table feedback (
+	id SERIAL PRIMARY KEY,
+	name text,
+	email text,
+	feedback text,
 	state boolean not null
 );
 
