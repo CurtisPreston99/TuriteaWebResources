@@ -1,0 +1,18 @@
+[
+  {
+    "uid": 1,
+    "lat": 10.1,
+    "long": 10.2,
+    "time": 55,
+    "description": "abc",
+    "tag_type": 1
+  },
+  {
+    "uid": 2,
+    "lat": 11.1,
+    "long": 11.2,
+    "time": 56,
+    "description": "ab",
+    "tag_type": 2
+  }
+]
