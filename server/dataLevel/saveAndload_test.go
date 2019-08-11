@@ -8,7 +8,7 @@ import (
 )
 
 
-var r = &ArticleResource{Id:1, content: []byte("abc"), resourcesId: []int64{0}}
+var r = &ArticleResource{Id:1, content: []byte("abc"), resourcesId: []Resource{{1,1}, {1,3}}}
 
 func TestSaveArticleContent(t *testing.T) {
 	s := SaveArticleContentAndNotify(r)

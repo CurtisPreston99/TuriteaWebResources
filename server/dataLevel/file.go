@@ -5,12 +5,11 @@ import (
 	"TuriteaWebResources/asynchronousIO/M2N"
 )
 // todo add more data sources and manage the data in database.
-var defaultOnLoadResourceId = func([]int64) {}
+var onLoadResourceId func([]Resource) // todo init it first and dont change it when running
 var fileIO asynchronousIO.AsynchronousIOMachine
-var OnLoadResourceIds *func([]int64) = &defaultOnLoadResourceId // todo init it first and dont change it when running
-func init() {
+func Init() {
 	dataSource := []asynchronousIO.DataSource{&imageDataSource{"./resources/temPictures/%x.img"},
-		&articleDataResource{root:"./articles/%x.art", onLoadId: OnLoadResourceIds}}
+		&articleDataResource{root:"./articles/%x.art", onLoadId: onLoadResourceId}}
 	fileIO = M2N.NewM2NMachine(dataSource, 2, 16, false)
 }
 

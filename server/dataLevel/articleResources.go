@@ -3,6 +3,7 @@ package dataLevel
 import (
 	"TuriteaWebResources/asynchronousIO"
 	"strconv"
+	"sync"
 )
 
 type ArticleKey int64
@@ -23,14 +24,17 @@ type ArticleResource struct {
 	// todo create a pool for this type
 	Id int64
 	content []byte
-	resourcesId []int64
+	resourcesId []Resource
 }
 
 func (a *ArticleResource) GetKey() asynchronousIO.Key {
 	return ArticleKey(a.Id)
 }
 
+var contentPool = new(sync.Pool)
 
 func init() {
-
+	contentPool.New = func() interface{} {
+		return &ArticleResource{}
+	}
 }

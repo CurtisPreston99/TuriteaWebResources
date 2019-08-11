@@ -2,44 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/DataSources/FileSystem.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/DataSources/Internet.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/M2N/M2N.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/M2N/Normal.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/M2N/cmdTable.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/M2N/forOneDataSource.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/M2N/normal_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/M2N/withCheckReIn.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/define.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asynchronousIO/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/delayLoad.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documentation/rich textfield template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/getAllPins.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/base/Article.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/base/Media.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/base/Pin.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/base/a_test.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/base/base_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/base/pin_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/base/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/buffer/simpleDefine.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/articleDataResource.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/articleResources.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/file.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/imageDataSource.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/mediaResources.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/resourceType.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/saveAndload_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/sql.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/sql_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dataLevel/test.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/start.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cesiumTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/cesiumTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cesiumTest2.html" beforeDir="false" afterPath="$PROJECT_DIR$/cesiumTest2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/dataLevel/resources.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/tools/loadFromKML.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cesiumtest.js" beforeDir="false" afterPath="$PROJECT_DIR$/cesiumtest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cesiumtest2.js" beforeDir="false" afterPath="$PROJECT_DIR$/cesiumtest2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/base/Pin.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/base/Pin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/base/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/base/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dataLevel/articleDataResource.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/articleDataResource.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dataLevel/articleResources.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/articleResources.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dataLevel/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dataLevel/saveAndload_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/saveAndload_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dataLevel/sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/sql.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,37 +145,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cesiumtest.js">
+        <entry file="file://$PROJECT_DIR$/server/tools/loadFromKML.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state relative-caret-position="405">
+              <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+              <folding>
+                <element signature="e#14#46#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cesiumTest2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cesiumtest2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/base/Pin.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="361">
+              <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -209,26 +168,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            <state relative-caret-position="390">
+              <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go1.11/go/src/net/http/server.go">
+        <entry file="file://$PROJECT_DIR$/server/base/Pin.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="1745" selection-start-line="1745" selection-end-line="1745" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cesiumTest.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="390">
+              <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -236,13 +186,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="-313">
+              <caret line="220" column="46" selection-start-line="220" selection-start-column="46" selection-end-line="220" selection-end-column="46" />
               <folding>
                 <element signature="n#!!block;n#Login#0" />
                 <element signature="n#!!block;n#CreateRole#0" />
-                <element signature="n#!!block;n#DeleteUser#0" />
-                <element signature="n#!!block;n#CreateSubscription#0" />
                 <element signature="n#!!block;n#CreatePin#0" />
                 <element signature="n#!!block;n#CreateArticle#0" />
                 <element signature="n#!!block;n#LoadArticle#0" />
@@ -254,7 +202,49 @@
                 <element signature="n#!!block;n#LinkPinToArticle#0" />
                 <element signature="n#!!block;n#UnLinkPinToArticle#0" />
                 <element signature="n#!!block;n#SearchPinsWithArticle#0" />
+                <element signature="n#!!block;n#CreatSubscription#0" />
+                <element signature="n#!!block;n#DeleteSubscription#0" />
+                <element signature="n#!!block;n#ChangeSubscriptionEmail#0" />
+                <element signature="n#!!block;n#CreateFeedback#0" />
+                <element signature="n#!!block;n#CheckFeedback#0" />
+                <element signature="n#!!block;n#GetAllPins#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/kml/Turitea Pitfall Points.kml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1200">
+              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cesiumTest2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cesiumtest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="57" column="44" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cesiumTest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -262,15 +252,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/actions/getAllPins.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+            <state relative-caret-position="300">
+              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cesium/Source/Assets/Textures/maki/airfield.png">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -278,9 +263,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -300,17 +285,15 @@
   <component name="GOROOT" path="C:/Go1.11/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/documentation/delayLoad.js" />
-        <option value="$PROJECT_DIR$/documentation/rich textfield template.html" />
-        <option value="$PROJECT_DIR$/server/io/BoxForResources.go" />
-        <option value="$PROJECT_DIR$/server/io/imageResources.go" />
-        <option value="$PROJECT_DIR$/server/io/videoResources.go" />
-        <option value="$PROJECT_DIR$/asynchronousIO/define.go" />
-        <option value="$PROJECT_DIR$/asynchronousIO/M2N/withCheckForOneSource.go" />
         <option value="$PROJECT_DIR$/asynchronousIO/M2N/withCheck.go" />
         <option value="$PROJECT_DIR$/asynchronousIO/M2N/withCheck_test.go" />
         <option value="$PROJECT_DIR$/asynchronousIO/DataSources/Memory.go" />
@@ -337,24 +320,31 @@
         <option value="$PROJECT_DIR$/server/io/articleResources.go" />
         <option value="$PROJECT_DIR$/server/io/mediaResources.go" />
         <option value="$PROJECT_DIR$/server/io/sql.go" />
-        <option value="$PROJECT_DIR$/server/dataLevel/sql_test.go" />
         <option value="$PROJECT_DIR$/server/buffer/simpleDefine.go" />
         <option value="$PROJECT_DIR$/asynchronousIO/M2N/M2N.go" />
         <option value="$PROJECT_DIR$/asynchronousIO/M2N/withCheckReIn.go" />
         <option value="$PROJECT_DIR$/asynchronousIO/M2N/Normal.go" />
         <option value="$PROJECT_DIR$/asynchronousIO/M2N/forOneDataSource.go" />
         <option value="$PROJECT_DIR$/cesiumTest2.html" />
-        <option value="$PROJECT_DIR$/server/dataLevel/articleDataResource.go" />
-        <option value="$PROJECT_DIR$/server/dataLevel/saveAndload_test.go" />
-        <option value="$PROJECT_DIR$/server/dataLevel/sql.go" />
-        <option value="$PROJECT_DIR$/server/dataLevel/file.go" />
         <option value="$PROJECT_DIR$/server/actions/getAllPins.go" />
         <option value="$PROJECT_DIR$/ct.html" />
         <option value="$PROJECT_DIR$/server/main.go" />
-        <option value="$PROJECT_DIR$/server/base/Pin.go" />
         <option value="$PROJECT_DIR$/ct2.js" />
-        <option value="$PROJECT_DIR$/cesiumtest2.js" />
         <option value="$PROJECT_DIR$/cesiumTest.html" />
+        <option value="$PROJECT_DIR$/server/base/user.go" />
+        <option value="$PROJECT_DIR$/server/base/resources.go" />
+        <option value="$PROJECT_DIR$/server/dataLevel/file.go" />
+        <option value="$PROJECT_DIR$/server/dataLevel/saveAndload_test.go" />
+        <option value="$PROJECT_DIR$/server/dataLevel/articleDataResource.go" />
+        <option value="$PROJECT_DIR$/server/dataLevel/articleResources.go" />
+        <option value="$PROJECT_DIR$/server/dataLevel/resources.go" />
+        <option value="$PROJECT_DIR$/server/dataLevel/sql_test.go" />
+        <option value="$PROJECT_DIR$/cesiumtest.js" />
+        <option value="$PROJECT_DIR$/data/kml/Turitea Pitfall Points.kml" />
+        <option value="$PROJECT_DIR$/server/dataLevel/sql.go" />
+        <option value="$PROJECT_DIR$/server/base/Pin.go" />
+        <option value="$PROJECT_DIR$/server/tools/loadFromKML.go" />
+        <option value="$PROJECT_DIR$/cesiumtest2.js" />
       </list>
     </option>
   </component>
@@ -364,8 +354,8 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
   </component>
@@ -375,7 +365,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -385,12 +374,142 @@
             </path>
             <path>
               <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="kml" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="mail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="textproto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="golang_org" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="golang_org" type="462c0819:PsiDirectoryNode" />
+              <item name="x" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="golang_org" type="462c0819:PsiDirectoryNode" />
+              <item name="x" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="golang_org" type="462c0819:PsiDirectoryNode" />
+              <item name="x" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="dns" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.11.5" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="golang_org" type="462c0819:PsiDirectoryNode" />
+              <item name="x" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="dns" type="462c0819:PsiDirectoryNode" />
+              <item name="dnsmessage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -401,19 +520,21 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JSON" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data/kml/Turitea Pitfall Points (1).kml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoProjectSettingsConfigurable" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/data/kml/Turitea Pitfall Points (1).kml" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\GOCode\src\TuriteaWebResources" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\TuriteaWebResources" />
+      <recent name="G:\GOCode\src\TuriteaWebResources\server\dataLevel" />
+      <recent name="G:\GOCode\src\TuriteaWebResources\documentation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\GOCode\src\TuriteaWebResources\server\dataLevel" />
       <recent name="G:\GOCode\src\TuriteaWebResources" />
-      <recent name="G:\GOCode\src\TuriteaWebResources\documentation" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -429,6 +550,15 @@
     </option>
   </component>
   <component name="RunManager" selected="Go Build.go build main.go">
+    <configuration name="go build loadFromKML.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="TuriteaWebResources" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/server/tools/loadFromKML.go" />
+      <package value="TuriteaWebResources" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="TuriteaWebResources" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -460,17 +590,6 @@
       <pattern value="^TestSaveArticleContent$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSaveArticleContentAndNotify in TuriteaWebResources/server/dataLevel" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="TuriteaWebResources" />
-      <working_directory value="$PROJECT_DIR$/server/dataLevel" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="TuriteaWebResources/server/dataLevel" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestSaveArticleContentAndNotify$" />
-      <method v="2" />
-    </configuration>
     <configuration name="TestSaveImage in TuriteaWebResources/server/dataLevel" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="TuriteaWebResources" />
       <working_directory value="$PROJECT_DIR$/server/dataLevel" />
@@ -485,10 +604,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Build.go build loadFromKML.go" />
+        <item itemvalue="Go Test.TestSaveArticleContent in TuriteaWebResources/server/dataLevel" />
         <item itemvalue="Go Test.TestLoadImage in TuriteaWebResources/server/dataLevel" />
         <item itemvalue="Go Test.TestSaveImage in TuriteaWebResources/server/dataLevel" />
-        <item itemvalue="Go Test.TestSaveArticleContentAndNotify in TuriteaWebResources/server/dataLevel" />
-        <item itemvalue="Go Test.TestSaveArticleContent in TuriteaWebResources/server/dataLevel" />
       </list>
     </recent_temporary>
   </component>
@@ -537,26 +656,26 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31130064" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12899786" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4890591" weight="0.33683106" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48827294" visible="true" weight="0.33679834" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49200428" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952183" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.96881497" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3326338" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5109409" side_tool="true" weight="0.3326338" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5117271" side_tool="true" visible="true" weight="0.33679834" />
       <window_info anchor="bottom" id="Compute Code Lines" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.49688148" weight="0.42122537" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.49688148" weight="0.24520256" />
       <window_info anchor="right" id="Coverage" order="4" sideWeight="0.5031185" side_tool="true" visible="true" weight="0.20522387" />
     </layout>
     <layout-to-restore>
@@ -599,11 +718,6 @@
           <line>29</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/server/dataLevel/articleDataResource.go</url>
-          <line>30</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -615,77 +729,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/asynchronousIO/readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="56" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/encoding/json/stream.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="478" column="20" selection-start-line="478" selection-start-column="20" selection-end-line="478" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.json" />
-    <entry file="file://C:/Go1.11/go/src/encoding/json/encode.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="294" column="22" selection-start-line="294" selection-start-column="22" selection-end-line="294" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/base_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/encoding/json/decode.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/runtime/panic.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="512" selection-start-line="512" selection-end-line="512" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cesium/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/setHead.js" />
-    <entry file="file://$PROJECT_DIR$/server/base/a_test.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/strings/compare.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/dataLevel/resourceType.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -700,13 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/Media.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Go1.11/go/src/testing/testing.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -714,24 +750,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/Article.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="742">
-          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/base/pin_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
           <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -838,23 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleResources.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/saveAndload_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!block;n#TestSaveArticleContent#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cesium/Build/Cesium/Cesium.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -865,56 +870,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/file.go">
+    <entry file="file://$PROJECT_DIR$/ct.html" />
+    <entry file="file://$PROJECT_DIR$/ct2.js" />
+    <entry file="file://C:/Go1.11/go/src/net/http/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataResource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="2445" selection-start-line="2445" selection-end-line="2445" />
+        <state relative-caret-position="51660">
+          <caret line="1745" selection-start-line="1745" selection-end-line="1745" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cesium/Source/Assets/Textures/maki/airfield.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/main.go">
+    <entry file="file://$PROJECT_DIR$/github.com/lib/pq/oid/doc.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        <state relative-caret-position="180">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ct.html">
+    <entry file="file://$PROJECT_DIR$/server/base/user.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/efbb2377-4d2a-4589-9807-1b3729c6ac7a/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-777">
+          <caret line="2444" column="15" selection-start-line="2444" selection-start-column="15" selection-end-line="2444" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/base/Media.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/textproto/header.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/vendor/golang_org/x/net/dns/dnsmessage/message.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4770" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/mail/message.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/net/smtp/smtp.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="5" selection-start-line="14" selection-start-column="18" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/resources.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataResource.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/saveAndload_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!block;n#TestSaveArticleContent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/file.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleResources.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/base/Article.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../golang.org/x/net/html/node.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        <state relative-caret-position="-313">
+          <caret line="220" column="46" selection-start-line="220" selection-start-column="46" selection-end-line="220" selection-end-column="46" />
           <folding>
             <element signature="n#!!block;n#Login#0" />
             <element signature="n#!!block;n#CreateRole#0" />
-            <element signature="n#!!block;n#DeleteUser#0" />
-            <element signature="n#!!block;n#CreateSubscription#0" />
             <element signature="n#!!block;n#CreatePin#0" />
             <element signature="n#!!block;n#CreateArticle#0" />
             <element signature="n#!!block;n#LoadArticle#0" />
@@ -926,63 +1012,79 @@
             <element signature="n#!!block;n#LinkPinToArticle#0" />
             <element signature="n#!!block;n#UnLinkPinToArticle#0" />
             <element signature="n#!!block;n#SearchPinsWithArticle#0" />
+            <element signature="n#!!block;n#CreatSubscription#0" />
+            <element signature="n#!!block;n#DeleteSubscription#0" />
+            <element signature="n#!!block;n#ChangeSubscriptionEmail#0" />
+            <element signature="n#!!block;n#CreateFeedback#0" />
+            <element signature="n#!!block;n#CheckFeedback#0" />
+            <element signature="n#!!block;n#GetAllPins#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/net/http/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="1745" selection-start-line="1745" selection-end-line="1745" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/getAllPins.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/base/Pin.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="390">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ct2.js">
+    <entry file="file://$PROJECT_DIR$/server/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="39" column="40" lean-forward="true" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cesiumtest2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cesiumTest2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="390">
+          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cesiumtest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="369">
+          <caret line="57" column="44" lean-forward="true" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cesiumTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="390">
+          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/getAllPins.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cesiumTest2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/kml/Turitea Pitfall Points.kml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1200">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/tools/loadFromKML.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding>
+            <element signature="e#14#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cesiumtest2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
         </state>
       </provider>
     </entry>

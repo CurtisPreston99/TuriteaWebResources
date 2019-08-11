@@ -5,11 +5,13 @@ import (
 	"encoding/binary"
 	"fmt"
 	"os"
+	"reflect"
+	"unsafe"
 )
 
 type articleDataResource struct {
 	root string
-	onLoadId *func([]int64)
+	onLoadId func([]Resource)
 }
 
 func (a *articleDataResource) Load(key asynchronousIO.Key) (asynchronousIO.Bean, error) {
@@ -23,12 +25,15 @@ func (a *articleDataResource) Load(key asynchronousIO.Key) (asynchronousIO.Bean,
 		return nil, err
 	}
 	goal := &ArticleResource{Id:int64(key.(ArticleKey))}
-	goal.resourcesId = make([]int64, length)
-	err = binary.Read(f, binary.LittleEndian, goal.resourcesId)
+	t := make([]byte, length*16)
+	err = binary.Read(f, binary.LittleEndian, t)
 	if err != nil {
 		return nil, err
 	}
-	go (*a.onLoadId)(goal.resourcesId)
+	t = t[:length]
+	(*reflect.SliceHeader)(unsafe.Pointer(&t)).Cap = int(length)
+	goal.resourcesId = *(*[]Resource)((unsafe.Pointer(&t)))
+	go a.onLoadId(goal.resourcesId)
 	err = binary.Read(f, binary.LittleEndian, &length)
 	if err != nil {
 		return nil, err
@@ -49,11 +54,15 @@ func (a *articleDataResource) Save(bean asynchronousIO.Bean) error {
 	if err != nil {
 		return err
 	}
-	err = binary.Write(f, binary.LittleEndian, b.resourcesId)
+	var t reflect.SliceHeader
+	t = *(*reflect.SliceHeader)(unsafe.Pointer(&(b.resourcesId)))
+	t.Len *= 16
+	t.Cap *= 16
+	err = binary.Write(f, binary.LittleEndian, *(*[]byte)(unsafe.Pointer(&t)))
 	if err != nil {
 		return err
 	}
-	err = binary.Write(f, binary.LittleEndian, uint64(len(b.resourcesId)))
+	err = binary.Write(f, binary.LittleEndian, uint64(len(b.content)))
 	if err != nil {
 		return err
 	}

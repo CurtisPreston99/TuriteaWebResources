@@ -45,7 +45,7 @@
 
 
 $.get('./pins', {}, function(data){
-   pins=JSON.parse(data)
+   pins=JSON.parse(data);
 
 
    console.log(pins);
@@ -54,7 +54,7 @@ $.get('./pins', {}, function(data){
       Cesium.when(pinBuilder.fromMakiIconId('hospital', Cesium.Color.RED, 48), function(canvas) {
    let x =viewer.entities.add({
          name : 'Hospital',
-         position : Cesium.Cartesian3.fromDegrees(pins[i]["lat"],pins[i]["lon"],15.45),
+         position : Cesium.Cartesian3.fromDegrees(pins[i]["lon"],pins[i]["lat"],15.45),
          description:pins[i]["description"],
          billboard : {
              image : canvas.toDataURL(),
@@ -66,4 +66,4 @@ $.get('./pins', {}, function(data){
    }
 
    console.log(data);
- })
+ });

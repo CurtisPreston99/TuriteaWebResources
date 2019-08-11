@@ -20,8 +20,10 @@ const (
 	createSubscription
 	deleteSubscription
 	updateSubscriptionEmail
+
 	createFeedback
 	checkFeedback
+
 	createPin
 	deletePin
 	createArticle
@@ -56,7 +58,14 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
-	// todo add other roles
+	err = SQLSuper.Connect("postgres", "Turitea", "localhost", "turiteaSuper", "masseysuper")
+	if err != nil {
+		panic(err)
+	}
+	err = SQLPublic.Connect("postgres", "Turitea", "localhost", "turiteaPublic", "masseyPublic")
+	if err != nil {
+		panic(err)
+	}
 }
 
 type SqlLinker struct {
@@ -78,6 +87,9 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 		return err
 	}
 	s.stmtMap[deleteRole], err = s.db.Prepare("delete from users where uid = $1")
+	if err != nil {
+		return err
+	}
 	s.stmtMap[createSubscription], err = s.db.Prepare("insert into subscription (name, email) values ($1, $2)")
 	if err != nil {
 		return err
@@ -90,7 +102,7 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[createFeedback], err = s.db.Prepare("insert into feedback (id, name, feedback, email) VALUES ($1, $2, $3, $4)")
+	s.stmtMap[createFeedback], err = s.db.Prepare("insert into feedback (name, feedback, email) VALUES ($1, $2, $3)")
 	if err != nil {
 		return err
 	}
@@ -163,9 +175,7 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	}
 	// todo when add buffer change this one
 	s.stmtMap[searchPinWithArticle], err = s.db.Prepare("select uid, owner, latitude, longitude, time, tag_type from pins where uid = (select pin_id from pinlinkarticle where article_id = $1)")
-	if err != nil {
-		return err
-	}
+
 	return err
 }
 
@@ -207,19 +217,14 @@ func (s *SqlLinker) CreateRole(role int, name string) error {
 	return nil
 }
 
-func (s *SqlLinker) DeleteUser(user *base.User) error {
-	_, err := s.stmtMap[deleteRole].Query(user.Id)
+func (s *SqlLinker) DeleteUser(user int64) error {
+	_, err := s.stmtMap[deleteRole].Query(user)
 	return err
 }
 
-func (s *SqlLinker) CreateSubscription(name, email string) bool {
-	// todo finish it
-	return false
-}
-
-func (s *SqlLinker) CreatePin(owner *base.User, latitude, longitude float64, time int64, tagType uint8, description string) (pin *base.Pin) {
-	pin = base.GenPin(0, owner.Id, latitude, longitude, time, tagType, description, true)
-	r, err :=s.stmtMap[createPin].Query(pin.Uid,owner.Id, latitude, longitude, time, tagType, description)
+func (s *SqlLinker) CreatePin(owner int64, latitude, longitude float64, time int64, tagType uint8, description string) (pin *base.Pin) {
+	pin = base.GenPin(0, owner, latitude, longitude, time, tagType, description, true)
+	r, err :=s.stmtMap[createPin].Query(pin.Uid,owner, latitude, longitude, time, tagType, description)
 	if err != nil {
 		base.RecyclePin(pin, true)
 		err = r.Close()
@@ -257,8 +262,8 @@ func (s *SqlLinker) LoadArticle(id int64) *base.Article {
 	return base.GenArticle(id, writeBy, summary, false)
 }
 
-func (s *SqlLinker) SelectArticlesWithPin(pin *base.Pin) []*base.Article {
-	r, err := s.stmtMap[selectArticleByPin].Query(pin.Uid)
+func (s *SqlLinker) SelectArticlesWithPin(pinId int64) []*base.Article {
+	r, err := s.stmtMap[selectArticleByPin].Query(pinId)
 	if err != nil {
 		return nil
 	}
@@ -378,8 +383,8 @@ func (s *SqlLinker) UnLinkPinToArticle(pin *base.Pin, article *base.Article) boo
 	return true
 }
 
-func (s *SqlLinker) SearchPinsWithArticle(article *base.Article) []*base.Pin {
-	r, err := s.stmtMap[searchPinWithArticle].Query(article.Id)
+func (s *SqlLinker) SearchPinsWithArticle(article int64) []*base.Pin {
+	r, err := s.stmtMap[searchPinWithArticle].Query(article)
 	if err != nil {
 		return nil
 	}
@@ -397,6 +402,48 @@ func (s *SqlLinker) SearchPinsWithArticle(article *base.Article) []*base.Pin {
 	}
 	_ = r.Close()
 	return goal
+}
+
+func (s *SqlLinker) CreatSubscription(name, email string) bool {
+	r, err := s.stmtMap[createSubscription].Query(name, email)
+	_ = r.Close()
+	if err != nil {
+		return false
+	}
+	return true
+}
+
+func (s *SqlLinker) DeleteSubscription(email string) bool {
+	r, err := s.stmtMap[deleteSubscription].Query(email)
+	if err != nil {
+		return false
+	}
+	_ = r.Close()
+	return true
+}
+
+func (s *SqlLinker) ChangeSubscriptionEmail(emailOld, emailNew string) bool {
+	_, err := s.stmtMap[updateSubscriptionEmail].Query(emailNew, emailOld)
+	if err != nil {
+		return false
+	}
+	return true
+}
+
+func (s *SqlLinker) CreateFeedback(name, email, feedback string) bool {
+	_, err := s.stmtMap[createFeedback].Query(name, feedback, email)
+	if err != nil {
+		return false
+	}
+	return true
+}
+
+func (s *SqlLinker) CheckFeedback(id int64) bool {
+	_, err := s.stmtMap[checkFeedback].Query(id)
+	if err != nil {
+		return false
+	}
+	return true
 }
 
 // fixme it just for test

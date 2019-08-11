@@ -33,7 +33,7 @@ func init() {
 }
 
 func pinIdProvider() {
-	var id int64
+	var id int64 = 3
 	for {
 		select {
 		case pinIdChan <- id:
