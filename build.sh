@@ -1,3 +1,3 @@
 
-rm go\ test
-go build go\ test.go
+rm ./server/main
+go build ./server/main.go
