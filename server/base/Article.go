@@ -1,6 +1,7 @@
 package base
 
 import (
+	"TuriteaWebResources/asynchronousIO"
 	"sync"
 )
 
@@ -8,6 +9,10 @@ type Article struct {
 	Id int64
 	WriteBy int64
 	Summary string
+}
+
+func (a *Article) GetKey() asynchronousIO.Key {
+	return ArticleKey(a.Id)
 }
 
 var articlePool *sync.Pool
@@ -45,9 +50,24 @@ func GenArticle(Id, writeBy int64, summary string, newOne bool) *Article {
 }
 
 func RecycleArticle(article *Article, delete bool) {
-	articlePool.Put(articlePool)
 	if delete {
 		articleIdRecycle <- article.Id
 	}
+	articlePool.Put(articlePool)
 }
+
+type ArticleKey int64
+
+func (a ArticleKey) UniqueId() (int64, bool) {
+	return int64(a), true
+}
+
+func (ArticleKey) ToString() (string, bool) {
+	panic("")
+}
+
+func (ArticleKey) TypeId() int64 {
+	return 4
+}
+
 

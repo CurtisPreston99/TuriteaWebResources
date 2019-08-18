@@ -6,29 +6,28 @@ import (
 	"sync"
 )
 
-type ArticleKey int64
+type ArticleContentKey int64
 
-func (k ArticleKey) TypeId() int64 {
-	return ArticleResources
+func (k ArticleContentKey) TypeId() int64 {
+	return ArticleContentResources
 }
 
-func (k ArticleKey) UniqueId() (int64, bool) {
+func (k ArticleContentKey) UniqueId() (int64, bool) {
 	return int64(k), true
 }
 
-func (k ArticleKey) ToString() (string, bool) {
+func (k ArticleContentKey) ToString() (string, bool) {
 	return strconv.FormatInt(int64(k), 16), true
 }
 
 type ArticleResource struct {
-	// todo create a pool for this type
 	Id int64
 	content []byte
 	resourcesId []Resource
 }
 
 func (a *ArticleResource) GetKey() asynchronousIO.Key {
-	return ArticleKey(a.Id)
+	return ArticleContentKey(a.Id)
 }
 
 var contentPool = new(sync.Pool)
@@ -37,4 +36,48 @@ func init() {
 	contentPool.New = func() interface{} {
 		return &ArticleResource{}
 	}
+	go contentIdProvider()
+}
+
+var contentIdChan = make(chan int64, 100)
+var contentIdRecycle = make(chan int64, 100)
+
+func contentIdProvider() {
+	var id int64
+	for {
+		select {
+		case contentIdChan <- id:
+			id++
+		case i := <- contentIdRecycle:
+			contentIdChan <- i
+		}
+	}
+}
+
+func GenContent(id int64, resourcesLength uint64, contentLength uint64, newOne bool) *ArticleResource {
+	if newOne {
+		id = <-contentIdChan
+	}
+	goal := contentPool.Get().(*ArticleResource)
+	goal.Id = id
+	// todo maybe these slices can be recycle in some way
+	goal.resourcesId = make([]Resource, resourcesLength)
+	goal.content = make([]byte, contentLength)
+	return goal
+}
+
+func CreateContentByData(resources []Resource, contentLength string) *ArticleResource {
+	goal := contentPool.Get().(*ArticleResource)
+	goal.Id = <-contentIdChan
+	// todo maybe these slices can be recycle in some way
+	goal.resourcesId = resources
+	goal.content = []byte(contentLength)
+	return goal
+}
+
+func RecycleContent(a *ArticleResource, delete bool) {
+	if delete {
+		contentIdRecycle <- a.Id
+	}
+	contentPool.Put(a)
 }

@@ -17,6 +17,7 @@ const (
 	login = iota
 	createRole
 	deleteRole
+	changePassword
 	createSubscription
 	deleteSubscription
 	updateSubscriptionEmail
@@ -26,20 +27,27 @@ const (
 
 	createPin
 	deletePin
+	getPinById
+	updatePin
+	getAllPins
+
 	createArticle
 	loadArticle
+	updateArticle
 	selectArticleByPin
 	selectTopArticles
 	selectNextTopArticles
 	deleteArticle
+
 	addMedia
 	deleteMedia
-	changeMediaUrl
+	changeMedia
 	getMedia
+
 	linkPinToArticle
 	unlinkPinToArticle
 	searchPinWithArticle
-	getAllPins
+
 	stmtLength
 )
 
@@ -52,6 +60,7 @@ const (
 var SQLNormal = &SqlLinker{}
 var SQLPublic = &SqlLinker{}
 var SQLSuper = &SqlLinker{}
+var SQLWorker = &SqlLinker{}
 
 func init() {
 	err := SQLNormal.Connect("postgres", "Turitea", "localhost", "turiteaNormal", "massey")
@@ -63,6 +72,10 @@ func init() {
 		panic(err)
 	}
 	err = SQLPublic.Connect("postgres", "Turitea", "localhost", "turiteaPublic", "masseyPublic")
+	if err != nil {
+		panic(err)
+	}
+	err = SQLWorker.Connect("postgres", "Turitea", "localhost", "turiteaWorker", "tutiteaworker")
 	if err != nil {
 		panic(err)
 	}
@@ -83,6 +96,10 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 		return err
 	}
 	s.stmtMap[createRole], err = s.db.Prepare("insert into users (uid, name, password_hash, role) values ($1, $2, $3, $4)")
+	if err != nil {
+		return err
+	}
+	s.stmtMap[changePassword], err = s.db.Prepare("update users set password_hash = $1 where uid=$2 and password_hash=$3;")
 	if err != nil {
 		return err
 	}
@@ -110,7 +127,7 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[createPin], err = s.db.Prepare("insert into pins (uid, owner, latitude, longitude, time, tag_type, description) values ($1, $2, $3, $4, $5, $6, $7);")
+	s.stmtMap[createPin], err = s.db.Prepare("insert into pins (uid, owner, latitude, longitude, time, tag_type, description, name) values ($1, $2, $3, $4, $5, $6, $7, $8);")
 	if err != nil {
 		return err
 	}
@@ -157,7 +174,7 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[changeMediaUrl], err = s.db.Prepare("update media set url = $1 where uid = $2")
+	s.stmtMap[changeMedia], err = s.db.Prepare("update media set url = $1, title = $2 where uid = $3")
 	if err != nil {
 		return err
 	}
@@ -175,14 +192,25 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	}
 	// todo when add buffer change this one
 	s.stmtMap[searchPinWithArticle], err = s.db.Prepare("select uid, owner, latitude, longitude, time, tag_type from pins where uid = (select pin_id from pinlinkarticle where article_id = $1)")
-
+	if err != nil {
+		return err
+	}
+	s.stmtMap[getPinById], err = s.db.Prepare("select uid, owner, latitude, longitude, time, tag_type, name from pins where uid = $1")
+	if err != nil {
+		return err
+	}
+	s.stmtMap[updatePin], err = s.db.Prepare("update pins set tag_type = $1, name = $2, description = $3 where uid = $4;")
+	if err != nil {
+		return err
+	}
+	s.stmtMap[updateArticle], err = s.db.Prepare("update articles set summary = $1 where id = $2;")
 	return err
 }
 
-func (s *SqlLinker) Login(name string, password string) (user *base.User, ok bool) {
+func (s *SqlLinker) Login(name string, password string) (ok bool) {
 	rs, err := s.stmtMap[login].Query(name, password)
 	if err != nil {
-		return nil, false
+		return false
 	}
 	if rs.Next() {
 		var id int64
@@ -190,28 +218,24 @@ func (s *SqlLinker) Login(name string, password string) (user *base.User, ok boo
 		err = rs.Scan(&id, &role)
 		if err != nil {
 			err = rs.Close()
-			return nil, false
+			return false
 		}
-		user = base.GenUser(id, name, role, false)
 	} else {
 		err = rs.Close()
-		return nil, false
+		return false
 	}
 	if rs.Next() {
 		log.Printf("sql server was attacked at %s with name=%s and password=%s", time.Now().Format("2016-01-02 15:04:05"), name, password)
 	}
 	err = rs.Close()
-	return user, true
+	return true
 }
 
 func (s *SqlLinker) CreateRole(role int, name string) error {
-	// todo finish it
-	user := base.GenUser(0, name, role, true)
-	r, err := s.stmtMap[createRole].Query(user.Id, user.Name, base.RandomPassword(), role)
+	userId := base.GenUserId()
+	r, err := s.stmtMap[createRole].Query(userId, name, base.RandomPassword(), role)
 	if err != nil {
-		base.RecycleUser(user, true)
-		//pqErr := err.(*pq.Error)
-		//pqErr.Code
+		base.RecycleUserId(userId)
 	}
 	err = r.Close()
 	return nil
@@ -222,28 +246,31 @@ func (s *SqlLinker) DeleteUser(user int64) error {
 	return err
 }
 
-func (s *SqlLinker) CreatePin(owner int64, latitude, longitude float64, time int64, tagType uint8, description string) (pin *base.Pin) {
-	pin = base.GenPin(0, owner, latitude, longitude, time, tagType, description, true)
-	r, err :=s.stmtMap[createPin].Query(pin.Uid,owner, latitude, longitude, time, tagType, description)
+func (s *SqlLinker) ChangePassword(passwordHash, newPassword string, uid int64) bool {
+	_, err := s.stmtMap[changePassword].Query(newPassword, uid, passwordHash)
 	if err != nil {
-		base.RecyclePin(pin, true)
-		err = r.Close()
-		return nil
+		return false
 	}
-	err = r.Close()
-	return pin
+	return true
 }
 
-func (s *SqlLinker) CreateArticle(summary string, writeBy int64) (article *base.Article) {
-	article = base.GenArticle(0, writeBy, summary, true)
-	r, err := s.stmtMap[createArticle].Query(article.Id, summary, writeBy)
+func (s *SqlLinker) CreatePin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name string) bool{
+	r, err :=s.stmtMap[createPin].Query(id, owner, latitude, longitude, t, tagType, description, name)
 	if err != nil {
-		base.RecycleArticle(article, true)
 		err = r.Close()
-		return nil
+		return false
 	}
 	err = r.Close()
-	return article
+	return true
+}
+
+func (s *SqlLinker) CreateArticle(summary string, id, writeBy int64) bool {
+	r, err := s.stmtMap[createArticle].Query(id, summary, writeBy)
+	if err != nil {
+		return false
+	}
+	err = r.Close()
+	return true
 }
 
 func (s *SqlLinker) LoadArticle(id int64) *base.Article {
@@ -353,16 +380,13 @@ func (s *SqlLinker) GetMedia(id int64) (media *base.Media) {
 	return media
 }
 
-func (s *SqlLinker) AddMedia(title, url string, t uint8) (media *base.Media) {
-	media = base.GenMedia(0, t, title, url, true)
-	r, err := s.stmtMap[addMedia].Query(media.Uid, title, url, t)
+func (s *SqlLinker) AddMedia(id int64, title, url string, t uint8) bool {
+	r, err := s.stmtMap[addMedia].Query(id, title, url, t)
 	if err != nil {
-		err = r.Close()
-		base.RecycleMedia(media, true)
-		return nil
+		return false
 	}
 	err = r.Close()
-	return media
+	return true
 }
 
 func (s *SqlLinker) LinkPinToArticle(pin *base.Pin, article *base.Article) bool {
@@ -466,4 +490,47 @@ func (s *SqlLinker) GetAllPins() []*base.Pin {
 		goal = append(goal, base.GenPin(uid, owner, lat, long, t, tagType, description, false))
 	}
 	return goal
+}
+
+func (s *SqlLinker) GetPinById(id int64) (*base.Pin, bool) {
+	var uid, owner, t int64
+	var description, name string
+	var lat, long float64
+	var tagType uint8
+	r, err := s.stmtMap[getPinById].Query(id)
+	if err != nil {
+		return nil, false
+	}
+	if r.Next() {
+		err = r.Scan(&uid, &owner, &lat, &long, &t, &description, &tagType, &name)
+		if err != nil {
+			return nil, false
+		}
+	}
+	return base.GenPin(uid, owner, lat, long, t, tagType, description, name, false), true
+}
+
+func (s *SqlLinker) UpdatePin(pin *base.Pin) {
+	_, _ = s.stmtMap[updatePin].Query(pin.TagType, pin.Name, pin.Description, pin.Uid)
+}
+
+func (s *SqlLinker) DeletePin(uid int64) bool {
+	_, err := s.stmtMap[deletePin].Query(uid)
+	if err != nil {
+		return false
+	}
+	return true
+}
+
+func (s *SqlLinker) ChangeMedia(m *base.Media) {
+	_, _ = s.stmtMap[changeMedia].Query(m.Url, m.Title, m.Uid)
+}
+
+func (s *SqlLinker) DeleteMedia(uid int64) error {
+	_, err := s.stmtMap[deleteMedia].Query(uid)
+	return err
+}
+
+func (s *SqlLinker) ChangeArticle(article *base.Article) {
+	_, _ = s.stmtMap[updateArticle].Query(article.Summary, article.Id)
 }

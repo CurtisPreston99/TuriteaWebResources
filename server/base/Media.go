@@ -1,12 +1,19 @@
 package base
 
-import "sync"
+import (
+	"TuriteaWebResources/asynchronousIO"
+	"sync"
+)
 
 type Media struct {
 	Type uint8
 	Title string
 	Url string
 	Uid int64
+}
+
+func (m *Media) GetKey() asynchronousIO.Key {
+	return MediaKey(m.Uid)
 }
 
 var mediaPool *sync.Pool
@@ -50,3 +57,20 @@ func RecycleMedia(media *Media, delete bool) {
 	}
 	mediaPool.Put(media)
 }
+
+type MediaKey int64
+
+func (m MediaKey) UniqueId() (int64, bool) {
+	return int64(m), true
+}
+
+func (MediaKey) ToString() (string, bool) {
+	panic("implement me")
+}
+
+func (MediaKey) TypeId() int64 {
+	return 3
+}
+
+
+

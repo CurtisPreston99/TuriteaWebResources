@@ -19,7 +19,7 @@ func TestSaveArticleContent(t *testing.T) {
 }
 
 func TestLoadArticleContent(t *testing.T) {
-	f := LoadArticleContent(ArticleKey(1))
+	f := LoadArticleContent(ArticleContentKey(1))
 	rt, err := f()
 	if err != nil {
 		t.Fatal()

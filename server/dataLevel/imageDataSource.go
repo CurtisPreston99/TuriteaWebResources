@@ -19,10 +19,8 @@ func (i *imageDataSource) Load(key asynchronousIO.Key) (asynchronousIO.Bean, err
 	if err != nil {
 		return nil, err
 	}
-	length := s.Size()
-	goal := &ImageResource{}
-	goal.data = make([]byte, length)
-	goal.Id = int64(key.(ImageKey))
+	length := uint64(s.Size())
+	goal := GenImage(int64(key.(ImageKey)), length, false)
 	_, err = f.Read(goal.data)
 	if err != nil {
 		return nil, err

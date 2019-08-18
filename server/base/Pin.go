@@ -1,6 +1,7 @@
 package base
 
 import (
+	"TuriteaWebResources/asynchronousIO"
 	"encoding/json"
 	"io"
 	"io/ioutil"
@@ -17,7 +18,13 @@ type Pin struct {
 	Time        int64   `json:"time"`
 	Description string  `json:"description"`
 	TagType     string   `json:"tag_type"`
+	Name string `json:"name"`
 }
+
+func (p *Pin) GetKey() asynchronousIO.Key {
+	return PinKey(p.Uid)
+}
+
 var pinPool *sync.Pool
 var pinIdChan = make(chan int64, 100)
 var pinIdRecycle = make(chan int64, 100)
@@ -45,7 +52,7 @@ func pinIdProvider() {
 }
 const DefaultTime int64 = 0xffffffff
 var tagMap = make(map[uint8]string, 117)
-func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description string, newOne bool) *Pin {
+func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name string, newOne bool) *Pin {
 	if newOne {
 		id = <-pinIdChan
 	}
@@ -60,6 +67,7 @@ func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8
 	pin.TagType = tagMap[tagType]
 	pin.Owner = owner
 	pin.Description = description
+	pin.Name = name
 	return pin
 }
 
@@ -97,4 +105,18 @@ func JsonToPins(r io.Reader, num uint16) ([]*Pin, error) {
 	var err error
 	err = d.Decode(&goal)
 	return goal, err
+}
+
+type PinKey int64
+
+func (p PinKey) UniqueId() (int64, bool) {
+	return int64(p), true
+}
+
+func (PinKey) ToString() (string, bool) {
+	panic("implement me")
+}
+
+func (PinKey) TypeId() int64 {
+	return 2
 }

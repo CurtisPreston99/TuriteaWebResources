@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="Turitea">
+<dataSource name="Turitea@localhost">
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.14">
     <root id="1">
       <ServerVersion>11.2</ServerVersion>
@@ -16,6 +16,8 @@
       <IntrospectionStateNumber>519</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
+      <Relations>sequence|table|66134|66136|1
+</Relations>
     </database>
     <database id="4" parent="1" name="assignment">
       <ObjectId>32832</ObjectId>
@@ -169,8 +171,8 @@
       <Comment>standard public schema</Comment>
       <StateNumber>1043</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2019-08-07.21:59:30.230</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1084</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2019-08-14.00:14:21.445</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1148</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -230,74 +232,82 @@
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
-    <table id="38" parent="30" name="articles">
+    <sequence id="38" parent="30" name="feedback_id_seq">
+      <ObjectId>66134</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1123</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="39" parent="30" name="articles">
       <ObjectId>66066</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1076</StateNumber>
     </table>
-    <table id="39" parent="30" name="feedback">
-      <ObjectId>66027</ObjectId>
+    <table id="40" parent="30" name="feedback">
+      <ObjectId>66136</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1046</StateNumber>
+      <StateNumber>1123</StateNumber>
     </table>
-    <table id="40" parent="30" name="media">
+    <table id="41" parent="30" name="media">
       <ObjectId>66017</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1047</StateNumber>
+      <StateNumber>1085</StateNumber>
     </table>
-    <table id="41" parent="30" name="pinlinkarticle">
+    <table id="42" parent="30" name="pinlinkarticle">
       <ObjectId>66116</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1083</StateNumber>
     </table>
-    <table id="42" parent="30" name="pins">
+    <table id="43" parent="30" name="pins">
       <ObjectId>66007</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1084</StateNumber>
+      <StateNumber>1148</StateNumber>
     </table>
-    <table id="43" parent="30" name="subscription">
+    <table id="44" parent="30" name="subscription">
       <ObjectId>66050</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1064</StateNumber>
     </table>
-    <table id="44" parent="30" name="users">
+    <table id="45" parent="30" name="users">
       <ObjectId>65999</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1053</StateNumber>
     </table>
-    <column id="45" parent="38" name="id">
+    <column id="46" parent="39" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1071</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="46" parent="38" name="summary">
+    <column id="47" parent="39" name="summary">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1066</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="47" parent="38" name="writenby">
+    <column id="48" parent="39" name="writenby">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>1068</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="48" parent="38" name="articles_pkey">
+    <index id="49" parent="39" name="articles_pkey">
       <ObjectId>66096</ObjectId>
       <StateNumber>1071</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="49" parent="38" name="articles_pkey">
+    <key id="50" parent="39" name="articles_pkey">
       <ObjectId>66097</ObjectId>
       <StateNumber>1071</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>articles_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="50" parent="38" name="articles_writenby_fkey">
+    <foreign-key id="51" parent="39" name="articles_writenby_fkey">
       <ObjectId>66079</ObjectId>
       <StateNumber>1068</StateNumber>
       <ColNames>writenby</ColNames>
@@ -307,115 +317,115 @@
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>uid</RefColNames>
     </foreign-key>
-    <column id="51" parent="39" name="id">
+    <column id="52" parent="40" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1034</StateNumber>
+      <StateNumber>1123</StateNumber>
+      <DefaultExpression>nextval(&apos;feedback_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="52" parent="39" name="name">
+    <column id="53" parent="40" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
-      <StateNumber>1035</StateNumber>
+      <StateNumber>1123</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="53" parent="39" name="feedback">
+    <column id="54" parent="40" name="email">
       <Position>3</Position>
       <DataType>text|0s</DataType>
-      <StateNumber>1035</StateNumber>
+      <StateNumber>1123</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="54" parent="39" name="state">
+    <column id="55" parent="40" name="feedback">
       <Position>4</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>1123</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="56" parent="40" name="state">
+      <Position>5</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1034</StateNumber>
-      <DefaultExpression>false</DefaultExpression>
+      <StateNumber>1123</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="55" parent="39" name="email">
-      <Position>5</Position>
-      <DataType>text|0s</DataType>
-      <StateNumber>1035</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <index id="56" parent="39" name="feedback_pkey">
-      <ObjectId>66034</ObjectId>
-      <StateNumber>1034</StateNumber>
+    <index id="57" parent="40" name="feedback_pkey">
+      <ObjectId>66143</ObjectId>
+      <StateNumber>1123</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="57" parent="39" name="feedback_pkey">
-      <ObjectId>66035</ObjectId>
-      <StateNumber>1034</StateNumber>
+    <key id="58" parent="40" name="feedback_pkey">
+      <ObjectId>66144</ObjectId>
+      <StateNumber>1123</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>feedback_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="58" parent="40" name="uid">
+    <column id="59" parent="41" name="uid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1030</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="59" parent="40" name="title">
+    <column id="60" parent="41" name="title">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1030</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="40" name="url">
+    <column id="61" parent="41" name="url">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1030</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="61" parent="40" name="type">
+    <column id="62" parent="41" name="type">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1030</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="62" parent="40" name="videos_pkey">
+    <index id="63" parent="41" name="videos_pkey">
       <ObjectId>66020</ObjectId>
       <StateNumber>1030</StateNumber>
       <ColNames>uid</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="63" parent="40" name="videos_pkey">
+    <key id="64" parent="41" name="videos_pkey">
       <ObjectId>66021</ObjectId>
       <StateNumber>1030</StateNumber>
       <ColNames>uid</ColNames>
       <UnderlyingIndexName>videos_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="64" parent="41" name="pin_id">
+    <column id="65" parent="42" name="pin_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1082</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="65" parent="41" name="article_id">
+    <column id="66" parent="42" name="article_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1082</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="66" parent="41" name="pinlinkarticle_pkey">
+    <index id="67" parent="42" name="pinlinkarticle_pkey">
       <ObjectId>66119</ObjectId>
       <StateNumber>1082</StateNumber>
       <ColNames>pin_id
 article_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="67" parent="41" name="pinlinkarticle_pkey">
+    <key id="68" parent="42" name="pinlinkarticle_pkey">
       <ObjectId>66120</ObjectId>
       <StateNumber>1082</StateNumber>
       <ColNames>pin_id
@@ -423,7 +433,7 @@ article_id</ColNames>
       <UnderlyingIndexName>pinlinkarticle_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="68" parent="41" name="pinlinkarticle_pin_id_fkey">
+    <foreign-key id="69" parent="42" name="pinlinkarticle_pin_id_fkey">
       <ObjectId>66121</ObjectId>
       <StateNumber>1082</StateNumber>
       <ColNames>pin_id</ColNames>
@@ -433,7 +443,7 @@ article_id</ColNames>
       <RefKeyName>points_pkey</RefKeyName>
       <RefColNames>uid</RefColNames>
     </foreign-key>
-    <foreign-key id="69" parent="41" name="pinlinkarticle_article_id_fkey">
+    <foreign-key id="70" parent="42" name="pinlinkarticle_article_id_fkey">
       <ObjectId>66126</ObjectId>
       <StateNumber>1082</StateNumber>
       <ColNames>article_id</ColNames>
@@ -443,147 +453,153 @@ article_id</ColNames>
       <RefKeyName>articles_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="70" parent="42" name="uid">
+    <column id="71" parent="43" name="uid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1029</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="71" parent="42" name="owner">
+    <column id="72" parent="43" name="owner">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1029</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="72" parent="42" name="latitude">
+    <column id="73" parent="43" name="latitude">
       <Position>3</Position>
       <DataType>double precision|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1029</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="73" parent="42" name="longitude">
+    <column id="74" parent="43" name="longitude">
       <Position>4</Position>
       <DataType>double precision|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1029</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="74" parent="42" name="time">
+    <column id="75" parent="43" name="time">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1078</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="75" parent="42" name="tag_type">
+    <column id="76" parent="43" name="tag_type">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1079</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="76" parent="42" name="description">
+    <column id="77" parent="43" name="description">
       <Position>8</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1084</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="77" parent="42" name="points_pkey">
+    <column id="78" parent="43" name="name">
+      <Position>9</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>1148</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="79" parent="43" name="points_pkey">
       <ObjectId>66010</ObjectId>
       <StateNumber>1029</StateNumber>
       <ColNames>uid</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="78" parent="42" name="points_pkey">
+    <key id="80" parent="43" name="points_pkey">
       <ObjectId>66011</ObjectId>
       <StateNumber>1029</StateNumber>
       <ColNames>uid</ColNames>
       <UnderlyingIndexName>points_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="79" parent="43" name="name">
+    <column id="81" parent="44" name="name">
       <Position>1</Position>
       <DataType>text|0s</DataType>
       <StateNumber>1064</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="80" parent="43" name="email">
+    <column id="82" parent="44" name="email">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1064</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="81" parent="43" name="subscription_pkey">
+    <index id="83" parent="44" name="subscription_pkey">
       <ObjectId>66056</ObjectId>
       <StateNumber>1064</StateNumber>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="82" parent="43" name="subscription_pkey">
+    <key id="84" parent="44" name="subscription_pkey">
       <ObjectId>66057</ObjectId>
       <StateNumber>1064</StateNumber>
       <ColNames>email</ColNames>
       <UnderlyingIndexName>subscription_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="83" parent="44" name="uid">
+    <column id="85" parent="45" name="uid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1058</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="84" parent="44" name="name">
+    <column id="86" parent="45" name="name">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1058</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="85" parent="44" name="password_hash">
+    <column id="87" parent="45" name="password_hash">
       <Position>3</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1028</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="86" parent="44" name="role">
+    <column id="88" parent="45" name="role">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1032</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="87" parent="44" name="users_pkey">
+    <index id="89" parent="45" name="users_pkey">
       <ObjectId>66003</ObjectId>
       <StateNumber>1028</StateNumber>
       <ColNames>uid</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="88" parent="44" name="users_email_key">
+    <index id="90" parent="45" name="users_email_key">
       <ObjectId>66048</ObjectId>
       <StateNumber>1058</StateNumber>
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="89" parent="44" name="users_pkey">
+    <key id="91" parent="45" name="users_pkey">
       <ObjectId>66004</ObjectId>
       <StateNumber>1028</StateNumber>
       <ColNames>uid</ColNames>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="90" parent="44" name="users_email_key">
+    <key id="92" parent="45" name="users_email_key">
       <ObjectId>66049</ObjectId>
       <StateNumber>1058</StateNumber>
       <ColNames>name</ColNames>
       <UnderlyingIndexName>users_email_key</UnderlyingIndexName>
     </key>
-    <check id="91" parent="44" name="users_level_check">
+    <check id="93" parent="45" name="users_level_check">
       <ObjectId>66002</ObjectId>
       <StateNumber>1028</StateNumber>
       <ColNames>role</ColNames>

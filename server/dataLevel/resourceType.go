@@ -1,8 +1,11 @@
 package dataLevel
 
 const (
-	ArticleResources int64 = iota
+	ArticleContentResources int64 = iota
 	ImagesResources
+	Pin
+	Media
+	Article
 )
 
 
