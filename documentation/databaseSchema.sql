@@ -23,17 +23,20 @@ create table articles(
 
 create table pins(
 	uid bigint PRIMARY KEY,
+	owner bigint not null,
   	longitude float NOT NUll,
   	latitude float NOT NUll,
   	discription text,
-	time bigint not null
+	time bigint not null,
+	tag_type integer not null,
+	name text not null,
+	foreign key (owner) references users(id),
 );
 
 
 create table subscription(
-	id int PRIMARY KEY,
   	name text,
-  	email text
+  	email text primary key
 );
 
 
