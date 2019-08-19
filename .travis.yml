@@ -20,7 +20,7 @@ services:
 before_script:
   - psql -c "CREATE DATABASE Turitea;" -U postgres
   - psql -c "CREATE USER turiteaNormal WITH PASSWORD 'massey';" -U postgres
-  - psql -f databaseSchema.sql -U postgres -d Turitea
+  - psql -f ./documentation/databaseSchema.sql -U postgres -d Turitea
 
 
 # script always runs to completion (set +e). If we have linter issues AND a
