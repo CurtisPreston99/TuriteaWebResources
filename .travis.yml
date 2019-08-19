@@ -22,7 +22,7 @@ before_script:
   - psql -c "CREATE DATABASE Turitea;" -U postgres
   - psql -c "CREATE USER turiteaNormal WITH PASSWORD 'massey';" -U postgres
   - export PGPASSWORD=massey
-  - psql -d Turitea -U turiteaNormal -a -w -f databaseSchema.sql
+  - psql -u turiteaNormal -p massey Turitea < ./databaseSchema.sql
 
 # script always runs to completion (set +e). If we have linter issues AND a
 # failing test, we want to see both. Configure golangci-lint with a
