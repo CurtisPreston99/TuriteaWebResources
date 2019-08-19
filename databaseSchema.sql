@@ -36,7 +36,7 @@ create table pins(
 
 create table subscription(
   	name text,
-  	email text primary key
+  	email text
 );
 
 
