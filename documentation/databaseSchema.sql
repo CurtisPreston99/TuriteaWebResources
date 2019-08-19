@@ -10,7 +10,7 @@ create table media (
 	uid bigint PRIMARY KEY,
 	title text,
 	url text not null,
-	type integer,
+	type integer
 );
 
 create table articles(
@@ -30,7 +30,7 @@ create table pins(
 	time bigint not null,
 	tag_type integer not null,
 	name text not null,
-	foreign key (owner) references users(id),
+	foreign key (owner) references users(id)
 );
 
 
@@ -53,4 +53,3 @@ create table pinlinkarticle(
 	article_id bigint references articles(id),
 	primary key (pin_id, article_id)
 );
-
