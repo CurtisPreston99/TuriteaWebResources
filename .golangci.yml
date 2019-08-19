@@ -165,13 +165,6 @@ issues:
   exclude:
     - composite literal uses unkeyed fields
 
-  exclude-rules:
-    # Exclude some linters from running on test files.
-    - path: _test\.go$|^tests/|^samples/
-      linters:
-        - errcheck
-        - maligned
-
   # Independently from option `exclude` we use default exclude patterns,
   # it can be disabled by this option. To list all
   # excluded by default patterns execute `golangci-lint run --help`.
