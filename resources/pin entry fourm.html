@@ -16,7 +16,7 @@
 
   <style>
   #map { height: 500px; }
-
+  #summernote {height: 500px;}
   </style>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
@@ -47,22 +47,18 @@ color:<input type="color" id="colorSelectors"></input>
   <div id='cords'>
   <button onclick="hidemap()" id="inputSwitch"> manually enter cords</button>
 
-
+    <div id='mapDiv'>
     <div id='map'></div>
-
+    </div>
     <div id='longLat'>
-      longatude:<textarea id="long" rows="1" cols="40" ></textarea>
-      longatude:<textarea id="lat" rows="1" cols="40" ></textarea>
+      longatude:<textarea id="longText" rows="1" cols="40" ></textarea>
+      longatude:<textarea id="latText" rows="1" cols="40" ></textarea>
     </div>
     </div>
 
     </div>
 
 
-    <script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
-    });
-  </script>
+
   </body>
 </html>
