@@ -1,7 +1,7 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/asynchronousIO"
+	"github.com/ChenXingyuChina/asynchronousIO"
 	"TuriteaWebResources/server/base"
 	"os"
 	"strconv"
@@ -19,16 +19,16 @@ func (pinDataSource) Load(key asynchronousIO.Key) (asynchronousIO.Bean, error) {
 
 func (pinDataSource) Save(bean asynchronousIO.Bean) error {
 	pin := bean.(*base.Pin)
-	SQLWorker.UpdatePin(pin)
+	if !SQLWorker.UpdatePin(pin) {
+		return asynchronousIO.AsynchronousIOError{E:&os.PathError{Path:"pin:" + strconv.FormatInt(int64(pin.Uid), 16)}}
+	}
 	return nil
 }
 
 func (pinDataSource) Delete(key asynchronousIO.Key) error {
 	ok := SQLWorker.DeletePin(int64(key.(base.PinKey)))
-	if ok {
-		// todo change other path error to this format
-		return &asynchronousIO.AsynchronousIOError{E:&os.PathError{Path:"pin:" + strconv.FormatInt(int64(key.(base.PinKey)), 16)}}
+	if !ok {
+		return asynchronousIO.AsynchronousIOError{E:&os.PathError{Path:"pin:" + strconv.FormatInt(int64(key.(base.PinKey)), 16)}}
 	}
 	return nil
 }
-

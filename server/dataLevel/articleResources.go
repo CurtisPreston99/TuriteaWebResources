@@ -1,7 +1,7 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/asynchronousIO"
+	"github.com/ChenXingyuChina/asynchronousIO"
 	"strconv"
 	"sync"
 )
@@ -43,7 +43,7 @@ var contentIdChan = make(chan int64, 100)
 var contentIdRecycle = make(chan int64, 100)
 
 func contentIdProvider() {
-	var id int64
+	var id int64 = 2
 	for {
 		select {
 		case contentIdChan <- id:

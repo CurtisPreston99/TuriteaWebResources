@@ -1,18 +1,18 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/asynchronousIO"
-	"TuriteaWebResources/asynchronousIO/M2N"
+	"github.com/ChenXingyuChina/asynchronousIO"
+	"github.com/ChenXingyuChina/asynchronousIO/M2N"
 	"TuriteaWebResources/server/base"
 	"runtime"
 )
 // todo add more data sources and manage the data in database.
-var onLoadResourceId func([]Resource) // todo init it first and dont change it when running
+var OnLoadResourceId func([]Resource) // todo init it first and dont change it when running
 var fileIO asynchronousIO.AsynchronousIOMachine
 func Init() {
 	dataSource := []asynchronousIO.DataSource{
-		&imageDataSource{"./resources/temPictures/%x.img"},
-		&articleContentDataSource{root: "./articles/%x.art", onLoadId: onLoadResourceId,},
+		&imageDataSource{"../../resources/temPictures/%x.img"},
+		&articleContentDataSource{root: "../../articles/%x.art", onLoadId: OnLoadResourceId,},
 		articleDataSource{},
 		mediaDataSource{},
 		pinDataSource{},

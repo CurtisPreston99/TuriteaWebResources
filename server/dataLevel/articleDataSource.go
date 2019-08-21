@@ -1,7 +1,7 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/asynchronousIO"
+	"github.com/ChenXingyuChina/asynchronousIO"
 	"TuriteaWebResources/server/base"
 	"os"
 	"strconv"
@@ -14,7 +14,7 @@ func (articleDataSource) Load(key asynchronousIO.Key) (asynchronousIO.Bean, erro
 	if b != nil {
 		return b, nil
 	}
-	return nil, asynchronousIO.AsynchronousIOError{E:&os.PathError{Path:"article:" + strconv.FormatInt(int64(key.(base.MediaKey)), 16)}}
+	return nil, asynchronousIO.AsynchronousIOError{E:&os.PathError{Path:"article:" + strconv.FormatInt(int64(key.(base.ArticleKey)), 16)}}
 }
 
 func (articleDataSource) Save(bean asynchronousIO.Bean) error {
@@ -23,6 +23,5 @@ func (articleDataSource) Save(bean asynchronousIO.Bean) error {
 }
 
 func (articleDataSource) Delete(key asynchronousIO.Key) error {
-	return SQLWorker.DeleteMedia(int64(key.(base.ArticleKey)))
+	return SQLWorker.DeleteArticle(int64(key.(base.ArticleKey)))
 }
-

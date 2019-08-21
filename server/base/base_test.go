@@ -11,7 +11,7 @@ import (
 
 func TestCreate(t *testing.T) {
 	a := GenArticle(1, 1, "11", true)
-	if a.Id != 0 || a.WriteBy != 1 || a.Summary != "11" {
+	if a.Id != 2 || a.WriteBy != 1 || a.Summary != "11" {
 		fmt.Printf("%v\n", a)
 		t.Fatal()
 	}

@@ -1,12 +1,13 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/asynchronousIO"
 	"encoding/binary"
 	"fmt"
 	"os"
 	"reflect"
 	"unsafe"
+
+	"github.com/ChenXingyuChina/asynchronousIO"
 )
 
 type articleContentDataSource struct {
@@ -43,7 +44,6 @@ func (a *articleContentDataSource) Load(key asynchronousIO.Key) (asynchronousIO.
 	}
 	go a.onLoadId(goal.resourcesId)
 	_, err = f.Read(goal.content)
-	err = binary.Read(f, binary.LittleEndian, goal.content)
 	if err != nil {
 		RecycleContent(goal, false)
 		return nil, err

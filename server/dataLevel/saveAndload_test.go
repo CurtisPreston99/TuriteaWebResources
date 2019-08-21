@@ -1,9 +1,12 @@
 package dataLevel
 
 import (
+	"github.com/ChenXingyuChina/asynchronousIO"
+	"TuriteaWebResources/server/base"
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 	"testing"
 )
 
@@ -22,7 +25,7 @@ func TestLoadArticleContent(t *testing.T) {
 	f := LoadArticleContent(ArticleContentKey(1))
 	rt, err := f()
 	if err != nil {
-		t.Fatal()
+		t.Fatal(err)
 	}
 	if rs, ok := rt.(*ArticleResource); !ok {
 		t.Fatal()
@@ -30,8 +33,8 @@ func TestLoadArticleContent(t *testing.T) {
 		if rs.Id != r.Id {
 			t.Fatal()
 		}
-		if string(rs.content) == string(r.content) {
-			t.Fatal()
+		if strings.Compare(string(rs.content), string(r.content)) != 0{
+			t.Fatal(string(rs.content))
 		}
 		for i, v := range rs.resourcesId {
 			if r.resourcesId[i] != v {
@@ -42,6 +45,9 @@ func TestLoadArticleContent(t *testing.T) {
 }
 
 func init() {
+	OnLoadResourceId = func(resources []Resource) {
+
+	}
 	f, err := os.Open("test.jpg")
 	if err != nil {
 		panic(err)
@@ -52,6 +58,7 @@ func init() {
 	}
 	ti.data = data
 	d = data
+	Init()
 }
 var d []byte
 var ti = &ImageResource{Id:1}
@@ -64,8 +71,8 @@ func TestLoadImage(t *testing.T) {
 	}
 	if i, ok := i.(*ImageResource); ok {
 		if i.Id == 1 && string(i.data) == string(d){
-			fmt.Println(string(i.data))
-			fmt.Println(string(d))
+			//fmt.Println(string(i.data))
+			//fmt.Println(string(d))
 			return
 		}
 	}
@@ -75,6 +82,111 @@ func TestLoadImage(t *testing.T) {
 func TestSaveImage(t *testing.T) {
 	s := SaveImageAndNotify(ti)
 	err := s()
+	if err != nil {
+		t.Fatal()
+	}
+}
+
+func TestLoadArticle(t *testing.T) {
+	f := Load(base.ArticleKey(0))
+	b, err := f()
+	if err != nil {
+		fmt.Printf("%t\n", err)
+		t.Fatal(err)
+	}
+	fmt.Println(b)
+}
+
+func TestSaveArticle(t *testing.T) {
+	f := SaveArticleAndNotify(&base.Article{Id:0, WriteBy:0, Summary:"aaa"})
+	err := f()
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestSqlLinker_CreateArticle(t *testing.T) {
+	ok := SQLWorker.CreateArticle("abccc", 1, 0)
+	if !ok {
+		t.Fatal()
+	}
+}
+
+func TestDeleteArticle(t *testing.T) {
+	f := DeleteArticle(base.ArticleKey(1))
+	err := f()
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
+var b asynchronousIO.Bean
+func TestLoadPin(t *testing.T) {
+	f := LoadPin(base.PinKey(1))
+	var err error
+	b, err = f()
+	if err != nil {
+		fmt.Printf("%s", err)
+		t.Fatal()
+	}
+	fmt.Println(b)
+}
+
+func TestSavePin(t *testing.T) {
+	TestLoadPin(t)
+	pin := b.(*base.Pin)
+	pin.Description = "for test"
+	f := SavePinAndNotify(pin)
+	err := f()
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestSqlLinker_CreatePin(t *testing.T) {
+	if !SQLWorker.CreatePin(27, 0, 10, 10, 111, base.TagNameToNumber["hospital"], "test", "abc", "#00ff00") {
+		t.Fatal()
+	}
+}
+
+func TestDeletePin(t *testing.T) {
+	f := DeletePin(base.PinKey(27))
+	err := f()
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestLoadMedia(t *testing.T) {
+	f := LoadMedia(base.MediaKey(0))
+	var err error
+	b, err = f()
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Println(b)
+}
+
+func TestSaveMedia(t *testing.T) {
+	TestLoadMedia(t)
+	media := b.(*base.Media)
+	media.Title = "2333"
+	f := SaveMediaAndNotify(media)
+	err := f()
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestSqlLinker_AddMedia(t *testing.T) {
+	if !SQLWorker.AddMedia(1, "2333", "23333", 0) {
+		t.Fatal()
+	}
+}
+
+func TestDeleteMedia(t *testing.T) {
+	f := DeleteMedia(base.MediaKey(1))
+	err := f()
 	if err != nil {
 		t.Fatal()
 	}

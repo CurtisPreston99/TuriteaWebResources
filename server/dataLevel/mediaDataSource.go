@@ -1,7 +1,7 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/asynchronousIO"
+	"github.com/ChenXingyuChina/asynchronousIO"
 	"TuriteaWebResources/server/base"
 	"os"
 	"strconv"

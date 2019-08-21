@@ -1,13 +1,14 @@
 package base
 
 import (
-	"TuriteaWebResources/asynchronousIO"
 	"encoding/json"
 	"io"
 	"io/ioutil"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/ChenXingyuChina/asynchronousIO"
 )
 
 type Pin struct {
@@ -19,6 +20,7 @@ type Pin struct {
 	Description string  `json:"description"`
 	TagType     string   `json:"tag_type"`
 	Name string `json:"name"`
+	Color string `json:"color"`
 }
 
 func (p *Pin) GetKey() asynchronousIO.Key {
@@ -34,13 +36,13 @@ func init() {
 		return &Pin{}
 	}
 	go pinIdProvider()
-	if err := loadTags(tagMap); err != nil {
+	if err := loadTags(tagMap, TagNameToNumber); err != nil {
 		panic(err)
 	}
 }
 
 func pinIdProvider() {
-	var id int64 = 3
+	var id int64 = 27
 	for {
 		select {
 		case pinIdChan <- id:
@@ -51,8 +53,9 @@ func pinIdProvider() {
 	}
 }
 const DefaultTime int64 = 0xffffffff
-var tagMap = make(map[uint8]string, 117)
-func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name string, newOne bool) *Pin {
+var tagMap = [117]string{}
+var TagNameToNumber = make(map[string]uint8, 117)
+func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name string, color string, newOne bool) *Pin {
 	if newOne {
 		id = <-pinIdChan
 	}
@@ -68,6 +71,7 @@ func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8
 	pin.Owner = owner
 	pin.Description = description
 	pin.Name = name
+	pin.Color = color
 	return pin
 }
 
@@ -78,14 +82,15 @@ func RecyclePin(pin *Pin, delete bool) {
 	pinPool.Put(pin)
 }
 
-func loadTags(m map[uint8]string) error {
-
-	fs, err := ioutil.ReadDir("./cesium/Source/Assets/Textures/maki")
+func loadTags(m [117]string, rm map[string]uint8) error {
+	fs, err := ioutil.ReadDir("../../cesium/Source/Assets/Textures/maki")
 	if err != nil {
 		return err
 	}
 	for i, f := range fs {
-		m[uint8(i)] = strings.Split(f.Name(), ".")[0]
+		s := strings.Split(f.Name(), ".")[0]
+		m[uint8(i)] = s
+		rm[s] = uint8(i)
 	}
 	return nil
 }

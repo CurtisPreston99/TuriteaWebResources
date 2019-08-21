@@ -34,7 +34,7 @@ const (
 	createArticle
 	loadArticle
 	updateArticle
-	selectArticleByPin
+	selectArticleIdByPin
 	selectTopArticles
 	selectNextTopArticles
 	deleteArticle
@@ -46,7 +46,7 @@ const (
 
 	linkPinToArticle
 	unlinkPinToArticle
-	searchPinWithArticle
+	searchPinIdWithArticle
 
 	stmtLength
 )
@@ -127,7 +127,7 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[createPin], err = s.db.Prepare("insert into pins (uid, owner, latitude, longitude, time, tag_type, description, name) values ($1, $2, $3, $4, $5, $6, $7, $8);")
+	s.stmtMap[createPin], err = s.db.Prepare("insert into pins (uid, owner, latitude, longitude, time, tag_type, description, name, color) values ($1, $2, $3, $4, $5, $6, $7, $8, $9);")
 	if err != nil {
 		return err
 	}
@@ -148,7 +148,7 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 		return err
 	}
 	// todo when add buffer change this one
-	s.stmtMap[selectArticleByPin], err = s.db.Prepare("select id, summary, writenby from articles where id = (select article_id from pinlinkarticle where pin_id = $1)")
+	s.stmtMap[selectArticleIdByPin], err = s.db.Prepare("select article_id from pinlinkarticle where pin_id = $1")
 	if err != nil {
 		return err
 	}
@@ -157,12 +157,12 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 		return err
 	}
 	//fmt.Println("this one")
-	s.stmtMap[selectTopArticles], err = s.db.Prepare("select id, summary, writenby from articles order by id desc limit $1")
+	s.stmtMap[selectTopArticles], err = s.db.Prepare("select id from articles order by id desc limit $1")
 	if err != nil {
 		return err
 	}
 	// todo when add buffer change this one
-	s.stmtMap[selectNextTopArticles], err = s.db.Prepare("select e.id, e.summary, e.writenby from (select id, summary, writenby from articles order by id desc limit $1) e order by id asc limit $2")
+	s.stmtMap[selectNextTopArticles], err = s.db.Prepare("select e.id from (select id from articles order by id desc limit $1) e order by id asc limit $2")
 	if err != nil {
 		return err
 	}
@@ -191,15 +191,15 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 		return err
 	}
 	// todo when add buffer change this one
-	s.stmtMap[searchPinWithArticle], err = s.db.Prepare("select uid, owner, latitude, longitude, time, tag_type from pins where uid = (select pin_id from pinlinkarticle where article_id = $1)")
+	s.stmtMap[searchPinIdWithArticle], err = s.db.Prepare("select pin_id from pinlinkarticle where article_id = $1;")
 	if err != nil {
 		return err
 	}
-	s.stmtMap[getPinById], err = s.db.Prepare("select uid, owner, latitude, longitude, time, tag_type, name from pins where uid = $1")
+	s.stmtMap[getPinById], err = s.db.Prepare("select uid, owner, latitude, longitude, time, description, tag_type, name, color from pins where uid = $1")
 	if err != nil {
 		return err
 	}
-	s.stmtMap[updatePin], err = s.db.Prepare("update pins set tag_type = $1, name = $2, description = $3 where uid = $4;")
+	s.stmtMap[updatePin], err = s.db.Prepare("update pins set tag_type = $1, name = $2, description = $3, color = $4 where uid = $5;")
 	if err != nil {
 		return err
 	}
@@ -254,8 +254,8 @@ func (s *SqlLinker) ChangePassword(passwordHash, newPassword string, uid int64) 
 	return true
 }
 
-func (s *SqlLinker) CreatePin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name string) bool{
-	r, err :=s.stmtMap[createPin].Query(id, owner, latitude, longitude, t, tagType, description, name)
+func (s *SqlLinker) CreatePin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name, color string) bool{
+	r, err :=s.stmtMap[createPin].Query(id, owner, latitude, longitude, t, tagType, description, name, color)
 	if err != nil {
 		err = r.Close()
 		return false
@@ -280,6 +280,7 @@ func (s *SqlLinker) LoadArticle(id int64) *base.Article {
 	}
 	var summary string
 	var writeBy int64
+	r.Next()
 	err = r.Scan(&summary, &writeBy)
 	if err != nil {
 		err = r.Close()
@@ -289,65 +290,61 @@ func (s *SqlLinker) LoadArticle(id int64) *base.Article {
 	return base.GenArticle(id, writeBy, summary, false)
 }
 
-func (s *SqlLinker) SelectArticlesWithPin(pinId int64) []*base.Article {
-	r, err := s.stmtMap[selectArticleByPin].Query(pinId)
+func (s *SqlLinker) SelectArticlesIdWithPin(pinId int64) []int64 {
+	r, err := s.stmtMap[selectArticleIdByPin].Query(pinId)
 	if err != nil {
 		return nil
 	}
-	var summary string
-	var writeBy int64
 	var id int64
-	var goal = make([]*base.Article, 0, 2)
+	var goal = make([]int64, 0, 2)
 	for r.Next() {
-		err = r.Scan(&id, &writeBy, &summary)
+		err = r.Scan(&id)
 		if err != nil {
 			err = r.Close()
 			return nil
 		}
-		goal = append(goal, base.GenArticle(id, writeBy, summary, false))
+		goal = append(goal, id)
 	}
 	err = r.Close()
 	return goal
 }
 
-func (s *SqlLinker) SelectTopArticles(top uint8) []*base.Article {
+func (s *SqlLinker) SelectTopArticles(top uint8) []int64 {
 	r, err := s.stmtMap[selectTopArticles].Query(top)
 	if err != nil {
 		return nil
 	}
-	var id, writeBy int64
-	var summary string
-	var goal = make([]*base.Article, 0, top)
+	var id int64
+	var goal = make([]int64, 0, top)
 	for r.Next(){
-		err = r.Scan(&id, &summary, &writeBy)
+		err = r.Scan(&id)
 		if err != nil {
 			err = r.Close()
 			return nil
 		}
-		goal = append(goal, base.GenArticle(id, writeBy, summary, false))
+		goal = append(goal, id)
 	}
 	err = r.Close()
 	return goal
 }
 
-func (s *SqlLinker) SelectNextTopArticles(begin int64, length uint8) []*base.Article {
+func (s *SqlLinker) SelectNextTopArticles(begin int64, length uint8) []int64 {
 	if length == 0 || begin < 0 {
-		return []*base.Article{}
+		return []int64{}
 	}
 	r, err := s.stmtMap[selectNextTopArticles].Query(begin+int64(length), length)
 	if err != nil {
 		return nil
 	}
-	var id, writeBy int64
-	var summary string
-	goal := make([]*base.Article, 0, length)
+	var id int64
+	goal := make([]int64, 0, length)
 	if r.Next() {
-		err = r.Scan(&id, &summary, &writeBy)
+		err = r.Scan(&id)
 		if err != nil {
 			err = r.Close()
 			return nil
 		}
-		goal = append(goal, base.GenArticle(id, writeBy, summary,false))
+		goal = append(goal, id)
 	}
 	err = r.Close()
 	return goal
@@ -407,22 +404,19 @@ func (s *SqlLinker) UnLinkPinToArticle(pin *base.Pin, article *base.Article) boo
 	return true
 }
 
-func (s *SqlLinker) SearchPinsWithArticle(article int64) []*base.Pin {
-	r, err := s.stmtMap[searchPinWithArticle].Query(article)
+func (s *SqlLinker) SearchPinsIdWithArticle(article int64) []int64 {
+	r, err := s.stmtMap[searchPinIdWithArticle].Query(article)
 	if err != nil {
 		return nil
 	}
-	var owner, id, t int64
-	var lat, lon float64
-	var tagType uint8
-	var description string
-	goal := make([]*base.Pin, 0, 2)
+	var id int64
+	goal := make([]int64, 0, 2)
 	for r.Next() {
-		err = r.Scan(&id, &owner, &lat, &lon, &t, &tagType, &description)
+		err = r.Scan(&id)
 		if err != nil {
 			return nil
 		}
-		goal = append(goal, base.GenPin(id, owner, lat, lon, t, tagType, description, false))
+		goal = append(goal, id)
 	}
 	_ = r.Close()
 	return goal
@@ -470,31 +464,9 @@ func (s *SqlLinker) CheckFeedback(id int64) bool {
 	return true
 }
 
-// fixme it just for test
-func (s *SqlLinker) GetAllPins() []*base.Pin {
-	r, err := s.stmtMap[getAllPins].Query()
-	if err != nil {
-		_ = r.Close()
-		return nil
-	}
-	var uid, owner, t int64
-	var lat, long float64
-	var tagType uint8
-	var description string
-	goal := make([]*base.Pin,0, 20)
-	for r.Next() {
-		err = r.Scan(&uid, &owner, &lat, &long, &t, &tagType, &description)
-		if err != nil {
-			return nil
-		}
-		goal = append(goal, base.GenPin(uid, owner, lat, long, t, tagType, description, false))
-	}
-	return goal
-}
-
 func (s *SqlLinker) GetPinById(id int64) (*base.Pin, bool) {
 	var uid, owner, t int64
-	var description, name string
+	var description, name, color string
 	var lat, long float64
 	var tagType uint8
 	r, err := s.stmtMap[getPinById].Query(id)
@@ -502,16 +474,20 @@ func (s *SqlLinker) GetPinById(id int64) (*base.Pin, bool) {
 		return nil, false
 	}
 	if r.Next() {
-		err = r.Scan(&uid, &owner, &lat, &long, &t, &description, &tagType, &name)
+		err = r.Scan(&uid, &owner, &lat, &long, &t, &description, &tagType, &name, &color)
 		if err != nil {
 			return nil, false
 		}
 	}
-	return base.GenPin(uid, owner, lat, long, t, tagType, description, name, false), true
+	return base.GenPin(uid, owner, lat, long, t, tagType, description, name, color, false), true
 }
 
-func (s *SqlLinker) UpdatePin(pin *base.Pin) {
-	_, _ = s.stmtMap[updatePin].Query(pin.TagType, pin.Name, pin.Description, pin.Uid)
+func (s *SqlLinker) UpdatePin(pin *base.Pin) bool {
+	_, err := s.stmtMap[updatePin].Query(base.TagNameToNumber[pin.TagType], pin.Name, pin.Description, pin.Color, pin.Uid)
+	if err != nil {
+		return false
+	}
+	return true
 }
 
 func (s *SqlLinker) DeletePin(uid int64) bool {
@@ -533,4 +509,9 @@ func (s *SqlLinker) DeleteMedia(uid int64) error {
 
 func (s *SqlLinker) ChangeArticle(article *base.Article) {
 	_, _ = s.stmtMap[updateArticle].Query(article.Summary, article.Id)
+}
+
+func (s *SqlLinker) DeleteArticle(key int64) error {
+	_, err := s.stmtMap[deleteArticle].Query(key)
+	return err
 }

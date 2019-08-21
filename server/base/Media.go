@@ -1,7 +1,7 @@
 package base
 
 import (
-	"TuriteaWebResources/asynchronousIO"
+	"github.com/ChenXingyuChina/asynchronousIO"
 	"sync"
 )
 
@@ -28,7 +28,7 @@ func init() {
 }
 
 func mediaIdProvider() {
-	var id int64
+	var id int64 = 2
 	for {
 		select {
 		case mediaIdChan <- id:
