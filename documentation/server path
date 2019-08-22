@@ -17,7 +17,7 @@ root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
                   -- getPin?id=*                (get one pin with it id)
                   -- login                      (post a form to it for login)
                                                 (form at least has two area whose name attribute is "name" means the name of user, whose name attribute is "pw" means the password of the user, password needs to be encrypted by md5)
-                  -- addPins?num=*              (call for add pin num means how much pin you will add and use a POST method to upload data)
+                  -- addPins?num=*              (call for add pin num means how much pin you will add and use a POST method to upload data, the key of data is 'data' it is also for the other api/add** format path and api/delete)
                   -- addArticle?num=*           (call for add article num means how much article you will add and use a POST method to upload data)
                   -- addArticleFragment?num=*   (call for add article fragment num means how much article fragment you will add and use a POST method to upload data)
                   -- addImage                   (call for add image use a POST method to upload data)
