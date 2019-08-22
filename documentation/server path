@@ -34,4 +34,5 @@ root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
       -- alpha                              (for static folder map to root/static/alpha)
       -- ...
 all json file will update later in github
-all the number is 16 base
+all the integer number is 16 base
+all float number is normal way, no e or other
