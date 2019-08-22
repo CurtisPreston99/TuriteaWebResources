@@ -1,0 +1,37 @@
+for store
+root -- resources -- temPicture   (for store picture)
+                  -- temVideo     (? is it required)
+                  -- htmlTemplate (for the templates of html)
+     -- article                   (store article fragment)
+     -- static    -- commen       (public resources for static page)
+                             -- ...   (pages, css, js)
+                  -- alpha        (static page)
+                             -- ...   (pages, css, js)
+                  -- beta         (static page)
+                             -- ...   (pages, css, js)
+                  -- ...
+for routing
+root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
+                                                (call for the pins in area)
+                                                (north,south,east,west means the edge of area, timeBegin and timeEnd means which region of time is needed)
+                  -- getPin?id=*                (get one pin with it id)
+                  -- login                      (post a form to it for login)
+                                                (form at least has two area whose name attribute is "name" means the name of user, whose name attribute is "pw" means the password of the user, password needs to be encrypted by md5)
+                  -- addPins?num=*              (call for add pin num means how much pin you will add and use a POST method to upload data)
+                  -- addArticle?num=*           (call for add article num means how much article you will add and use a POST method to upload data)
+                  -- addArticleFragment?num=*   (call for add article fragment num means how much article fragment you will add and use a POST method to upload data)
+                  -- addImage                   (call for add image use a POST method to upload data)
+                  -- addVideo                   (call for add video use websocket? or only use post)
+                  -- update?type=*              (call for update data, the parameter "type" means which type of resource you need 0 is fragment of article 1 is image 2 is pin 3 is media 4 is is article, and post the data to it)
+                  -- delete?type=*&id=*         (call for delete, it will return a true or a flase for notify success or not use AJAX to call it)
+                  -- media?id=*                 (for an image or media, use it id to get resources, use AJAX, for image in local it will return the image, for video or image in cloud it will return a url of the resouces, it will be a json format and has a 'type' to show its a file or a url and a 'data' for url or image)
+                  -- fragment?id=*              (call for article fragment with id and call with AJAX)
+      -- article                                
+                  -- 1
+                  -- 2
+                  -- ...                        (call for atricle with id)
+      -- commen                             (for static folder map to root/static/commen)
+      -- alpha                              (for static folder map to root/static/alpha)
+      -- ...
+all json file will update later in github
+
