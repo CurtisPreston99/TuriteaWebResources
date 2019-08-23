@@ -34,7 +34,7 @@ func (a *articleContentDataSource) Load(key asynchronousIO.Key) (asynchronousIO.
 
 	goal := GenContent(int64(key.(ArticleContentKey)), length, length2, false)
 	var head reflect.SliceHeader
-	head = *((*reflect.SliceHeader)(unsafe.Pointer(&(goal.resourcesId))))
+	head = *((*reflect.SliceHeader)(unsafe.Pointer(&(goal.ResourcesId))))
 	head.Cap = int(16 * length)
 	head.Len = int(16 * length)
 	_, err = f.Read(*(*[]byte)(unsafe.Pointer(&(head))))
@@ -42,8 +42,8 @@ func (a *articleContentDataSource) Load(key asynchronousIO.Key) (asynchronousIO.
 		RecycleContent(goal, false)
 		return nil, err
 	}
-	go a.onLoadId(goal.resourcesId)
-	_, err = f.Read(goal.content)
+	go a.onLoadId(goal.ResourcesId)
+	_, err = f.Read(goal.Content)
 	if err != nil {
 		RecycleContent(goal, false)
 		return nil, err
@@ -58,25 +58,25 @@ func (a *articleContentDataSource) Save(bean asynchronousIO.Bean) error {
 	if err != nil {
 		return err
 	}
-	err = binary.Write(f, binary.LittleEndian, uint64(len(b.resourcesId)))
+	err = binary.Write(f, binary.LittleEndian, uint64(len(b.ResourcesId)))
 	if err != nil {
 		return err
 	}
 
-	err = binary.Write(f, binary.LittleEndian, uint64(len(b.content)))
+	err = binary.Write(f, binary.LittleEndian, uint64(len(b.Content)))
 	if err != nil {
 		return err
 	}
 
 	var t reflect.SliceHeader
-	t = *(*reflect.SliceHeader)(unsafe.Pointer(&(b.resourcesId)))
+	t = *(*reflect.SliceHeader)(unsafe.Pointer(&(b.ResourcesId)))
 	t.Len *= 16
 	t.Cap *= 16
 	err = binary.Write(f, binary.LittleEndian, *(*[]byte)(unsafe.Pointer(&t)))
 	if err != nil {
 		return err
 	}
-	err = binary.Write(f, binary.LittleEndian, b.content)
+	err = binary.Write(f, binary.LittleEndian, b.Content)
 	return err
 }
 

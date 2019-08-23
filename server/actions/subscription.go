@@ -1,0 +1,84 @@
+package actions
+
+import (
+	"fmt"
+	"net/http"
+
+	"TuriteaWebResources/server/dataLevel"
+)
+
+var speedControl = make(chan struct{}, 30)
+
+func init() {
+	for i := 0; i < 30; i++ {
+		speedControl <- struct{}{}
+	}
+}
+
+func AddSubscription(w http.ResponseWriter, r *http.Request) {
+	<-speedControl
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(400)
+		speedControl <-struct {}{}
+		return
+	}
+	name := r.Form.Get("name")
+	email := r.Form.Get("email")
+	if len(name) | len(email) == 0 {
+		w.WriteHeader(400)
+		speedControl <-struct {}{}
+		return
+	}
+	if dataLevel.SQLWorker.CreatSubscription(name, email){
+		_, _ = fmt.Fprint(w, "ok")
+	} else {
+		_, _ = fmt.Fprintf(w, "fail")
+	}
+	speedControl <-struct {}{}
+}
+
+func ChangeSubscription(w http.ResponseWriter, r *http.Request) {
+	<-speedControl
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(400)
+		speedControl <-struct {}{}
+		return
+	}
+	old := r.Form.Get("old")
+	newOne := r.Form.Get("new")
+	if len(old) | len(newOne) == 0 {
+		w.WriteHeader(400)
+		speedControl <-struct {}{}
+		return
+	}
+	if dataLevel.SQLWorker.ChangeSubscriptionEmail(old, newOne) {
+		_, _ = fmt.Fprint(w, "ok")
+	} else {
+		_, _ = fmt.Fprintf(w, "fail")
+	}
+	speedControl <-struct {}{}
+}
+
+func DeleteSubscription(w http.ResponseWriter, r *http.Request) {
+	<-speedControl
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(400)
+		speedControl <-struct {}{}
+		return
+	}
+	email := r.Form.Get("email")
+	if len(email) == 0 {
+		w.WriteHeader(400)
+		speedControl <-struct {}{}
+		return
+	}
+	if dataLevel.SQLWorker.DeleteSubscription(email) {
+		_, _ = fmt.Fprint(w, "ok")
+	} else {
+		_, _ = fmt.Fprintf(w, "fail")
+	}
+	speedControl <-struct {}{}
+}

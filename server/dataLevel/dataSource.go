@@ -6,13 +6,14 @@ import (
 	"TuriteaWebResources/server/base"
 	"runtime"
 )
-// todo add more data sources and manage the data in database.
-var OnLoadResourceId func([]Resource) // todo init it first and dont change it when running
+
+var OnLoadResourceId func([]Resource)
+var OnLoadMedia func(key ImageKey)
 var fileIO asynchronousIO.AsynchronousIOMachine
 func Init() {
 	dataSource := []asynchronousIO.DataSource{
-		&imageDataSource{"../../resources/temPictures/%x.img"},
-		&articleContentDataSource{root: "../../articles/%x.art", onLoadId: OnLoadResourceId,},
+		&imageDataSource{"./resources/temPictures/%x.img"},
+		&articleContentDataSource{root: "./articles/%x.art", onLoadId: OnLoadResourceId,},
 		articleDataSource{},
 		mediaDataSource{},
 		pinDataSource{},
@@ -144,7 +145,7 @@ func recycleData(bean asynchronousIO.Bean) {
 	case *ArticleResource:
 		RecycleContent(b, false)
 	case *ImageResource:
-		RecycleImage(b, false)
+		RecycleImage(b)
 	}
 }
 

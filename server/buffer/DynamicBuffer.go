@@ -1,12 +1,14 @@
 package buffer
 
 import (
-	"github.com/ChenXingyuChina/asynchronousIO"
-	"TuriteaWebResources/server/base"
-	"TuriteaWebResources/server/dataLevel"
 	"log"
 	"sync"
 	"time"
+
+	"github.com/ChenXingyuChina/asynchronousIO"
+
+	"TuriteaWebResources/server/base"
+	"TuriteaWebResources/server/dataLevel"
 )
 
 type cacheBlock struct {
@@ -134,6 +136,12 @@ func (c *Cache) Load(key asynchronousIO.Key) (goal asynchronousIO.Bean, ok bool)
 			return goal, true
 		}
 	} else {
+		i := c.itemPool.Get().(*item)
+		i.lastModifyTime = time.Now().Unix()
+		i.updateState = notExist
+		cache.lock.Lock()
+		cache.cache[u] = i
+		cache.lock.Unlock()
 		return nil, false
 	}
 }
@@ -175,6 +183,13 @@ func (c *Cache) loadAsynchronousHelp(key asynchronousIO.Key, cache cacheBlock, i
 			cache.cache[idInBlock] = i
 			cache.lock.Unlock()
 		}
+	} else {
+		i := c.itemPool.Get().(*item)
+		i.lastModifyTime = time.Now().Unix()
+		i.updateState = notExist
+		cache.lock.Lock()
+		cache.cache[idInBlock] = i
+		cache.lock.Unlock()
 	}
 }
 
@@ -246,12 +261,11 @@ func (c *Cache) Update(bean asynchronousIO.Bean) {
 	cache.lock.Unlock()
 }
 
-func (c *Cache) CreatePin(owner int64, latitude, longitude float64, t int64, tagType uint8, description, color, name string) int64 {
-	pin := base.GenPin(0, owner, latitude, longitude, t, tagType, description, name, color, true)
+func (c *Cache) CreatePin(pin *base.Pin) bool {
 	b := uint8(pin.Uid) + uint8(dataLevel.Pin)
 	u := (uint64(pin.Uid) >> 8 << 8) | uint64(dataLevel.Pin)
 	cache := c.caches[b]
-	ok := dataLevel.SQLWorker.CreatePin(pin.Uid, owner, latitude, longitude, t, tagType, description, name, color)
+	ok := dataLevel.SQLWorker.CreatePin(pin.Uid, pin.Owner, pin.Latitude, pin.Longitude, pin.Time, base.TagNameToNumber[pin.TagType], pin.Description, pin.Name, pin.Color)
 	if ok {
 		item := c.itemPool.Get().(*item)
 		item.updateState = normal
@@ -260,17 +274,17 @@ func (c *Cache) CreatePin(owner int64, latitude, longitude float64, t int64, tag
 		cache.lock.Lock()
 		cache.cache[u] = item
 		cache.lock.Unlock()
-		return pin.Uid
+	} else {
+		base.RecyclePin(pin, true)
 	}
-	return -1
+	return ok
 }
 
-func (c *Cache) CreateArticle(writeBy int64, summary string) int64 {
-	article := base.GenArticle(0, writeBy, summary, true)
+func (c *Cache) CreateArticle(article *base.Article) bool {
 	b := uint8(article.Id) + uint8(dataLevel.Article)
 	u := (uint64(article.Id) >> 8 << 8) | uint64(dataLevel.Article)
 	cache := c.caches[b]
-	ok := dataLevel.SQLWorker.CreateArticle(summary, article.Id, writeBy)
+	ok := dataLevel.SQLWorker.CreateArticle(article.Summary, article.Id, article.WriteBy)
 	if ok {
 		item := c.itemPool.Get().(*item)
 		item.updateState = normal
@@ -279,17 +293,17 @@ func (c *Cache) CreateArticle(writeBy int64, summary string) int64 {
 		cache.lock.Lock()
 		cache.cache[u] = item
 		cache.lock.Unlock()
-		return article.Id
+	} else {
+		base.RecycleArticle(article, true)
 	}
-	return -1
+	return ok
 }
 
-func (c *Cache) CreateMedia(title, url string, t uint8) int64 {
-	media := base.GenMedia(0, t, title, url, true)
+func (c *Cache) CreateMedia(media *base.Media) bool {
 	b := uint8(media.Uid) + uint8(dataLevel.Media)
 	u := (uint64(media.Uid) >> 8 << 8) | uint64(dataLevel.Media)
 	cache := c.caches[b]
-	ok := dataLevel.SQLWorker.AddMedia(media.Uid, title, url, t)
+	ok := dataLevel.SQLWorker.AddMedia(media.Uid, media.Title, media.Url, media.Type)
 	if ok {
 		item := c.itemPool.Get().(*item)
 		item.updateState = normal
@@ -298,9 +312,10 @@ func (c *Cache) CreateMedia(title, url string, t uint8) int64 {
 		cache.lock.Lock()
 		cache.cache[u] = item
 		cache.lock.Unlock()
-		return media.Uid
+	} else {
+		base.RecycleMedia(media, true)
 	}
-	return -1
+	return ok
 }
 
 func (c *Cache) CreateArticleContent(resources []dataLevel.Resource, content string) int64 {
@@ -318,7 +333,7 @@ func (c *Cache) CreateArticleContent(resources []dataLevel.Resource, content str
 	return ac.Id
 }
 
-func (c *Cache) CreateImage(data []byte) int64 {
+func (c *Cache) CreateImage(data []byte, id int64){
 	image := dataLevel.CreateImageByData(data)
 	b := uint8(image.Id) + uint8(dataLevel.ImagesResources)
 	u := (uint64(image.Id) >> 8 << 8) | uint64(dataLevel.ImagesResources)
@@ -330,7 +345,6 @@ func (c *Cache) CreateImage(data []byte) int64 {
 	cache.lock.Lock()
 	cache.cache[u] = item
 	cache.lock.Unlock()
-	return image.Id
 }
 
 // maybe just for test
@@ -353,4 +367,29 @@ func NewCache() *Cache {
 		return &item{}
 	}
 	return goal
+}
+
+const (
+	Exist = 1 << iota
+	Deleted
+	NotExist
+)
+func (c *Cache) LoadIfExist(key asynchronousIO.Key) (asynchronousIO.Bean, uint8) {
+	t := key.TypeId()
+	uid, _ := key.UniqueId()
+	b := uint8(uid) + uint8(t)
+	u := (uint64(uid) >> 8 << 8) | uint64(t)
+	cache := c.caches[b]
+	cache.lock.Lock()
+	if v, exist := cache.cache[u]; exist {
+		v.lastModifyTime = time.Now().Unix()
+		if v.updateState & (deleted | notExist) != 0 {
+			cache.lock.Unlock()
+			return nil, v.updateState
+		}
+		cache.lock.Unlock()
+		return v.data, v.updateState
+	}
+	cache.lock.Unlock()
+	return nil, NotExist
 }

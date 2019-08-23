@@ -55,10 +55,7 @@ func pinIdProvider() {
 const DefaultTime int64 = 0xffffffff
 var tagMap = [117]string{}
 var TagNameToNumber = make(map[string]uint8, 117)
-func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name string, color string, newOne bool) *Pin {
-	if newOne {
-		id = <-pinIdChan
-	}
+func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name string, color string) *Pin {
 	pin := pinPool.Get().(*Pin)
 	pin.Uid = id
 	pin.Latitude = latitude
@@ -83,7 +80,7 @@ func RecyclePin(pin *Pin, delete bool) {
 }
 
 func loadTags(m [117]string, rm map[string]uint8) error {
-	fs, err := ioutil.ReadDir("../../cesium/Source/Assets/Textures/maki")
+	fs, err := ioutil.ReadDir("./cesium/Source/Assets/Textures/maki")
 	if err != nil {
 		return err
 	}
@@ -110,6 +107,10 @@ func JsonToPins(r io.Reader, num uint16) ([]*Pin, error) {
 	var err error
 	err = d.Decode(&goal)
 	return goal, err
+}
+
+func GenPinId() int64 {
+	return <-pinIdChan
 }
 
 type PinKey int64

@@ -1,9 +1,10 @@
 package dataLevel
 
 import (
-	"github.com/ChenXingyuChina/asynchronousIO"
 	"strconv"
 	"sync"
+
+	"github.com/ChenXingyuChina/asynchronousIO"
 )
 
 type ArticleContentKey int64
@@ -21,9 +22,9 @@ func (k ArticleContentKey) ToString() (string, bool) {
 }
 
 type ArticleResource struct {
-	Id int64
-	content []byte
-	resourcesId []Resource
+	Id          int64
+	Content     []byte
+	ResourcesId []Resource
 }
 
 func (a *ArticleResource) GetKey() asynchronousIO.Key {
@@ -61,8 +62,16 @@ func GenContent(id int64, resourcesLength uint64, contentLength uint64, newOne b
 	goal := contentPool.Get().(*ArticleResource)
 	goal.Id = id
 	// todo maybe these slices can be recycle in some way
-	goal.resourcesId = make([]Resource, resourcesLength)
-	goal.content = make([]byte, contentLength)
+	goal.ResourcesId = make([]Resource, resourcesLength)
+	goal.Content = make([]byte, contentLength)
+	return goal
+}
+
+func GenContentWithData(id int64, resources []Resource, content string) *ArticleResource {
+	goal := contentPool.Get().(*ArticleResource)
+	goal.Content = []byte(content)
+	goal.ResourcesId = resources
+	goal.Id = id
 	return goal
 }
 
@@ -70,8 +79,8 @@ func CreateContentByData(resources []Resource, contentLength string) *ArticleRes
 	goal := contentPool.Get().(*ArticleResource)
 	goal.Id = <-contentIdChan
 	// todo maybe these slices can be recycle in some way
-	goal.resourcesId = resources
-	goal.content = []byte(contentLength)
+	goal.ResourcesId = resources
+	goal.Content = []byte(contentLength)
 	return goal
 }
 

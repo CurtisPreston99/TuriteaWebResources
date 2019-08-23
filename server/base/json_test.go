@@ -45,3 +45,25 @@ func TestPinsToJson(t *testing.T) {
 		t.Fatal()
 	}
 }
+
+func TestArticlesToJson(t *testing.T) {
+	buffer := make([]byte, 0, 200)
+	buf := bytes.NewBuffer(buffer)
+	a := Article{Id:1, WriteBy:0, Summary:"abc"}
+	b := Article{Id:2, WriteBy:1, Summary:"test"}
+	err := ArticlesToJson([]*Article{&a, &b}, buf)
+	if err != nil {
+		t.Fatal(err)
+	}
+	//buf.Reset()
+	as, err := JsonToArticles(buf, 2)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if a != *as[0] {
+		t.Fatal()
+	}
+	if b != *as[1] {
+		t.Fatal()
+	}
+}

@@ -10,7 +10,8 @@ import (
  */
 
 func TestCreate(t *testing.T) {
-	a := GenArticle(1, 1, "11", true)
+	a := GenArticle(1, 1, "11")
+	a.Id = GenArticleId()
 	if a.Id != 2 || a.WriteBy != 1 || a.Summary != "11" {
 		fmt.Printf("%v\n", a)
 		t.Fatal()
@@ -18,7 +19,7 @@ func TestCreate(t *testing.T) {
 }
 
 func TestGen(t *testing.T) {
-	a := GenArticle(4, 1, "11", false)
+	a := GenArticle(4, 1, "11")
 	if a.Id != 4 || a.WriteBy != 1 || a.Summary != "11" {
 		fmt.Printf("%v\n", a)
 		t.Fatal()

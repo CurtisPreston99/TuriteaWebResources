@@ -1,12 +1,15 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/server/base"
+	"crypto/md5"
 	"database/sql"
 	"fmt"
-	_ "github.com/lib/pq"
 	"log"
 	"time"
+
+	_ "github.com/lib/pq"
+
+	"TuriteaWebResources/server/base"
 )
 
 /*
@@ -30,6 +33,7 @@ const (
 	getPinById
 	updatePin
 	getAllPins
+	getPinsInArea
 
 	createArticle
 	loadArticle
@@ -103,7 +107,7 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[deleteRole], err = s.db.Prepare("delete from users where uid = $1")
+	s.stmtMap[deleteRole], err = s.db.Prepare("delete from users where name = $1")
 	if err != nil {
 		return err
 	}
@@ -147,7 +151,6 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	// todo when add buffer change this one
 	s.stmtMap[selectArticleIdByPin], err = s.db.Prepare("select article_id from pinlinkarticle where pin_id = $1")
 	if err != nil {
 		return err
@@ -161,7 +164,6 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	// todo when add buffer change this one
 	s.stmtMap[selectNextTopArticles], err = s.db.Prepare("select e.id from (select id from articles order by id desc limit $1) e order by id asc limit $2")
 	if err != nil {
 		return err
@@ -190,7 +192,6 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	// todo when add buffer change this one
 	s.stmtMap[searchPinIdWithArticle], err = s.db.Prepare("select pin_id from pinlinkarticle where article_id = $1;")
 	if err != nil {
 		return err
@@ -204,45 +205,51 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 		return err
 	}
 	s.stmtMap[updateArticle], err = s.db.Prepare("update articles set summary = $1 where id = $2;")
+	if err != nil {
+		return err
+	}
+	s.stmtMap[getPinsInArea], err = s.db.Prepare("select uid from pins where (latitude between $1 and $2) and (longitude between $3 and $4) and (time between $5 and $6)")
 	return err
 }
 
-func (s *SqlLinker) Login(name string, password string) (ok bool) {
+func (s *SqlLinker) Login(name string, password string) *base.User {
 	rs, err := s.stmtMap[login].Query(name, password)
 	if err != nil {
-		return false
+		return nil
 	}
+	var id int64
+	var role int
 	if rs.Next() {
-		var id int64
-		var role int
 		err = rs.Scan(&id, &role)
 		if err != nil {
 			err = rs.Close()
-			return false
+			return nil
 		}
 	} else {
 		err = rs.Close()
-		return false
+		return nil
 	}
 	if rs.Next() {
 		log.Printf("sql server was attacked at %s with name=%s and password=%s", time.Now().Format("2016-01-02 15:04:05"), name, password)
 	}
 	err = rs.Close()
-	return true
+	return &base.User{id, name, role}
 }
 
-func (s *SqlLinker) CreateRole(role int, name string) error {
+func (s *SqlLinker) CreateRole(role int, name string) string {
 	userId := base.GenUserId()
-	r, err := s.stmtMap[createRole].Query(userId, name, base.RandomPassword(), role)
+	passWord := base.RandomPassword()
+	r, err := s.stmtMap[createRole].Query(userId, name, fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))), role)
 	if err != nil {
 		base.RecycleUserId(userId)
+		return ""
 	}
 	err = r.Close()
-	return nil
+	return passWord
 }
 
-func (s *SqlLinker) DeleteUser(user int64) error {
-	_, err := s.stmtMap[deleteRole].Query(user)
+func (s *SqlLinker) DeleteUser(name string) error {
+	_, err := s.stmtMap[deleteRole].Query(name)
 	return err
 }
 
@@ -287,7 +294,7 @@ func (s *SqlLinker) LoadArticle(id int64) *base.Article {
 		return nil
 	}
 	err = r.Close()
-	return base.GenArticle(id, writeBy, summary, false)
+	return base.GenArticle(id, writeBy, summary)
 }
 
 func (s *SqlLinker) SelectArticlesIdWithPin(pinId int64) []int64 {
@@ -364,7 +371,7 @@ func (s *SqlLinker) GetMedia(id int64) (media *base.Media) {
 			err = r.Close()
 			return nil
 		} else {
-			media = base.GenMedia(id, t, title, url, false)
+			media = base.GenMedia(id, t, title, url)
 		}
 	} else {
 		err = r.Close()
@@ -386,8 +393,8 @@ func (s *SqlLinker) AddMedia(id int64, title, url string, t uint8) bool {
 	return true
 }
 
-func (s *SqlLinker) LinkPinToArticle(pin *base.Pin, article *base.Article) bool {
-	r, err := s.stmtMap[linkPinToArticle].Query(pin.Uid, article.Id)
+func (s *SqlLinker) LinkPinToArticle(pid, aid int64) bool {
+	r, err := s.stmtMap[linkPinToArticle].Query(pid, aid)
 	if err != nil {
 		return false
 	}
@@ -479,7 +486,7 @@ func (s *SqlLinker) GetPinById(id int64) (*base.Pin, bool) {
 			return nil, false
 		}
 	}
-	return base.GenPin(uid, owner, lat, long, t, tagType, description, name, color, false), true
+	return base.GenPin(uid, owner, lat, long, t, tagType, description, name, color), true
 }
 
 func (s *SqlLinker) UpdatePin(pin *base.Pin) bool {
@@ -514,4 +521,21 @@ func (s *SqlLinker) ChangeArticle(article *base.Article) {
 func (s *SqlLinker) DeleteArticle(key int64) error {
 	_, err := s.stmtMap[deleteArticle].Query(key)
 	return err
+}
+
+func (s *SqlLinker) GetPinsInArea(east, west, north, south float64, timeBegin, timeEnd int64) []int64 {
+	r, err := s.stmtMap[getPinsInArea].Query(north, south, east, west, timeBegin, timeEnd)
+	if err != nil {
+		return nil
+	}
+	var id int64
+	goal := make([]int64, 0, 10)
+	for r.Next() {
+		err = r.Scan(&id)
+		if err != nil {
+			return nil
+		}
+		goal = append(goal, id)
+	}
+	return goal
 }

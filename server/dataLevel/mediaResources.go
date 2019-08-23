@@ -7,8 +7,8 @@ import (
 )
 
 type ImageResource struct {
-	Id int64
-	data []byte
+	Id   int64
+	Data []byte
 }
 
 func (i *ImageResource) GetKey() asynchronousIO.Key {
@@ -31,48 +31,25 @@ func (i ImageKey) ToString() (string, bool) {
 
 var mediaResourcePool = new(sync.Pool)
 
-var mediaIdChan = make(chan int64, 100)
-var mediaIdRecycle = make(chan int64, 100)
-
-func mediaIdProvider() {
-	var id int64 = 2
-	for {
-		select {
-		case mediaIdChan <- id:
-			id++
-		case i := <-mediaIdRecycle:
-			mediaIdChan <- i
-		}
-	}
-}
-
 func init() {
 	mediaResourcePool.New = func() interface{} {
 		return &ImageResource{}
 	}
-	go mediaIdProvider()
 }
 
-func GenImage(id int64, dataLength uint64, newOne bool) *ImageResource {
-	if newOne {
-		id = <-mediaIdChan
-	}
+func GenImage(id int64, dataLength uint64) *ImageResource {
 	goal := mediaResourcePool.Get().(*ImageResource)
 	goal.Id = id
-	goal.data = make([]byte, dataLength)
+	goal.Data = make([]byte, dataLength)
 	return goal
 }
 
 func CreateImageByData(data []byte) *ImageResource {
 	goal := mediaResourcePool.Get().(*ImageResource)
-	goal.Id = <- mediaIdChan
-	goal.data = data
+	goal.Data = data
 	return goal
 }
 
-func RecycleImage(i *ImageResource, delete bool) {
-	if delete {
-		mediaIdRecycle <- i.Id
-	}
+func RecycleImage(i *ImageResource) {
 	mediaResourcePool.Put(i)
 }

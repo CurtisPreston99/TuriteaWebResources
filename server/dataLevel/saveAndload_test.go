@@ -11,7 +11,7 @@ import (
 )
 
 
-var r = &ArticleResource{Id:1, content: []byte("abc"), resourcesId: []Resource{{1,1}, {1,3}}}
+var r = &ArticleResource{Id:1, Content: []byte("abc"), ResourcesId: []Resource{{1,1}, {1,3}}}
 
 func TestSaveArticleContent(t *testing.T) {
 	s := SaveArticleContentAndNotify(r)
@@ -33,11 +33,11 @@ func TestLoadArticleContent(t *testing.T) {
 		if rs.Id != r.Id {
 			t.Fatal()
 		}
-		if strings.Compare(string(rs.content), string(r.content)) != 0{
-			t.Fatal(string(rs.content))
+		if strings.Compare(string(rs.Content), string(r.Content)) != 0{
+			t.Fatal(string(rs.Content))
 		}
-		for i, v := range rs.resourcesId {
-			if r.resourcesId[i] != v {
+		for i, v := range rs.ResourcesId {
+			if r.ResourcesId[i] != v {
 				t.Fatal()
 			}
 		}
@@ -56,7 +56,7 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
-	ti.data = data
+	ti.Data = data
 	d = data
 	Init()
 }
@@ -70,8 +70,8 @@ func TestLoadImage(t *testing.T) {
 		t.Fatal(err)
 	}
 	if i, ok := i.(*ImageResource); ok {
-		if i.Id == 1 && string(i.data) == string(d){
-			//fmt.Println(string(i.data))
+		if i.Id == 1 && string(i.Data) == string(d){
+			//fmt.Println(string(i.Data))
 			//fmt.Println(string(d))
 			return
 		}

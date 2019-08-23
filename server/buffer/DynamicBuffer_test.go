@@ -15,7 +15,6 @@ func init() {
 	}
 	dataLevel.Init()
 }
-//todo test create update and delete and load
 
 func TestCache_LoadNoExist(t *testing.T) {
 	b, ok := MainCache.Load(dataLevel.ArticleContentKey(1))
@@ -56,8 +55,9 @@ func TestCache_DeleteNotExist(t *testing.T) {
 }
 
 func TestCache_DeleteExist(t *testing.T) {
-	k := MainCache.CreateArticle(0, "233")
-	if -1 == k {
+	article := &base.Article{base.GenArticleId(), 0, "233"}
+	k := MainCache.CreateArticle(article)
+	if !k {
 		t.Fatal()
 	}
 	// uncomment it to check by hand
@@ -68,31 +68,34 @@ func TestCache_DeleteExist(t *testing.T) {
 }
 
 func TestCache_CreateArticle(t *testing.T) {
-	if -1 == MainCache.CreateArticle(0, "233") {
+	article := &base.Article{base.GenArticleId(), 0, "233"}
+	fmt.Println(article)
+	if !MainCache.CreateArticle(article) {
 		t.Fatal()
 	}
 }
 
 func TestCache_CreateImage(t *testing.T) {
-	k := MainCache.CreateImage([]byte{123:1})
+	k := base.GenMediaId()
+	MainCache.CreateImage([]byte{123:1}, k)
 	MainCache.flushBlock(uint8(k) + uint8(dataLevel.ImagesResources))
 	<-time.Tick(2 * time.Second)
 }
 
 func TestCache_CreateArticleContent(t *testing.T) {
 	k := MainCache.CreateArticleContent([]dataLevel.Resource{{1, 3}, {1, 5}}, "test")
-	MainCache.flushBlock(uint8(k) + dataLevel.ArticleContent)
+	MainCache.flushBlock(uint8(k) + uint8(dataLevel.ArticleContentResources))
 	<-time.Tick(2*time.Second)
 }
 
 func TestCache_CreateMedia(t *testing.T) {
-	if -1 == MainCache.CreateMedia("test", "https", 1) {
+	if !MainCache.CreateMedia(base.GenMedia(base.GenMediaId(), 1, "test", "htp")) {
 		t.Fatal()
 	}
 }
 
 func TestCache_CreatePin(t *testing.T) {
-	if -1 == MainCache.CreatePin(0, 1, 1, 1, 1, "jkss", "#000011", "testInBuffer") {
+	if !MainCache.CreatePin(&base.Pin{base.GenPinId(), 0, 1, 1, 1, "jkss", "hospital", "testInBuffer", "#000011"}) {
 		t.Fatal()
 	}
 }
@@ -122,12 +125,13 @@ func TestCache_LoadAsynchronousExist(t *testing.T) {
 }
 var lastKey int64
 func TestLoadAfterCreate(t *testing.T) {
-	k := MainCache.CreateMedia("test", "https", 1)
-	lastKey = k
-	if -1 == k {
+	media := base.GenMedia(base.GenMediaId(), 1, "test", "htp")
+	k := MainCache.CreateMedia(media)
+	lastKey = media.Uid
+	if !k {
 		t.Fatal()
 	}
-	b, ok := MainCache.Load(base.MediaKey(k))
+	b, ok := MainCache.Load(base.MediaKey(lastKey))
 	if !ok {
 		t.Fatal()
 	}
