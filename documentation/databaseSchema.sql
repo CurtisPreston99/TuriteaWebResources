@@ -1,9 +1,10 @@
 
 create table users(
 	id bigint PRIMARY KEY,
-  	user_name text not null,
+  	name text not null,
   	password text not null,
-  	role integer not null
+  	role integer not null，
+	unique(name)
 );
 
 create table media (
