@@ -19,7 +19,7 @@ root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
                                                 (form at least has two area whose name attribute is "name" means the name of user, whose name attribute is "pw" means the password of the user, password needs to be encrypted by md5)
                   -- addPins?num=*              (call for add pin num means how much pin you will add and use a POST method to upload data, the key of data is 'data' it is also for the other api/add** format path and api/update)
                   -- addArticle?num=*           (call for add article num means how much article you will add and use a POST method to upload data)
-                  -- addArticleFragment?num=*   (call for add article fragment num means how much article fragment you will add and use a POST method to upload data)
+                  -- addArticleFragment         (call for add article fragment use a POST method to upload data)
                   -- addImage                   (call for add image use a POST method to upload data)
                   -- addVideo                   (call for add video use websocket? or only use post)
                   -- update?type=*              (call for update data, the parameter "type" means which type of resource you need 0 is fragment of article 1 is image 2 is pin 3 is media 4 is is article, and post the data to it)
