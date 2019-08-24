@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"log"
 	"net/http"
 	"strconv"
 
@@ -10,6 +11,7 @@ import (
 )
 
 func GetFragment (w http.ResponseWriter, r *http.Request) {
+	log.Println("call get fragment")
 	vs := r.URL.Query()
 	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
 	if err != nil {

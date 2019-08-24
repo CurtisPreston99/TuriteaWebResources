@@ -1,12 +1,14 @@
 package actions
 
 import (
+	"log"
 	"net/http"
 
 	"TuriteaWebResources/server/dataLevel"
 )
 
 func AddFeedback(w http.ResponseWriter, r *http.Request) {
+	log.Println("call add feedback")
 	<-speedControl
 	err := r.ParseForm()
 	if err != nil {
@@ -22,6 +24,9 @@ func AddFeedback(w http.ResponseWriter, r *http.Request) {
 		speedControl <-struct {}{}
 		return
 	}
-	dataLevel.SQLWorker.CreateFeedback(name, email, feedback)
+	if !dataLevel.SQLWorker.CreateFeedback(name, email, feedback) {
+		w.WriteHeader(500)
+	}
+	_, _ = w.Write([]byte("ok"))
 	speedControl <-struct {}{}
 }

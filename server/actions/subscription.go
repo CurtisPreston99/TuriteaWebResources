@@ -2,6 +2,7 @@ package actions
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"TuriteaWebResources/server/dataLevel"
@@ -16,6 +17,7 @@ func init() {
 }
 
 func AddSubscription(w http.ResponseWriter, r *http.Request) {
+	log.Println("call add subscription")
 	<-speedControl
 	err := r.ParseForm()
 	if err != nil {
@@ -39,6 +41,7 @@ func AddSubscription(w http.ResponseWriter, r *http.Request) {
 }
 
 func ChangeSubscription(w http.ResponseWriter, r *http.Request) {
+	log.Println("call change subscription")
 	<-speedControl
 	err := r.ParseForm()
 	if err != nil {
@@ -62,6 +65,7 @@ func ChangeSubscription(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteSubscription(w http.ResponseWriter, r *http.Request) {
+	log.Println("call delete subscription")
 	<-speedControl
 	err := r.ParseForm()
 	if err != nil {

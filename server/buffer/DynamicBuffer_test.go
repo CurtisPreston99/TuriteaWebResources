@@ -17,7 +17,7 @@ func init() {
 }
 
 func TestCache_LoadNoExist(t *testing.T) {
-	b, ok := MainCache.Load(dataLevel.ArticleContentKey(1))
+	b, ok := MainCache.Load(base.ArticleKey(3))
 	if !ok {
 		t.Fatal(b)
 	}
@@ -55,7 +55,7 @@ func TestCache_DeleteNotExist(t *testing.T) {
 }
 
 func TestCache_DeleteExist(t *testing.T) {
-	article := &base.Article{base.GenArticleId(), 0, "233"}
+	article := &base.Article{base.GenArticleId(), 0, "233", 1}
 	k := MainCache.CreateArticle(article)
 	if !k {
 		t.Fatal()
@@ -68,7 +68,7 @@ func TestCache_DeleteExist(t *testing.T) {
 }
 
 func TestCache_CreateArticle(t *testing.T) {
-	article := &base.Article{base.GenArticleId(), 0, "233"}
+	article := &base.Article{base.GenArticleId(), 0, "233", 1}
 	fmt.Println(article)
 	if !MainCache.CreateArticle(article) {
 		t.Fatal()

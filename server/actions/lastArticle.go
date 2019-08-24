@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"log"
 	"net/http"
 	"strconv"
 
@@ -10,6 +11,7 @@ import (
 )
 
 func LastArticle(w http.ResponseWriter, r *http.Request) {
+	log.Println("call last article")
 	vs := r.URL.Query()
 	begin := vs.Get("begin")
 	num := vs.Get("num")
@@ -29,6 +31,7 @@ func LastArticle(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(500)
 		}
 	} else if (len(begin) != 0 && len(num) == 0) || (len(begin) == 0 && len(num) != 0) {
+		//fmt.Println("error arg")
 		w.WriteHeader(400)
 		return
 	}
@@ -39,6 +42,7 @@ func LastArticle(w http.ResponseWriter, r *http.Request) {
 	}
 	n, err := strconv.ParseInt(num, 16, 64)
 	if err != nil {
+		w.WriteHeader(400)
 		return
 	}
 	arts := dataLevel.SQLWorker.SelectNextTopArticles(b, uint8(n))

@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"log"
 	"net/http"
 	"strconv"
 
@@ -10,6 +11,7 @@ import (
 )
 
 func Delete(w http.ResponseWriter, r *http.Request) {
+	log.Println("call delete")
 	p, uid := se.checkPermission(r)
 	if p == public {
 		w.WriteHeader(401)
@@ -33,26 +35,31 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	case dataLevel.ImagesResources:
 		if !buffer.MainCache.Delete(dataLevel.ImageKey(id)) {
 			w.WriteHeader(500)
+			return
 		}
 	case dataLevel.ArticleContentResources:
 		if !buffer.MainCache.Delete(dataLevel.ArticleContentKey(id)) {
 			w.WriteHeader(500)
+			return
 		}
 	case dataLevel.Media:
 		if !buffer.MainCache.Delete(base.MediaKey(id)) {
 			w.WriteHeader(500)
+			return
 		}
 	case dataLevel.Article:
 		if !buffer.MainCache.Delete(base.ArticleKey(id)) {
 			w.WriteHeader(500)
+			return
 		}
 	case dataLevel.Pin:
 		if !buffer.MainCache.Delete(base.PinKey(id)) {
 			w.WriteHeader(500)
+			return
 		}
 	default:
 		w.WriteHeader(400)
 		return
 	}
-	_, _ = w.Write([]byte("-1"))
+	_, _ = w.Write([]byte("ok"))
 }

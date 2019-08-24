@@ -123,7 +123,7 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[createFeedback], err = s.db.Prepare("insert into feedback (name, feedback, email) VALUES ($1, $2, $3)")
+	s.stmtMap[createFeedback], err = s.db.Prepare("insert into feedback (name, feedback, email, state) VALUES ($1, $2, $3, false)")
 	if err != nil {
 		return err
 	}
@@ -143,11 +143,11 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[createArticle], err = s.db.Prepare("insert into articles (id, summary, writenby) values ($1, $2, $3)")
+	s.stmtMap[createArticle], err = s.db.Prepare("insert into articles (id, summary, writenby, home_content) values ($1, $2, $3, $4)")
 	if err != nil {
 		return err
 	}
-	s.stmtMap[loadArticle], err = s.db.Prepare("select summary, writenby from articles where id = $1")
+	s.stmtMap[loadArticle], err = s.db.Prepare("select summary, writenby, home_content from articles where id = $1")
 	if err != nil {
 		return err
 	}
@@ -239,6 +239,7 @@ func (s *SqlLinker) Login(name string, password string) *base.User {
 func (s *SqlLinker) CreateRole(role int, name string) string {
 	userId := base.GenUserId()
 	passWord := base.RandomPassword()
+	fmt.Println(fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))))
 	r, err := s.stmtMap[createRole].Query(userId, name, fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))), role)
 	if err != nil {
 		base.RecycleUserId(userId)
@@ -271,8 +272,8 @@ func (s *SqlLinker) CreatePin(id, owner int64, latitude, longitude float64, t in
 	return true
 }
 
-func (s *SqlLinker) CreateArticle(summary string, id, writeBy int64) bool {
-	r, err := s.stmtMap[createArticle].Query(id, summary, writeBy)
+func (s *SqlLinker) CreateArticle(summary string, id, writeBy, homeContent int64) bool {
+	r, err := s.stmtMap[createArticle].Query(id, summary, writeBy, homeContent)
 	if err != nil {
 		return false
 	}
@@ -286,15 +287,15 @@ func (s *SqlLinker) LoadArticle(id int64) *base.Article {
 		return nil
 	}
 	var summary string
-	var writeBy int64
+	var writeBy, home int64
 	r.Next()
-	err = r.Scan(&summary, &writeBy)
+	err = r.Scan(&summary, &writeBy, &home)
 	if err != nil {
 		err = r.Close()
 		return nil
 	}
 	err = r.Close()
-	return base.GenArticle(id, writeBy, summary)
+	return base.GenArticle(id, writeBy, home, summary)
 }
 
 func (s *SqlLinker) SelectArticlesIdWithPin(pinId int64) []int64 {
@@ -524,7 +525,7 @@ func (s *SqlLinker) DeleteArticle(key int64) error {
 }
 
 func (s *SqlLinker) GetPinsInArea(east, west, north, south float64, timeBegin, timeEnd int64) []int64 {
-	r, err := s.stmtMap[getPinsInArea].Query(north, south, east, west, timeBegin, timeEnd)
+	r, err := s.stmtMap[getPinsInArea].Query(south, north, west, east, timeBegin, timeEnd)
 	if err != nil {
 		return nil
 	}

@@ -1,11 +1,10 @@
 package actions
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 	"strings"
-	"time"
 
 	"TuriteaWebResources/server/base"
 	"TuriteaWebResources/server/buffer"
@@ -13,6 +12,7 @@ import (
 )
 
 func Update(w http.ResponseWriter, r *http.Request) {
+	log.Println("call update")
 	p, id := se.checkPermission(r)
 	if p == public {
 		w.WriteHeader(401)
@@ -49,40 +49,11 @@ func Update(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		content := r.Form.Get("content")
+		if len(content) == 0 {
+			w.WriteHeader(400)
+			return
+		}
 		buffer.MainCache.Update(dataLevel.GenContentWithData(cid, resource, content))
-	case dataLevel.ImagesResources:
-		f, head, err := r.FormFile("data")
-		err = r.ParseForm()
-		if err != nil {
-			return
-		}
-		title := r.Form.Get("title")
-		if err != nil {
-			w.WriteHeader(400)
-			return
-		}
-		if err != nil {
-			w.WriteHeader(400)
-			return
-		}
-		b := make([]byte, head.Size)
-		_, err = f.Read(b)
-		if err != nil {
-			w.WriteHeader(400)
-			return
-		}
-		id := base.GenMediaId()
-		if !buffer.MainCache.CreateMedia(base.GenMedia(id, imageLocal, title, "file")) {
-			w.WriteHeader(500)
-			return
-		}
-		buffer.MainCache.CreateImage(b, id)
-		_ = f.Close()
-		err = r.MultipartForm.RemoveAll()
-		if err != nil {
-			fmt.Println(time.Now().Format(time.Stamp), err)
-		}
-		_, _ = w.Write([]byte("1"))
 	case dataLevel.Pin:
 		num, err := strconv.ParseInt(r.Form.Get("num"), 16, 64)
 		if err != nil {
@@ -109,4 +80,5 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	default:
 		w.WriteHeader(400)
 	}
+	_, _ = w.Write([]byte("ok"))
 }

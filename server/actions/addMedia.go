@@ -2,6 +2,7 @@ package actions
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -17,20 +18,22 @@ const (
 )
 
 func AddImage(w http.ResponseWriter, r *http.Request) {
+	log.Println("call add image")
 	p, uid := se.checkPermission(r)
 	switch p {
 	case normal:
+		fallthrough
 	case super:
 		f, head, err := r.FormFile("data")
+		if err != nil {
+			w.WriteHeader(400)
+			return
+		}
 		err = r.ParseForm()
 		if err != nil {
 			return
 		}
 		title := r.Form.Get("title")
-		if err != nil {
-			w.WriteHeader(400)
-			return
-		}
 		if err != nil {
 			w.WriteHeader(400)
 			return

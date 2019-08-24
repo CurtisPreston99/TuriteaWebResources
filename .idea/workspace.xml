@@ -2,50 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/actions/addArticle.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/addAtricleFragment.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/addMedia.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/addPins.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/base_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/deletet.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/feedback.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/getFragment.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/getMedia.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/lastArticle.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/login.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/pinsLinkArticle.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/resourcePreload.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/subscription.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/update.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/actions/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/actions/getArticlePage.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test/addAF.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test/addArticle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test/addImg.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test/addPin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test/addUser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test/deleteUser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test/feedback.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test/loginTest.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dcc4c757-5663-4fc9-a276-c62150bfbe08.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dcc4c757-5663-4fc9-a276-c62150bfbe08.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dcc4c757-5663-4fc9-a276-c62150bfbe08/storage_v2/_src_/database/Turitea.eGSqKQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dcc4c757-5663-4fc9-a276-c62150bfbe08/storage_v2/_src_/database/Turitea.eGSqKQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/DataSources/FileSystem.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/DataSources/Internet.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/M2N/M2N.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/M2N/Normal.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/M2N/cmdTable.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/M2N/forOneDataSource.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/M2N/normal_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/M2N/result.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/M2N/withCheckReIn.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/define.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asynchronousIO/readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/getAllPins.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/getPins.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/addArticle.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/addArticle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/addAtricleFragment.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/addAtricleFragment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/addMedia.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/addMedia.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/addPins.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/addPins.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/deletet.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/deletet.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/feedback.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/feedback.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/getFragment.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/getFragment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/getMedia.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/getMedia.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/getPins.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/getPins.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/lastArticle.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/lastArticle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/pinsLinkArticle.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/pinsLinkArticle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/subscription.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/subscription.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/actions/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/base/Article.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/base/Article.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/base/Media.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/base/Media.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/base/Pin.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/base/Pin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/base/base_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/base/base_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/base/pin_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/base/json_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/base/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/base/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/buffer/DynamicBuffer.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/buffer/DynamicBuffer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/buffer/DynamicBuffer_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/buffer/DynamicBuffer_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dataLevel/articleDataResource.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/articleDataResource.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dataLevel/articleResources.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/articleResources.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dataLevel/dataSource.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/dataSource.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dataLevel/imageDataSource.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/imageDataSource.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dataLevel/mediaDataSource.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/mediaDataSource.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dataLevel/mediaResources.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/mediaResources.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dataLevel/resources.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/resources.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/dataLevel/saveAndload_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/saveAndload_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/dataLevel/sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/sql.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.go" afterDir="false" />
@@ -128,6 +117,16 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="articles: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Turitea" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Turitea: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="pins: table" type="69fad909:PgImplModel$LocalTable" />
       </path>
     </expand>
@@ -136,136 +135,93 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/dataLevel/saveAndload_test.go">
+        <entry file="file://$PROJECT_DIR$/server/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="180" column="43" lean-forward="true" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
-              <folding>
-                <element signature="n#!!block;n#TestLoadImage#0" />
-                <element signature="n#!!block;n#TestSaveImage#0" />
-                <element signature="n#!!block;n#TestLoadArticle#0" />
-                <element signature="n#!!block;n#TestSaveArticle#0" />
-                <element signature="n#!!block;n#TestSqlLinker_CreateArticle#0" />
-                <element signature="n#!!block;n#TestDeleteArticle#0" />
-                <element signature="n#!!block;n#TestLoadPin#0" />
-                <element signature="n#!!block;n#TestSavePin#0" />
-                <element signature="n#!!block;n#TestDeletePin#0" />
-                <element signature="n#!!block;n#TestDeleteMedia#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/dataLevel/dataSource.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-              <folding>
-                <element signature="e#19#169#0" expanded="true" />
-                <element signature="n#!!block;n#SaveArticleContent#0" />
-                <element signature="n#!!block;n#DeleteArticleContent#0" />
-                <element signature="n#!!block;n#LoadImage#0" />
-                <element signature="n#!!block;n#SaveImage#0" />
-                <element signature="n#!!block;n#SaveImageAndNotify#0" />
-                <element signature="n#!!block;n#DeleteImage#0" />
-                <element signature="n#!!block;n#SavePin#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="266" selection-start-line="266" selection-end-line="266" />
-              <folding>
-                <element signature="n#!!block;n#init#0" />
-                <element signature="n#!!block;n#ChangePassword#0" />
-                <element signature="n#!!block;n#CreateArticle#0" />
-                <element signature="n#!!block;n#SelectArticlesIdWithPin#0" />
-                <element signature="n#!!block;n#SelectTopArticles#0" />
-                <element signature="n#!!block;n#SelectNextTopArticles#0" />
-                <element signature="n#!!block;n#AddMedia#0" />
-                <element signature="n#!!block;n#UnLinkPinToArticle#0" />
-                <element signature="n#!!block;n#CreatSubscription#0" />
-                <element signature="n#!!block;n#DeleteSubscription#0" />
-                <element signature="n#!!block;n#ChangeSubscriptionEmail#0" />
-                <element signature="n#!!block;n#CreateFeedback#0" />
-                <element signature="n#!!block;n#CheckFeedback#0" />
-                <element signature="n#!!block;n#UpdatePin#0" />
-                <element signature="n#!!block;n#DeletePin#0" />
-                <element signature="n#!!block;n#ChangeMedia#0" />
-                <element signature="n#!!block;n#DeleteMedia#0" />
-                <element signature="n#!!block;n#ChangeArticle#0" />
-                <element signature="n#!!block;n#DeleteArticle#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="2950" selection-start-line="2950" selection-end-line="2950" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/actions/login.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="84" column="58" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
-              <folding>
-                <element signature="n#!!block;n#checkPermission#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go1.11/go/src/net/http/server.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="2019" column="5" selection-start-line="2019" selection-start-column="5" selection-end-line="2019" selection-end-column="5" />
+            <state relative-caret-position="210">
+              <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/main.go">
+        <entry file="file://$PROJECT_DIR$/server/actions/update.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+            <state relative-caret-position="107">
+              <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/buffer/DynamicBuffer_test.go">
+        <entry file="file://$PROJECT_DIR$/server/base/Article.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+            <state relative-caret-position="183">
+              <caret line="96" column="39" lean-forward="true" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
               <folding>
-                <element signature="n#!!block;n#TestCache_LoadNoExist#0" />
-                <element signature="n#!!block;n#TestCache_LoadExist#0" />
-                <element signature="n#!!block;n#TestCache_UpdateNotExist#0" />
-                <element signature="n#!!block;n#TestCache_UpdateExist#0" />
-                <element signature="n#!!block;n#TestCache_DeleteNotExist#0" />
-                <element signature="n#!!block;n#TestLoadAfterDelete#0" />
+                <element signature="e#14#100#0" expanded="true" />
+                <element signature="n#!!block;n#GetKey#0" />
+                <element signature="n#!!block;n#init#0" />
+                <element signature="n#!!block;n#RecycleArticle#0" />
+                <element signature="n#!!block;n#UniqueId#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/actions/addArticle.go">
+        <entry file="file://$PROJECT_DIR$/static/test/update.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-405">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            <state relative-caret-position="467">
+              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/test/addPin.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/test/addArticle.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/test/addImg.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/test/addAF.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/buffer/DynamicBuffer.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="253" selection-start-line="253" selection-end-line="253" />
+              <folding>
+                <element signature="n#!!block;n#flushBlock#0" />
+                <element signature="n#!!block;n#NewCache#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -273,8 +229,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/base/Pin.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+            <state relative-caret-position="183">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="e#14#133#0" expanded="true" />
               </folding>
@@ -287,9 +243,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Go File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -319,57 +275,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/asynchronousIO/M2N/forOneDataSource.go" />
-        <option value="$PROJECT_DIR$/asynchronousIO/M2N/M2N.go" />
-        <option value="$PROJECT_DIR$/asynchronousIO/M2N/Normal.go" />
-        <option value="$PROJECT_DIR$/asynchronousIO/M2N/normal_test.go" />
-        <option value="$PROJECT_DIR$/asynchronousIO/M2N/result.go" />
-        <option value="$PROJECT_DIR$/asynchronousIO/M2N/withCheckReIn.go" />
-        <option value="$PROJECT_DIR$/go.mod" />
-        <option value="$PROJECT_DIR$/vendor/modules.txt" />
-        <option value="$PROJECT_DIR$/server/dataLevel/articleDataSource.go" />
-        <option value="$PROJECT_DIR$/server/dataLevel/PinDataSource.go" />
-        <option value="$PROJECT_DIR$/server/base/pin_test.go" />
-        <option value="$PROJECT_DIR$/server/tools/loadFromKML.go" />
-        <option value="$PROJECT_DIR$/server/actions/resourcePreload.go" />
-        <option value="$PROJECT_DIR$/server/actions/config.go" />
         <option value="$PROJECT_DIR$/server/actions/getAllPins.go" />
         <option value="$PROJECT_DIR$/server/actions/tes.go" />
         <option value="$PROJECT_DIR$/server/dataLevel/mediaDataSource.go" />
         <option value="$PROJECT_DIR$/server/actions/allPins.go" />
-        <option value="$PROJECT_DIR$/server/base/base_test.go" />
         <option value="$PROJECT_DIR$/server/actions/base_test.go" />
         <option value="$PROJECT_DIR$/server/dataLevel/imageDataSource.go" />
         <option value="$PROJECT_DIR$/server/base/json_test.go" />
         <option value="$PROJECT_DIR$/server/dataLevel/resources.go" />
-        <option value="$PROJECT_DIR$/server/actions/addAtricleFragment.go" />
-        <option value="$PROJECT_DIR$/server/actions/addPins.go" />
-        <option value="$PROJECT_DIR$/server/actions/getPins.go" />
         <option value="$PROJECT_DIR$/server/dataLevel/articleDataResource.go" />
         <option value="$PROJECT_DIR$/server/base/Media.go" />
-        <option value="$PROJECT_DIR$/server/base/Article.go" />
-        <option value="$PROJECT_DIR$/server/actions/update.go" />
-        <option value="$PROJECT_DIR$/server/actions/deletet.go" />
         <option value="$PROJECT_DIR$/server/dataLevel/mediaResources.go" />
-        <option value="$PROJECT_DIR$/server/actions/getMedia.go" />
-        <option value="$PROJECT_DIR$/server/dataLevel/articleResources.go" />
-        <option value="$PROJECT_DIR$/server/buffer/DynamicBuffer.go" />
-        <option value="$PROJECT_DIR$/server/actions/addMedia.go" />
         <option value="$PROJECT_DIR$/server/base/a_test.json" />
+        <option value="$PROJECT_DIR$/server/base/Article.go" />
+        <option value="$PROJECT_DIR$/server/base/base_test.go" />
+        <option value="$PROJECT_DIR$/server/buffer/DynamicBuffer.go" />
+        <option value="$PROJECT_DIR$/server/actions/getArticleItSelf.go" />
+        <option value="$PROJECT_DIR$/server/actions/getArticlePage.go" />
+        <option value="$PROJECT_DIR$/server/actions/getPins.go" />
+        <option value="$PROJECT_DIR$/server/actions/getMedia.go" />
         <option value="$PROJECT_DIR$/server/actions/getFragment.go" />
         <option value="$PROJECT_DIR$/server/actions/subscription.go" />
-        <option value="$PROJECT_DIR$/server/actions/feedback.go" />
-        <option value="$PROJECT_DIR$/server/actions/user.go" />
-        <option value="$PROJECT_DIR$/server/actions/lastArticle.go" />
-        <option value="$PROJECT_DIR$/server/dataLevel/sql.go" />
-        <option value="$PROJECT_DIR$/server/actions/pinsLinkArticle.go" />
-        <option value="$PROJECT_DIR$/server/actions/addArticle.go" />
         <option value="$PROJECT_DIR$/server/buffer/DynamicBuffer_test.go" />
         <option value="$PROJECT_DIR$/server/dataLevel/saveAndload_test.go" />
         <option value="$PROJECT_DIR$/server/dataLevel/dataSource.go" />
         <option value="$PROJECT_DIR$/server/base/Pin.go" />
+        <option value="$PROJECT_DIR$/server/actions/lastArticle.go" />
+        <option value="$PROJECT_DIR$/static/home/loginTest.html" />
         <option value="$PROJECT_DIR$/server/actions/login.go" />
+        <option value="$PROJECT_DIR$/server/actions/pinsLinkArticle.go" />
+        <option value="$PROJECT_DIR$/static/home/feedback.html" />
+        <option value="$PROJECT_DIR$/server/actions/feedback.go" />
+        <option value="$PROJECT_DIR$/static/home/addUser.html" />
+        <option value="$PROJECT_DIR$/server/base/user.go" />
+        <option value="$PROJECT_DIR$/server/dataLevel/sql.go" />
+        <option value="$PROJECT_DIR$/static/home/deleteUser.html" />
+        <option value="$PROJECT_DIR$/server/actions/user.go" />
+        <option value="$PROJECT_DIR$/server/actions/deletet.go" />
+        <option value="$PROJECT_DIR$/static/home/addPin.html" />
+        <option value="$PROJECT_DIR$/server/actions/addPins.go" />
+        <option value="$PROJECT_DIR$/server/dataLevel/articleResources.go" />
+        <option value="$PROJECT_DIR$/static/home/addArticle.html" />
+        <option value="$PROJECT_DIR$/server/actions/addArticle.go" />
+        <option value="$PROJECT_DIR$/static/home/addAtricleFragment.go" />
+        <option value="$PROJECT_DIR$/static/home/addAF.html" />
+        <option value="$PROJECT_DIR$/server/actions/addAtricleFragment.go" />
+        <option value="$PROJECT_DIR$/static/test/addImg.go" />
+        <option value="$PROJECT_DIR$/static/test/addImg.html" />
+        <option value="$PROJECT_DIR$/server/actions/addMedia.go" />
         <option value="$PROJECT_DIR$/server/main.go" />
+        <option value="$PROJECT_DIR$/server/actions/update.go" />
+        <option value="$PROJECT_DIR$/static/test/update.html" />
       </list>
     </option>
   </component>
@@ -379,7 +335,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -412,6 +368,41 @@
               <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="buffer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="dataLevel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -428,7 +419,7 @@
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
@@ -440,14 +431,15 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/data/kml/Turitea Pitfall Points (1).kml" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\GOCode\src\TuriteaWebResources\server\dataLevel" />
-      <recent name="G:\GOCode\src\TuriteaWebResources" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\TuriteaWebResources\static\home" />
       <recent name="G:\GOCode\src\TuriteaWebResources" />
       <recent name="G:\GOCode\src\TuriteaWebResources\server\dataLevel" />
       <recent name="G:\GOCode\src\TuriteaWebResources\documentation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\TuriteaWebResources\server\dataLevel" />
+      <recent name="G:\GOCode\src\TuriteaWebResources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -472,26 +464,26 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-    <configuration name="TestArticlesToJson in TuriteaWebResources/server/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCache_LoadNoExist in TuriteaWebResources/server/buffer" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="TuriteaWebResources" />
-      <working_directory value="$PROJECT_DIR$/server/base" />
+      <working_directory value="$PROJECT_DIR$/server/buffer" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="TuriteaWebResources/server/base" />
+      <package value="TuriteaWebResources/server/buffer" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestArticlesToJson$" />
+      <pattern value="^TestCache_LoadNoExist$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestJsonToPins in TuriteaWebResources/server/base" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLoadArticle in TuriteaWebResources/server/dataLevel" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="TuriteaWebResources" />
-      <working_directory value="$PROJECT_DIR$/server/base" />
+      <working_directory value="$PROJECT_DIR$/server/dataLevel" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="TuriteaWebResources/server/base" />
+      <package value="TuriteaWebResources/server/dataLevel" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestJsonToPins$" />
+      <pattern value="^TestLoadArticle$" />
       <method v="2" />
     </configuration>
     <configuration name="go test TuriteaWebResources/server/buffer" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -517,43 +509,43 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Test.TestLoadArticle in TuriteaWebResources/server/dataLevel" />
+        <item itemvalue="Go Test.TestCache_LoadNoExist in TuriteaWebResources/server/buffer" />
         <item itemvalue="Go Test.go test TuriteaWebResources/server/buffer" />
         <item itemvalue="Go Test.go test TuriteaWebResources/server/dataLevel" />
-        <item itemvalue="Go Test.TestArticlesToJson in TuriteaWebResources/server/base" />
-        <item itemvalue="Go Test.TestJsonToPins in TuriteaWebResources/server/base" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestArticlesToJson_in_TuriteaWebResources_server_base - 2019.08.23 at 02h 55m 31s.xml">
-      <configuration name="TestArticlesToJson in TuriteaWebResources/server/base" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestArticlesToJson_in_TuriteaWebResources_server_base - 2019.08.23 at 02h 56m 04s.xml">
-      <configuration name="TestArticlesToJson in TuriteaWebResources/server/base" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_TuriteaWebResources_server_buffer - 2019.08.24 at 02h 55m 01s.xml">
-      <configuration name="go test TuriteaWebResources/server/buffer" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_TuriteaWebResources_server_buffer - 2019.08.24 at 02h 57m 55s.xml">
-      <configuration name="go test TuriteaWebResources/server/buffer" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_TuriteaWebResources_server_buffer - 2019.08.24 at 03h 01m 42s.xml">
-      <configuration name="go test TuriteaWebResources/server/buffer" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_TuriteaWebResources_server_dataLevel - 2019.08.24 at 03h 03m 01s.xml">
-      <configuration name="go test TuriteaWebResources/server/dataLevel" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_TuriteaWebResources_server_dataLevel - 2019.08.24 at 03h 04m 04s.xml">
-      <configuration name="go test TuriteaWebResources/server/dataLevel" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_TuriteaWebResources_server_dataLevel - 2019.08.24 at 03h 05m 12s.xml">
-      <configuration name="go test TuriteaWebResources/server/dataLevel" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_TuriteaWebResources_server_dataLevel - 2019.08.24 at 03h 05m 28s.xml">
-      <configuration name="go test TuriteaWebResources/server/dataLevel" configurationId="GoTestRunConfiguration" />
-    </history-entry>
     <history-entry file="go_test_TuriteaWebResources_server_buffer - 2019.08.24 at 03h 10m 03s.xml">
       <configuration name="go test TuriteaWebResources/server/buffer" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCache_LoadNoExist_in_TuriteaWebResources_server_buffer - 2019.08.24 at 14h 43m 20s.xml">
+      <configuration name="TestCache_LoadNoExist in TuriteaWebResources/server/buffer" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCache_LoadNoExist_in_TuriteaWebResources_server_buffer - 2019.08.24 at 14h 43m 57s.xml">
+      <configuration name="TestCache_LoadNoExist in TuriteaWebResources/server/buffer" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCache_LoadNoExist_in_TuriteaWebResources_server_buffer - 2019.08.24 at 14h 44m 21s.xml">
+      <configuration name="TestCache_LoadNoExist in TuriteaWebResources/server/buffer" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestCache_LoadNoExist_in_TuriteaWebResources_server_buffer - 2019.08.24 at 14h 47m 10s.xml">
+      <configuration name="TestCache_LoadNoExist in TuriteaWebResources/server/buffer" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestLoadArticle_in_TuriteaWebResources_server_dataLevel - 2019.08.24 at 14h 47m 15s.xml">
+      <configuration name="TestLoadArticle in TuriteaWebResources/server/dataLevel" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestLoadArticle_in_TuriteaWebResources_server_dataLevel - 2019.08.24 at 14h 49m 26s.xml">
+      <configuration name="TestLoadArticle in TuriteaWebResources/server/dataLevel" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestLoadArticle_in_TuriteaWebResources_server_dataLevel - 2019.08.24 at 14h 49m 49s.xml">
+      <configuration name="TestLoadArticle in TuriteaWebResources/server/dataLevel" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestLoadArticle_in_TuriteaWebResources_server_dataLevel - 2019.08.24 at 14h 50m 31s.xml">
+      <configuration name="TestLoadArticle in TuriteaWebResources/server/dataLevel" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestLoadArticle_in_TuriteaWebResources_server_dataLevel - 2019.08.24 at 14h 50m 45s.xml">
+      <configuration name="TestLoadArticle in TuriteaWebResources/server/dataLevel" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -569,14 +561,14 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1380597" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.114072494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32952183" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.48773986" visible="true" weight="0.33679834" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49200428" weight="0.3970894" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.48773986" weight="0.16839917" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" sideWeight="0.49200428" visible="true" weight="0.3970894" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32952183" />
@@ -586,11 +578,11 @@
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.33160084" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.51226014" side_tool="true" weight="0.33679834" />
       <window_info anchor="bottom" id="Compute Code Lines" order="13" />
-      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32952183" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.3326338" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.49688148" weight="0.3238512" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.49688148" weight="0.32356077" />
       <window_info anchor="right" id="Coverage" order="4" sideWeight="0.5031185" side_tool="true" visible="true" weight="0.20522387" />
     </layout>
   </component>
@@ -607,29 +599,102 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/server/dataLevel/sql.go</url>
-          <line>512</line>
+          <line>513</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/server/dataLevel/sql.go</url>
-          <line>391</line>
+          <line>392</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/server/base/json_test.go</url>
-          <line>60</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/server/base/json_test.go</url>
-          <line>58</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/server/dataLevel/sql.go</url>
-          <line>266</line>
-          <properties />
+          <line>267</line>
           <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/buffer/DynamicBuffer.go</url>
+          <line>118</line>
+          <properties />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/user.go</url>
+          <line>12</line>
+          <properties />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/deletet.go</url>
+          <line>13</line>
+          <properties />
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/addPins.go</url>
+          <line>14</line>
+          <properties />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/addPins.go</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/addArticle.go</url>
+          <line>15</line>
+          <properties />
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/addAtricleFragment.go</url>
+          <line>13</line>
+          <properties />
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/buffer/DynamicBuffer.go</url>
+          <line>321</line>
+          <properties />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/addAtricleFragment.go</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/addMedia.go</url>
+          <line>26</line>
+          <properties />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/addMedia.go</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/update.go</url>
+          <line>14</line>
+          <properties />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/update.go</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/server/actions/update.go</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -644,384 +709,25 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Go1.11/go/src/encoding/json/stream.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/encoding/json/encode.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8430">
-          <caret line="294" selection-start-line="294" selection-end-line="294" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/sync/pool.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3570">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/io/io.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="90" column="4" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/crypto/md5/md5.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/addPins.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-          <folding>
-            <element signature="e#17#141#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/config.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/deletet.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding>
-            <element signature="e#17#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/feedback.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#17#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/actions/getFragment.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/getMedia.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding>
-            <element signature="e#17#163#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="94">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/actions/getPins.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/resourcePreload.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/subscription.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/update.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2760">
-          <caret line="102" column="43" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/user.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/a_test.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/json_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/user.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/buffer/DynamicBuffer.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!block;n#flushBlock#0" />
-            <element signature="n#!!block;n#NewCache#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/buffer/StaticBuffer.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataResource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataSource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleResources.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/imageDataSource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-          <folding>
-            <element signature="e#19#87#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/mediaDataSource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/mediaResources.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#19#93#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/PinDataSource.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/resources.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#19#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/resourceType.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql_test.go">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/lastArticle.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/net/url/url.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="809" column="16" selection-start-line="809" selection-start-column="16" selection-end-line="809" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/strconv/atoi.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="155" column="5" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/addAtricleFragment.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/pinsLinkArticle.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1401">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <element signature="e#17#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/addMedia.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding>
-            <element signature="e#17#127#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/base_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="e#17#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/Article.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
-          <folding>
-            <element signature="e#14#100#0" expanded="true" />
-            <element signature="n#!!block;n#GetKey#0" />
-            <element signature="n#!!block;n#init#0" />
-            <element signature="n#!!block;n#GenArticle#0" />
-            <element signature="n#!!block;n#RecycleArticle#0" />
-            <element signature="n#!!block;n#UniqueId#0" />
-            <element signature="n#!!block;n#TypeId#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/base_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/Media.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="92" column="1" lean-forward="true" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="2950" selection-start-line="2950" selection-end-line="2950" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="266" selection-start-line="266" selection-end-line="266" />
-          <folding>
-            <element signature="n#!!block;n#init#0" />
-            <element signature="n#!!block;n#ChangePassword#0" />
-            <element signature="n#!!block;n#CreateArticle#0" />
-            <element signature="n#!!block;n#SelectArticlesIdWithPin#0" />
-            <element signature="n#!!block;n#SelectTopArticles#0" />
-            <element signature="n#!!block;n#SelectNextTopArticles#0" />
-            <element signature="n#!!block;n#AddMedia#0" />
-            <element signature="n#!!block;n#UnLinkPinToArticle#0" />
-            <element signature="n#!!block;n#CreatSubscription#0" />
-            <element signature="n#!!block;n#DeleteSubscription#0" />
-            <element signature="n#!!block;n#ChangeSubscriptionEmail#0" />
-            <element signature="n#!!block;n#CreateFeedback#0" />
-            <element signature="n#!!block;n#CheckFeedback#0" />
-            <element signature="n#!!block;n#UpdatePin#0" />
-            <element signature="n#!!block;n#DeletePin#0" />
-            <element signature="n#!!block;n#ChangeMedia#0" />
-            <element signature="n#!!block;n#DeleteMedia#0" />
-            <element signature="n#!!block;n#ChangeArticle#0" />
-            <element signature="n#!!block;n#DeleteArticle#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/saveAndload_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="180" column="43" lean-forward="true" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
-          <folding>
-            <element signature="n#!!block;n#TestLoadImage#0" />
-            <element signature="n#!!block;n#TestSaveImage#0" />
-            <element signature="n#!!block;n#TestLoadArticle#0" />
-            <element signature="n#!!block;n#TestSaveArticle#0" />
-            <element signature="n#!!block;n#TestSqlLinker_CreateArticle#0" />
-            <element signature="n#!!block;n#TestDeleteArticle#0" />
-            <element signature="n#!!block;n#TestLoadPin#0" />
-            <element signature="n#!!block;n#TestSavePin#0" />
-            <element signature="n#!!block;n#TestDeletePin#0" />
-            <element signature="n#!!block;n#TestDeleteMedia#0" />
-          </folding>
+          <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/buffer/DynamicBuffer_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+        <state relative-caret-position="118">
+          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
           <folding>
-            <element signature="n#!!block;n#TestCache_LoadNoExist#0" />
             <element signature="n#!!block;n#TestCache_LoadExist#0" />
             <element signature="n#!!block;n#TestCache_UpdateNotExist#0" />
             <element signature="n#!!block;n#TestCache_UpdateExist#0" />
@@ -1031,16 +737,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/addArticle.go">
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ChenXingyuChina/asynchronousIO/M2N/result.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        <state relative-caret-position="243">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataResource.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataSource.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding>
+            <element signature="e#19#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/saveAndload_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="96" column="18" lean-forward="true" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+          <folding>
+            <element signature="e#184#253#0" />
+            <element signature="e#238#252#0" />
+            <element signature="n#!!block;n#TestSaveArticleContent#0" />
+            <element signature="e#363#382#0" />
+            <element signature="n#!!block;n#TestLoadArticleContent#0" />
+            <element signature="e#508#527#0" />
+            <element signature="e#569#585#0" />
+            <element signature="e#591#824#0" />
+            <element signature="e#612#630#0" />
+            <element signature="e#695#731#0" />
+            <element signature="e#767#821#0" />
+            <element signature="e#797#817#0" />
+            <element signature="n#!!block;n#init#0" />
+            <element signature="e#889#894#0" />
+            <element signature="e#941#958#0" />
+            <element signature="e#1006#1023#0" />
+            <element signature="n#!!block;n#TestLoadImage#0" />
+            <element signature="e#1198#1217#0" />
+            <element signature="e#1254#1380#0" />
+            <element signature="e#1301#1377#0" />
+            <element signature="e#1306#1335#0" />
+            <element signature="n#!!block;n#TestSaveImage#0" />
+            <element signature="e#1486#1502#0" />
+            <element signature="e#1604#1649#0" />
+            <element signature="e#1618#1631#0" />
+            <element signature="n#!!block;n#TestSaveArticle#0" />
+            <element signature="e#1746#1778#0" />
+            <element signature="e#1807#1826#0" />
+            <element signature="n#!!block;n#TestSqlLinker_CreateArticle#0" />
+            <element signature="e#1936#1952#0" />
+            <element signature="n#!!block;n#TestDeleteArticle#0" />
+            <element signature="e#2062#2081#0" />
+            <element signature="n#!!block;n#TestLoadPin#0" />
+            <element signature="e#2218#2258#0" />
+            <element signature="e#2232#2243#0" />
+            <element signature="n#!!block;n#TestSavePin#0" />
+            <element signature="e#2434#2453#0" />
+            <element signature="n#!!block;n#TestSqlLinker_CreatePin#0" />
+            <element signature="e#2607#2623#0" />
+            <element signature="n#!!block;n#TestDeletePin#0" />
+            <element signature="e#2722#2741#0" />
+            <element signature="n#!!block;n#TestLoadMedia#0" />
+            <element signature="e#2858#2877#0" />
+            <element signature="n#!!block;n#TestSaveMedia#0" />
+            <element signature="e#3057#3076#0" />
+            <element signature="n#!!block;n#TestSqlLinker_AddMedia#0" />
+            <element signature="e#3171#3187#0" />
+            <element signature="n#!!block;n#TestDeleteMedia#0" />
+            <element signature="e#3291#3307#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/getMedia.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/dataLevel/dataSource.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="55">
           <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding>
             <element signature="e#19#169#0" expanded="true" />
@@ -1055,37 +843,328 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/base/Pin.go">
+    <entry file="file://$PROJECT_DIR$/static/test/loginTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/lastArticle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-303">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/pinsLinkArticle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="94" column="27" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/time/time.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="1110" column="14" selection-start-line="1110" selection-start-column="14" selection-end-line="1110" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/login.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1890">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test/feedback.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/feedback.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/base/user.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test/deleteUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test/addUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/resourceType.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/user.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="2500" selection-start-line="2500" selection-end-line="2500" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ChenXingyuChina/asynchronousIO/M2N/Normal.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="241" selection-start-line="241" selection-end-line="241" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/deletet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/mediaDataSource.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/base/a_test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/context/context.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="232" selection-start-line="232" selection-end-line="232" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/runtime/panic.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="513" selection-start-line="513" selection-end-line="513" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/addPins.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/runtime/asm_amd64.s">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="1333" selection-start-line="1333" selection-end-line="1333" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/base/json_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/home/addAtricleFragment.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/addArticle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/articleResources.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/addAtricleFragment.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test/addImg.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go1.11/go/src/sync/pool.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/base/Media.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="393" selection-start-line="393" selection-end-line="393" />
+          <folding>
+            <element signature="n#!!block;n#init#0" />
+            <element signature="n#!!block;n#ChangePassword#0" />
+            <element signature="n#!!block;n#SelectArticlesIdWithPin#0" />
+            <element signature="n#!!block;n#SelectTopArticles#0" />
+            <element signature="n#!!block;n#SelectNextTopArticles#0" />
+            <element signature="n#!!block;n#UnLinkPinToArticle#0" />
+            <element signature="n#!!block;n#CreatSubscription#0" />
+            <element signature="n#!!block;n#DeleteSubscription#0" />
+            <element signature="n#!!block;n#ChangeSubscriptionEmail#0" />
+            <element signature="n#!!block;n#CheckFeedback#0" />
+            <element signature="n#!!block;n#UpdatePin#0" />
+            <element signature="n#!!block;n#DeletePin#0" />
+            <element signature="n#!!block;n#ChangeMedia#0" />
+            <element signature="n#!!block;n#ChangeArticle#0" />
+            <element signature="n#!!block;n#DeleteArticle#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/addMedia.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test/addAF.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test/addPin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test/addArticle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test/update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/base/Pin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="e#14#133#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go1.11/go/src/net/http/server.go">
+    <entry file="file://$PROJECT_DIR$/server/buffer/DynamicBuffer.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="2019" column="5" selection-start-line="2019" selection-start-column="5" selection-end-line="2019" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/login.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="84" column="58" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
+        <state relative-caret-position="445">
+          <caret line="253" selection-start-line="253" selection-end-line="253" />
           <folding>
-            <element signature="n#!!block;n#checkPermission#0" />
+            <element signature="n#!!block;n#flushBlock#0" />
+            <element signature="n#!!block;n#NewCache#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/main.go">
+    <entry file="file://C:/Go1.11/go/src/net/http/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+        <state relative-caret-position="145">
+          <caret line="2351" column="32" lean-forward="true" selection-start-line="2351" selection-start-column="32" selection-end-line="2351" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test/addImg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/base/Article.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="96" column="39" lean-forward="true" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
+          <folding>
+            <element signature="e#14#100#0" expanded="true" />
+            <element signature="n#!!block;n#GetKey#0" />
+            <element signature="n#!!block;n#init#0" />
+            <element signature="n#!!block;n#RecycleArticle#0" />
+            <element signature="n#!!block;n#UniqueId#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/actions/update.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
         </state>
       </provider>
     </entry>

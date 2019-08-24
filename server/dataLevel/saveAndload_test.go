@@ -88,7 +88,7 @@ func TestSaveImage(t *testing.T) {
 }
 
 func TestLoadArticle(t *testing.T) {
-	f := Load(base.ArticleKey(0))
+	f := Load(base.ArticleKey(3))
 	b, err := f()
 	if err != nil {
 		fmt.Printf("%t\n", err)
@@ -106,7 +106,7 @@ func TestSaveArticle(t *testing.T) {
 }
 
 func TestSqlLinker_CreateArticle(t *testing.T) {
-	ok := SQLWorker.CreateArticle("abccc", 1, 0)
+	ok := SQLWorker.CreateArticle("abccc", 1, 0, 1)
 	if !ok {
 		t.Fatal()
 	}

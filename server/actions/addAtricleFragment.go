@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"log"
 	"net/http"
 	"strconv"
 	"strings"
@@ -10,8 +11,10 @@ import (
 )
 
 func AddArticleFragment(w http.ResponseWriter, r *http.Request) {
+	log.Println("call add article fragment")
 	err := r.ParseForm()
 	if err != nil {
+		w.WriteHeader(400)
 		return
 	}
 	res := r.Form.Get("resIds")
@@ -29,12 +32,16 @@ func AddArticleFragment(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		return
 	}
-	bufferId, err := dataLevel.JsonToResource(strings.NewReader(content), uint16(num))
-	if err != nil {
-		w.WriteHeader(400)
-		return
+	var bufferId []dataLevel.Resource
+	if num != 0 {
+		bufferId, err = dataLevel.JsonToResource(strings.NewReader(content), uint16(num))
+		if err != nil {
+			w.WriteHeader(400)
+			return
+		}
+		buffer.MainCache.CreateArticleContent(bufferId, content)
+	} else {
+		buffer.MainCache.CreateArticleContent([]dataLevel.Resource{}, content)
 	}
-	if -1 == buffer.MainCache.CreateArticleContent(bufferId, content){
-		w.WriteHeader(500)
-	}
+	_, _ = w.Write([]byte("ok"))
 }

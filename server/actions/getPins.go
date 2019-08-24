@@ -1,7 +1,7 @@
 package actions
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 
@@ -11,7 +11,7 @@ import (
 )
 
 func GetPins(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("callGetPins")
+	log.Println("callGetPins")
 	q := r.URL.Query()
 	north, err := strconv.ParseFloat(q.Get("north"), 64)
 	if err != nil {
@@ -61,6 +61,7 @@ func GetPins(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetPin(w http.ResponseWriter, r *http.Request) {
+	log.Println("call get pin")
 	id, err := strconv.ParseInt(r.URL.Query().Get("id"), 16, 64)
 	if err != nil {
 		w.WriteHeader(404)

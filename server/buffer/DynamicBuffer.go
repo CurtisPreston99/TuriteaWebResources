@@ -284,7 +284,7 @@ func (c *Cache) CreateArticle(article *base.Article) bool {
 	b := uint8(article.Id) + uint8(dataLevel.Article)
 	u := (uint64(article.Id) >> 8 << 8) | uint64(dataLevel.Article)
 	cache := c.caches[b]
-	ok := dataLevel.SQLWorker.CreateArticle(article.Summary, article.Id, article.WriteBy)
+	ok := dataLevel.SQLWorker.CreateArticle(article.Summary, article.Id, article.WriteBy, article.HomeContent)
 	if ok {
 		item := c.itemPool.Get().(*item)
 		item.updateState = normal

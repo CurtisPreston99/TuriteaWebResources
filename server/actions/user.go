@@ -2,6 +2,7 @@ package actions
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 
@@ -9,6 +10,7 @@ import (
 )
 
 func AddUser(w http.ResponseWriter, r *http.Request) {
+	log.Println("call add user")
 	<-speedControl
 	p, id := se.checkPermission(r)
 	if p != super {
@@ -42,6 +44,7 @@ func AddUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
+	log.Println("call delete user")
 	<-speedControl
 	p, id := se.checkPermission(r)
 	if p != super {

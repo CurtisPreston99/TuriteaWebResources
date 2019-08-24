@@ -11,6 +11,7 @@ type Article struct {
 	Id int64 `json:"id"`
 	WriteBy int64 `json:"wby"`
 	Summary string `json:"sum"`
+	HomeContent int64 `json:"home"`
 }
 
 func (a *Article) GetKey() asynchronousIO.Key {
@@ -40,11 +41,12 @@ func articleIdProvider() {
 	}
 }
 
-func GenArticle(Id, writeBy int64, summary string) *Article {
+func GenArticle(Id, writeBy, homeContent int64, summary string) *Article {
 	a := articlePool.Get().(*Article)
 	a.Id = Id
 	a.Summary = summary
 	a.WriteBy = writeBy
+	a.HomeContent = homeContent
 	return a
 }
 

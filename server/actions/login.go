@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"log"
 	"math/rand"
 	"net/http"
 	"strconv"
@@ -26,7 +27,7 @@ type session struct {
 	user *base.User
 	lastTime int64
 }
-
+const d = int64(5 * time.Minute / time.Second)
 func (s *sessions) checkPermission(r *http.Request) (uint8, int64) {
 	c, err := r.Cookie("lastTime")
 	if err != nil {
@@ -45,7 +46,7 @@ func (s *sessions) checkPermission(r *http.Request) (uint8, int64) {
 	if !ok {
 		return public, -1
 	}
-	if one.lastTime < time.Now().Unix() {
+	if one.lastTime + d < time.Now().Unix() {
 		s.lock.Lock()
 		delete(s.session, i)
 		s.lock.Unlock()
@@ -63,6 +64,7 @@ func (s *sessions) renew(id int64) {
 var se = &sessions{new(sync.RWMutex), make(map[int64]*session)}
 
 func Login(w http.ResponseWriter, r *http.Request) {
+	log.Println("call login")
 	err := r.ParseForm()
 	if err != nil {
 		w.WriteHeader(404)
@@ -77,12 +79,12 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		se.session[u.Id] = &session{u, time.Now().Unix()}
 		se.lock.Unlock()
 		if u.Role == super {
-			http.Redirect(w, r, "./super/control.html", 307)
+			http.Redirect(w, r, "../super/control.html", 307)
 		} else if u.Role == normal {
-			http.Redirect(w, r, "./normal/control.html", 307)
+			http.Redirect(w, r, "../normal/control.html", 307)
 		}
 	} else {
-		http.Redirect(w, r, "./others/loginFail.html", 307)
+		http.Redirect(w, r, "../others/loginFail.html", 307)
 	}
 }
 
