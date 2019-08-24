@@ -22,7 +22,7 @@ root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
                   -- addArticleFragment         (call for add article fragment use a POST method to upload data)
                   -- addImage                   (call for add image use a POST method to upload data)
                   -- addVideo                   (call for add video use websocket? or only use post)
-                  -- update?type=*              (call for update data, the parameter "type" means which type of resource you need 0 is fragment of article 1 is image 2 is pin 4 is is article, and post the data to it)
+                  -- update?type=*              (call for update data, the parameter "type" means which type of resource you need 0 is fragment of article 2 is pin 4 is article, and post the data to it)
                   -- delete?type=*&id=*         (call for delete, it will return a true or a flase for notify success or not use AJAX to call it)
                   -- media?id=*                 (for an image or media, use it id to get resources, use AJAX, for image in local it will return the image, for video or image in cloud it will return a url of the resouces, it will be a json format and has a 'type' to show its a file or a url and a 'data' for url or image)
                   -- fragment?id=*              (call for article fragment with id and call with AJAX)
