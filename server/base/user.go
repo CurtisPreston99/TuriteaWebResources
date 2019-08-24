@@ -11,15 +11,32 @@ type User struct {
 	Role int
 }
 
-func GenUser(Id int64, name string, role int, newOne bool) *User {
-	// todo finish it
-	return nil
+var userIdChan = make(chan int64, 100)
+var userIdRecycle = make(chan int64, 100)
+
+func userIdProvider() {
+	var id int64 = 2
+	for {
+		select {
+		case i := <-userIdRecycle:
+			userIdChan <- i
+		case userIdChan<-id:
+			id ++
+		}
+	}
+}
+
+func init() {
+	go userIdProvider()
+}
+
+func GenUserId() int64 {
+	return <-userIdChan
 }
 
 func RandomPassword() string {
 	return fmt.Sprintf("%x", rand.Uint64())
 }
-
-func RecycleUser(user *User, delete bool) {
-
+func RecycleUserId(uid int64) {
+	userIdRecycle <- uid
 }

@@ -1,12 +1,21 @@
 package base
 
-import "sync"
+import (
+	"github.com/ChenXingyuChina/asynchronousIO"
+	"encoding/json"
+	"io"
+	"sync"
+)
 
 type Media struct {
-	Type uint8
-	Title string
-	Url string
-	Uid int64
+	Type uint8 `json:"type"`
+	Title string `json:"title"`
+	Url string `json:"url"`
+	Uid int64 `json:"uid"`
+}
+
+func (m *Media) GetKey() asynchronousIO.Key {
+	return MediaKey(m.Uid)
 }
 
 var mediaPool *sync.Pool
@@ -21,7 +30,7 @@ func init() {
 }
 
 func mediaIdProvider() {
-	var id int64
+	var id int64 = 2
 	for {
 		select {
 		case mediaIdChan <- id:
@@ -32,10 +41,7 @@ func mediaIdProvider() {
 	}
 }
 
-func GenMedia(uid int64, t uint8, title string, url string, NewOne bool) *Media {
-	if NewOne {
-		uid = <- mediaIdChan
-	}
+func GenMedia(uid int64, t uint8, title string, url string) *Media {
 	media := mediaPool.Get().(*Media)
 	media.Uid = uid
 	media.Type = t
@@ -49,4 +55,39 @@ func RecycleMedia(media *Media, delete bool) {
 		mediaIdRecycle <- media.Uid
 	}
 	mediaPool.Put(media)
+}
+
+func GenMediaId() int64 {
+	return <-mediaIdChan
+}
+
+type MediaKey int64
+
+func (m MediaKey) UniqueId() (int64, bool) {
+	return int64(m), true
+}
+
+func (MediaKey) ToString() (string, bool) {
+	panic("implement me")
+}
+
+func (MediaKey) TypeId() int64 {
+	return 3
+}
+
+
+func MediaToJson(medias []*Media, w io.Writer) error {
+	return json.NewEncoder(w).Encode(medias)
+}
+
+func JsonToMedia(r io.Reader, num uint16) ([]*Media, error) {
+	d := json.NewDecoder(r)
+	d.UseNumber()
+	goal := make([]*Media, num)
+	for i := uint16(0); i < num; i++ {
+		goal[i] = mediaPool.Get().(*Media)
+	}
+	var err error
+	err = d.Decode(&goal)
+	return goal, err
 }
