@@ -18,6 +18,7 @@ create table articles(
 	id bigint PRIMARY KEY,
   	summary text,
   	writenBy int,
+	home_content bigint,
   	FOREIGN KEY (writenBy) REFERENCES users(id)
 );
 
