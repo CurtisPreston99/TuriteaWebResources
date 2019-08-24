@@ -1,3 +1,22 @@
 
-rm go\ test
-go build go\ test.go
+mkdir ../src
+mkdir ../src/TuriteaWebResources
+cp -r ./* ../src/TuriteaWebResources
+
+
+
+function build {
+  cd ..
+
+  local x=$(pwd)
+
+  echo $x
+
+  export GOPATH=$x
+
+  cd src/TuriteaWebResources
+  go get github.com/lib/pq
+  go build ./server/main.go
+}
+
+build

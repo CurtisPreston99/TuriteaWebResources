@@ -139,6 +139,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+
             </state>
           </provider>
         </entry>
@@ -164,6 +165,7 @@
                 <element signature="n#!!block;n#RecycleArticle#0" />
                 <element signature="n#!!block;n#UniqueId#0" />
               </folding>
+
             </state>
           </provider>
         </entry>
@@ -182,10 +184,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+
             </state>
           </provider>
         </entry>
       </file>
+
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/test/addArticle.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -216,12 +220,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/buffer/DynamicBuffer.go">
           <provider selected="true" editor-type-id="text-editor">
+
             <state relative-caret-position="445">
               <caret line="253" selection-start-line="253" selection-end-line="253" />
               <folding>
                 <element signature="n#!!block;n#flushBlock#0" />
                 <element signature="n#!!block;n#NewCache#0" />
               </folding>
+
             </state>
           </provider>
         </entry>
@@ -238,6 +244,7 @@
           </provider>
         </entry>
       </file>
+
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -355,6 +362,7 @@
             </path>
             <path>
               <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+
               <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
               <item name="articles" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -402,6 +410,7 @@
               <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+
             </path>
           </expand>
           <select />
@@ -439,6 +448,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\GOCode\src\TuriteaWebResources\server\dataLevel" />
+      <recent name="G:\GOCode\src\TuriteaWebResources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\GOCode\src\TuriteaWebResources" />
     </key>
   </component>
@@ -710,6 +722,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/server/actions/getFragment.go">
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
           <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
@@ -1034,6 +1047,7 @@
     </entry>
     <entry file="file://C:/Go1.11/go/src/sync/pool.go">
       <provider selected="true" editor-type-id="text-editor">
+
         <state relative-caret-position="183">
           <caret line="123" selection-start-line="123" selection-end-line="123" />
         </state>
@@ -1043,9 +1057,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="49" selection-start-line="49" selection-end-line="49" />
+
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ct.html" />
     <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -1109,11 +1125,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
           <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/base/Pin.go">
       <provider selected="true" editor-type-id="text-editor">
+
         <state relative-caret-position="183">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>

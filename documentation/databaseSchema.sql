@@ -1,47 +1,52 @@
 
 create table users(
 	id bigint PRIMARY KEY,
-  	user_name text not null,
+  	name text not null,
   	password text not null,
-  	role integer not null
+  	role integer not null，
+	unique(name)
 );
 
 create table media (
 	uid bigint PRIMARY KEY,
 	title text,
 	url text not null,
-	type integer,
+	type integer
 );
 
 create table articles(
 	id bigint PRIMARY KEY,
   	summary text,
   	writenBy int,
+	home_content bigint,
   	FOREIGN KEY (writenBy) REFERENCES users(id)
 );
 
 
 create table pins(
 	uid bigint PRIMARY KEY,
+	owner bigint not null,
   	longitude float NOT NUll,
   	latitude float NOT NUll,
   	discription text,
-	time bigint not null
+	time bigint not null,
+	tag_type integer not null,
+	name text not null,
+	foreign key (owner) references users(id)
 );
 
 
 create table subscription(
-	id int PRIMARY KEY,
   	name text,
-  	email text
+  	email text primary key
 );
 
 
-create table feedback(
-	id int PRIMARY KEY,
-  	name text,
-  	email text,
-  	feedback text,
+create table feedback (
+	id SERIAL PRIMARY KEY,
+	name text,
+	email text,
+	feedback text,
 	state boolean not null
 );
 
@@ -50,4 +55,3 @@ create table pinlinkarticle(
 	article_id bigint references articles(id),
 	primary key (pin_id, article_id)
 );
-
