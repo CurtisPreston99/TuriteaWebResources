@@ -1,7 +1,7 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/asynchronousIO"
+	"github.com/ChenXingyuChina/asynchronousIO"
 	"fmt"
 	"os"
 )
@@ -19,11 +19,9 @@ func (i *imageDataSource) Load(key asynchronousIO.Key) (asynchronousIO.Bean, err
 	if err != nil {
 		return nil, err
 	}
-	length := s.Size()
-	goal := &ImageResource{}
-	goal.data = make([]byte, length)
-	goal.Id = int64(key.(ImageKey))
-	_, err = f.Read(goal.data)
+	length := uint64(s.Size())
+	goal := GenImage(int64(key.(ImageKey)), length)
+	_, err = f.Read(goal.Data)
 	if err != nil {
 		return nil, err
 	}
@@ -36,7 +34,7 @@ func (i *imageDataSource) Save(bean asynchronousIO.Bean) error {
 	if err != nil {
 		return err
 	}
-	_, err = f.Write(bean.(*ImageResource).data)
+	_, err = f.Write(bean.(*ImageResource).Data)
 	return err
 }
 

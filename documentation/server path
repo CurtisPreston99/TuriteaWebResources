@@ -1,0 +1,51 @@
+for store
+root -- resources -- temPicture   (for store picture)
+                  -- temVideo     (? is it required)
+                  -- htmlTemplate (for the templates of html)
+     -- article                   (store article fragment)
+     -- static    -- commen       (public resources for static page)
+                             -- ...   (pages, css, js)
+                  -- alpha        (static page)
+                             -- ...   (pages, css, js)
+                  -- beta         (static page)
+                             -- ...   (pages, css, js)
+                  -- ...
+for routing
+root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
+                                                (call for the pins in area)
+                                                (north,south,east,west means the edge of area, timeBegin and timeEnd means which region of time is needed)
+                  -- getPin?id=*                (get one pin with it id)
+                  -- login                      (post a form to it for login)
+                                                (form at least has two area whose name attribute is "name" means the name of user, whose name attribute is "pw" means the password of the user, password needs to be encrypted by md5)
+                  -- addPins?num=*              (call for add pin num means how much pin you will add and use a POST method to upload data, the key of data is 'data' it is also for the other api/add** format path and api/update)
+                  -- addArticle?num=*           (call for add article num means how much article you will add and use a POST method to upload data)
+                  -- addArticleFragment         (call for add article fragment use a POST method to upload data)
+                  -- addImage                   (call for add image use a POST method to upload data)
+                  -- addVideo                   (call for add video use websocket? or only use post)
+                  -- update?type=*              (call for update data, the parameter "type" means which type of resource you need 0 is fragment of article 2 is pin 4 is article, and post the data to it)
+                  -- delete?type=*&id=*         (call for delete, it will return a true or a flase for notify success or not use AJAX to call it)
+                  -- media?id=*                 (for an image or media, use it id to get resources, use AJAX, for image in local it will return the image, for video or image in cloud it will return a url of the resouces, it will be a json format and has a 'type' to show its a file or a url and a 'data' for url or image)
+                  -- fragment?id=*              (call for article fragment with id and call with AJAX)
+                  -- addSubscription            (call for add a subscription with POST method and the form has two fields named 'name' and 'email')
+                  -- changeSubscription         (call for change the email of subsciption with POST method and the form has two fields named 'old' and 'new')
+                  -- deleteSubscription         (call for delete email with POST method form has only one field called 'email')
+                  -- sendfeedback               (call for feedback form has keys called 'email', 'name' and 'feedback' it will directly to sql so control the speed)
+                  -- addUser                    (call for add user it only can be called by super user, and POST a form with key 'role' for it permission value is a number between 1(normal) and 2(super) and 'name' for the user name is a string)
+                  -- deleteUser                 (call for delete user it only can be called by super user, and it POST a form with only one key called 'name' it is the user name of with user deleted)
+                  -- lastArticle                (call for get latest article)
+                  -- lastArticle?begin=*&num=*  (call for get num lastest article behind begin article)
+                  -- pinsByArticle?id=*         (call for get pin related to article)
+                  -- articlesByPin?id=*         (call for get article related to pin)
+                  -- linkPinToArticle?aid=*&pid=*
+                                                (call for link pin to article, vice versa, 'aid' means article id, 'pid' means pin id)
+                  -- (to be continue)
+      -- article                                
+                  -- 1
+                  -- 2
+                  -- ...                        (call for atricle with id)
+      -- commen                             (for static folder map to root/static/commen)
+      -- alpha                              (for static folder map to root/static/alpha)
+      -- ...
+all json file will update later in github
+all the integer number is 16 base
+all float number is normal way, no e or other

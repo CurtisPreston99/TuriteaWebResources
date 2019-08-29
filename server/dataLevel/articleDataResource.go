@@ -1,66 +1,85 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/asynchronousIO"
 	"encoding/binary"
 	"fmt"
 	"os"
+	"reflect"
+	"unsafe"
+
+	"github.com/ChenXingyuChina/asynchronousIO"
 )
 
-type articleDataResource struct {
+type articleContentDataSource struct {
 	root string
-	onLoadId *func([]int64)
+	onLoadId func([]Resource)
 }
 
-func (a *articleDataResource) Load(key asynchronousIO.Key) (asynchronousIO.Bean, error) {
-	f, err := os.Open(fmt.Sprintf(a.root, int64(key.(ArticleKey))))
+func (a *articleContentDataSource) Load(key asynchronousIO.Key) (asynchronousIO.Bean, error) {
+	f, err := os.Open(fmt.Sprintf(a.root, int64(key.(ArticleContentKey))))
 	if err != nil {
 		return nil, err
 	}
+
 	var length uint64
 	err = binary.Read(f, binary.LittleEndian, &length)
 	if err != nil {
 		return nil, err
 	}
-	goal := &ArticleResource{Id:int64(key.(ArticleKey))}
-	goal.resourcesId = make([]int64, length)
-	err = binary.Read(f, binary.LittleEndian, goal.resourcesId)
+	var length2 uint64
+	err = binary.Read(f, binary.LittleEndian, &length2)
 	if err != nil {
 		return nil, err
 	}
-	go (*a.onLoadId)(goal.resourcesId)
-	err = binary.Read(f, binary.LittleEndian, &length)
+
+	goal := GenContent(int64(key.(ArticleContentKey)), length, length2, false)
+	var head reflect.SliceHeader
+	head = *((*reflect.SliceHeader)(unsafe.Pointer(&(goal.ResourcesId))))
+	head.Cap = int(16 * length)
+	head.Len = int(16 * length)
+	_, err = f.Read(*(*[]byte)(unsafe.Pointer(&(head))))
 	if err != nil {
+		RecycleContent(goal, false)
 		return nil, err
 	}
-	goal.content = make([]byte, length)
-	err = binary.Read(f, binary.LittleEndian, goal.content)
-	return goal, err
+	go a.onLoadId(goal.ResourcesId)
+	_, err = f.Read(goal.Content)
+	if err != nil {
+		RecycleContent(goal, false)
+		return nil, err
+	}
+	return goal, nil
 }
 
-func (a *articleDataResource) Save(bean asynchronousIO.Bean) error {
+func (a *articleContentDataSource) Save(bean asynchronousIO.Bean) error {
 	b := bean.(*ArticleResource)
 	key := bean.GetKey()
-	f, err := os.Create(fmt.Sprintf(a.root, int64(key.(ArticleKey))))
+	f, err := os.Create(fmt.Sprintf(a.root, int64(key.(ArticleContentKey))))
 	if err != nil {
 		return err
 	}
-	err = binary.Write(f, binary.LittleEndian, uint64(len(b.resourcesId)))
+	err = binary.Write(f, binary.LittleEndian, uint64(len(b.ResourcesId)))
 	if err != nil {
 		return err
 	}
-	err = binary.Write(f, binary.LittleEndian, b.resourcesId)
+
+	err = binary.Write(f, binary.LittleEndian, uint64(len(b.Content)))
 	if err != nil {
 		return err
 	}
-	err = binary.Write(f, binary.LittleEndian, uint64(len(b.resourcesId)))
+
+	var t reflect.SliceHeader
+	t = *(*reflect.SliceHeader)(unsafe.Pointer(&(b.ResourcesId)))
+	t.Len *= 16
+	t.Cap *= 16
+	err = binary.Write(f, binary.LittleEndian, *(*[]byte)(unsafe.Pointer(&t)))
 	if err != nil {
 		return err
 	}
-	err = binary.Write(f, binary.LittleEndian, b.content)
+	err = binary.Write(f, binary.LittleEndian, b.Content)
 	return err
 }
 
-func (a *articleDataResource) Delete(key asynchronousIO.Key) error {
-	return os.Remove(fmt.Sprintf(a.root, int64(key.(ArticleKey))))
+func (a *articleContentDataSource) Delete(key asynchronousIO.Key) error {
+	return os.Remove(fmt.Sprintf(a.root, int64(key.(ArticleContentKey))))
 }

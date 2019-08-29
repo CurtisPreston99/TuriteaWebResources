@@ -1,62 +1,76 @@
-var viewer = new Cesium.Viewer('cesiumContainer', {timeline : false, animation : false});
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3ODQyYjRlNS05NDg1LTQyM2YtOTJhOS0wODljNjM0MDIxMzIiLCJpZCI6MTM4NTcsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NjQxNzgyNDB9.kVn00wi5JwJRS2XyAtYJX12x-jA4EapEscOzw2De16I';
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    // imageryProvider : Cesium.createTileMapServiceImageryProvider({
+    //   url : Cesium.buildModuleUrl('Assets/Textures/NaturalEarthII')
+    // }),
+    terrainProvider : new Cesium.CesiumTerrainProvider({
+        url: Cesium.IonResource.fromAssetId(1)
+    }),
+    baseLayerPicker : false,
+    geocoder : false,
+    timeline	:false,
+    animation:false
+});
+
+
+var west = 176.0;
+var south = -40.8;
+var east = -185;
+var north = -40.275;
+
+var rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
+viewer.camera.setView({
+    destination: rectangle
+});
 
 var pinBuilder = new Cesium.PinBuilder();
+var request = new XMLHttpRequest();
 
-var url = Cesium.buildModuleUrl('Assets/Textures/maki/cross.png');
-var pin1 = Cesium.when(pinBuilder.fromUrl(url, Cesium.Color.GREEN, 48), function(canvas) {
-    return viewer.entities.add({
-        name : 'Turitea Dam',
-        position : Cesium.Cartesian3.fromDegrees(175.66622,-40.46710),
-        description: "<h1>Header 1 Text</h1> <h2>Header 2 Text</h2> <h3>Header 3 Text</h3> This is an example of text!",
-        billboard : {
-            image : pinBuilder.fromMakiIconId('cross', Cesium.Color.GREEN, 48),
-            verticalOrigin : Cesium.VerticalOrigin.BOTTOM
-        }
+function AddPin(pin) {
+    console.info(pin);
+    Cesium.when(pinBuilder.fromMakiIconId(pin["tag_type"], Cesium.Color.RED, 48), function(canvas) {
+        console.log("addPin");
+        let x =viewer.entities.add({
+            name : 'Hospital',
+            position : Cesium.Cartesian3.fromDegrees(pin["lon"],pin["lat"],15.45),
+            description:pin["description"],
+            billboard : {
+                image : canvas.toDataURL(),
+                verticalOrigin : Cesium.VerticalOrigin.BOTTOM
+            }
+        });
+        console.log(x)
     });
-});
+}
 
-
-var url = Cesium.buildModuleUrl('Assets/Textures/maki/cross.png');
-var pin2 = Cesium.when(pinBuilder.fromUrl(url, Cesium.Color.GREEN, 48), function(canvas) {
-    return viewer.entities.add({
-        name : 'Turitea Dam',
-        position : Cesium.Cartesian3.fromDegrees(175.676554, -40.432947),
-	description : "<img src='Turitea-Dam.jpg' alt='Massey-University' height='105' width='200'>",
-        billboard : {
-            image : pinBuilder.fromMakiIconId('cross', Cesium.Color.GREEN, 48),
-            verticalOrigin : Cesium.VerticalOrigin.BOTTOM
+request.onreadystatechange = function() {
+    if (request.readyState === 4) {
+        if (request.status === 200) {
+               var pins = JSON.parse(request.responseText);
+               for (var i in pins) {
+                   AddPin(pins[i]);
+               }
+               console.info("get finish")
         }
-    });
-});
+    }
+    // console.info(request)
+};
 
-var url = Cesium.buildModuleUrl('Assets/Textures/maki/building.png');
-var pin3 = Cesium.when(pinBuilder.fromUrl(url, Cesium.Color.GREEN, 48), function(canvas) {
-    return viewer.entities.add({
-        name : 'Massey University',
-        position : Cesium.Cartesian3.fromDegrees(175.618652, -40.386193),
-        description: "<img src='Massey-University.png' alt='Massey-University' height='50' width='50'> <a href='https://www.massey.ac.nz/' target='_blank'>Massey University</a>",
-        billboard : {
-            image : pinBuilder.fromMakiIconId('building', Cesium.Color.RED, 48),
-            verticalOrigin : Cesium.VerticalOrigin.BOTTOM
-        }
-    });
-});
+request.open("GET", "./api/pins",true);
+console.log("before get");
+request.send();
 
-var url = Cesium.buildModuleUrl('Assets/Textures/maki/cross.png');
-var pin4 = Cesium.when(pinBuilder.fromUrl(url, Cesium.Color.GREEN, 48), function(canvas) {
-    return viewer.entities.add({
-        name : 'Turitea Stream',
-        position : Cesium.Cartesian3.fromDegrees(175.620858, -40.383666),
-	description: "<img src='Turitea-Stream.jpg' alt='Turitea-Stream' height='100' width='100'>",
-        billboard : {
-            image : pinBuilder.fromMakiIconId('cross', Cesium.Color.GREEN, 48),
-            verticalOrigin : Cesium.VerticalOrigin.BOTTOM
-        }
-    });
-});
+// var hospitalPin = Cesium.when(pinBuilder.fromMakiIconId('hospital', Cesium.Color.RED, 48), function(canvas) {
+//     return viewer.entities.add({
+//         name: 'Hospital',
+//         position: Cesium.Cartesian3.fromDegrees(175.6223059, -40.3876416, 15.45),
+//         description: "memes for dreams<h1> big memes</h1>",
+//         billboard: {
+//             image: canvas.toDataURL(),
+//             verticalOrigin: Cesium.VerticalOrigin.BOTTOM
+//         }
+//     });
+// });
 
 
 //Since some of the pins are created asynchronously, wait for them all to load before zooming/
-Cesium.when.all([pin1, pin2, pin3, pin4], function(pins){
-    viewer.zoomTo(pins);
-});

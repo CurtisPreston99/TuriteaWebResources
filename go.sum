@@ -1,0 +1,4 @@
+github.com/ChenXingyuChina/asynchronousIO v0.0.0-20190821022857-384d90b77e26 h1:whr2InYXFdrRPe/DEx8ypB/pFNj8p9MjNOIl0OtxcFE=
+github.com/ChenXingyuChina/asynchronousIO v0.0.0-20190821022857-384d90b77e26/go.mod h1:Mu5PL87FZ4x7KSuVEUGOg1Cdl90qKQ+M3c4DR3znWpU=
+github.com/lib/pq v1.2.0 h1:LXpIM/LZ5xGFhOpXAQUIMM1HdyqzVYM13zNdjCEEcA0=
+github.com/lib/pq v1.2.0/go.mod h1:5WUZQaWbwv1U+lTReE5YruASi9Al49XbQIvNi/34Woo=

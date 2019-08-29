@@ -1,0 +1,430 @@
+/*
+  158.258 Individual Assessment - Web Site Development Project
+  Author:   Lance Gray (03364038)
+  Date:     19.09.2016  
+  Filename: layout.css
+  Files:    None
+*/
+
+/*general layout and formatting styles*/
+/*shared element styles*/
+article, aside, figure, figcaption, footer, hgroup, header, section, nav, nav li a, cite, img.logo, iframe {
+    display: block;
+}
+
+/*body styles*/
+body * {
+    font-family: Verdana, Geneva, sans-serif;
+    list-style: none;                 /*set list style to none*/
+    margin: 0px;                      /*set margin to 0px*/
+    padding: 0px;                     /*set padding to 0px*/
+    text-decoration: none;            /*set text decoration to none*/
+}
+
+body {
+    /*background-image: url('background.jpg');*/
+    min-width: 50%;
+    max-width: 80%;
+    margin: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: #f1f1f1;
+    padding: 20px;
+    font-family: Arial;
+}
+
+/*section styles*/
+section {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 2em;
+    line-height: 1.5em;
+}
+
+section h2 {
+    font-weight: normal;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+section h3 {
+    font-weight: normal;
+    font-size: 1.17em;
+    line-height: 1.5em;
+}
+
+section h4 {
+    font-weight: normal;
+    font-size: 1.0em;
+    line-height: 1.5em;
+}
+
+section h5 {
+    font-weight: normal;
+    font-size: 0.83em;
+    line-height: 1.5em;
+}
+
+section h6 {
+    font-weight: normal;
+    font-size: 0.63em;
+    line-height: 1.5em;
+}
+
+section p {
+    font-weight: normal;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin: 10px 0;
+}
+
+/*article styles*/
+article {
+    float: left;
+    width: 60%;
+}
+
+article iframe {
+    margin-bottom: 25px;
+    width: 100%;
+    height: 340px;
+}
+
+article img {
+    width: 100%;
+    margin: 5px 0px;
+}
+
+aside {
+    float: right;
+    width: 35%;
+    color: #5f5f5f;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    border: 2px solid #e6e6e6;
+}
+
+aside img {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 10px solid white;
+}
+
+nav.main {
+    clear: both;
+    width: 100%;
+    background-color: #5f5f5f;
+    font-size: 0.8em; 
+}
+
+nav.main li {
+    float: left;                      /*set float to left*/
+    width: 10%;                     /*set width to 12.5%*/
+    list-style: none;                 /*set list style to none*/
+    color: white;                     /*set font colour to white*/
+    Height: 50px;               		/*set height to 56 pixels*/
+    text-align: center;               /*set text alignment to center*/
+}
+
+nav.main li a {
+    color: #e6e6e6;     				/*set font color to light-grey*/
+}
+
+nav.main ul li {
+    /*background-color: #5f5f5f;  		/*set background color to dark-grey*/
+    background-color: #43434C;
+    line-height: 50px;          		/*set line height to 54px*/
+}
+
+nav.main li a.active {
+    /*background-color: #00a652;        /*set background colour to green*/
+    background-color: #2B81D6;
+    color: white;                     /*set font colour to white*/
+}
+
+/*navigation main hover colour when page not active*/
+nav.main li a:hover:not(.active) {
+    /*background-color: #444444;        /*set background colour to dark-grey*/ 
+    background-color: #143B79;
+    color: white;                     /*set font colour to white*/
+}
+
+/* dropdown navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #5f5f5f;
+}
+
+.navbar a {
+    vertical-align:central;
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropbtn  {
+    vertical-align:central;
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 16px 16px;
+    background-color: #5f5f5f;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #2D589C;
+}
+
+.dropdown-content {
+    display: none;
+    position:absolute;
+    background-color: #F9F9F9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.fas {
+    vertical-align:central;
+    font-size: inherit;
+    color:inherit;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+Header #banner {
+    background-image: url('banner.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+Header #banner h1 {
+    font-family: Arial, Helvetica,sans-serif;
+    font-size: calc(1em + 4vw);
+    color: white;
+    text-align: right;
+    margin-bottom: 125px;
+    margin-right: 1%;
+}
+
+Header #banner img {
+    left: 0px;
+    width: 20%;
+    margin: 1%;
+}
+
+#cesiumContainer {
+    padding-top: 10px;
+    float: left;
+    width: 100%;
+    height: 50%;
+}
+
+/* Footer styles */
+footer {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin: 10px 0px;
+
+}
+
+footer address {
+    text-align: center;
+    font-style: normal;
+    font-size: 0.8em;
+    margin: 10px 0px;
+}
+
+/* MODAL SETTINGS */ 
+.container {
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.modalButtons {
+    text-align: center;
+    margin: 10px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.loginbtn {
+    width:100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancelbtn {
+    width: auto;
+    background-color: #DEE2DA;
+    color: black;
+    padding: 12px 30px;
+    margin: 5px;
+    border-style: solid;
+    border-color: lightgrey;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancelbtn:hover {
+    background-color: #c2160a;
+    color: white;
+}
+
+input[type=submit] {
+    margin: 5px;
+    width: auto;
+    background-color: #DEE2DA;
+    color: black;
+    padding: 12px 30px;
+    border-style: solid;
+    border-color: lightgrey;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #3e8e41;
+    color: white;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: white;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+}
+
+#disclaimer{
+    font-size:0.8em;
+}
+
+#title {
+    padding: 0px;
+    height: 35px;
+}
+
+.close {
+    float: right;
+    width: 50px;
+    height: 35px;
+    text-align: center;
+    background-color: white;
+    border-style: none;
+    color: black;
+    cursor: pointer;
+}
+
+.close:hover, .close.focus {
+    color: white;
+    background-color: #DD131A;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Add zoom animation */
+.animate {
+    -webkit-animation: animatezoom 0.2s;
+    animation: animatezoom 0.2s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
