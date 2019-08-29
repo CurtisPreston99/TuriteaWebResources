@@ -80,6 +80,8 @@ func RecyclePin(pin *Pin, delete bool) {
 }
 
 func loadTags(m [117]string, rm map[string]uint8) error {
+	//for test open this one and close other one
+	//fs, err := ioutil.ReadDir("../../cesium/Source/Assets/Textures/maki")
 	fs, err := ioutil.ReadDir("./cesium/Source/Assets/Textures/maki")
 	if err != nil {
 		return err

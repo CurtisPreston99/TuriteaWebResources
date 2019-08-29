@@ -12,8 +12,10 @@ var OnLoadMedia func(key ImageKey)
 var fileIO asynchronousIO.AsynchronousIOMachine
 func Init() {
 	dataSource := []asynchronousIO.DataSource{
-		&imageDataSource{"./resources/temPictures/%x.img"},
-		&articleContentDataSource{root: "./articles/%x.art", onLoadId: OnLoadResourceId,},
+		//&imageDataSource{"../../resources/temPictures/%x.img"},
+		//&articleContentDataSource{root: "../../articles/%x.art", onLoadId: OnLoadResourceId,},
+		&imageDataSource{"../../resources/temPictures/%x.img"},
+		&articleContentDataSource{root: "../../articles/%x.art", onLoadId: OnLoadResourceId,},
 		articleDataSource{},
 		mediaDataSource{},
 		pinDataSource{},

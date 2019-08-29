@@ -3,12 +3,11 @@ package actions
 import (
 	"fmt"
 	"math/rand"
-	"strconv"
 	"testing"
 )
 
 func init() {
-	rand.Seed(1243494324)
+	rand.Seed(1243494327)  // it only a random number as key
 }
 
 func TestCreate(t *testing.T) {
@@ -18,12 +17,10 @@ func TestCreate(t *testing.T) {
 	if !ok {
 		t.Fatal()
 	}
-	if b2 != 2 {
-		t.Fatal(b2)
-	}
-	id2, err := strconv.ParseInt(id, int(b2), 64)
-	if err != nil {
-		t.Fatal(err)
+	fmt.Println(b2)
+	id2, ok := parseToken(id, b)
+	if !ok {
+		t.Fatal()
 	}
 	if id2 != 15 {
 		t.Fatal()
