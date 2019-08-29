@@ -1,0 +1,36 @@
+{
+    "pins": [
+        {
+            "name": "OP1",
+            "label": "1", 
+            "lat": 175.66622, 
+            "lon": -40.46710,
+            "description": "pin0", 
+            "colour": "#FF0000" 
+        },
+        {
+            "name": "OP2",            
+            "label": "2", 
+            "lat": 175.676554, 
+            "lon": -40.432947,
+            "description": "pin1", 
+            "colour": "#FFD700" 
+        },
+        {
+            "name": "OP3",
+            "label": "3", 
+            "lat": 175.618652, 
+            "lon": -40.386193,
+            "description": "pin2", 
+            "colour": "#FF0000"  
+        },
+        {
+            "name": "OP4",
+            "label": "4", 
+            "lat": 175.620858, 
+            "lon": -40.383666,
+            "description": "pin3", 
+            "colour": "BLUE"
+        }
+    ]
+}
