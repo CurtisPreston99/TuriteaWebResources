@@ -14,10 +14,9 @@
   <script src="./pin_entry_fourm.js">
   </script>
 
-  <style>
-  #map { height: 500px; }
-  #summernote {height: 500px;}
-  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
+
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
@@ -48,6 +47,9 @@ color:<input type="color" id="colorSelectors"></input>
   <button onclick="hidemap()" id="inputSwitch"> manually enter cords</button>
 
     <div id='mapDiv'>
+    <div id='cordDisplay'>
+      long:   lat:
+    </div>
     <div id='map'></div>
     </div>
     <div id='longLat'>

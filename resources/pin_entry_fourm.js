@@ -9,6 +9,9 @@ window.onload = function(){
   document.getElementById("colorSelectors").value='#ff5555'
   //hodes long lat text boxes
   document.getElementById('longLat').style.display='none';
+
+
+  $('#map')[0].style.height=($(window).height()/3)+"px";
   // initialize the map on the "map" div with a given center and zoom
  mymap = L.map('map').setView([-40.3994926,175.6390271], 15);
 
@@ -32,7 +35,7 @@ mymap.on('click',function(e){
 });
 //setting up summer note
 $('#summernote').summernote({
-height: 400   //set editable area's height
+height: $(window).height()/3   //set editable area's height
 
 });
 
@@ -50,6 +53,15 @@ function updateMarker(lon,lat){
 
    console.log(theMarker);
 
+
+   cordDisplay(getCords().lat,getCords().lon);
+}
+
+
+function cordDisplay(long,lat){
+  let x="long:"+long+"lat:"+lat
+
+  document.getElementById('cordDisplay').innerText=x;
 }
 
 //fills the icon selection screen
@@ -109,6 +121,9 @@ function getCords(){
 
     cords["lat"]=theMarker.getLatLng().lat;
     cords["lon"]=theMarker.getLatLng().lng;
+  }else{
+    cords["lat"]=0;
+    cords["lon"]=0;
   }
 
 }
