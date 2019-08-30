@@ -23,6 +23,21 @@ type sessions struct {
 	session map[int64]*session
 }
 
+func (s *sessions) sessionsCleaner() {
+	ticker := time.NewTicker(17 * time.Minute)
+	c := ticker.C
+	for {
+		<-c
+		s.lock.Lock()
+		for k, v := range s.session {
+			if v.lastTime + d < time.Now().Unix() {
+				delete(s.session, k)
+			}
+		}
+		s.lock.Unlock()
+	}
+}
+
 type session struct {
 	user *base.User
 	lastTime int64
@@ -79,18 +94,21 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		se.session[u.Id] = &session{u, time.Now().Unix()}
 		se.lock.Unlock()
 		if u.Role == super {
-			http.Redirect(w, r, "../super/control.html", 307)
+			//http.Redirect(w, r, "../super/control.html", 307)
+			w.WriteHeader(200)
 		} else if u.Role == normal {
-			http.Redirect(w, r, "../normal/control.html", 307)
+			//http.Redirect(w, r, "../normal/control.html", 307)
+			w.WriteHeader(200)
 		}
 	} else {
-		http.Redirect(w, r, "../others/loginFail.html", 307)
+		//http.Redirect(w, r, "../others/loginFail.html", 307)
+		w.WriteHeader(401)
 	}
 }
 
 func genToken(uid int64) (string, string) {
 	r := rand.Int31n(33) + 3
-	id := strconv.FormatInt(uid, int(r))
+	id := strconv.FormatInt(uid + 13, int(r))
 	baseNumber := getBase(uint8(r))
 	return id, baseNumber
 }
@@ -124,7 +142,7 @@ func parseToken(id, b string) (int64, bool) {
 	if err != nil {
 		return 0, false
 	}
-	return goal, true
+	return goal - 13, true
 }
 
 func parseBase(o string) (uint8, bool) {
