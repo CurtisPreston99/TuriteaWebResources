@@ -10,19 +10,22 @@
   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
   crossorigin=""></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
   <script src="./pin_entry_fourm.js">
   </script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
 
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
   </head>
   <body>
 
+  <div id="pinSelection">
+    <select id="pinSelect" onclick="selectPin()">
+    </select>
+
+  </div>
   <div id='fourm'>
   <div id='nameDic'>
   name:<textarea id="name" rows="1" cols="40" ></textarea>
@@ -58,6 +61,11 @@ color:<input type="color" id="colorSelectors"></input>
     </div>
     </div>
 
+    <div id="updateP">
+      <button id="updatePin" onclick="updatePin()">updatePin</button>
+      <button id="delete" onclick="deletePin()">deletePin</button>
+
+    </div>
     </div>
 
 

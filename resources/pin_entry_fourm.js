@@ -2,6 +2,10 @@
 var mymap;
 var theMarker ;
 var mapshown=false;
+
+var pins;
+
+
 //runs when window is loaded
 window.onload = function(){
   addIconOptions();
@@ -39,7 +43,9 @@ height: $(window).height()/3   //set editable area's height
 
 });
 
+getPins();
 }
+
 //to update the marker
 function updateMarker(lon,lat){
   //remove marker if it exitis
@@ -62,6 +68,38 @@ function cordDisplay(long,lat){
   let x="long:"+long+"lat:"+lat
 
   document.getElementById('cordDisplay').innerText=x;
+}
+
+function getPins(){
+  $.get('../../documentation/jsonForPins', {}, function(data){
+    pins=JSON.parse(data)
+
+
+    var html="<option value='-1'>new</option>"
+
+    for(var s in pins){
+      let line=  '<option value='+s+'>'+pins[s].name+'</option>'
+      html+=line;
+    }
+
+    document.getElementById('pinSelect').innerHTML=html;
+  });
+}
+
+function selectPin(){
+  let i =document.getElementById('pinSelect').value;
+  let Selectedpin=pins[i];
+
+  console.log(Selectedpin)
+
+  updateMarker(Selectedpin.lat,Selectedpin.lon)
+  document.getElementById("name").value=Selectedpin.name;
+  document.getElementById("colorSelectors").value=Selectedpin.color;
+  document.getElementById("iconSelect").value=Selectedpin.tag_type;
+
+
+  $('#summernote').summernote('code', Selectedpin.description);
+
 }
 
 //fills the icon selection screen
@@ -137,14 +175,25 @@ function getallData(){
   let cords =getCords();
   var markupStr = $('#summernote').summernote('code');
   pin={}
-  pin["name"]=document.getElementById('name').innerText;
+  pin["name"]=document.getElementById("name").value;
   pin["type"]=document.getElementById("iconSelect").value;
   pin["lat"]=cords["lat"];
   pin["lon"]=cords["lon"];
   pin["color"]=document.getElementById("colorSelectors").value
   pin["description"]=$('#summernote').summernote('code');
 
+  return pin;
+}
+
+
+function updatePin(){
+  let pin=getallData();
   console.log(pin);
 
-  return pin;
+
+}
+
+function deletePin(){
+
+
 }
