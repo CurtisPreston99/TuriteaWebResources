@@ -167,3 +167,29 @@ func makeCookie(w http.ResponseWriter, uid int64) {
 	http.SetCookie(w, &http.Cookie{Name: "lastTime", Value: id, HttpOnly: true})
 	http.SetCookie(w, &http.Cookie{Name: "key", Value: key, HttpOnly: true})
 }
+
+func ChangePassword(w http.ResponseWriter, r *http.Request) {
+	p, id := se.checkPermission(r)
+	if p == public {
+		w.WriteHeader(403)
+		return
+	}
+	err := r.ParseForm()
+	if err != nil {
+		w.WriteHeader(400)
+		return
+	}
+	old := r.Form.Get("old")
+	n := r.Form.Get("new")
+	if len(old) == 0 || len(n) == 0 {
+		w.WriteHeader(400)
+		return
+	}
+	ok := dataLevel.SQLWorker.ChangePassword(old, n, id)
+	if !ok {
+		w.WriteHeader(500)
+		return
+	}
+	se.renew(id)
+	makeCookie(w, id)
+}

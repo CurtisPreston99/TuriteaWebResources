@@ -9,7 +9,7 @@ import (
 	"TuriteaWebResources/server/actions"
 )
 
-var fileHandle = http.FileServer(http.Dir("."))
+//var fileHandle = http.FileServer(http.Dir("."))
 
 func main() {
 	rand.Seed(time.Now().Unix())
@@ -38,7 +38,8 @@ func main() {
 	http.HandleFunc("/api/pinsByArticle", actions.PinsByArticle)  // tested
 	http.HandleFunc("/api/articlesByPin", actions.ArticlesByPin)  // tested
 	http.HandleFunc("/api/linkPinToArticle", actions.LinkArticleAndPin)  // tested
-	// fixme the second parameter is set nil temporary change it later
+	http.HandleFunc("/api/changePassword", actions.ChangePassword)
+	// fixme the second parameter is set nil temporary change it later add a 404 page?
 	fmt.Println("server start")
 	err := http.ListenAndServe("localhost:80", nil)
 	if err != nil {
