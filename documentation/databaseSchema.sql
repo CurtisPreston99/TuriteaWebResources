@@ -32,6 +32,7 @@ create table pins(
 	time bigint not null,
 	tag_type integer not null,
 	name text not null,
+	color varchar(7) not null,
 	foreign key (owner) references users(id)
 );
 
