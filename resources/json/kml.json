@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1, 
+        "url": "kml/kml1.kml",
+        "name": "Show Turitea KML data"
+    },
+    {
+        "id": 2,
+        "url": "kml/kml2.kml",
+        "name": "Google KML Demo Data"
+    },
+    {
+        "id": 3,
+        "url": "kml/kml3.kml",
+        "name": "Google KML Demo Data"
+    },
+    {
+        "id": 4,
+        "url": "kml/kml4.kml",
+        "name": "Google KML Demo Data"
+    }
+]

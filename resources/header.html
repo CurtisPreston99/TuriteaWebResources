@@ -5,89 +5,165 @@ Author:   CHEN, Xingyu; GRAY, Lance; PRESTON, Curtis
 Date:     20.08.2019
 -->
 
-<!-- Top navigation bar -->
+<script>
+    $(document).ready(function () {
+
+        // Login Dialog Box
+        $("#login-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+            buttons: {
+                Cancel: function () {
+                    $(this).dialog("close");
+                },
+                Login: function () {
+                    var formValues = $("#login-form").serialize();
+                    event.preventDefault();
+                    if (isNotValid(document.getElementById('login-form'))) {
+                        $('#valid-dialog').dialog({title: "Data Validation Error"});
+                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                        return;
+                    }
+                    $.post("http://localhost:8080/TuiteaWebResouces/login", formValues, function () {
+                        $('#valid-dialog').dialog({title: "Login Successful"});
+                        $('#valid-dialog p').html("Thank you. You have sucessfully logged in.<br><br>To logout again, press the [Logout] button from the top menu bar.");
+                        $('#valid-dialog').dialog('open');
+                    }).fail(function (xhr) {
+                        $('#error-dialog').dialog({title: "Login Failed"});
+                        $('#error-dialog p').html("The username or password that you entered is incorrect.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                    });
+                }
+            }
+        });
+
+        // Contact Us (Feedback) Dialog Box
+        $("#contactus-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+            buttons: {
+                Cancel: function () {
+                    $(this).dialog("close");
+                },
+                Submit: function () {
+                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    var formValues = $("#contactus-form").serialize();
+                    if (isNotValid(document.getElementById('contactus-form'))) {
+                        $('#valid-dialog').dialog({title: "Data Validation Error"});
+                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                        return;
+                    }
+                    $.get("http://localhost:8080/TuiteaWebResouces/sendFeedback", formValues, function () {
+                        $('#valid-dialog').dialog({title: "Message Sent"});
+                        $('#valid-dialog p').html("Thank you for the feedback about your experience using our website. We greatly appreciate your insight because it helps us to build a better experience for yourself and others.<br><br>If you have any more questions, comments, concerns or compliments, please feel free to contact us again.");
+                        $('#valid-dialog').dialog('open');
+                    }).fail(function (xhr) {
+                        $('#error-dialog').dialog({title: "Message Failed"});
+                        $('#error-dialog p').html("Sorry, something went wrong.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                    });
+                }
+            }
+        });
+
+        // Search Dialog Box
+        $("#search-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+        });
+
+        // Valid Dialog Box
+        $("#valid-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+            buttons: {
+                OK: function () {
+                    $('.dialog').dialog('close');
+                },
+            }
+        });
+
+        // Error Dialog Box
+        $("#error-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+            buttons: {
+                OK: function () {
+                    $(this).dialog('close');
+                },
+            }
+        });
+
+        $("#map-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+            buttons: {
+                OK: function () {
+                    $(this).dialog('close');
+                },
+            }
+        });
+
+
+
+    });
+
+    // Redirect to Settings Page
+    function settings() {
+        if ((document.cookie.indexOf("lastTime") !== -1 && document.cookie.indexOf("key") !== -1)) {
+            window.location.replace("settings.html");
+        } else {
+            $('#error-dialog').dialog({title: "Authorised Access"});
+            $('#error-dialog p').html("Sorry, but you have to login first before you attempt to access the settings page.");
+            $('#error-dialog').dialog('open');
+        }
+    }
+
+    // Clear Login Cookies
+    function logout() {
+        document.cookie = "lastTime=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        $('#valid-dialog').dialog({title: "Logout Successful"});
+        $('#valid-dialog p').html("Thank you. You have sucessfully logged out.<br><br>To login again, press the [Login] button from the top menu bar.");
+        $('#valid-dialog').dialog('open');
+    }
+
+    function isNotValid(data) {
+        var isValidData = data.checkValidity();
+        if (isValidData) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+
+<!-- Top menu bar -->
 <nav class="navbar">
     <div class="dropdown">
-        <button class="dropbtn" onclick="document.getElementById('id01').style.display = 'block'"><i class="fas">&#xf007;</i>&nbsp;Login</button>
+        <button class="dropbtn" onClick="$('#login-dialog').dialog('open');"><i class="fas">&#xf007;</i>&nbsp;Login</button>
     </div>
-    <a href="settings.html"><i class="fas">&#xf013;</i>&nbsp;Settings</a>
+    <div class="dropdown">
+        <button class="dropbtn" onClick="logout()"><i class="fas">&#xf235;</i>&nbsp;Logout</button>
+    </div>
+    <div class="dropdown">
+        <button  class="dropbtn" onclick="settings()"><i class="fas">&#xf013;</i>&nbsp;Settings</button>
+    </div>
     <div class="dropdown" style='float:right'>
-        <button class="dropbtn" onclick="document.getElementById('id02').style.display = 'block'"><i class="fas">&#xf086;</i>&nbsp;Contact Us</button>
+        <button class="dropbtn" onClick="$('#contactus-dialog').dialog('open');"><i class="fas">&#xf086;</i>&nbsp;Contact Us</button>
     </div> 
     <div class="dropdown" style='float:right'>
-        <button class="dropbtn" onclick="document.getElementById('id03').style.display = 'block'"><i class="fas">&#xf002;</i>&nbsp;Search</button>
+        <button class="dropbtn" onClick="$('#search-dialog').dialog('open');"><i class="fas">&#xf002;</i>&nbsp;Search</button>
     </div>
 </nav>
-
-<!-- Login Modal -->
-<div id="id01" class="modal">
-    <form class="modal-content animate" action="/action_page.php">
-        <div id="title">
-            <p style="float:left; padding:5px"><i class="fas">&#xf007;</i>&nbsp;Login</p>
-            <button type="button" onclick="document.getElementById('id01').style.display = 'none'" class="material-icons close">&#xe5cd</button>
-        </div>
-        <div class="container">
-            <label for="username">Username:</label>
-            <input name="username" type="text" required="required">
-            <label for="password">Password:</label>
-            <input name="password" type="password" required="required">
-            <button type="submit" class="loginbtn">Login</button>
-            <label><input name="rememberme" type="checkbox" checked="checked" >Remember me</label>
-            <span style="float:right">Forgot <a href="#">password?</a></span>
-        </div>
-    </form>
-</div>
-
-<!-- Contact Us Modal -->
-<div id="id02" class="modal">            
-    <form class="modal-content animate" action="/action_page.php">
-        <div id="title">
-            <p style="float:left; padding:5px"><i class="fas">&#xf086;</i>&nbsp;Contact Us</p>
-            <button type="button" onclick="document.getElementById('id02').style.display = 'none'" class="material-icons close">&#xe5cd</button>
-        </div>
-        <div class="container">
-            <label for="vistorName">Name:</label>
-            <input name="vistorName" type="text" id="vistorName" required="required">
-            <label for="vistorEmail">Email Address:</label>
-            <input name="vistorEmail" type="email" id="vistorEmail" required="required">                 
-            <label for="vistorMsg">Message:</label>
-            <textarea name="vistorMsg" id="visitorMessage" required="required"></textarea>
-            <p class="modalButtons">
-                <input type="submit" value="Submit" class="submitbtn">
-                <button type="button" onclick="document.getElementById('id02').style.display = 'none'" class="cancelbtn">Cancel</button>
-            </p>
-            <p id="disclaimer">Please see our <a href="privacy_policy.pdf" target='_blank'>Privacy Policy</a> which outlines the types of information we collect, and how we use it.</p>
-        </div>
-    </form>
-</div>
-
-<!-- Search Modal -->
-<div id="id03" class="modal">            
-    <form class="modal-content animate" action="/action_page.php">
-        <div id="title">
-            <p style="float:left; padding:5px"><i class="fas">&#xf002;</i>&nbsp;Search</p>
-            <button type="button" onclick="document.getElementById('id03').style.display = 'none'" class="material-icons close">&#xe5cd</button>
-        </div>
-        <div class="container">
-            <script async src="https://cse.google.com/cse.js?cx=014152768497635151115:plkctbfrcj0"></script>
-            <div class="gcse-search" enableAutoComplete="true"></div>
-        </div>
-    </form>
-</div>
-
-<!-- Modal Close -->
-<script>
-                // Get the modal
-                var modal = [document.getElementById('id01'), document.getElementById('id02'), document.getElementById('id03')]
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function (event) {
-                    for (var i = 0; i < modal.length; i++) {
-                        if (event.target == modal[i]) {
-                            modal[i].style.display = "none";
-                        }
-                    }
-                }
-</script>
 
 <!-- Header Banner -->
 <div id="banner">
@@ -95,7 +171,7 @@ Date:     20.08.2019
     <a href="https://www.massey.ac.nz" target='_blank'><img src="media/logo.png" alt="Massey University Logo"></a>
 </div>
 
-<!-- Main navigation bar -->
+<!-- Main menu bar -->
 <nav class="navbar">
     <a href="home.html"><i class="fas">&#xf015;</i>&nbsp;Home</a>
     <a href="about.html"><i class="fas">&#xf129;</i>&nbsp;About Us</a>
@@ -123,4 +199,56 @@ Date:     20.08.2019
             <a href='settings.html'>Settings</a>
         </div>
     </div>
-</nav>
+</nav> 
+
+<!-- Login JQuery Dialog Box -->
+<div id="login-dialog" class="dialog" title="Login">
+    <form id="login-form">
+        <label for="name">Username:</label>
+        <input name="name" id="login-form-name" type="text" required="required">
+        <label for="pw">Password:</label>
+        <input name="pw" type="password" id="login-form-pw" required="required">
+    </form>
+</div>
+
+<div id="map-dialog" class="dialog" title="Map Filter">            
+    <form id="map-form">
+        <label for="north">North (Longitude):</label>
+        <input name="north" id="map-form-north" type="text" required>
+        <label for="west">West (Lattitude):</label>
+        <input name="west" id="map-form-west" type="text" required>                 
+        <label for="south">South (Longitude):</label>
+        <input name="south" id="map-form-south" type="text" required>    
+        <label for="east">East (Lattitude:</label>
+        <input name="east" id="map-form-east" type="text" required>    
+    </form>
+</div>
+
+<!-- Contact Us (Feedback) Dialog Box  -->
+<div id="contactus-dialog" class="dialog" title="Contact Us">            
+    <form id="contactus-form">
+        <label for="name">Name:</label>
+        <input name="name" id="contactus-form-name" type="text" required>
+        <label for="email">Email Address:</label>
+        <input name="email" id="contactus-form-email" type="email" required>                 
+        <label for="feedback">Feedback:</label>
+        <textarea name="feedback" id="contactus-form-feedback" required></textarea>
+    </form>
+    <p id="disclaimer">Please see our <a id="privacy-policy" href="privacy_policy.pdf" target='_blank'>Privacy Policy</a> which outlines the types of information we collect, and how we use it.</p>
+</div>
+
+<!-- Search Dialog Box  -->
+<div id="search-dialog" title="Search" style="display: none">            
+    <script async src="https://cse.google.com/cse.js?cx=014152768497635151115:plkctbfrcj0"></script>
+    <div class="gcse-search" enableAutoComplete="true"></div>
+</div>
+
+<!-- Valid Dialog Box -->
+<div id="valid-dialog" class="dialog" title="Valid Message">
+    <p></p>
+</div>
+
+<!-- Error Dialog Box -->
+<div id="error-dialog" class="dialog" title="Error Message">
+    <p></p>
+</div>
