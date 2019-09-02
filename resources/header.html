@@ -26,7 +26,7 @@ Date:     20.08.2019
                         $('#error-dialog').dialog('open');
                         return;
                     }
-                    $.post("http://localhost:8080/TuiteaWebResouces/login", formValues, function () {
+                    $.post("http://localhost:8080/TuiteaWebResouces/login", "name=" + $("#login-form-name").val() + "&" + "pw=" + calcMD5($("#login-form-pw").val()), function () {
                         $('#valid-dialog').dialog({title: "Login Successful"});
                         $('#valid-dialog p').html("Thank you. You have sucessfully logged in.<br><br>To logout again, press the [Logout] button from the top menu bar.");
                         $('#valid-dialog').dialog('open');
@@ -49,7 +49,6 @@ Date:     20.08.2019
                     $(this).dialog("close");
                 },
                 Submit: function () {
-                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                     var formValues = $("#contactus-form").serialize();
                     if (isNotValid(document.getElementById('contactus-form'))) {
                         $('#valid-dialog').dialog({title: "Data Validation Error"});
@@ -121,7 +120,7 @@ Date:     20.08.2019
         if ((document.cookie.indexOf("lastTime") !== -1 && document.cookie.indexOf("key") !== -1)) {
             window.location.replace("settings.html");
         } else {
-            $('#error-dialog').dialog({title: "Authorised Access"});
+            $('#error-dialog').dialog({title: "Unauthorised Access"});
             $('#error-dialog p').html("Sorry, but you have to login first before you attempt to access the settings page.");
             $('#error-dialog').dialog('open');
         }
