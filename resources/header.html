@@ -26,7 +26,7 @@ Date:     20.08.2019
                         $('#error-dialog').dialog('open');
                         return;
                     }
-                    $.post("http://localhost:8080/TuiteaWebResouces/login", "name=" + $("#login-form-name").val() + "&" + "pw=" + calcMD5($("#login-form-pw").val()), function () {
+                    $.post("login", "name=" + $("#login-form-name").val() + "&" + "pw=" + calcMD5($("#login-form-pw").val()), function () {
                         $('#valid-dialog').dialog({title: "Login Successful"});
                         $('#valid-dialog p').html("Thank you. You have sucessfully logged in.<br><br>To logout again, press the [Logout] button from the top menu bar.");
                         $('#valid-dialog').dialog('open');
@@ -56,7 +56,7 @@ Date:     20.08.2019
                         $('#error-dialog').dialog('open');
                         return;
                     }
-                    $.get("http://localhost:8080/TuiteaWebResouces/sendFeedback", formValues, function () {
+                    $.get("sendFeedback", formValues, function () {
                         $('#valid-dialog').dialog({title: "Message Sent"});
                         $('#valid-dialog p').html("Thank you for the feedback about your experience using our website. We greatly appreciate your insight because it helps us to build a better experience for yourself and others.<br><br>If you have any more questions, comments, concerns or compliments, please feel free to contact us again.");
                         $('#valid-dialog').dialog('open');
@@ -87,14 +87,14 @@ Date:     20.08.2019
                 },
                 Load: function () {
                     var formValues = $("#map-form").serialize();
-                    alert(formValues);
                     if (isNotValid(document.getElementById('map-form'))) {
                         $('#valid-dialog').dialog({title: "Data Validation Error"});
                         $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
                         $('#error-dialog').dialog('open');
                         return;
                     }
-                    $.get("http://localhost:8080/TuiteaWebResouces/getPins", formValues, function () {
+                    $.getJSON("getPins", formValues, function (data) {
+                        localStorage.setItem('pins', JSON.stringify(data));
                         $('#valid-dialog').dialog({title: "Message Sent"});
                         $('#valid-dialog p').html("You have successfully loaded the pins within the requested surface area and time period.<br><br>To display these pins on the map press the [Show Pins] button on the map toolbar.");
                         $('#valid-dialog').dialog('open');
@@ -260,12 +260,12 @@ Date:     20.08.2019
                 <th>T2</th>
             </tr>
             <tr>
-                <td><input name="north" id="map-form-north" type="text" placeholder="#0.0#####" pattern="^-?([1-8]?[0-9]\.{1}\d{1,6}$|90\.{1}0{1,6}$)" required></td>
-                <td><input name="east" id="map-form-east" type="text" placeholder="##0.0#####" pattern="^-?((([1]?[0-7][0-9]|[1-9]?[0-9])\.{1}\d{1,6}$)|[1]?[1-8][0]\.{1}0{1,6}$)" required> </td>
-                <td><input name="south" id="map-form-south" type="text" placeholder="#0.0#####" pattern="^-?([1-8]?[0-9]\.{1}\d{1,6}$|90\.{1}0{1,6}$)" required></td>
-                <td> <input name="west" id="map-form-west" type="text" placeholder="##0.0#####" pattern="^-?((([1]?[0-7][0-9]|[1-9]?[0-9])\.{1}\d{1,6}$)|[1]?[1-8][0]\.{1}0{1,6}$)" required></td>   
-                <td><input name="timeBegin" id="map-form-timeBegin" type="text" placeholder="#" required></td>
-                <td><input name="timeEnd" id="map-form-timeEnd" type="text" placeholder="#" required></td>  
+                <td><input name="north" id="map-form-north" type="text" value = 0.0 pattern="^-?([1-8]?[0-9]\.{1}\d{1,6}$|90\.{1}0{1,6}$)" required></td>
+                <td><input name="east" id="map-form-east" type="text" value = 0.0 pattern="^-?((([1]?[0-7][0-9]|[1-9]?[0-9])\.{1}\d{1,6}$)|[1]?[1-8][0]\.{1}0{1,6}$)" required> </td>
+                <td><input name="south" id="map-form-south" type="text" value = 0.0 pattern="^-?([1-8]?[0-9]\.{1}\d{1,6}$|90\.{1}0{1,6}$)" required></td>
+                <td> <input name="west" id="map-form-west" type="text" value = 0.0 pattern="^-?((([1]?[0-7][0-9]|[1-9]?[0-9])\.{1}\d{1,6}$)|[1]?[1-8][0]\.{1}0{1,6}$)" required></td>   
+                <td><input name="timeBegin" id="map-form-timeBegin" type="text" value=0 required></td>
+                <td><input name="timeEnd" id="map-form-timeEnd" type="text" value=0 required></td>  
             </tr>
         </table>
     </form>

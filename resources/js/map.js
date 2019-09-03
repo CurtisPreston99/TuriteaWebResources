@@ -10,48 +10,48 @@ viewer.infoBox.frame.removeAttribute('sandbox');
 // Add entities to Cesium object
 Sandcastle.addToolbarButton('Load Pins', function () {
     $('#map-dialog').dialog('open');
-    ;
 });
 Sandcastle.addToolbarButton('Show Pins', function () {
     viewer.entities.removeAll();
-    $.getJSON("json/pin.json", function (data) {
-        $.each(data, function (key, value) {
-            description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")"
-                    + "<hr>"
-                    + value.description;
-            if (tag_types.includes(value.tag_type)) {
-                tag_type = pinBuilder.fromMakiIconId(value.tag_type, Cesium.Color.fromCssColorString(value.colour), 48);
-            } else {
-                tag_type = pinBuilder.fromColor(Cesium.Color.fromCssColorString(value.colour), 48);
+    var pins = JSON.parse(window.localStorage.getItem('pins'))
+    $.each(pins, function (key, value) {
+        description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")"
+                + "<hr>"
+                + value.description;
+        if (tag_types.includes(value.tag_type)) {
+            tag_type = pinBuilder.fromMakiIconId(value.tag_type, Cesium.Color.fromCssColorString(value.colour), 48);
+        } else {
+            tag_type = pinBuilder.fromColor(Cesium.Color.fromCssColorString(value.colour), 48);
+        }
+        
+        viewer.entities.add({
+            id: (value.uid).toString(),
+            name: value.name,
+            position: Cesium.Cartesian3.fromDegrees(value.lat, value.lon),
+            description: description,
+            point: {
+                show: false,
+                pixelSize: 4,
+                color: Cesium.Color.BLACK,
+                outlineColor: Cesium.Color.fromCssColorString(value.colour),
+                outlineWidth: 6
+            },
+            label: {
+                show: false,
+                text: (value.uid).toString(),
+                font: '16pt Arial',
+                fillColor: Cesium.Color.WHITE,
+                style: Cesium.LabelStyle.FILL,
+                verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                pixelOffset: new Cesium.Cartesian2(0, -12)
+            },
+            billboard: {
+                image: tag_type,
+                verticalOrigin: Cesium.VerticalOrigin.BOTTOM
             }
-            viewer.entities.add({
-                id: (value.uid).toString(),
-                name: value.name,
-                position: Cesium.Cartesian3.fromDegrees(value.lat, value.lon),
-                description: description,
-                point: {
-                    show: false,
-                    pixelSize: 4,
-                    color: Cesium.Color.BLACK,
-                    outlineColor: Cesium.Color.fromCssColorString(value.colour),
-                    outlineWidth: 6
-                },
-                label: {
-                    show: false,
-                    text: (value.uid).toString(),
-                    font: '16pt Arial',
-                    fillColor: Cesium.Color.WHITE,
-                    style: Cesium.LabelStyle.FILL,
-                    verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-                    pixelOffset: new Cesium.Cartesian2(0, -12)
-                },
-                billboard: {
-                    image: tag_type,
-                    verticalOrigin: Cesium.VerticalOrigin.BOTTOM
-                }
-            });
         });
     });
+
     viewer.entities.add({
         name: 'Red Box Demonstration',
         position: Cesium.Cartesian3.fromDegrees(175.7, -40.4, 0),
@@ -62,9 +62,11 @@ Sandcastle.addToolbarButton('Show Pins', function () {
     });
     viewer.zoomTo(viewer.entities);
 });
+
 Sandcastle.addToolbarButton('Hide Pins', function () {
     viewer.entities.removeAll();
 });
+
 // Add KML data to Cesium object
 menuitems.push({
     text: "Remove all KML Data",
@@ -72,7 +74,7 @@ menuitems.push({
         viewer.dataSources.removeAll();
     }
 });
-$.getJSON("json/kml.json", function (data) {
+$.getJSON("getKML", function (data) {
     $.each(data, function (name, value) {
         var obj = {};
         var kml = new Cesium.KmlDataSource();
