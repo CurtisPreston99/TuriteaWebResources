@@ -1,6 +1,6 @@
 
 create table users(
-	id bigint PRIMARY KEY,
+	uid bigint PRIMARY KEY,
   	name text not null,
   	password text not null,
   	role integer not null，
