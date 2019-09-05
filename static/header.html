@@ -26,7 +26,7 @@ Date:     20.08.2019
                         $('#error-dialog').dialog('open');
                         return;
                     }
-                    $.post("login", "name=" + $("#login-form-name").val() + "&" + "pw=" + calcMD5($("#login-form-pw").val()), function () {
+                    $.post("api/login", "name=" + $("#login-form-name").val() + "&" + "pw=" + calcMD5($("#login-form-pw").val()), function () {
                         $('#valid-dialog').dialog({title: "Login Successful"});
                         $('#valid-dialog p').html("Thank you. You have sucessfully logged in.<br><br>To logout again, press the [Logout] button from the top menu bar.");
                         $('#valid-dialog').dialog('open');
@@ -93,7 +93,7 @@ Date:     20.08.2019
                         $('#error-dialog').dialog('open');
                         return;
                     }
-                    $.getJSON("getPins", formValues, function (data) {
+                    $.getJSON("api/getPins", formValues, function (data) {
                         localStorage.setItem('pins', JSON.stringify(data));
                         $('#valid-dialog').dialog({title: "Message Sent"});
                         $('#valid-dialog p').html("You have successfully loaded the pins within the requested surface area and time period.<br><br>To display these pins on the map press the [Show Pins] button on the map toolbar.");

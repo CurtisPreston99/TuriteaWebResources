@@ -94,6 +94,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		se.session[u.Id] = &session{u, time.Now().Unix()}
 		se.lock.Unlock()
 		if u.Role == super {
+			http.SetCookie(w, &http.Cookie{Value:"true", Name:"super"})
 			//http.Redirect(w, r, "../super/control.html", 307)
 			w.WriteHeader(200)
 		} else if u.Role == normal {
