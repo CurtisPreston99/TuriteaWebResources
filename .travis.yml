@@ -17,7 +17,7 @@ services:
   - postgresql
 
 before_script:
-  - cat databaseSchema.sql
+  - cat ./documentation/databaseSchema.sql
   - psql -c "CREATE DATABASE Turitea;" -U postgres
   - psql -c "CREATE USER turiteaNormal WITH PASSWORD 'massey';" -U postgres
   - psql -f ./documentation/databaseSchema.sql
