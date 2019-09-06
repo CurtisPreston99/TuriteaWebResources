@@ -8,7 +8,7 @@ cp -r ./* ../src/TuriteaWebResources
 
 
 
-function build {
+function buildAndRun {
   cd ..
 
   local x=$(pwd)
@@ -20,8 +20,9 @@ function build {
   cd src/TuriteaWebResources
   go get github.com/lib/pq
   go build ./server/main.go
+  ./main
 }
 
 
 
-build
+buildAndRun
