@@ -6,7 +6,6 @@ language: go
 git:
   depth: 1
 
-# Skip the install step. Don't `go get` dependencies. Only build with the code
 # in vendor/
 install: true
 
@@ -18,10 +17,10 @@ services:
   - postgresql
 
 before_script:
-  - cat databaseSchema.sql
+  - cat ./documentation/databaseSchema.sql
   - psql -c "CREATE DATABASE Turitea;" -U postgres
   - psql -c "CREATE USER turiteaNormal WITH PASSWORD 'massey';" -U postgres
-  - psql -f databaseSchema.sql
+  - psql -f ./documentation/databaseSchema.sql
 # script always runs to completion (set +e). If we have linter issues AND a
 # failing test, we want to see both. Configure golangci-lint with a
 # .golangci.yml file at the top level of your repo.
