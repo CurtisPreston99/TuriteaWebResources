@@ -1,9 +1,9 @@
 
 create table users(
-	id bigint PRIMARY KEY,
+	uid bigint PRIMARY KEY,
   	name text not null,
-  	password text not null,
-  	role integer not null，
+  	password_hash text not null,
+  	role integer not null,
 	unique(name)
 );
 
@@ -19,7 +19,7 @@ create table articles(
   	summary text,
   	writenBy int,
 	home_content bigint,
-  	FOREIGN KEY (writenBy) REFERENCES users(id)
+  	FOREIGN KEY (writenBy) REFERENCES users(uid)
 );
 
 
@@ -28,12 +28,12 @@ create table pins(
 	owner bigint not null,
   	longitude float NOT NUll,
   	latitude float NOT NUll,
-  	discription text,
+  	description text,
 	time bigint not null,
 	tag_type integer not null,
 	name text not null,
 	color varchar(7) not null,
-	foreign key (owner) references users(id)
+	foreign key (owner) references users(uid)
 );
 
 
