@@ -19,8 +19,7 @@ function buildAndRun {
 
   cd src/TuriteaWebResources
   go get github.com/lib/pq
-  go build ./server/main.go
-  ./main
+  go run ./server/main.go
 }
 
 

@@ -189,7 +189,7 @@ function getallData(){
 function updatePin(){
   let pin=getallData();
   console.log(pin);
-  $.post("../addPins?num=1",pin,function(){console.log("posted");});
+  $.post("../api/addPins?num=1",pin,function(){console.log("posted");});
 
 
 }
