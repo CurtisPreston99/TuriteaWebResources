@@ -76,10 +76,10 @@ function loadMap(){
 
 function loadpins(){
   var rect = viewer.camera.computeViewRectangle(viewer.scene.globe.ellipsoid, scratchRectangle);
-var area = "north=" + viewer.camera.computeViewRectangle(viewer.scene.globe.ellipsoid, scratchRectangle).north +
-        "&south=" + viewer.camera.computeViewRectangle(viewer.scene.globe.ellipsoid, scratchRectangle).south +
-        "&east=" + viewer.camera.computeViewRectangle(viewer.scene.globe.ellipsoid, scratchRectangle).east +
-        "&west=" + viewer.camera.computeViewRectangle(viewer.scene.globe.ellipsoid, scratchRectangle).west +
+var area = "north=" + Cesium.Math.toDegrees(rect.north).toFixed(8) +
+        "&south=" + Cesium.Math.toDegrees(rect.south).toFixed(8) +
+        "&east=" + Cesium.Math.toDegrees(rect.east).toFixed(8) +
+        "&west=" + Cesium.Math.toDegrees(rect.west).toFixed(8) +
         "&timeBegin=0" +
         "&timeEnd=20000";
 
