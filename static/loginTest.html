@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <script>
+    var loginURL="http://localhost/api/login"
+
+    function login(){
+
+      loginDetails={}
+      loginDetails.name=document.getElementById('name').value;
+      loginDetails.pw=document.getElementById('pw').value;
+      console.log(loginDetails);
+
+      $.post(loginURL,loginDetails,function(){console.log(data);});
+}
+
+       </script>
+</head>
+<body>
+
+    <input name="name" type="text" id='name'>
+    <input name="pw" type="password" id='pw'>
+    <input type="submit" onclick="login()">\
+</body>
+
+
+</html>

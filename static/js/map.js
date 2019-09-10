@@ -30,7 +30,8 @@ function loadMap(){
     animation:false,
     homeButton:false,
 
-  });
+  }
+);
 
 
 
@@ -84,7 +85,7 @@ var area = "north=" + Cesium.Math.toDegrees(rect.north).toFixed(8) +
         "&timeEnd=20000";
 
 console.log(area);
-$.getJSON(home+"/api/getPins", area, function (data) {
+$.getJSON(home+"/api/getPins?"+area, function (data) {
   console.log(data);
     viewer.entities.removeAll();
     $.each(data, function (key, value) {
@@ -92,21 +93,23 @@ $.getJSON(home+"/api/getPins", area, function (data) {
                 + "<hr>"
                 + value.description;
         if (tag_types.includes(value.tag_type)) {
-            tag_type = pinBuilder.fromMakiIconId(value.tag_type, Cesium.Color.fromCssColorString(value.colour), 48);
+            tag_type = pinBuilder.fromMakiIconId(value.tag_type,Cesium.Color.fromCssColorString(value.color), 48);
         } else {
-            tag_type = pinBuilder.fromColor(Cesium.Color.fromCssColorString(value.colour), 48);
+            tag_type = pinBuilder.fromColor(Cesium.Color.fromCssColorString(value.color), 48);
         }
 
         // Add entities
         viewer.entities.add({ id: (value.uid).toString(), name:
-        value.name, position: Cesium.Cartesian3.fromDegrees(value.lat,
-        value.lon), description: description, point: { show: false,
+        value.name,
+        position: Cesium.Cartesian3.fromDegrees(value.lon,
+        value.lat), description: description, point: { show: false,
         pixelSize: 4, color: Cesium.Color.BLACK, outlineColor:
-        Cesium.Color.fromCssColorString(value.colour), outlineWidth: 6 },
+        Cesium.Color.fromCssColorString(value.color), outlineWidth: 6 },
         label: { show: false, text: (value.uid).toString(), font: '16pt Arial', fillColor: Cesium.Color.WHITE, style:
         Cesium.LabelStyle.FILL, verticalOrigin:
         Cesium.VerticalOrigin.BOTTOM, pixelOffset: new
         Cesium.Cartesian2(0, -12) }, billboard: { image: tag_type,
-        verticalOrigin: Cesium.VerticalOrigin.BOTTOM } }); });
-        viewer.zoomTo(viewer.entities); });
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM } });
+        });
+         });
       }

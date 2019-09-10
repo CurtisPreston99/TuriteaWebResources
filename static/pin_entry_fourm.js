@@ -71,7 +71,8 @@ function cordDisplay(long,lat){
 }
 
 function getPins(){
-  $.get('../../documentation/jsonForPins', {}, function(data){
+  $.get(home+'/api/getPins?north=-35.60108315&south=-44.18928953&east=-172.22242220&west=163.56975112&timeBegin=0&timeEnd=20000', {}, function(data){
+    // console.log(data);
     pins=JSON.parse(data)
 
 
@@ -107,7 +108,7 @@ function addIconOptions(){
   // TODO:
   // change this array to get from server
   Options=['airfield', 'airport', 'alcohol-shop', 'america-football', 'art-gallery', 'bakery', 'bank', 'bar', 'baseball', 'basketball', 'beer', 'bicycle', 'building', 'bus', 'cafe', 'camera', 'campsite', 'car', 'cemetery', 'cesium', 'chemist', 'cinema', 'circle', 'circle-stroked', 'city', 'clothing-store', 'college', 'commercial', 'cricket', 'cross', 'dam', 'danger', 'disability', 'dog-park', 'embassy', 'emergency-telephone', 'entrance', 'farm', 'fast-food', 'ferry', 'fire-station', 'fuel', 'garden', 'gift', 'golf', 'grocery', 'hairdresser', 'harbor', 'heart', 'heliport', 'hospital', 'ice-cream', 'industrial', 'land-use', 'laundry', 'library', 'lighthouse', 'lodging', 'logging', 'london-underground', 'marker', 'marker-stroked', 'minefield', 'mobilephone', 'monument', 'museum', 'music', 'oil-well', 'park2', 'parking-garage', 'parking', 'park', 'pharmacy', 'pitch', 'place-of-worship', 'playground', 'police', 'polling-place', 'post', 'prison', 'rail-above', 'rail-light', 'rail-metro', 'rail', 'rail-underground', 'religious-christian', 'religious-jewish', 'religious-muslim', 'restaurant', 'roadblock', 'rocket', 'school', 'scooter', 'shop', 'skiing', 'slaughterhouse', 'soccer', 'square', 'square-stroked', 'star', 'star-stroked', 'suitcase', 'swimming', 'telephone', 'tennis', 'theatre', 'toilets', 'town-hall', 'town', 'triangle', 'triangle-stroked', 'village', 'warehouse', 'waste-basket', 'water', 'wetland', 'zoo']
-  console.log(Options);
+  // console.log(Options);
 
   var html=""
   //makes html
@@ -115,7 +116,7 @@ function addIconOptions(){
     let line=  '<option value='+Options[s]+'>'+Options[s]+'</option>'
     html+=line;
   }
-  console.log(html);
+  // console.log(html);
   document.getElementById('iconSelect').innerHTML=html;
 
 }
@@ -173,7 +174,6 @@ return cords;
 //compiles pin data one object
 function getallData(){
   let cords =getCords();
-  var markupStr = $('#summernote').summernote('code');
   pin={}
   pin["name"]=document.getElementById("name").value;
   pin["type"]=document.getElementById("iconSelect").value;
@@ -187,9 +187,14 @@ function getallData(){
 
 
 function updatePin(){
-  let pin=getallData();
+  let pin=new Array();
+
+  pin[0]=getallData()
+  pin[1]=getallData()
   console.log(pin);
-  $.post("../api/addPins?num=1",pin,function(){console.log("posted");});
+  $.post("../api/addPins?num=1",pin,function(){
+    console.log("posted");
+  });
 
 
 }

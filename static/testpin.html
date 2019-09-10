@@ -6,6 +6,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
     <script>
+    var home=window.location.origin;
+
       function sendData(){
 
         data={}
@@ -21,7 +23,7 @@
 
         $.ajax({
           type: "POST",
-          url: './updatepin',  // this is the url where the data is sent
+          url: home+'/api/updatepin',  // this is the url where the data is sent
           data: data,
         });
 
