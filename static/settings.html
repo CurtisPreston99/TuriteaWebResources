@@ -19,6 +19,7 @@ Date:     20.08.2019
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
         <script src="js/pin.js"></script>
+        <script src="js/article.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 
@@ -91,7 +92,10 @@ Date:     20.08.2019
 
                 <!-- tab 3 -->
                 <div id="tabs-3">
-                  <div id="summernote"></div>
+                  <div id="summernote2"></div>
+                  <button onclick="uploadArticleData()">submit</button>
+
+                  <script>loadeditor()</script>
                 </div>
 
                 <!-- tab 4 -->

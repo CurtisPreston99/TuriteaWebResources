@@ -19,6 +19,7 @@ function build {
 
   cd src/TuriteaWebResources
   go get github.com/lib/pq
+  go get github.com/ChenXingyuChina/asynchronousIO v0.0.0-20190821022857-384d90b77e26
   go build ./server/main.go
 }
 
