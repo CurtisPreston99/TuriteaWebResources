@@ -11,7 +11,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func PinsByArticle(w http.ResponseWriter, r *http.Request) {
+func pinsByArticle(w http.ResponseWriter, r *http.Request) {
 	log.Println("call pins by article")
 	vs := r.URL.Query()
 	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
@@ -40,7 +40,7 @@ func PinsByArticle(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func ArticlesByPin(w http.ResponseWriter, r *http.Request) {
+func articlesByPin(w http.ResponseWriter, r *http.Request) {
 	log .Println("call articles by pin")
 	vs := r.URL.Query()
 	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
@@ -71,7 +71,7 @@ func ArticlesByPin(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func LinkArticleAndPin(w http.ResponseWriter, r *http.Request) {
+func linkArticleAndPin(w http.ResponseWriter, r *http.Request) {
 	p, id := se.checkPermission(r)
 	if p == public {
 		w.WriteHeader(401)

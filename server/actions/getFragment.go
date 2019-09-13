@@ -18,7 +18,7 @@ type fragmentHelper struct {
 	Media *base.Media `json:"m"`
 }
 
-func GetFragment (w http.ResponseWriter, r *http.Request) {
+func getFragment(w http.ResponseWriter, r *http.Request) {
 	log.Println("call get fragment")
 	vs := r.URL.Query()
 	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)

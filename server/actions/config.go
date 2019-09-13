@@ -2,7 +2,7 @@ package actions
 
 import "TuriteaWebResources/server/dataLevel"
 
-func ConfigAction(config Config) {
+func ConfigAction(config *Config) {
 	if config.PreLoadOnIn {
 		dataLevel.OnLoadResourceId = resourcePreloadOnId
 	}

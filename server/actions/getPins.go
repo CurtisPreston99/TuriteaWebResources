@@ -10,7 +10,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func GetPins(w http.ResponseWriter, r *http.Request) {
+func getPins(w http.ResponseWriter, r *http.Request) {
 	log.Println("callGetPins")
 	q := r.URL.Query()
 	north, err := strconv.ParseFloat(q.Get("north"), 64)
@@ -60,7 +60,7 @@ func GetPins(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func GetPin(w http.ResponseWriter, r *http.Request) {
+func getPin(w http.ResponseWriter, r *http.Request) {
 	log.Println("call get pin")
 	id, err := strconv.ParseInt(r.URL.Query().Get("id"), 16, 64)
 	if err != nil {

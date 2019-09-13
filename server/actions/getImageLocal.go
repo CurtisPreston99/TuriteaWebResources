@@ -8,7 +8,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func GetImageLocal(w http.ResponseWriter, r *http.Request) {
+func getImageLocal(w http.ResponseWriter, r *http.Request) {
 	vs := r.URL.Query()
 	idSting := vs.Get("id")
 	if len(idSting) != 0 {

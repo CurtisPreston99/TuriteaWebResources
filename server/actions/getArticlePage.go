@@ -11,7 +11,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func GetArticlePage(w http.ResponseWriter, r *http.Request) {
+func getArticlePage(w http.ResponseWriter, r *http.Request) {
 	log.Println("get article")
 	//todo send the template
 	//hw := bufio.NewWriter(w)

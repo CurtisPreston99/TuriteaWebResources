@@ -10,7 +10,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func AddArticleFragment(w http.ResponseWriter, r *http.Request) {
+func addArticleFragment(w http.ResponseWriter, r *http.Request) {
 	log.Println("call add article fragment")
 	err := r.ParseForm()
 	if err != nil {

@@ -10,7 +10,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func LastArticle(w http.ResponseWriter, r *http.Request) {
+func lastArticle(w http.ResponseWriter, r *http.Request) {
 	log.Println("call last article")
 	vs := r.URL.Query()
 	begin := vs.Get("begin")

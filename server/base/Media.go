@@ -76,8 +76,8 @@ func (MediaKey) TypeId() int64 {
 }
 
 
-func MediaToJson(medias []*Media, w io.Writer) error {
-	return json.NewEncoder(w).Encode(medias)
+func MediaToJson(media *Media, w io.Writer) error {
+	return json.NewEncoder(w).Encode(media)
 }
 
 func JsonToMedia(r io.Reader, num uint16) ([]*Media, error) {

@@ -10,7 +10,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func Delete(w http.ResponseWriter, r *http.Request) {
+func delete(w http.ResponseWriter, r *http.Request) {
 	log.Println("call delete")
 	p, uid := se.checkPermission(r)
 	if p == public {

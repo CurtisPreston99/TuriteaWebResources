@@ -17,7 +17,7 @@ const (
 	articleContent
 )
 
-func AddImage(w http.ResponseWriter, r *http.Request) {
+func addImage(w http.ResponseWriter, r *http.Request) {
 	log.Println("call add image")
 	p, uid := se.checkPermission(r)
 	switch p {

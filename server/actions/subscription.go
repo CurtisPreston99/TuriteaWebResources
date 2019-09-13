@@ -16,7 +16,7 @@ func init() {
 	}
 }
 
-func AddSubscription(w http.ResponseWriter, r *http.Request) {
+func addSubscription(w http.ResponseWriter, r *http.Request) {
 	log.Println("call add subscription")
 	<-speedControl
 	err := r.ParseForm()
@@ -40,7 +40,7 @@ func AddSubscription(w http.ResponseWriter, r *http.Request) {
 	speedControl <-struct {}{}
 }
 
-func ChangeSubscription(w http.ResponseWriter, r *http.Request) {
+func changeSubscription(w http.ResponseWriter, r *http.Request) {
 	log.Println("call change subscription")
 	<-speedControl
 	err := r.ParseForm()
@@ -64,7 +64,7 @@ func ChangeSubscription(w http.ResponseWriter, r *http.Request) {
 	speedControl <-struct {}{}
 }
 
-func DeleteSubscription(w http.ResponseWriter, r *http.Request) {
+func deleteSubscription(w http.ResponseWriter, r *http.Request) {
 	log.Println("call delete subscription")
 	<-speedControl
 	err := r.ParseForm()

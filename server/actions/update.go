@@ -11,7 +11,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func Update(w http.ResponseWriter, r *http.Request) {
+func update(w http.ResponseWriter, r *http.Request) {
 	log.Println("call update")
 	p, id := se.checkPermission(r)
 	if p == public {
