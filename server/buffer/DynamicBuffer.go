@@ -373,6 +373,7 @@ const (
 	Exist = 1 << iota
 	Deleted
 	NotExist
+	NotInBuffer
 )
 func (c *Cache) LoadIfExist(key asynchronousIO.Key) (asynchronousIO.Bean, uint8) {
 	t := key.TypeId()
@@ -391,5 +392,5 @@ func (c *Cache) LoadIfExist(key asynchronousIO.Key) (asynchronousIO.Bean, uint8)
 		return v.data, v.updateState
 	}
 	cache.lock.Unlock()
-	return nil, NotExist
+	return nil, NotInBuffer
 }

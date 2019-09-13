@@ -14,6 +14,7 @@ import (
 func GetArticlePage(w http.ResponseWriter, r *http.Request) {
 	log.Println("get article")
 	//todo send the template
+	//hw := bufio.NewWriter(w)
 	articleId := strings.SplitN(r.URL.Path, "/", 3)[3]
 	if len(articleId) == 0 {
 		w.WriteHeader(400)
