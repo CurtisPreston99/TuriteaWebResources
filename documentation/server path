@@ -39,6 +39,8 @@ root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
                   -- linkPinToArticle?aid=*&pid=*
                                                 (call for link pin to article, vice versa, 'aid' means article id, 'pid' means pin id)
                   -- getImage?id=*              (get image file with this api by passing its id, and return an image)
+                  -- unlinkArticleAndPin?aid=*&pid=*
+                                                (call for unlink article and pin)
                   -- (to be continue)
       -- article                                
                   -- 1
