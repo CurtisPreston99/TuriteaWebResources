@@ -1,0 +1,36 @@
+when call the "/[ArticleId]" the server will send the template of the artilce (which currently there is not) and set a cookie whose name is "home" and the value is the id of the wiki article root. 
+then call "/api/getAriclePage?id=*" to get root article fragment.
+this will send back a json file, it will look like this:
+{
+	"content":"....."  // the content of this fragment
+ 	"resources":[
+		{
+			"pos":0,   // the position of resource in the content
+			"type":"m",  // when the value is m means it will send back media information
+			"m":{
+				"type"=1,  // when it is 1 means it will be a image and when it is 2 it will be a video
+				"tile"="..."  // the title of the video
+				"url"="..."  // no use now because it will not have an image on cloud. 
+				"uid"=0  // the id of this media use it in "/api/getMedia?id=*"
+			},
+			"id":0  // id is no meanning when the type is "m"
+		},
+		{
+			"pos":1,   // the position of resource in the content
+			"type":"mid",  // when the value is m means it will send back media information
+			"m":{},  // when the type is "mid" the "m" is no meaning
+			"id":0  // id is the id of the media	
+		},
+		{
+			"pos":1,   // the position of resource in the content
+			"type":"f",  // when the value is m means it will send back media information
+			"m":{},  // when the type is "f" the "m" is no meaning
+			"id":0  // id is the id of the another fragment
+		},
+		.......
+	]
+}
+Recursive or iterative until the entire tree is built.
+
+
+and how to assemble fragment use argument like '$1' or others which can be replaced by others in content and combination them together

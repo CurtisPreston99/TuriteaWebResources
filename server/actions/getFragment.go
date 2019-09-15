@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
 	"strconv"
@@ -9,6 +10,13 @@ import (
 	"TuriteaWebResources/server/buffer"
 	"TuriteaWebResources/server/dataLevel"
 )
+
+type fragmentHelper struct {
+	Position int64 `json:"pos"`
+	Type string `json:"type"`
+	Id int64 `json:"id"`
+	Media *base.Media `json:"m"`
+}
 
 func GetFragment (w http.ResponseWriter, r *http.Request) {
 	log.Println("call get fragment")
@@ -23,7 +31,7 @@ func GetFragment (w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(404)
 	}
 	ac := b.(*dataLevel.ArticleResource)
-	_, err = w.Write([]byte("{content:\""))
+	_, err = w.Write([]byte("{\"content\":\""))
 	if err != nil {
 		return
 	}
@@ -31,32 +39,55 @@ func GetFragment (w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		return
 	}
-	_, err = w.Write([]byte("\", resources: ["))
-	var start bool
+	_, err = w.Write([]byte("\", \"resources\": ["))
+	var start = true
+	var helper = &fragmentHelper{}
+	encoder := json.NewEncoder(w)
 	for i, v := range ac.ResourcesId {
-		if v.Type & (imageCloud | video) != 0 {
-			if !start{
-				_, err = w.Write([]byte(","))
-			}
+		if !start{
+			_, err = w.Write([]byte(","))
+		}
+		if v.Type & (dataLevel.Image | dataLevel.Video) != 0 {
 			b, exist := buffer.MainCache.LoadIfExist(base.MediaKey(v.Id))
 			if exist == buffer.Exist {
-				_, err = w.Write([]byte("{pos:"))
+				media := b.(*base.Media)
+				helper.Position = int64(i)
+				helper.Type = "m"
+				helper.Media = media
+				helper.Id = 0
+				err = encoder.Encode(helper)
+				start = false
 				if err != nil {
+					w.WriteHeader(500)
 					return
 				}
-				_, err = w.Write([]byte(strconv.FormatInt(int64(i), 16)))
-				_, err = w.Write([]byte(",type: \"u\", url:\""))
+			} else if exist == buffer.NotInBuffer {
+				helper.Media = nil
+				helper.Id = v.Id
+				helper.Type = "mId"
+				helper.Position = int64(i)
+				start = false
+				err = encoder.Encode(helper)
 				if err != nil {
+					w.WriteHeader(500)
 					return
 				}
-				_, err = w.Write([]byte(b.(*base.Media).Url))
-				if err != nil {
-					return
-				}
-				_, err = w.Write([]byte("\"}"))
-				if err != nil {
-					return
-				}
+			}
+		} else {
+			helper.Media = nil
+			helper.Id = v.Id
+			helper.Type = "f"
+			helper.Position = int64(i)
+			start = false
+			err := encoder.Encode(helper)
+			if err != nil {
+				w.WriteHeader(500)
+				return
+			}
+			err = encoder.Encode(helper)
+			start = false
+			if err != nil {
+				return
 			}
 		}
 	}
