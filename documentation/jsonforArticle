@@ -3,12 +3,12 @@
     "id":1,    // when use /api/addArticles it can be null.
     "wby":0,   // when use /api/addArticles it can be null.
     "sum":"abc",
-    "home":0;
+    "home":0
   },
   {
     "id":2,
     "wby":1,
-    "sum":"test"
-    "home":3;
+    "sum":"test",
+    "home":3
   }
 ]
