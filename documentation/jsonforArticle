@@ -1,6 +1,6 @@
 [
   {
-    "id":1,
+    "id":1,    // when use /api/addArticles it can be null.
     "wby":0,   // when use /api/addArticles it can be null.
     "sum":"abc",
     "home":0;
