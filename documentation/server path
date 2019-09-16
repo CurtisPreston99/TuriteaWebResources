@@ -23,7 +23,7 @@ root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
                   -- addImage                   (call for add image use a POST method to upload data)
                   -- addVideo                   (call for add video use websocket? or only use post)
                   -- update?type=*              (call for update data, the parameter "type" means which type of resource you need 0 is fragment of article 2 is pin 4 is article, and post the data to it)
-                  -- delete?type=*&id=*         (call for delete, it will return a true or a flase for notify success or not use AJAX to call it)
+                  -- delete?type=*&id=*         (call for delete, it will return a true or a flase for notify success or not, use AJAX to call it, the type is almost same to update, but when the type=3 means delete the media)
                   -- media?id=*                 (for a media, use it id to get resources, use AJAX, it can't get the real image just its head)
                   -- fragment?id=*              (call for article fragment with id and call with AJAX)
                   -- addSubscription            (call for add a subscription with POST method and the form has two fields named 'name' and 'email')
@@ -41,6 +41,7 @@ root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
                   -- getImage?id=*              (get image file with this api by passing its id, and return an image)
                   -- unlinkArticleAndPin?aid=*&pid=*
                                                 (call for unlink article and pin)
+                  -- changePassword             (call for change password, it will change the password which login. it need two fields "new" and "old", means new password and old one, respectively. and all of them need be md5)
                   -- (to be continue)
       -- article                                
                   -- 1
