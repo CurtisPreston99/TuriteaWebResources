@@ -39,7 +39,7 @@ func addUser(w http.ResponseWriter, r *http.Request) {
 		speedControl <-struct {}{}
 		return
 	}
-	_, _ = fmt.Fprintf(w, `{name:"%s", role:%d, password="%s"`, name, role, password)
+	_, _ = fmt.Fprintf(w, `{"name":"%s", "role":%d, "password":"%s"}`, name, role, password)
 	speedControl <-struct {}{}
 }
 

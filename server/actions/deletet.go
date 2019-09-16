@@ -10,7 +10,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func delete(w http.ResponseWriter, r *http.Request) {
+func deleteData(w http.ResponseWriter, r *http.Request) {
 	log.Println("call delete")
 	p, uid := se.checkPermission(r)
 	if p == public {
@@ -22,38 +22,36 @@ func delete(w http.ResponseWriter, r *http.Request) {
 	}
 	vs := r.URL.Query()
 	t, err := strconv.ParseInt(vs.Get("type"), 16, 64)
+	//fmt.Println(t)
 	if err != nil {
 		w.WriteHeader(400)
 		return
 	}
-	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
+	var ResId int64
+	ResId, err = strconv.ParseInt(vs.Get("id"), 16, 64)
+	//fmt.Println(id)
 	if err != nil {
 		w.WriteHeader(400)
 		return
 	}
 	switch t {
 	case dataLevel.ImagesResources:
-		if !buffer.MainCache.Delete(dataLevel.ImageKey(id)) {
-			w.WriteHeader(500)
-			return
-		}
+		buffer.MainCache.Delete(dataLevel.ImageKey(ResId))
 	case dataLevel.ArticleContentResources:
-		if !buffer.MainCache.Delete(dataLevel.ArticleContentKey(id)) {
-			w.WriteHeader(500)
-			return
-		}
+		buffer.MainCache.Delete(dataLevel.ArticleContentKey(ResId))
 	case dataLevel.Media:
-		if !buffer.MainCache.Delete(base.MediaKey(id)) {
+		if !buffer.MainCache.Delete(base.MediaKey(ResId)) {
 			w.WriteHeader(500)
 			return
 		}
+		buffer.MainCache.Delete(dataLevel.ImageKey(ResId))
 	case dataLevel.Article:
-		if !buffer.MainCache.Delete(base.ArticleKey(id)) {
+		if !buffer.MainCache.Delete(base.ArticleKey(ResId)) {
 			w.WriteHeader(500)
 			return
 		}
 	case dataLevel.Pin:
-		if !buffer.MainCache.Delete(base.PinKey(id)) {
+		if !buffer.MainCache.Delete(base.PinKey(ResId)) {
 			w.WriteHeader(500)
 			return
 		}

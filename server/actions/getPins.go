@@ -43,7 +43,9 @@ func getPins(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		return
 	}
+	//log.Println(time.Now(), "before sql")
 	pins := dataLevel.SQLWorker.GetPinsInArea(east, west, north, south, timeBegin, timeEnd)
+	//log.Println(time.Now(), "after sql")
 	goal := make([]*base.Pin, len(pins))
 	for i, v := range pins {
 		bean, ok := buffer.MainCache.Load(base.PinKey(v))
@@ -53,7 +55,9 @@ func getPins(w http.ResponseWriter, r *http.Request) {
 			goal[i] = bean.(*base.Pin)
 		}
 	}
+	//log.Println(time.Now())
 	err = base.PinsToJson(goal, w)
+	//log.Println(time.Now())
 	if err != nil {
 		w.WriteHeader(400)
 		return

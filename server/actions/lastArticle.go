@@ -29,35 +29,38 @@ func lastArticle(w http.ResponseWriter, r *http.Request) {
 		err := base.ArticlesToJson(articles, w)
 		if err != nil {
 			w.WriteHeader(500)
+			return
 		}
 	} else if (len(begin) != 0 && len(num) == 0) || (len(begin) == 0 && len(num) != 0) {
 		//fmt.Println("error arg")
 		w.WriteHeader(400)
 		return
-	}
-	b, err := strconv.ParseInt(begin, 16, 64)
-	if err != nil {
-		w.WriteHeader(400)
-		return
-	}
-	n, err := strconv.ParseInt(num, 16, 64)
-	if err != nil {
-		w.WriteHeader(400)
-		return
-	}
-	arts := dataLevel.SQLWorker.SelectNextTopArticles(b, uint8(n))
-	articles := make([]*base.Article, len(arts))
-	for i, v := range arts {
-		b, ok := buffer.MainCache.Load(base.ArticleKey(v))
-		if !ok {
-			//todo maybe it will be add a error one
-			articles[i] = nil
-			continue
+	} else {
+		b, err := strconv.ParseInt(begin, 16, 64)
+		if err != nil {
+			w.WriteHeader(400)
+			return
 		}
-		articles[i] = b.(*base.Article)
-	}
-	err = base.ArticlesToJson(articles, w)
-	if err != nil {
-		w.WriteHeader(500)
+		n, err := strconv.ParseInt(num, 16, 64)
+		if err != nil {
+			w.WriteHeader(400)
+			return
+		}
+		arts := dataLevel.SQLWorker.SelectNextTopArticles(b, uint8(n))
+		articles := make([]*base.Article, len(arts))
+		for i, v := range arts {
+			b, ok := buffer.MainCache.Load(base.ArticleKey(v))
+			if !ok {
+				//todo maybe it will be add one for error
+				articles[i] = nil
+				continue
+			}
+			articles[i] = b.(*base.Article)
+		}
+		err = base.ArticlesToJson(articles, w)
+		if err != nil {
+			w.WriteHeader(500)
+			return
+		}
 	}
 }

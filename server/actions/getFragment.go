@@ -39,7 +39,7 @@ func getFragment(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		return
 	}
-	_, err = w.Write([]byte("\", \"resources\": ["))
+	_, err = w.Write([]byte("\", \"res\": ["))
 	var start = true
 	var helper = &fragmentHelper{}
 	encoder := json.NewEncoder(w)
@@ -84,7 +84,6 @@ func getFragment(w http.ResponseWriter, r *http.Request) {
 				w.WriteHeader(500)
 				return
 			}
-			err = encoder.Encode(helper)
 			start = false
 			if err != nil {
 				return

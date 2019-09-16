@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"log"
 	"net/http"
 	"strconv"
 
@@ -9,9 +10,11 @@ import (
 )
 
 func getImageLocal(w http.ResponseWriter, r *http.Request) {
-	vs := r.URL.Query()
-	idSting := vs.Get("id")
-	if len(idSting) != 0 {
+	log.Println("call get image local")
+	//fmt.Println(r.URL)
+	q := r.URL.Query()
+	idSting := q.Get("id")
+	if len(idSting) == 0 {
 		w.WriteHeader(400)
 		return
 	}

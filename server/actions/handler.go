@@ -11,28 +11,33 @@ func Start(config *Config) {
 
 	ConfigAction(config)
 	http.HandleFunc("/article/", getArticlePage)
-	http.Handle("/", http.FileServer(http.Dir("static")))          //tested
-	http.HandleFunc("/api/getPins", getPins)                       // tested
-	http.HandleFunc("/api/getPin", getPin)                         // tested
-	http.HandleFunc("/api/login", login)                           // tested
-	http.HandleFunc("/api/addPins", addPins)                       // tested
-	http.HandleFunc("/api/addArticle", addArticle)                 // tested
-	http.HandleFunc("/api/addArticleFragment", addArticleFragment) // tested
-	http.HandleFunc("/api/addImage", addImage)                     // tested
-	http.HandleFunc("/api/update", update)
-	http.HandleFunc("/api/delete", delete)                         // tested
-	http.HandleFunc("/api/media", getMedia)                        // tested
-	http.HandleFunc("/api/fragment", getFragment)                  // tested
+
+	//for test
+	http.Handle("/", http.FileServer(http.Dir("../static")))       // auto tested
+
+	// http.Handle("/", http.FileServer(http.Dir("static")))          // auto tested
+	http.HandleFunc("/api/getPins", getPins)                       // auto tested
+	http.HandleFunc("/api/getPin", getPin)                         // auto tested
+	http.HandleFunc("/api/login", login)                           // auto tested
+	http.HandleFunc("/api/addPins", addPins)                       // auto tested
+	http.HandleFunc("/api/addArticle", addArticle)                 // auto tested
+	http.HandleFunc("/api/addArticleFragment", addArticleFragment) // auto tested
+	http.HandleFunc("/api/addImage", addImage)                     // auto tested
+	http.HandleFunc("/api/update", update)                         // auto tested
+	http.HandleFunc("/api/delete", deleteData)                     // tested
+	http.HandleFunc("/api/media", getMedia)                        // auto tested
+	http.HandleFunc("/api/fragment", getFragment)                  // auto tested
 	http.HandleFunc("/api/addSubscription", addSubscription)
 	http.HandleFunc("/api/changeSubscription", changeSubscription)
 	http.HandleFunc("/api/deleteSubscription", deleteSubscription)
-	http.HandleFunc("/api/sendfeedback", addFeedback)           // tested
-	http.HandleFunc("/api/addUser", addUser)                    // tested
-	http.HandleFunc("/api/deleteUser", deleteUser)              // tested
-	http.HandleFunc("/api/lastArticle", lastArticle)            // tested
-	http.HandleFunc("/api/pinsByArticle", pinsByArticle)        // tested
-	http.HandleFunc("/api/articlesByPin", articlesByPin)        // tested
-	http.HandleFunc("/api/linkPinToArticle", linkArticleAndPin) // tested
-	http.HandleFunc("/api/changePassword", changePassword)
-	http.HandleFunc("/api/getImage", getImageLocal)
+	http.HandleFunc("/api/sendfeedback", addFeedback)           // auto tested
+	http.HandleFunc("/api/addUser", addUser)                    // auto tested
+	http.HandleFunc("/api/deleteUser", deleteUser)              // auto tested
+	http.HandleFunc("/api/lastArticle", lastArticle)            // auto tested
+	http.HandleFunc("/api/pinsByArticle", pinsByArticle)        // auto tested
+	http.HandleFunc("/api/articlesByPin", articlesByPin)        // auto tested
+	http.HandleFunc("/api/linkPinToArticle", linkArticleAndPin) // auto tested
+	http.HandleFunc("/api/unlinkArticleAndPin", unLinkPinAndArticle)
+	http.HandleFunc("/api/changePassword", changePassword)      // auto tested
+	http.HandleFunc("/api/getImage", getImageLocal)             // auto tested
 }
