@@ -11,7 +11,7 @@ import (
 	"TuriteaWebResources/server/buffer"
 )
 
-func AddPins(w http.ResponseWriter, r *http.Request) {
+func addPins(w http.ResponseWriter, r *http.Request) {
 	log.Println("call add pin")
 	p, id := se.checkPermission(r)
 	switch p {

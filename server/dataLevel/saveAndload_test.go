@@ -10,7 +10,6 @@ import (
 	"testing"
 )
 
-
 var r = &ArticleResource{Id:1, Content: []byte("abc"), ResourcesId: []Resource{{1,1}, {1,3}}}
 
 func TestSaveArticleContent(t *testing.T) {
@@ -44,8 +43,19 @@ func TestLoadArticleContent(t *testing.T) {
 	}
 }
 
+func TestDeleteArticle(t *testing.T) {
+	f := DeleteArticle(base.ArticleKey(1))
+	err := f()
+	if err != nil {
+		t.Fatal(err)
+	}
+}
+
 func init() {
 	OnLoadResourceId = func(resources []Resource) {
+
+	}
+	OnLoadMedia = func(key ImageKey) {
 
 	}
 	f, err := os.Open("test.jpg")
@@ -61,6 +71,7 @@ func init() {
 	Init()
 }
 var d []byte
+
 var ti = &ImageResource{Id:1}
 
 func TestLoadImage(t *testing.T) {
@@ -87,9 +98,17 @@ func TestSaveImage(t *testing.T) {
 	}
 }
 
+func TestSqlLinker_CreateArticle(t *testing.T) {
+	ok := SQLWorker.CreateArticle("abccc", 0, 0, 1)
+	if !ok {
+		t.Fatal()
+	}
+}
+
 func TestLoadArticle(t *testing.T) {
-	f := Load(base.ArticleKey(3))
-	b, err := f()
+	f := Load(base.ArticleKey(0))
+	var err error
+	b, err = f()
 	if err != nil {
 		fmt.Printf("%t\n", err)
 		t.Fatal(err)
@@ -98,24 +117,16 @@ func TestLoadArticle(t *testing.T) {
 }
 
 func TestSaveArticle(t *testing.T) {
-	f := SaveArticleAndNotify(&base.Article{Id:0, WriteBy:0, Summary:"aaa"})
+	b.(*base.Article).Summary = "test"
+	f := SaveAndNotify(b)
 	err := f()
 	if err != nil {
 		t.Fatal(err)
 	}
 }
 
-func TestSqlLinker_CreateArticle(t *testing.T) {
-	ok := SQLWorker.CreateArticle("abccc", 1, 0, 1)
-	if !ok {
-		t.Fatal()
-	}
-}
-
-func TestDeleteArticle(t *testing.T) {
-	f := DeleteArticle(base.ArticleKey(1))
-	err := f()
-	if err != nil {
+func TestSqlLinker_DeleteArticle(t *testing.T) {
+	if err := SQLWorker.DeleteArticle(0); err != nil {
 		t.Fatal(err)
 	}
 }
@@ -157,6 +168,12 @@ func TestDeletePin(t *testing.T) {
 	}
 }
 
+func TestSqlLinker_AddMedia(t *testing.T) {
+	if !SQLWorker.AddMedia(0, "2333", "23333", 0) {
+		t.Fatal()
+	}
+}
+
 func TestLoadMedia(t *testing.T) {
 	f := LoadMedia(base.MediaKey(0))
 	var err error
@@ -170,7 +187,7 @@ func TestLoadMedia(t *testing.T) {
 func TestSaveMedia(t *testing.T) {
 	TestLoadMedia(t)
 	media := b.(*base.Media)
-	media.Title = "2333"
+	media.Title = "2233"
 	f := SaveMediaAndNotify(media)
 	err := f()
 	if err != nil {
@@ -178,14 +195,8 @@ func TestSaveMedia(t *testing.T) {
 	}
 }
 
-func TestSqlLinker_AddMedia(t *testing.T) {
-	if !SQLWorker.AddMedia(1, "2333", "23333", 0) {
-		t.Fatal()
-	}
-}
-
 func TestDeleteMedia(t *testing.T) {
-	f := DeleteMedia(base.MediaKey(1))
+	f := DeleteMedia(base.MediaKey(0))
 	err := f()
 	if err != nil {
 		t.Fatal()

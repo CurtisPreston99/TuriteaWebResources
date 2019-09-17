@@ -10,7 +10,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func GetPins(w http.ResponseWriter, r *http.Request) {
+func getPins(w http.ResponseWriter, r *http.Request) {
 	log.Println("callGetPins")
 	q := r.URL.Query()
 	north, err := strconv.ParseFloat(q.Get("north"), 64)
@@ -43,7 +43,9 @@ func GetPins(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(400)
 		return
 	}
+	//log.Println(time.Now(), "before sql")
 	pins := dataLevel.SQLWorker.GetPinsInArea(east, west, north, south, timeBegin, timeEnd)
+	//log.Println(time.Now(), "after sql")
 	goal := make([]*base.Pin, len(pins))
 	for i, v := range pins {
 		bean, ok := buffer.MainCache.Load(base.PinKey(v))
@@ -53,14 +55,16 @@ func GetPins(w http.ResponseWriter, r *http.Request) {
 			goal[i] = bean.(*base.Pin)
 		}
 	}
+	//log.Println(time.Now())
 	err = base.PinsToJson(goal, w)
+	//log.Println(time.Now())
 	if err != nil {
 		w.WriteHeader(400)
 		return
 	}
 }
 
-func GetPin(w http.ResponseWriter, r *http.Request) {
+func getPin(w http.ResponseWriter, r *http.Request) {
 	log.Println("call get pin")
 	id, err := strconv.ParseInt(r.URL.Query().Get("id"), 16, 64)
 	if err != nil {

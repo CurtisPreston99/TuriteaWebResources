@@ -9,7 +9,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func AddUser(w http.ResponseWriter, r *http.Request) {
+func addUser(w http.ResponseWriter, r *http.Request) {
 	log.Println("call add user")
 	<-speedControl
 	p, id := se.checkPermission(r)
@@ -39,11 +39,11 @@ func AddUser(w http.ResponseWriter, r *http.Request) {
 		speedControl <-struct {}{}
 		return
 	}
-	_, _ = fmt.Fprintf(w, `{name:"%s", role:%d, password="%s"`, name, role, password)
+	_, _ = fmt.Fprintf(w, `{"name":"%s", "role":%d, "password":"%s"}`, name, role, password)
 	speedControl <-struct {}{}
 }
 
-func DeleteUser(w http.ResponseWriter, r *http.Request) {
+func deleteUser(w http.ResponseWriter, r *http.Request) {
 	log.Println("call delete user")
 	<-speedControl
 	p, id := se.checkPermission(r)

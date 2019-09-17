@@ -239,7 +239,7 @@ func (s *SqlLinker) Login(name string, password string) *base.User {
 func (s *SqlLinker) CreateRole(role int, name string) string {
 	userId := base.GenUserId()
 	passWord := base.RandomPassword()
-	fmt.Println(fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))))
+	//fmt.Println(fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))))
 	r, err := s.stmtMap[createRole].Query(userId, name, fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))), role)
 	if err != nil {
 		base.RecycleUserId(userId)
@@ -403,8 +403,8 @@ func (s *SqlLinker) LinkPinToArticle(pid, aid int64) bool {
 	return true
 }
 
-func (s *SqlLinker) UnLinkPinToArticle(pin *base.Pin, article *base.Article) bool {
-	r, err := s.stmtMap[unlinkPinToArticle].Query(pin.Uid, article.Id)
+func (s *SqlLinker) UnLinkPinToArticle(pinId , articleId int64) bool {
+	r, err := s.stmtMap[unlinkPinToArticle].Query(pinId, articleId)
 	if err != nil {
 		return false
 	}

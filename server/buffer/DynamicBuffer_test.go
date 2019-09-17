@@ -9,15 +9,20 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func init() {
+func TestMain(m *testing.M) {
 	dataLevel.OnLoadResourceId = func(resources []dataLevel.Resource) {
 
 	}
+	dataLevel.OnLoadMedia = func(key dataLevel.ImageKey) {
+
+	}
 	dataLevel.Init()
+	m.Run()
+	MainCache.Delete(base.ArticleKey(100))
 }
 
 func TestCache_LoadNoExist(t *testing.T) {
-	b, ok := MainCache.Load(base.ArticleKey(3))
+	b, ok := MainCache.Load(base.PinKey(3))
 	if !ok {
 		t.Fatal(b)
 	}
@@ -25,11 +30,11 @@ func TestCache_LoadNoExist(t *testing.T) {
 }
 
 func TestCache_LoadExist(t *testing.T) {
-	b, ok := MainCache.Load(dataLevel.ArticleContentKey(1))
+	b, ok := MainCache.Load(base.PinKey(1))
 	if !ok {
 		t.Fatal(b)
 	}
-	b2, ok := MainCache.Load(dataLevel.ArticleContentKey(1))
+	b2, ok := MainCache.Load(base.PinKey(1))
 	if !ok || b2 != b {
 		t.Fatal(b, b2)
 	}
@@ -48,27 +53,8 @@ func TestCache_UpdateExist(t *testing.T) {
 	<-time.Tick(2*time.Second)
 }
 
-func TestCache_DeleteNotExist(t *testing.T) {
-	if !MainCache.Delete(base.ArticleKey(2)) {
-		t.Fatal()
-	}
-}
-
-func TestCache_DeleteExist(t *testing.T) {
-	article := &base.Article{base.GenArticleId(), 0, "233", 1}
-	k := MainCache.CreateArticle(article)
-	if !k {
-		t.Fatal()
-	}
-	// uncomment it to check by hand
-	//<- time.Tick(30*time.Second)
-	if !MainCache.Delete(base.ArticleKey(2)) {
-		t.Fatal()
-	}
-}
-
 func TestCache_CreateArticle(t *testing.T) {
-	article := &base.Article{base.GenArticleId(), 0, "233", 1}
+	article := &base.Article{100, 0, "233", 1}
 	fmt.Println(article)
 	if !MainCache.CreateArticle(article) {
 		t.Fatal()
@@ -76,34 +62,40 @@ func TestCache_CreateArticle(t *testing.T) {
 }
 
 func TestCache_CreateImage(t *testing.T) {
-	k := base.GenMediaId()
-	MainCache.CreateImage([]byte{123:1}, k)
-	MainCache.flushBlock(uint8(k) + uint8(dataLevel.ImagesResources))
+	MainCache.CreateImage([]byte{123:1}, 100)
+	MainCache.flushBlock(uint8(100) + uint8(dataLevel.ImagesResources))
 	<-time.Tick(2 * time.Second)
 }
 
+var acId int64
 func TestCache_CreateArticleContent(t *testing.T) {
-	k := MainCache.CreateArticleContent([]dataLevel.Resource{{1, 3}, {1, 5}}, "test")
-	MainCache.flushBlock(uint8(k) + uint8(dataLevel.ArticleContentResources))
+	acId = MainCache.CreateArticleContent([]dataLevel.Resource{{1, 3}, {1, 5}}, "test")
+	MainCache.flushBlock(uint8(acId) + uint8(dataLevel.ArticleContentResources))
 	<-time.Tick(2*time.Second)
 }
 
-func TestCache_CreateMedia(t *testing.T) {
-	if !MainCache.CreateMedia(base.GenMedia(base.GenMediaId(), 1, "test", "htp")) {
+//func TestCache_CreateMedia(t *testing.T) {
+//	if !MainCache.CreateMedia(base.GenMedia(100, 1, "test", "htp")) {
+//		t.Fatal()
+//	}
+//}
+
+func TestCache_CreatePin(t *testing.T) {
+	if !MainCache.CreatePin(&base.Pin{100, 0, 1, 1, 1, "jkss", "hospital", "testInBuffer", "#000011"}) {
 		t.Fatal()
 	}
 }
 
-func TestCache_CreatePin(t *testing.T) {
-	if !MainCache.CreatePin(&base.Pin{base.GenPinId(), 0, 1, 1, 1, "jkss", "hospital", "testInBuffer", "#000011"}) {
+func TestCache_DeleteNotExist(t *testing.T) {
+	if !MainCache.Delete(base.PinKey(100)) {
 		t.Fatal()
 	}
 }
 
 func TestCache_LoadAsynchronousNotExist(t *testing.T) {
-	MainCache.LoadAsynchronous(dataLevel.ArticleContentKey(1))
+	MainCache.LoadAsynchronous(base.PinKey(17))
 	<-time.Tick(1 * time.Second)
-	b, ok := MainCache.Load(dataLevel.ArticleContentKey(1))
+	b, ok := MainCache.Load(base.PinKey(17))
 	if !ok {
 		t.Fatal()
 	}
@@ -111,41 +103,45 @@ func TestCache_LoadAsynchronousNotExist(t *testing.T) {
 }
 
 func TestCache_LoadAsynchronousExist(t *testing.T) {
-	b, ok := MainCache.Load(dataLevel.ArticleContentKey(1))
+	b, ok := MainCache.Load(base.PinKey(18))
 	<-time.Tick(1 * time.Second)
 	if !ok {
 		t.Fatal()
 	}
-	MainCache.LoadAsynchronous(dataLevel.ArticleContentKey(1))
+	MainCache.LoadAsynchronous(base.PinKey(18))
 	<-time.Tick(1 * time.Second)
-	b2, ok := MainCache.Load(dataLevel.ArticleContentKey(1))
+	b2, ok := MainCache.Load(base.PinKey(18))
 	if !ok || b != b2{
 		t.Fatal(b, b2)
 	}
 }
-var lastKey int64
+
 func TestLoadAfterCreate(t *testing.T) {
-	media := base.GenMedia(base.GenMediaId(), 1, "test", "htp")
+	media := base.GenMedia(100, 1, "test", "htp")
 	k := MainCache.CreateMedia(media)
-	lastKey = media.Uid
 	if !k {
 		t.Fatal()
 	}
-	b, ok := MainCache.Load(base.MediaKey(lastKey))
+	b, ok := MainCache.Load(base.MediaKey(100))
 	if !ok {
 		t.Fatal()
 	}
 	fmt.Println(b)
 }
 
-func TestLoadAfterDelete(t *testing.T) {
-	if !MainCache.Delete(base.MediaKey(lastKey)) {
-		t.Fatal()
-	}
-
-	_, ok := MainCache.Load(base.MediaKey(lastKey))
-	if ok {
+func TestCache_DeleteExist(t *testing.T) {
+	if !MainCache.Delete(base.MediaKey(100)) {
 		t.Fatal()
 	}
 }
 
+func TestLoadAfterDelete(t *testing.T) {
+	if !MainCache.Delete(base.MediaKey(100)) {
+		t.Fatal()
+	}
+
+	_, ok := MainCache.Load(base.MediaKey(100))
+	if ok {
+		t.Fatal()
+	}
+}

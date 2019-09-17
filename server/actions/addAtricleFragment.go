@@ -10,7 +10,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func AddArticleFragment(w http.ResponseWriter, r *http.Request) {
+func addArticleFragment(w http.ResponseWriter, r *http.Request) {
 	log.Println("call add article fragment")
 	err := r.ParseForm()
 	if err != nil {
@@ -34,7 +34,7 @@ func AddArticleFragment(w http.ResponseWriter, r *http.Request) {
 	}
 	var bufferId []dataLevel.Resource
 	if num != 0 {
-		bufferId, err = dataLevel.JsonToResource(strings.NewReader(content), uint16(num))
+		bufferId, err = dataLevel.JsonToResource(strings.NewReader(res), uint16(num))
 		if err != nil {
 			w.WriteHeader(400)
 			return

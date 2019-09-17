@@ -7,7 +7,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func AddFeedback(w http.ResponseWriter, r *http.Request) {
+func addFeedback(w http.ResponseWriter, r *http.Request) {
 	log.Println("call add feedback")
 	<-speedControl
 	err := r.ParseForm()

@@ -12,7 +12,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func AddArticle(w http.ResponseWriter, r *http.Request) {
+func addArticle(w http.ResponseWriter, r *http.Request) {
 	log.Println("call add article")
 	p, id := se.checkPermission(r)
 	switch p {

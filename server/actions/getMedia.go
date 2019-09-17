@@ -7,10 +7,9 @@ import (
 
 	"TuriteaWebResources/server/base"
 	"TuriteaWebResources/server/buffer"
-	"TuriteaWebResources/server/dataLevel"
 )
 
-func GetMedia(w http.ResponseWriter, r *http.Request)  {
+func getMedia(w http.ResponseWriter, r *http.Request)  {
 	log.Println("call get media")
 	vs := r.URL.Query()
 	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
@@ -24,17 +23,9 @@ func GetMedia(w http.ResponseWriter, r *http.Request)  {
 		return
 	}
 	media := m.(*base.Media)
-	if media.Url == "file" {
-		i, ok := buffer.MainCache.Load(dataLevel.ImageKey(id))
-		if !ok {
-			w.WriteHeader(404)
-			return
-		}
-		image := i.(*dataLevel.ImageResource)
-		http.SetCookie(w, &http.Cookie{Name:"type", Value:"f"})
-		_, err = w.Write(image.Data)
-	} else {
-		http.SetCookie(w, &http.Cookie{Name:"type", Value:"u"})
-		_, err = w.Write([]byte(media.Url))
+	err = base.MediaToJson(media, w)
+	if err != nil {
+		w.WriteHeader(500)
+		return
 	}
 }

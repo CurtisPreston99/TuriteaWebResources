@@ -1,7 +1,6 @@
 package actions
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -11,7 +10,7 @@ import (
 	"TuriteaWebResources/server/dataLevel"
 )
 
-func PinsByArticle(w http.ResponseWriter, r *http.Request) {
+func pinsByArticle(w http.ResponseWriter, r *http.Request) {
 	log.Println("call pins by article")
 	vs := r.URL.Query()
 	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
@@ -40,7 +39,7 @@ func PinsByArticle(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func ArticlesByPin(w http.ResponseWriter, r *http.Request) {
+func articlesByPin(w http.ResponseWriter, r *http.Request) {
 	log .Println("call articles by pin")
 	vs := r.URL.Query()
 	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
@@ -55,7 +54,7 @@ func ArticlesByPin(w http.ResponseWriter, r *http.Request) {
 	}
 	pins := make([]*base.Article, len(pinIds))
 	for i, v := range pinIds {
-		fmt.Println(v)
+		//fmt.Println(v)
 		b, ok := buffer.MainCache.Load(base.ArticleKey(v))
 		//fmt.Println(b)
 		if !ok {
@@ -71,7 +70,7 @@ func ArticlesByPin(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func LinkArticleAndPin(w http.ResponseWriter, r *http.Request) {
+func linkArticleAndPin(w http.ResponseWriter, r *http.Request) {
 	p, id := se.checkPermission(r)
 	if p == public {
 		w.WriteHeader(401)
@@ -93,6 +92,33 @@ func LinkArticleAndPin(w http.ResponseWriter, r *http.Request) {
 	}
 	//fmt.Println(pid, aid)
 	if !dataLevel.SQLWorker.LinkPinToArticle(pid, aid) {
+		w.WriteHeader(400)
+	}
+	_, _ = w.Write([]byte("ok"))
+}
+
+func unLinkPinAndArticle(w http.ResponseWriter, r *http.Request) {
+	p, id := se.checkPermission(r)
+	if p == public {
+		w.WriteHeader(401)
+	} else {
+		se.renew(id)
+		makeCookie(w, id)
+	}
+	log.Println("call unlink article and pin")
+	vs := r.URL.Query()
+	aid, err := strconv.ParseInt(vs.Get("aid"), 16, 64)
+	if err != nil {
+		w.WriteHeader(400)
+		return
+	}
+	pid, err := strconv.ParseInt(vs.Get("pid"), 16, 64)
+	if err != nil {
+		w.WriteHeader(400)
+		return
+	}
+	//fmt.Println(pid, aid)
+	if !dataLevel.SQLWorker.UnLinkPinToArticle(pid, aid) {
 		w.WriteHeader(400)
 	}
 	_, _ = w.Write([]byte("ok"))

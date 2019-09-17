@@ -78,7 +78,7 @@ func (s *sessions) renew(id int64) {
 
 var se = &sessions{new(sync.RWMutex), make(map[int64]*session)}
 
-func Login(w http.ResponseWriter, r *http.Request) {
+func login(w http.ResponseWriter, r *http.Request) {
 	log.Println("call login")
 	err := r.ParseForm()
 	if err != nil {
@@ -169,7 +169,7 @@ func makeCookie(w http.ResponseWriter, uid int64) {
 	http.SetCookie(w, &http.Cookie{Name: "key", Value: key, HttpOnly: true})
 }
 
-func ChangePassword(w http.ResponseWriter, r *http.Request) {
+func changePassword(w http.ResponseWriter, r *http.Request) {
 	p, id := se.checkPermission(r)
 	if p == public {
 		w.WriteHeader(403)

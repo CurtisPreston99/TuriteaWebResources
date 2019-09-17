@@ -208,19 +208,22 @@ func (c *Cache) Delete(key asynchronousIO.Key) bool {
 			return true
 		}
 		data = v.data
+		v.data = nil
 		v.updateState = deleted
 		cache.lock.Unlock()
 		f := dataLevel.Delete(key)
 		err := f()
 		if err != nil {
-			return false
+			switch key.(type) {
+			case base.ArticleKey:
+				return false
+			case base.PinKey:
+				return false
+			case base.MediaKey:
+				return false
+			}
 		}
-		cache.lock.Lock()
-		if v, exist := cache.cache[u]; exist && v.updateState == deleted{
-			dataLevel.RecycleData(data)
-			v.data = nil
-		}
-		cache.lock.Unlock()
+		dataLevel.RecycleData(data)
 		return true
 	}
 	v := c.itemPool.Get().(*item)
@@ -229,8 +232,10 @@ func (c *Cache) Delete(key asynchronousIO.Key) bool {
 	v.lastModifyTime = time.Now().Unix()
 	cache.lock.Unlock()
 	f := dataLevel.Delete(key)
+	//fmt.Print(f)
 	err := f()
 	if err != nil {
+		//fmt.Println(err)
 		return false
 	}
 	return true
@@ -335,6 +340,7 @@ func (c *Cache) CreateArticleContent(resources []dataLevel.Resource, content str
 
 func (c *Cache) CreateImage(data []byte, id int64){
 	image := dataLevel.CreateImageByData(data)
+	image.Id = id
 	b := uint8(image.Id) + uint8(dataLevel.ImagesResources)
 	u := (uint64(image.Id) >> 8 << 8) | uint64(dataLevel.ImagesResources)
 	cache := c.caches[b]
@@ -373,6 +379,7 @@ const (
 	Exist = 1 << iota
 	Deleted
 	NotExist
+	NotInBuffer
 )
 func (c *Cache) LoadIfExist(key asynchronousIO.Key) (asynchronousIO.Bean, uint8) {
 	t := key.TypeId()
@@ -386,10 +393,13 @@ func (c *Cache) LoadIfExist(key asynchronousIO.Key) (asynchronousIO.Bean, uint8)
 		if v.updateState & (deleted | notExist) != 0 {
 			cache.lock.Unlock()
 			return nil, v.updateState
+		} else if v.updateState == normal {
+			cache.lock.Unlock()
+			return v.data, Exist
 		}
 		cache.lock.Unlock()
 		return v.data, v.updateState
 	}
 	cache.lock.Unlock()
-	return nil, NotExist
+	return nil, NotInBuffer
 }
