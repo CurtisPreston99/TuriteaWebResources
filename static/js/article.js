@@ -23,5 +23,9 @@ function uploadArticleData(){
   send={}
   send.data='['+JSON.stringify(article)+']'
 
+<<<<<<< Updated upstream
   $.post(home+"/api/addArticle?num=1",send,function(){console.log("posted");});
+=======
+  $.post(home+"/api/addArticle?num=1",send,function(data){console.log(data);});
+>>>>>>> Stashed changes
   }
