@@ -13,9 +13,9 @@ func Start(config *Config) {
 	http.HandleFunc("/article/", getArticlePage)
 
 	//for test
-	http.Handle("/", http.FileServer(http.Dir("../static")))       // auto tested
+	//http.Handle("/", http.FileServer(http.Dir("../static")))       // auto tested
 
-	// http.Handle("/", http.FileServer(http.Dir("static")))          // auto tested
+	http.Handle("/", http.FileServer(http.Dir("static")))          // auto tested
 	http.HandleFunc("/api/getPins", getPins)                       // auto tested
 	http.HandleFunc("/api/getPin", getPin)                         // auto tested
 	http.HandleFunc("/api/login", login)                           // auto tested
