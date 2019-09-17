@@ -1,7 +1,0 @@
-# github.com/ChenXingyuChina/asynchronousIO v0.0.0-20190821022857-384d90b77e26
-github.com/ChenXingyuChina/asynchronousIO
-github.com/ChenXingyuChina/asynchronousIO/M2N
-# github.com/lib/pq v1.2.0
-github.com/lib/pq
-github.com/lib/pq/oid
-github.com/lib/pq/scram

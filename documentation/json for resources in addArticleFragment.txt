@@ -1,9 +1,0 @@
-[
-  {"t":0, "id":1},
-  {"t":1, "id":2}
-]
-
-the "t" means type and when it is 0 means other fragment
-  when it is 1 is image
-  when it is 2 is veido
-the "id" means the id of the resouces
