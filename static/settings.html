@@ -20,6 +20,8 @@ Date:     20.08.2019
         <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
         <script src="js/pin.js"></script>
         <script src="js/article.js"></script>
+        <script src="js/INaturalist.js"></script>
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 
@@ -42,7 +44,7 @@ Date:     20.08.2019
                     <li><a href="#tabs-1">Users</a></li>
                     <li><a href="#tabs-2">Pins</a></li>
                     <li><a href="#tabs-3">upload article</a></li>
-                    <li><a href="#tabs-4">Video Links</a></li>
+                    <li><a href="#tabs-4">uplaod INaturalist data</a></li>
                 </ul>
 
                 <!-- tab 1 -->
@@ -92,6 +94,7 @@ Date:     20.08.2019
 
                 <!-- tab 3 -->
                 <div id="tabs-3">
+                  <h3>add articles</h3>
                   <div id="summernote2"></div>
                   <button onclick="uploadArticleData()">submit</button>
 
@@ -99,8 +102,12 @@ Date:     20.08.2019
                 </div>
 
                 <!-- tab 4 -->
-                <div id="tabs-4">
-                    
+                <div id="tabs-4" onload="init()">
+                    <h3>add INaturalist data</h3>
+                    <input type="file" id="csvFileInput" onchange="handleFiles(this.files)"
+              accept=".csv">
+
+                    <div id='INaturalistdata'></div>
                 </div>
             </div>
         </section>
