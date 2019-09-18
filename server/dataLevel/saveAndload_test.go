@@ -10,6 +10,7 @@ import (
 	"testing"
 )
 
+
 var r = &ArticleResource{Id:1, Content: []byte("abc"), ResourcesId: []Resource{{1,1}, {1,3}}}
 
 func TestSaveArticleContent(t *testing.T) {
@@ -74,6 +75,14 @@ var d []byte
 
 var ti = &ImageResource{Id:1}
 
+func TestSaveImage(t *testing.T) {
+	s := SaveImageAndNotify(ti)
+	err := s()
+	if err != nil {
+		t.Fatal()
+	}
+}
+
 func TestLoadImage(t *testing.T) {
 	f := LoadImage(ImageKey(1))
 	i, err := f()
@@ -88,14 +97,6 @@ func TestLoadImage(t *testing.T) {
 		}
 	}
 	t.Fatal()
-}
-
-func TestSaveImage(t *testing.T) {
-	s := SaveImageAndNotify(ti)
-	err := s()
-	if err != nil {
-		t.Fatal()
-	}
 }
 
 func TestSqlLinker_CreateArticle(t *testing.T) {
