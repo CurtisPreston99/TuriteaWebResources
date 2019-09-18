@@ -20,7 +20,7 @@ func main() {
 		time.Tick(1*time.Second)
 		log.Println("server start")
 	}()
-	err := http.ListenAndServe("localhost:80", nil)
+	err := http.ListenAndServe("0.0.0.0:80", nil)
 	if err != nil {
 		fmt.Println(err)
 		return
