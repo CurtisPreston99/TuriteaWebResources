@@ -94,7 +94,7 @@ function handleFiles(files) {
 
     function tabletoPins(){
       console.log(table);
-      let pins=[]
+      let data=[]
       var rows={}
 
       for(let i=0;i<table[0].length;i++){
@@ -107,44 +107,48 @@ function handleFiles(files) {
         if(table[i][0]){
           pin={}
           pin["name"]=table[i][rows["common_name"]]
+          pin["tag_type"]="zoo";
+          pin["lat"]=table[i][rows["latitude"]]
+
+          pin["lon"]=table[i][rows["longitude"]]
           pin["color"]="#FFFFFF"
           pin["description"]=pinGenerateDiscription(table[i],rows)
-          pin["lon"]=table[i][rows["longitude"]]
-          pin["lat"]=table[i][rows["latitude"]]
-          pin["tag_type"]="zoo";
-          pins.push(pin);
+          pin["time"]=2;
+          data.push(pin);
         }
       }
-
+      console.log(data);
+      let pins="{data: \""+JSON.stringify(data)+"\"}"
+      let n=data.length;
       console.log(pins);
-      $.post("../api/addPins?num="+pins.slice(0, 64).length,JSON.stringify(pins.slice(0, 64)),function(){
+      $.post("../api/addPins?num=\""+n.toString(16)+"\"",pins,function(){
         console.log("posted");
       });
     }
 
     function pinGenerateDiscription(line,rowMap) {
-      let html="<p>"
-      html=html+"<a href="+line[rowMap["url"]]+' target="_blank">look at me on inaturalist.nz</a>'
-      html=html+"</p><p>"
-      if(line[rowMap["image_url"]]!==""){
-        html=html+"<img src="+line[rowMap["url"]]+">"
-      }
-
-      if(line[rowMap["image_url"]]!==""){
-        html=html+"<img src="+line[rowMap["url"]]+">"
-      }
-
-      html=html+"</p><p>"
-      html=html+line[rowMap["description"]]
-      html=html+"</p><p>"
-
-      httable="<table>"
-      for(let key in rowMap){
-        httable=httable+='<tr><td>'+key+'</td><td>'+line[key]+'</td></tr>'
-      }
-
-      httable=httable+"</table>"
-      html=html+httable
+      let html="<p>test</p>"
+      // html=html+"<a href="+line[rowMap["url"]]+' target="_blank">look at me on inaturalist.nz</a>'
+      // html=html+"</p><p>"
+      // if(line[rowMap["image_url"]]!==""){
+      //   html=html+"<img src="+line[rowMap["url"]]+">"
+      // }
+      //
+      // if(line[rowMap["image_url"]]!==""){
+      //   html=html+"<img src="+line[rowMap["url"]]+">"
+      // }
+      //
+      // html=html+"</p><p>"
+      // html=html+line[rowMap["description"]]
+      // html=html+"</p><p>"
+      //
+      // httable="<table>"
+      // for(let key in rowMap){
+      //   httable=httable+='<tr><td>'+key+'</td><td>'+line[key]+'</td></tr>'
+      // }
+      //
+      // httable=httable+"</table>"
+      // html=html+httable
 
 
       return html
