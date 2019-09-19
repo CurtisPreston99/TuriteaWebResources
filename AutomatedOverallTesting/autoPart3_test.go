@@ -153,3 +153,13 @@ func TestSendFeedback(t *testing.T) {
 		t.Error(res.StatusCode)
 	}
 }
+func TestGetArticlePage(t *testing.T) {
+	client.Jar.SetCookies(u, cookieInit)
+	res, err := client.Get("http://localhost/api/sendfeedback")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if res.StatusCode != 200 {
+		t.Error(res.StatusCode)
+	}
+}
