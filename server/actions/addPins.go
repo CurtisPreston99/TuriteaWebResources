@@ -20,10 +20,12 @@ func addPins(w http.ResponseWriter, r *http.Request) {
 	case normal:
 		num, err := strconv.ParseInt(r.URL.Query().Get("num"), 16, 64)
 		if err != nil {
+			w.WriteHeader(400)
 			return
 		}
 		err = r.ParseForm()
 		if err != nil {
+			w.WriteHeader(400)
 			return
 		}
 		data := r.Form.Get("data")
