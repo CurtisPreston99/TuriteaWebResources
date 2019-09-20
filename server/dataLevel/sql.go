@@ -67,19 +67,19 @@ var SQLSuper = &SqlLinker{}
 var SQLWorker = &SqlLinker{}
 
 func init() {
-	err := SQLNormal.Connect("postgres", "Turitea", "localhost", "turiteaNormal", "massey")
+	err := SQLNormal.Connect("postgres", "Turitea", "pg", "turiteaNormal", "massey")
 	if err != nil {
 		panic(err)
 	}
-	err = SQLSuper.Connect("postgres", "Turitea", "localhost", "turiteaSuper", "masseysuper")
+	err = SQLSuper.Connect("postgres", "Turitea", "pg", "turiteaSuper", "masseysuper")
 	if err != nil {
 		panic(err)
 	}
-	err = SQLPublic.Connect("postgres", "Turitea", "localhost", "turiteaPublic", "masseyPublic")
+	err = SQLPublic.Connect("postgres", "Turitea", "pg", "turiteaPublic", "masseyPublic")
 	if err != nil {
 		panic(err)
 	}
-	err = SQLWorker.Connect("postgres", "Turitea", "localhost", "turiteaWorker", "tutiteaworker")
+	err = SQLWorker.Connect("postgres", "Turitea", "pg", "turiteaWorker", "tutiteaworker")
 	if err != nil {
 		panic(err)
 	}
@@ -240,7 +240,7 @@ func (s *SqlLinker) CreateRole(role int, name string) string {
 	userId := base.GenUserId()
 	passWord := base.RandomPassword()
 	//fmt.Println(fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))))
-	r, err := s.stmtMap[createRole].Query(userId, name, fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))), role)
+	r, err := s.stmtMap[createRole].Query(userId, name, fmt.Sprintf("%x", md5.Sum([]byte(passWord))), role)
 	if err != nil {
 		base.RecycleUserId(userId)
 		return ""

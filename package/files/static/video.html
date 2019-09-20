@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+Project:  Turitea Stream Ecology
+Author:   CHEN, Xingyu; GRAY, Lance; PRESTON, Curtis
+Date:     20.08.2019
+-->
+<html>
+    <head>
+        <title>Video Library</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/layout.css"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="js/md5.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script>
+            $(function () {
+                $("header").load("header.html");
+                $("footer").load("footer.html");
+            });
+        </script>
+        <style>
+            #video-library {
+                background-color: white;
+                margin-top: 20px;
+            }
+
+            #video-library tr {
+                padding: 10px;
+            }
+
+            #video-library td {
+                vertical-align: top;
+                width: 25%;
+                padding: 10px;
+                border: 10px solid #f1f1f1;
+                background-color: white;
+            }
+
+            #video-library iframe {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <header></header>
+        <section>
+            <h1>Video Library</h1>
+            <hr>
+            <table id='video-library'><script src="js/video.js"></script></table>
+        </section>
+        <footer></footer>
+    </body>
+</html>

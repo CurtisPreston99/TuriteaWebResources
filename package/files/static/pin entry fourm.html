@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="./pin_entry_fourm.js">
+  </script>
+
+
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+  </head>
+  <body>
+
+  <div id="pinSelection">
+    <select id="pinSelect" onclick="selectPin()">
+    </select>
+
+  </div>
+  <div id='fourm'>
+  <div id='nameDic'>
+  name:<textarea id="name" rows="1" cols="40" ></textarea>
+
+  </div>
+
+  <div id="icon">
+icon:<select id="iconSelect">
+</select>
+  </div>
+
+  <div id="color">
+color:<input type="color" id="colorSelectors"></input>
+  </div>
+
+<div id="description">
+  <div id="summernote"></div>
+
+</div>
+
+  <div id='cords'>
+  <button onclick="hidemap()" id="inputSwitch"> manually enter cords</button>
+
+    <div id='mapDiv'>
+    <div id='cordDisplay'>
+      long:   lat:
+    </div>
+    <div id='map'></div>
+    </div>
+    <div id='longLat'>
+      longatude:<textarea id="longText" rows="1" cols="40" ></textarea>
+      longatude:<textarea id="latText" rows="1" cols="40" ></textarea>
+    </div>
+    </div>
+
+    <div id="updateP">
+      <button id="updatePin" onclick="updatePin()">updatePin</button>
+      <button id="delete" onclick="deletePin()">deletePin</button>
+
+    </div>
+    </div>
+
+
+
+  </body>
+</html>

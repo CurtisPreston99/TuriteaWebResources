@@ -1,0 +1,28 @@
+
+language: go
+
+
+# Only clone the most recent commit.
+git:
+  depth: 1
+
+# in vendor/
+install: true
+
+# Don't email me the results of the test runs.
+notifications:
+  email: false
+
+services:
+  - postgresql
+
+before_script:
+  - cat ./documentation/databaseSchema.sql
+  - psql -c "CREATE DATABASE Turitea;" -U postgres
+  - psql -c "CREATE USER turiteaNormal WITH PASSWORD 'massey';" -U postgres
+  - psql -f ./documentation/databaseSchema.sql
+# script always runs to completion (set +e). If we have linter issues AND a
+# failing test, we want to see both. Configure golangci-lint with a
+# .golangci.yml file at the top level of your repo.
+
+script : ./build.sh

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--
+Project:  Turitea Stream Ecology
+Author:   CHEN, Xingyu; GRAY, Lance; PRESTON, Curtis
+Date:     20.08.2019
+-->
+
+<script>
+    $(document).ready(function () {
+
+        // Login Dialog Box
+        $("#login-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+            buttons: {
+                Cancel: function () {
+                    $(this).dialog("close");
+                },
+                Login: function () {
+                    var formValues = $("#login-form").serialize();
+                    event.preventDefault();
+                    if (isNotValid(document.getElementById('login-form'))) {
+                        $('#valid-dialog').dialog({title: "Data Validation Error"});
+                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                        return;
+                    }
+                    $.post("api/login", "name=" + $("#login-form-name").val() + "&" + "pw=" + calcMD5($("#login-form-pw").val()), function () {
+                        $('#valid-dialog').dialog({title: "Login Successful"});
+                        $('#valid-dialog p').html("Thank you. You have sucessfully logged in.<br><br>To logout again, press the [Logout] button from the top menu bar.");
+                        $('#valid-dialog').dialog('open');
+                    }).fail(function (xhr) {
+                        $('#error-dialog').dialog({title: "Login Failed"});
+                        $('#error-dialog p').html("The username or password that you entered is incorrect.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                    });
+                }
+            }
+        });
+
+        // Contact Us (Feedback) Dialog Box
+        $("#contactus-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+            buttons: {
+                Cancel: function () {
+                    $(this).dialog("close");
+                },
+                Submit: function () {
+                    var formValues = $("#contactus-form").serialize();
+                    if (isNotValid(document.getElementById('contactus-form'))) {
+                        $('#valid-dialog').dialog({title: "Data Validation Error"});
+                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                        return;
+                    }
+                    $.get("sendFeedback", formValues, function () {
+                        $('#valid-dialog').dialog({title: "Message Sent"});
+                        $('#valid-dialog p').html("Thank you for the feedback about your experience using our website. We greatly appreciate your insight because it helps us to build a better experience for yourself and others.<br><br>If you have any more questions, comments, concerns or compliments, please feel free to contact us again.");
+                        $('#valid-dialog').dialog('open');
+                    }).fail(function (xhr) {
+                        $('#error-dialog').dialog({title: "Message Failed"});
+                        $('#error-dialog p').html("Sorry, something went wrong.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                    });
+                }
+            }
+        });
+
+        // Search Dialog Box
+        $("#search-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+        });
+
+        // Map Dialog Box
+        $("#map-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 800,
+            buttons: {
+                Cancel: function () {
+                    $(this).dialog("close");
+                },
+                Load: function () {
+                    var formValues = $("#map-form").serialize();
+                    if (isNotValid(document.getElementById('map-form'))) {
+                        $('#valid-dialog').dialog({title: "Data Validation Error"});
+                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                        return;
+                    }
+                    $.getJSON("api/getPins", formValues, function (data) {
+                        localStorage.setItem('pins', JSON.stringify(data));
+                        $('#valid-dialog').dialog({title: "Message Sent"});
+                        $('#valid-dialog p').html("You have successfully loaded the pins within the requested surface area and time period.<br><br>To display these pins on the map press the [Show Pins] button on the map toolbar.");
+                        $('#valid-dialog').dialog('open');
+                    }).fail(function (xhr) {
+                        $('#error-dialog').dialog({title: "Message Failed"});
+                        $('#error-dialog p').html("Sorry, something went wrong.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                    });
+                }
+            }
+        });
+
+        // Valid Dialog Box
+        $("#valid-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 450,
+            buttons: {
+                OK: function () {
+                    $('.dialog').dialog('close');
+                },
+            }
+        });
+
+        // Error Dialog Box
+        $("#error-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 450,
+            buttons: {
+                OK: function () {
+                    $(this).dialog('close');
+                },
+            }
+        });
+    });
+
+    // Redirect to Settings Page
+    function settings() {
+        if ((document.cookie.indexOf("lastTime") !== -1 && document.cookie.indexOf("key") !== -1)) {
+            window.location.replace("settings.html");
+        } else {
+            $('#error-dialog').dialog({title: "Unauthorised Access"});
+            $('#error-dialog p').html("Sorry, but you have to login first before you attempt to access the settings page.");
+            $('#error-dialog').dialog('open');
+        }
+    }
+
+    // Clear Login Cookies
+    function logout() {
+        document.cookie = "lastTime=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        $('#valid-dialog').dialog({title: "Logout Successful"});
+        $('#valid-dialog p').html("Thank you. You have sucessfully logged out.<br><br>To login again, press the [Login] button from the top menu bar.");
+        $('#valid-dialog').dialog('open');
+    }
+
+    function isNotValid(data) {
+        var isValidData = data.checkValidity();
+        if (isValidData) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+
+<!-- Top menu bar -->
+<nav class="navbar">
+    <div class="dropdown">
+        <button class="dropbtn" onClick="$('#login-dialog').dialog('open');"><i class="fas">&#xf007;</i>&nbsp;Login</button>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn" onClick="logout()"><i class="fas">&#xf235;</i>&nbsp;Logout</button>
+    </div>
+    <div class="dropdown">
+        <button  class="dropbtn" onclick="settings()"><i class="fas">&#xf013;</i>&nbsp;Settings</button>
+    </div>
+    <div class="dropdown" style='float:right'>
+        <button class="dropbtn" onClick="$('#contactus-dialog').dialog('open');"><i class="fas">&#xf086;</i>&nbsp;Contact Us</button>
+    </div> 
+    <div class="dropdown" style='float:right'>
+        <button class="dropbtn" onClick="$('#search-dialog').dialog('open');"><i class="fas">&#xf002;</i>&nbsp;Search</button>
+    </div>
+</nav>
+
+<!-- Header Banner -->
+<div id="banner">
+    <h1>Turitea Project</h1>
+    <a href="https://www.massey.ac.nz" target='_blank'><img src="media/logo.png" alt="Massey University Logo"></a>
+</div>
+
+<!-- Main menu bar -->
+<nav class="navbar">
+    <a href="home.html"><i class="fas">&#xf015;</i>&nbsp;Home</a>
+    <a href="about.html"><i class="fas">&#xf129;</i>&nbsp;About Us</a>
+    <a href="video.html"><i class="fas">&#xf1c8;</i>&nbsp;Video Library</a>
+    <div class="dropdown">
+        <button class="dropbtn"> 
+            <i class="fas">&#xf35d;</i>&nbsp;Useful Links
+        </button>
+        <div class="dropdown-content">
+            <a href='https://inaturalist.nz/projects/turitea?tab=observations&subtab=map' target='_blank'>I Naturalist (NZL)</a>
+            <a href='http://www.stratigraphy.org/' target='_blank'>International Commission on Stratigraphy</a>
+            <a href='https://www.landcareresearch.co.nz/resources/maps-satellites/lenz' target='_blank'>Landcare Research (NZL) </a>
+            <a href="https://www.massey.ac.nz" target='_blank'>Massey University</a>
+            <a href='https://blog.planetaryecology.org/' target='_blank'>Planetary Ecology</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn"> 
+            <i class="fas">&#xf0e8;</i>&nbsp;Site Map
+        </button>
+        <div class="dropdown-content">
+            <a href='home.html'>Home</a>
+            <a href='about.html'>About Us</a>
+            <a href='video.html'>Video Library</a>
+            <a href='settings.html'>Settings</a>
+        </div>
+    </div>
+</nav> 
+
+<!-- Login JQuery Dialog Box -->
+<div id="login-dialog" class="dialog" title="Login">
+    <form id="login-form">
+        <label for="name">Username:</label>
+        <input name="name" id="login-form-name" type="text" required="required">
+        <label for="pw">Password:</label>
+        <input name="pw" type="password" id="login-form-pw" required="required">
+    </form>
+</div>
+
+<!-- Contact Us (Feedback) Dialog Box  -->
+<div id="contactus-dialog" class="dialog" title="Contact Us">            
+    <form id="contactus-form">
+        <label for="name">Name:</label>
+        <input name="name" id="contactus-form-name" type="text" required>
+        <label for="email">Email Address:</label>
+        <input name="email" id="contactus-form-email" type="email" required>                 
+        <label for="feedback">Feedback:</label>
+        <textarea name="feedback" id="contactus-form-feedback" required></textarea>
+    </form>
+    <p class="footnote">Please see our <a class="privacy-policy" href="privacy_policy.pdf" target='_blank'>Privacy Policy</a> which outlines the types of information we collect, and how we use it.</p>
+</div>
+
+<!-- Search Dialog Box  -->
+<div id="search-dialog" title="Search" style="display: none">            
+    <script async src="https://cse.google.com/cse.js?cx=014152768497635151115:plkctbfrcj0"></script>
+    <div class="gcse-search" enableAutoComplete="true"></div>
+</div>
+
+<!-- Map Dialog Box -->
+<div id="map-dialog" class="dialog" title="Load Pins">            
+    <p>Use this form to select (or filter) the pins shown within a specified rectangular surface area and time period.<br><br>Longitude (i.e. East & West) values have the range of -180 to 180 degrees, with between 1 and 6 trailing decimal places. Latitude (i.e. North & South) values have the range of -90 to 90 degrees, with between 1 and 6 trailing decimal places.<br><br></p>
+    <form id="map-form">
+        <table>
+            <tr>
+                <th>N</th>
+                <th>E</th>
+                <th>S</th>
+                <th>W</th>
+                <th>T1</th>
+                <th>T2</th>
+            </tr>
+            <tr>
+                <td><input name="north" id="map-form-north" type="text" value = 0.0 pattern="^-?([1-8]?[0-9]\.{1}\d{1,6}$|90\.{1}0{1,6}$)" required></td>
+                <td><input name="east" id="map-form-east" type="text" value = 0.0 pattern="^-?((([1]?[0-7][0-9]|[1-9]?[0-9])\.{1}\d{1,6}$)|[1]?[1-8][0]\.{1}0{1,6}$)" required> </td>
+                <td><input name="south" id="map-form-south" type="text" value = 0.0 pattern="^-?([1-8]?[0-9]\.{1}\d{1,6}$|90\.{1}0{1,6}$)" required></td>
+                <td> <input name="west" id="map-form-west" type="text" value = 0.0 pattern="^-?((([1]?[0-7][0-9]|[1-9]?[0-9])\.{1}\d{1,6}$)|[1]?[1-8][0]\.{1}0{1,6}$)" required></td>   
+                <td><input name="timeBegin" id="map-form-timeBegin" type="text" value=0 required></td>
+                <td><input name="timeEnd" id="map-form-timeEnd" type="text" value=0 required></td>  
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!-- Valid Dialog Box -->
+<div id="valid-dialog" class="dialog" title="Valid Message">
+    <p></p>
+</div>
+
+<!-- Error Dialog Box -->
+<div id="error-dialog" class="dialog" title="Error Message">
+    <p></p>
+</div>

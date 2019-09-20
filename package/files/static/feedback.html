@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>pin entry</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <script>
+      function sendData(){
+
+        data={}
+
+        data['email']=document.getElementById('email').value;
+        data['name']=document.getElementById('name').value;
+        data['feedback']=document.getElementById('feedback').value;
+
+
+        console.log(data);
+updatepin
+        $.ajax({
+          type: "POST",
+          url: './sendfeedback',  // this is the url where the data is sent
+          data: data,
+        });
+
+      }
+    </script>
+  </head>
+  <body>
+    <h1>send feedback</h1>
+      <table>
+        <tr>
+          <td>
+            email
+            <textarea id="email" name="email" rows="1" cols="80" ></textarea>
+          </td>
+        </tr>
+        <tr><td>
+          Name
+          <textarea id="name" name="name" rows="1" cols="80" ></textarea>
+        </td></tr>
+
+        <tr><td>
+          feedback
+          <textarea id="feedback" name="feedback" rows="1" cols="80" ></textarea>
+        </td></tr>
+
+
+      <tr><td>
+          <button type="button" name="button" onclick="sendData()"> send feedback</button>
+      </td></tr>
+
+      </table>
+  </body>
+</html>

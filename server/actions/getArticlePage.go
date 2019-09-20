@@ -15,7 +15,7 @@ func getArticlePage(w http.ResponseWriter, r *http.Request) {
 	log.Println("get article")
 	//todo send the template
 	//hw := bufio.NewWriter(w)
-	articleId := strings.SplitN(r.URL.Path, "/", 3)[3]
+	articleId := strings.SplitN(r.URL.Path, "/", 3)[2]
 	if len(articleId) == 0 {
 		w.WriteHeader(400)
 		// fixme redirect to 404 page
