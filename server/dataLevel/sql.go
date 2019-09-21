@@ -239,8 +239,8 @@ func (s *SqlLinker) Login(name string, password string) *base.User {
 func (s *SqlLinker) CreateRole(role int, name string) string {
 	userId := base.GenUserId()
 	passWord := base.RandomPassword()
-	//fmt.Println(fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))))
-	r, err := s.stmtMap[createRole].Query(userId, name, fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))), role)
+	fmt.Println(fmt.Sprintf("%x", md5.Sum([]byte(passWord))))
+	r, err := s.stmtMap[createRole].Query(userId, name, fmt.Sprintf("%x", md5.Sum([]byte(passWord))), role)
 	if err != nil {
 		base.RecycleUserId(userId)
 		return ""

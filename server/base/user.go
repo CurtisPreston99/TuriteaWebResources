@@ -40,3 +40,5 @@ func RandomPassword() string {
 func RecycleUserId(uid int64) {
 	userIdRecycle <- uid
 }
+
+// compile the code of go as js assembly

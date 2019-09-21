@@ -26,6 +26,7 @@ func TestAddUser(t *testing.T) {
 	}
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&newUser)
+	fmt.Println(newUser)
 	if err != nil {
 		t.Fatal(err)
 	}
