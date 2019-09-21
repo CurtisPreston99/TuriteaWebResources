@@ -56,3 +56,7 @@ create table pinlinkarticle(
 	article_id bigint references articles(id),
 	primary key (pin_id, article_id)
 );
+
+
+insert into users
+values(0,'admin','21232f297a57a5a743894a0e4a801fc3',2);
