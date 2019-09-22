@@ -32,6 +32,6 @@ func getArticlePage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	home := b.(*base.Article).HomeContent
-	http.SetCookie(w, &http.Cookie{Name:"home", Value:strconv.FormatInt(home, 16)})
+	http.SetCookie(w, &http.Cookie{Path:"/", Name:"home", Value:strconv.FormatInt(home, 16)})
 	buffer.MainCache.LoadAsynchronous(dataLevel.ArticleContentKey(home))
 }
