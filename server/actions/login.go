@@ -94,7 +94,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 		se.session[u.Id] = &session{u, time.Now().Unix()}
 		se.lock.Unlock()
 		if u.Role == super {
-			http.SetCookie(w, &http.Cookie{Value:"true", Name:"super"})
+			http.SetCookie(w, &http.Cookie{Path:"/", Value:"true", Name:"super"})
 			//http.Redirect(w, r, "../super/control.html", 307)
 			w.WriteHeader(200)
 		} else if u.Role == normal {
@@ -165,8 +165,8 @@ func parseBase(o string) (uint8, bool) {
 
 func makeCookie(w http.ResponseWriter, uid int64) {
 	id, key := genToken(uid)
-	http.SetCookie(w, &http.Cookie{Name: "lastTime", Value: id, HttpOnly: true})
-	http.SetCookie(w, &http.Cookie{Name: "key", Value: key, HttpOnly: true})
+	http.SetCookie(w, &http.Cookie{Path:"/", Name: "lastTime", Value: id, HttpOnly: true})
+	http.SetCookie(w, &http.Cookie{Path:"/", Name: "key", Value: key, HttpOnly: true})
 }
 
 func changePassword(w http.ResponseWriter, r *http.Request) {
