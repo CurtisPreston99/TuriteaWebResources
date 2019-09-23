@@ -1,7 +1,7 @@
-var table=[]
+var table=[];
 function handleFiles(files) {
 
-  table=[]
+  table=[];
       // Check for the various File API support.
       if (window.FileReader) {
           // FileReader are supported.
@@ -60,10 +60,10 @@ function handleFiles(files) {
       let htmlTable='<table>';
       for (let i=0; i<table.length; i++){
         line=table[i];
-        htmlTable=htmlTable+'<tr>'
+        htmlTable=htmlTable+'<tr>';
         for (let e=0; e<line.length; e++){
-          if(e==0){
-            if(i==0){
+          if(e===0){
+            if(i===0){
               htmlTable=htmlTable+'<th>'+'add'+'</th>'
             }else{
               if(!table[i][e]){
@@ -76,7 +76,7 @@ function handleFiles(files) {
 
         }else{
           if(e>0){
-          if(i==0){
+          if(i===0){
             htmlTable=htmlTable+'<th>'+line[e]+'</th>'
 
           }else{
@@ -94,8 +94,8 @@ function handleFiles(files) {
 
     function tabletoPins(){
       console.log(table);
-      let data=[]
-      var rows={}
+      let data=[];
+      var rows={};
 
       for(let i=0;i<table[0].length;i++){
         rows[table[0][i]]=i
@@ -105,20 +105,20 @@ function handleFiles(files) {
 
       for (let i=1; i<table.length; i++){
         if(table[i][0]){
-          pin={}
-          pin["name"]=table[i][rows["common_name"]]
+          pin={};
+          pin["name"]=table[i][rows["common_name"]];
           pin["tag_type"]="zoo";
-          pin["lat"]=table[i][rows["latitude"]]
+          pin["lat"]=table[i][rows["latitude"]];
 
-          pin["lon"]=table[i][rows["longitude"]]
-          pin["color"]="#FFFFFF"
-          pin["description"]=pinGenerateDiscription(table[i],rows)
+          pin["lon"]=table[i][rows["longitude"]];
+          pin["color"]="#FFFFFF";
+          pin["description"]=pinGenerateDiscription(table[i],rows);
           pin["time"]=2;
           data.push(pin);
         }
       }
       console.log(data);
-      let pins="{data: \""+JSON.stringify(data)+"\"}"
+      let pins="{data: \""+JSON.stringify(data)+"\"}";
       let n=data.length;
       console.log(pins);
       $.post("../api/addPins?num=\""+n.toString(16)+"\"",pins,function(){
@@ -127,7 +127,7 @@ function handleFiles(files) {
     }
 
     function pinGenerateDiscription(line,rowMap) {
-      let html="<p>test</p>"
+      let html="<p>test</p>";
       // html=html+"<a href="+line[rowMap["url"]]+' target="_blank">look at me on inaturalist.nz</a>'
       // html=html+"</p><p>"
       // if(line[rowMap["image_url"]]!==""){
