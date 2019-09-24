@@ -42,8 +42,18 @@ $('#summernote').summernote({
 height: $(window).height()/3   //set editable area's height
 
 });
-
 getPins();
+}
+
+
+function mapload(){
+  console.log("showing map");
+  
+  console.log("showing map");
+
+  mymap.invalidateSize();
+
+
 }
 
 //to update the marker
@@ -201,7 +211,6 @@ function updatePin(){
 
 
 }
-
 function deletePin(){
  var i =selectPin();
 
