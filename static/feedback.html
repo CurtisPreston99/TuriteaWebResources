@@ -8,7 +8,7 @@
     <script>
       function sendData(){
 
-        data={}
+        data={};
 
         data['email']=document.getElementById('email').value;
         data['name']=document.getElementById('name').value;
@@ -19,7 +19,7 @@
 updatepin
         $.ajax({
           type: "POST",
-          url: './sendfeedback',  // this is the url where the data is sent
+          url: './api/sendfeedback',  // this is the url where the data is sent
           data: data,
         });
 

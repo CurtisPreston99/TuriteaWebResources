@@ -63,7 +63,7 @@ Date:     20.08.2019
                         $('#error-dialog').dialog('open');
                         return;
                     }
-                    $.get("sendFeedback", formValues, function () {
+                    $.post("./api/sendFeedback", formValues, function () {
                         $('#valid-dialog').dialog({title: "Message Sent"});
                         $('#valid-dialog p').html("Thank you for the feedback about your experience using our website. We greatly appreciate your insight because it helps us to build a better experience for yourself and others.<br><br>If you have any more questions, comments, concerns or compliments, please feel free to contact us again.");
                         $('#valid-dialog').dialog('open');
@@ -92,25 +92,25 @@ Date:     20.08.2019
                 Cancel: function () {
                     $(this).dialog("close");
                 },
-                Load: function () {
-                    var formValues = $("#map-form").serialize();
-                    if (isNotValid(document.getElementById('map-form'))) {
-                        $('#valid-dialog').dialog({title: "Data Validation Error"});
-                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
-                        $('#error-dialog').dialog('open');
-                        return;
-                    }
-                    $.getJSON("api/getPins", formValues, function (data) {
-                        localStorage.setItem('pins', JSON.stringify(data));
-                        $('#valid-dialog').dialog({title: "Message Sent"});
-                        $('#valid-dialog p').html("You have successfully loaded the pins within the requested surface area and time period.<br><br>To display these pins on the map press the [Show Pins] button on the map toolbar.");
-                        $('#valid-dialog').dialog('open');
-                    }).fail(function (xhr) {
-                        $('#error-dialog').dialog({title: "Message Failed"});
-                        $('#error-dialog p').html("Sorry, something went wrong.<br><br>Please try again.");
-                        $('#error-dialog').dialog('open');
-                    });
-                }
+                // Load: function () {
+                //     var formValues = $("#map-form").serialize();
+                //     if (isNotValid(document.getElementById('map-form'))) {
+                //         $('#valid-dialog').dialog({title: "Data Validation Error"});
+                //         $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                //         $('#error-dialog').dialog('open');
+                //         return;
+                //     }
+                //     $.getJSON("api/getPins", formValues, function (data) {
+                //         localStorage.setItem('pins', JSON.stringify(data));
+                //         $('#valid-dialog').dialog({title: "Message Sent"});
+                //         $('#valid-dialog p').html("You have successfully loaded the pins within the requested surface area and time period.<br><br>To display these pins on the map press the [Show Pins] button on the map toolbar.");
+                //         $('#valid-dialog').dialog('open');
+                //     }).fail(function (xhr) {
+                //         $('#error-dialog').dialog({title: "Message Failed"});
+                //         $('#error-dialog p').html("Sorry, something went wrong.<br><br>Please try again.");
+                //         $('#error-dialog').dialog('open');
+                //     });
+                // }
             }
         });
 
@@ -160,9 +160,9 @@ Date:     20.08.2019
     function logout() {
         // document.cookie = "lastTime=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
         // document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-        delete_cookie('lastTime','/api',document.domain)
-        delete_cookie('key','/api',document.domain)
-        delete_cookie('super','/api',document.domain)
+        delete_cookie('lastTime','/',document.domain)
+        delete_cookie('key','/',document.domain)
+        delete_cookie('super','/',document.domain)
         $('#valid-dialog').dialog({title: "Logout Successful"});
         $('#valid-dialog p').html("Thank you. You have sucessfully logged out.<br><br>To login again, press the [Login] button from the top menu bar.");
         $('#valid-dialog').dialog('open');
@@ -263,7 +263,7 @@ Date:     20.08.2019
 </div>
 
 <!-- Map Dialog Box -->
-<div id="map-dialog" class="dialog" title="Load Pins">
+<!-- <div id="map-dialog" class="dialog" title="Load Pins">
     <p>Use this form to select (or filter) the pins shown within a specified rectangular surface area and time period.<br><br>Longitude (i.e. East & West) values have the range of -180 to 180 degrees, with between 1 and 6 trailing decimal places. Latitude (i.e. North & South) values have the range of -90 to 90 degrees, with between 1 and 6 trailing decimal places.<br><br></p>
     <form id="map-form">
         <table>
@@ -285,7 +285,7 @@ Date:     20.08.2019
             </tr>
         </table>
     </form>
-</div>
+</div> -->
 
 <!-- Valid Dialog Box -->
 <div id="valid-dialog" class="dialog" title="Valid Message">
