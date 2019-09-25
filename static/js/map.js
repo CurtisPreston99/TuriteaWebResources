@@ -99,17 +99,21 @@ $.getJSON(home+"/api/getPins?"+area, function (data) {
         }
 
         // Add entities
-        viewer.entities.add({ id: (value.uid).toString(), name:
-        value.name,
-        position: Cesium.Cartesian3.fromDegrees(value.lon,
-        value.lat), description: description, point: { show: false,
-        pixelSize: 4, color: Cesium.Color.BLACK, outlineColor:
-        Cesium.Color.fromCssColorString(value.color), outlineWidth: 6 },
+        viewer.entities.add({ id: (value.uid).toString(),
+        name:value.name,
+        position: Cesium.Cartesian3.fromDegrees(value.lon,value.lat),
+
+        description: description,
+        point: { show: false,pixelSize: 4, color: Cesium.Color.BLACK,
+        outlineColor:Cesium.Color.fromCssColorString(value.color), outlineWidth: 6 },
         label: { show: false, text: (value.uid).toString(), font: '16pt Arial', fillColor: Cesium.Color.WHITE, style:
         Cesium.LabelStyle.FILL, verticalOrigin:
         Cesium.VerticalOrigin.BOTTOM, pixelOffset: new
         Cesium.Cartesian2(0, -12) }, billboard: { image: tag_type,
-        verticalOrigin: Cesium.VerticalOrigin.BOTTOM } });
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
+
+       } });
         });
          });
       }
