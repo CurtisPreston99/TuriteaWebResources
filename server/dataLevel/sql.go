@@ -20,6 +20,7 @@ const (
 	login = iota
 	createRole
 	deleteRole
+	allRole
 	changePassword
 	createSubscription
 	deleteSubscription
@@ -209,6 +210,10 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 		return err
 	}
 	s.stmtMap[getPinsInArea], err = s.db.Prepare("select uid from pins where (latitude between $1 and $2) and (longitude between $3 and $4) and (time between $5 and $6)")
+	if err != nil {
+		return err
+	}
+	s.stmtMap[allRole], err = s.db.Prepare("select name, role from users")
 	return err
 }
 
@@ -539,4 +544,24 @@ func (s *SqlLinker) GetPinsInArea(east, west, north, south float64, timeBegin, t
 		goal = append(goal, id)
 	}
 	return goal
+}
+
+func (s *SqlLinker) AllRole() ([]string, []int) {
+	rs, err := s.stmtMap[allRole].Query()
+	if err != nil {
+		return nil, nil
+	}
+	names := make([]string, 0, 10)
+	roles := make([]int, 0, 10)
+	var name string
+	var role int
+	for rs.Next() {
+		err = rs.Scan(&name, &role)
+		if err != nil {
+			return nil, nil
+		}
+		names = append(names, name)
+		roles = append(roles, role)
+	}
+	return names, roles
 }
