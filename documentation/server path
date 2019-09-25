@@ -43,9 +43,9 @@ root -- api       -- getPins?north=*&south=*&east=*&west=*&timeBegin=*&timeEnd=*
                                                 (call for unlink article and pin)
                   -- changePassword             (call for change password, it will change the password which login. it need two fields "new" and "old", means new password and old one, respectively. and all of them need be md5)
                   -- allUser                    (call for get all the users of the system, the respounse is like {"names":["steve","test","bob"],"roles":[2,1,2]} two list will be name and role)
-                  -- putKML                     (post a kml file the field is called kml the content-type can use 'text/plain')
+                  -- putKML                     (post a kml file the field is called kml the and form need enctype="multipart/form-data" attribute)
                   -- getKML&name=*              (call with get and the name arg means the kml file name)
-                  -- deleteKML&name=*           (call with get and set the arg as the kml file)
+                  -- deleteKML&name=*           (call with get and set the arg as the kml filename)
                   -- listKML                    (call with get and will return a list of string with json format, means the filename of the kml, best to cache it)
                   -- (to be continue)
       -- article                                
