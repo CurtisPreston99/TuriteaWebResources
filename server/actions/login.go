@@ -165,8 +165,8 @@ func parseBase(o string) (uint8, bool) {
 
 func makeCookie(w http.ResponseWriter, uid int64) {
 	id, key := genToken(uid)
-	http.SetCookie(w, &http.Cookie{Path: "/", Name: "lastTime", Value: id})
-	http.SetCookie(w, &http.Cookie{Path: "/", Name: "key", Value: key})
+	http.SetCookie(w, &http.Cookie{Name: "lastTime", Value: id, HttpOnly: true})
+	http.SetCookie(w, &http.Cookie{Name: "key", Value: key, HttpOnly: true})
 }
 
 func changePassword(w http.ResponseWriter, r *http.Request) {

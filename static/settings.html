@@ -21,6 +21,7 @@ Date:     20.08.2019
         <script src="js/pin.js"></script>
         <script src="js/article.js"></script>
         <script src="js/INaturalist.js"></script>
+        <script src="js/userfunctions.js"></script>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
@@ -29,7 +30,7 @@ Date:     20.08.2019
         <script>
             $(function () {
                 $("header").load("header.html");
-                $("footer").load("footer.html");
+                $("#footer").load("footer.html");
                 $("#tabs").tabs();
             });
         </script>
@@ -42,14 +43,25 @@ Date:     20.08.2019
             <div id="tabs">
                 <ul>
                     <li><a href="#tabs-1">Users</a></li>
-                    <li><a href="#tabs-2">Pins</a></li>
+                    <li><a href="#tabs-2" onclick="mapload()">Pins</a></li>
                     <li><a href="#tabs-3">upload article</a></li>
                     <li><a href="#tabs-4">uplaod INaturalist data</a></li>
+                    <li><a href="#tabs-5">kml Data</a></li>
+                    <li><a href="#tabs-6">change password</a></li>
+                    <li><a href="#tabs-7">remove user</a></li>
                 </ul>
 
                 <!-- tab 1 -->
                 <div id="tabs-1">
-                    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+                    <h3> add user</h3>
+
+                        user name:<input id="adduserName" type="text" name="name">
+                        user type:<select id="roleselect" name="role">
+                          <option value='1'>normal user</option>
+                          <option value='1'>super user</option>
+                        </select>
+                        <br>
+                        <button onclick="adduser()" name="add user">add user</button>
                 </div>
 
                 <!-- tab 2 -->
@@ -95,6 +107,9 @@ Date:     20.08.2019
                 <!-- tab 3 -->
                 <div id="tabs-3">
                   <h3>add articles</h3>
+                  summary:
+                  </br>
+                  <textarea id="articleSum" width="100"></textarea>
                   <div id="summernote2"></div>
                   <button onclick="uploadArticleData()">submit</button>
 
@@ -109,8 +124,30 @@ Date:     20.08.2019
                     <button onclick="tabletoPins()">upload</button>
                     <div id='INaturalistdata'></div>
                 </div>
+
+
+                <div id="tabs-5">
+                  <h3> kml data</h3>
+
+                </div>
+
+                <div id="tabs-6">
+                  <h3> change password</h3>
+                  <table>
+                    <tr><td>old password:</td><td><input type="text" id="oldPassowrd"></input><td></tr>
+                    <tr><td>new password:</td><td><input type="text" id="newPassword"></input><td></tr>
+                  </table>
+                  </br>
+                  <button onclick="updatePassword()">update passowrd</button>
+                </div>
+
+
+                <div id="tabs-7">
+                  <h3> remove user</h3>
+
+                  </div>
             </div>
         </section>
-        <footer></footer>
+        <footer id="footer"></footer>
     </body>
 </html>

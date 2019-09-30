@@ -1,6 +1,7 @@
 package actions
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -75,4 +76,22 @@ func deleteUser(w http.ResponseWriter, r *http.Request) {
 	}
 	_, _ = fmt.Fprint(w, "ok")
 	speedControl <-struct {}{}
+}
+
+type userHelp struct {
+	Names []string `json:"names"`
+	Roles []int `json:"roles"`
+}
+func allUser(w http.ResponseWriter, r *http.Request) {
+	log.Println("call all user")
+	<-speedControl
+	defer func() {speedControl <-struct {}{}}()
+	h := userHelp{}
+	h.Names, h.Roles = dataLevel.SQLWorker.AllRole()
+	e := json.NewEncoder(w)
+	err := e.Encode(h)
+	if err != nil {
+		w.WriteHeader(500)
+		return
+	}
 }

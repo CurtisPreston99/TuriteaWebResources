@@ -16,7 +16,7 @@ func main() {
 	actions.Start(config)
 	go func() {
 		time.Tick(1*time.Second)
-		(&http.Client{}).Get("http://localhost/api/getPins?north=-40&south=-41&east=176&west=175&timeBegin=0&timeEnd=20000")
+		_, _ = (&http.Client{}).Get("http://localhost/api/getPins?north=-40&south=-41&east=176&west=175&timeBegin=0&timeEnd=20000")
 		time.Tick(1*time.Second)
 		log.Println("server start")
 	}()
