@@ -48,7 +48,7 @@ getPins();
 
 function mapload(){
   console.log("showing map");
-  
+
   console.log("showing map");
 
   mymap.invalidateSize();
@@ -207,6 +207,7 @@ function updatePin(){
   console.log(pins);
   $.post("../api/addPins?num=1",pins,function(){
     console.log("posted");
+    popup("<h4> post sussesful</h4>");
   });
 
 

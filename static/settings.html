@@ -22,6 +22,8 @@ Date:     20.08.2019
         <script src="js/article.js"></script>
         <script src="js/INaturalist.js"></script>
         <script src="js/userfunctions.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/kml.js"></script>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
@@ -38,6 +40,7 @@ Date:     20.08.2019
     <body>
         <header></header>
         <section>
+            <div id="popup"></div>
             <h1>Settings</h1>
             <hr>
             <div id="tabs">
@@ -46,9 +49,9 @@ Date:     20.08.2019
                     <li><a href="#tabs-2" onclick="mapload()">Pins</a></li>
                     <li><a href="#tabs-3">upload article</a></li>
                     <li><a href="#tabs-4">uplaod INaturalist data</a></li>
-                    <li><a href="#tabs-5">kml Data</a></li>
+                    <li><a href="#tabs-5" onclick="getKMLList()">kml Data</a></li>
                     <li><a href="#tabs-6">change password</a></li>
-                    <li><a href="#tabs-7">remove user</a></li>
+                    <li><a href="#tabs-7" onclick="getallUsers()">remove user</a></li>
                 </ul>
 
                 <!-- tab 1 -->
@@ -112,6 +115,7 @@ Date:     20.08.2019
                   <textarea id="articleSum" width="100"></textarea>
                   <div id="summernote2"></div>
                   <button onclick="uploadArticleData()">submit</button>
+                  <button onclick="uploadFrag()">frag</button>
 
                   <script>loadeditor()</script>
                 </div>
@@ -128,7 +132,20 @@ Date:     20.08.2019
 
                 <div id="tabs-5">
                   <h3> kml data</h3>
+                  <table>
+                    <tr>
+                      <td>
+                  <input type="file" id="kmlFileUpload" accept=".kml">upload kml file</input>
+                </td>
+                <td>
+                    <button onclick="uploadKML()">upload kml</button>
+                </td>
+              </tr>
+            </table>
 
+            <div id="kmlList">
+
+              </div>
                 </div>
 
                 <div id="tabs-6">
@@ -144,7 +161,7 @@ Date:     20.08.2019
 
                 <div id="tabs-7">
                   <h3> remove user</h3>
-
+                  <div id="userlist"></div>
                   </div>
             </div>
         </section>
