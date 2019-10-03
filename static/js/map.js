@@ -1,6 +1,6 @@
 Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1M2YwNTc4Ni0yNWYzLTQ2MTEtOGRkNC05OWFlODNlNTBkZWQiLCJpZCI6MTM5NTksInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NjQ0NzQwMTl9.X_iNRe8-4jhYrUyAh8QNt3d6aHAfysLye_m0zBHmuiM';
 
-
+var loadedIDS=[];
 var home=window.location.origin;
 var west =175.590700;
 var south =-40.530029;
@@ -40,32 +40,36 @@ function loadMap(){
   // Add toolbar to Cesium map & load/hide pins
 
 
-  Sandcastle.addToolbarButton('Hide Pins', function () {
-      viewer.entities.removeAll();
+  Sandcastle.addToolbarButton('Hide/show Pins', function () {
+    viewer.entities._show=!viewer.entities._show;
+
   });
 
-  // Add KML data to Cesium object
-  // kmlmenu.push({
-  //     text: "Remove all KML Data",
-  //     onselect: function () {
-  //         viewer.dataSources.removeAll();
-  //     }
-  // });
-  // $.getJSON("getKML", function (data) {
-  //     $.each(data, function (name, value) {
-  //         var obj = {};
-  //         var kml = new Cesium.KmlDataSource();
-  //         kml.load(value.url);
-  //         obj.text = value.name;
-  //         obj.onselect = function () {
-  //             viewer.dataSources.removeAll();
-  //             viewer.dataSources.add(kml);
-  //             viewer.zoomTo(kml);
-  //         };
-  //         kmlmenu.push(obj);
-  //     });
-  //     Sandcastle.addToolbarMenu(kmlmenu, 'toolbar');
-  // });
+  $.getJSON("./api/listKML", function (data) {
+      console.log("kmlList");
+      console.log(data);
+      let toolbar=[{
+        text: "Remove all KML Data",
+        onselect: function () {
+            viewer.dataSources.removeAll();
+        }
+      }];
+      var options = {
+          camera : viewer.scene.camera,
+          canvas : viewer.scene.canvas
+      };
+      $.each(data, function (name, value) {
+
+          console.log(value);
+          var obj = {};
+          obj.text=(name+1).toString()+"  "+value;
+          obj.onselect= function() {
+              viewer.dataSources.add(Cesium.KmlDataSource.load('./api/getKML&name='+value, options))
+          };
+          toolbar.push(obj);
+      });
+      Sandcastle.addToolbarMenu(toolbar, 'toolbar');
+  });
   var rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
       viewer.camera.setView({
       destination: rectangle
@@ -87,8 +91,15 @@ var area = "north=" + Cesium.Math.toDegrees(rect.north).toFixed(8) +
 console.log(area);
 $.getJSON(home+"/api/getPins?"+area, function (data) {
   console.log(data);
-    viewer.entities.removeAll();
+  let added=0;
     $.each(data, function (key, value) {
+
+      if(value!=null){
+      if(!loadedIDS.includes(value.uid)){
+        console.log(key,value);
+
+        loadedIDS.push(value.uid)
+        added+=1;
         description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")"
                 + "<hr>"
                 + value.description;
@@ -114,6 +125,9 @@ $.getJSON(home+"/api/getPins?"+area, function (data) {
         heightReference : Cesium.HeightReference.CLAMP_TO_GROUND,
 
        } });
+
+     }}
         });
+        console.log(added);
          });
       }
