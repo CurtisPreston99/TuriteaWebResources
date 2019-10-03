@@ -7,14 +7,18 @@ function getKMLList() {
   $.getJSON(home+"/api/listKML", function (data) {
     listElm=document.getElementById('kmlList');
     table="<table>"
-
+    table=table+"</tr><th>remove KML file </th> <th> kml file name</th>"
+    for(let i=0;i<data.length;i++){
+      table=table+"<tr><td>"+data[i]+"</td></tr>"
+    }
     table=table+"</table>"
+    listElm.innerHTML=table;
     console.log(data);
   });
 }
 
 function uploadKML() {
-  file=document.getElementById("kmlFileUpload").files
+  file=document.getElementById("kmlFileUpload").files[0]
   sendKML(file)
   function getAsText(fileToRead) {
     var reader = new FileReader();
