@@ -21,8 +21,9 @@ function getKMLList() {
 
 function removeKML(name) {
   console.log("removeing: "+name);
-  $.post(home+"/api/deleteKML&name="+name,name,function(){
+  $.post(home+"/api/deleteKML?name="+name,name,function(){
     console.log("removed");
     popup("<h4>remove sussesful</h4>");
+    getKMLList()
   });
 }

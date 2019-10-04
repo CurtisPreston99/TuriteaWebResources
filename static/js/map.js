@@ -64,8 +64,10 @@ function loadMap(){
           var obj = {};
           obj.text=(name+1).toString()+"  "+value;
           obj.onselect= function() {
-              viewer.dataSources.add(Cesium.KmlDataSource.load('./api/getKML&name='+value, options))
+              viewer.dataSources.add(Cesium.KmlDataSource.load('./api/getKML?name='+value, options))
           };
+          obj.heightReference=Cesium.HeightReference.CLAMP_TO_GROUND,
+
           toolbar.push(obj);
       });
       Sandcastle.addToolbarMenu(toolbar, 'toolbar');
