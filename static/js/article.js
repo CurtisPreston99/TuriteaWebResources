@@ -37,18 +37,3 @@ function each(file) {
         editor.summernote('insertImage', "data:" + f.type + ";base64," + btoa(binaryString));
     };
 }
-
-
-function uploadArticleData() {
-    console.log(editor.summernote('code'));
-    article = {};
-    article.sum = editor.summernote('code');
-    console.log(article);
-
-    send = {};
-    send.data = '[' + JSON.stringify(article) + ']';
-
-    $.post("../api/addArticle?num=1", send, function (data) {
-        console.log(data);
-    });
-}

@@ -311,3 +311,11 @@ footer address {
     display: none;
 }
 
+.hidden_part_header {
+    display: none;
+}
+
+.inline_part_header {
+    display: inline;
+}
+

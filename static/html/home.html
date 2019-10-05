@@ -26,14 +26,6 @@ Date:     20.08.2019
                 $("header").load("header.html");
                 $("footer").load("footer.html");
             });
-            $(function () {
-                let c = document.cookie;
-                if (c.includes("super=false")) {
-                    let hiddenPart = $(".hidden_part");
-                    hiddenPart.removeClass("hidden_part");
-                    hiddenPart.addClass("inline_part");
-                }
-            })
         </script>
     </head>
     <body>

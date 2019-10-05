@@ -21,6 +21,7 @@ const (
 	createRole
 	deleteRole
 	allRole
+	changeRole
 	changePassword
 	createSubscription
 	deleteSubscription
@@ -108,7 +109,8 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[deleteRole], err = s.db.Prepare("delete from users where name = $1")
+	// no meaning password hash just make it impossible for use to input
+	s.stmtMap[deleteRole], err = s.db.Prepare("update users set role = 0, name = concat(uid, 'deleted'), password_hash = '][/`!32%' where name = $1")
 	if err != nil {
 		return err
 	}
@@ -213,7 +215,11 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[allRole], err = s.db.Prepare("select name, role from users")
+	s.stmtMap[allRole], err = s.db.Prepare("select name, role from users order by name")
+	if err != nil {
+		return err
+	}
+	s.stmtMap[changeRole], err = s.db.Prepare("update users set role = $1 where name=$2;")
 	return err
 }
 
@@ -560,8 +566,18 @@ func (s *SqlLinker) AllRole() ([]string, []int) {
 		if err != nil {
 			return nil, nil
 		}
-		names = append(names, name)
-		roles = append(roles, role)
+		if role != 0 {
+			names = append(names, name)
+			roles = append(roles, role)
+		}
 	}
 	return names, roles
+}
+
+func (s *SqlLinker) ChangeRole(name string, newRole uint8) bool {
+	_, err := s.stmtMap[changeRole].Query(newRole, name)
+	if err != nil {
+		return false
+	}
+	return true
 }

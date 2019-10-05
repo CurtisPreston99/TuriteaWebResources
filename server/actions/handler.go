@@ -49,4 +49,5 @@ func Start(config *Config) {
 	http.HandleFunc("/api/addPinWithArticle", addPinWithArticle)
 	http.HandleFunc("/api/updateArticle", updateArticle)
 	http.HandleFunc("/api/addArticleWithImage", addArticleWithImage)
+	http.HandleFunc("/api/changeRole", changeRole)
 }

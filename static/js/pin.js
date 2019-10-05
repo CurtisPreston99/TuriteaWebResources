@@ -11,58 +11,7 @@ function addIconOptions(element) {
         html += line;
     }
     $("#" + element).html(html);
-    //document.getElementById(element).innerText = html;
 }
-
-// //hides/shows map and text boxes
-// function hidemap() {
-//
-//     if (mapshown) {
-//
-//         //update the map marker
-//         updateMarker(getCords().lon, getCords().lat);
-//
-//         document.getElementById('mapDiv').style.display = '';
-//         console.log("show map");
-//         document.getElementById('longLat').style.display = 'none';
-//         document.getElementById('inputSwitch').innerText = 'manually enter cords';
-//         mapshown = false;
-//     } else {
-//
-//         //update text boxes
-//         document.getElementById('longText').value = getCords().lon;
-//         document.getElementById('latText').value = getCords().lat;
-//         document.getElementById('mapDiv').style.display = 'none';
-//
-//         console.log("hide map");
-//         document.getElementById('longLat').style.display = '';
-//         document.getElementById('inputSwitch').innerText = 'use map to enter cords';
-//         mapshown = true;
-//     }
-// }
-//
-// //returns the selected cords
-// function getCords() {
-//     let cords = {};
-//     if (mapshown) {
-//         cords["lat"] = document.getElementById('latText').value;
-//         cords["lon"] = document.getElementById('longText').value;
-//     } else {
-//         if (theMarker) {
-//             console.log("marker");
-//
-//             cords["lat"] = theMarker.getLatLng().lat;
-//             cords["lon"] = theMarker.getLatLng().lng;
-//         } else {
-//             cords["lat"] = 0;
-//             cords["lon"] = 0;
-//         }
-//
-//     }
-//
-//     console.log(cords);
-//     return cords;
-// }
 
 //compiles pin data one object
 function getallData() {
@@ -77,8 +26,6 @@ function getallData() {
         pin["lat"] = parseFloat($("#latTextAd")[0].value);
         pin["color"] = document.getElementById("colorSelectorsAd").value;
         pin["uid"] = parseInt($("#pinIdAd")[0].value);
-        // // fixme 这里应该是将这些作为一个新的article，摘取其中的有效信息作为summary然后description空着
-        // pin["description"] = n.summernote('code');
     } else {
         pin["name"] = document.getElementById("name").value;
         pin["tag_type"] = document.getElementById("iconSelect").value;
@@ -99,10 +46,7 @@ function deletePin() {
     // eval($("#inDescription").innerText);
     let pin = $(".cesium-infoBox-iframe")[0].contentDocument.getElementById("inDescription");
     if (pin === null) {
-        let e = $('#error-dialog');
-        e.dialog({title: "No Select"});
-        $('#error-dialog p').html("Please select a pin thank you!");
-        e.dialog('open');
+        error("No Select", "Please select a pin thank you");
     }
     let id = pin.innerText;
 
@@ -110,10 +54,7 @@ function deletePin() {
         console.log(result);
         viewer.entities.removeById(id);
     }).fail(function (xhr) {
-        let e = $('#error-dialog');
-        e.dialog({title: "Not login"});
-        $('#error-dialog p').html("Please login thank you!");
-        e.dialog('open');
+        error("Not login", "Please login thank you");
     });
 }
 
@@ -134,10 +75,7 @@ function submitPin() {
             temPin = null;
             loadpins();
         }).fail(function (r) {
-            let e = $('#error-dialog');
-            e.dialog({title: "Not login or other error"});
-            $('#error-dialog p').html("Please login thank you or check other things!");
-            e.dialog('open');
+            error("Not login or other error", "Please login thank you or check other things!");
         });
 
     } else {
@@ -154,10 +92,7 @@ function submitPin() {
             $('#lon').text(0.0);
             $('#lat').text(0.0);
         }).fail(function (r) {
-            let e = $('#error-dialog');
-            e.dialog({title: "Not login or other error"});
-            $('#error-dialog p').html("Please login thank you or check other things!");
-            e.dialog('open');
+            error("Not login or other error", "Please login thank you or check other things!");
         });
         let p = $("#pin-dialog");
         if (p.length !== 0) {
@@ -173,7 +108,7 @@ function toAdvancePins() {
     } else {
         localStorage.setItem("mode", "update")
     }
-    window.location.href="../html/settings.html#tabs-2";
+    window.location.href="../html/settings.html#tabs-3";
 }
 
 function submitPinAd() {
@@ -181,11 +116,8 @@ function submitPinAd() {
     let pin = getallData();
     let pinId = null;
     let code = editor.summernote('code');
-    // code = code.replace("<img", "<myImage");
     let help = $("<p></p>").append($.parseHTML(code));
-    //console.log(help.html());
     let images = help.find("img");
-    //console.log(images);
     let datas = [];
     for (let i = 0; i < images.length; i++) {
         let image = images[i];
@@ -197,22 +129,16 @@ function submitPinAd() {
             img.attr("src", "../api/getImage?id=%x");
         }
     }
-    //console.log(help.html());
     combination.images = JSON.stringify(datas);
     combination.imageNum = datas.length;
     combination.pins = JSON.stringify([pin,]);
     combination.articles = JSON.stringify([{"sum":"pin name:" + pin.name + " at longitude: " + pin.lon.toString().substring(0, 7) + ", latitude: " + pin.lat.toString().substring(0, 7)},]);
     combination.content = help.html();
-    //console.log(help);
-    // for (let i = 0; i < help.length; i++) {
-    //     combination.content += $(help[i]).html();
-    // }
     console.log(combination);
     $.post("../api/addPinWithArticle", combination, function (r) {
         localStorage.setItem("editPin", null);
-        // console.log("success");
         window.location.href = "../html/home.html";
     }).fail(function (r) {
-        console.log(r);
+        error("Not login or other error", "Please login thank you or check other things!");
     })
 }

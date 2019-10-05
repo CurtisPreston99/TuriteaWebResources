@@ -34,6 +34,10 @@ function loadMainFragment() {
         console.log(content);
         homeDiv.append($("<p></p>").append(content));
         homeDiv.append($("<span hidden></span>").text(r));
+    }).fail(function () {
+        let fragment = $("#at404");
+        fragment.show();
+        homeDiv.hide();
     });
 }
 
@@ -150,10 +154,9 @@ function submitArticle() {
         console.log(combination);
         $.post("../api/addArticleWithImage", combination, function (r) {
             localStorage.setItem("editArticle", null);
-            // console.log("success");
             window.location.href = "../article/" + r;
         }).fail(function (r) {
-            console.log(r);
+            error("Not login or other error", "Please login thank you or check other things!");
         })
     }
 
