@@ -34,19 +34,14 @@ func addPins(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(400)
 			return
 		}
-		state := true
-		for i, v := range pins {
+		for _, v := range pins {
 			v.Uid = base.GenPinId()
 			if !buffer.MainCache.CreatePin(v) {
-				_, _ = fmt.Fprint(w, i, " ")
+				_, _ = fmt.Fprint(w, "f", " ")
 				base.RecyclePin(v, true)
-				state = false
+			} else {
+				_, _ = fmt.Fprint(w, strconv.FormatInt(v.Uid, 16), " ")
 			}
-		}
-		if !state {
-			_, _ = w.Write([]byte("-1"))
-		} else {
-			_, _ = w.Write([]byte("ok"))
 		}
 		makeCookie(w, id)
 		se.renew(id)

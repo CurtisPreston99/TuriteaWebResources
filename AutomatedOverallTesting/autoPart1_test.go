@@ -35,9 +35,9 @@ func init() {
 		panic(err)
 	}
 	cookieInit = []*http.Cookie{
-		{Name:"super", MaxAge:0, Path:"/api"},
-		{Name:"key", MaxAge:0, Path:"/api"},
-		{Name:"lastTime", MaxAge:0, Path:"/api"},
+		{Name:"super", MaxAge:0, Path:"/"},
+		{Name:"key", MaxAge:0, Path:"/"},
+		{Name:"lastTime", MaxAge:0, Path:"/"},
 	}
 }
 var u *url.URL
@@ -133,7 +133,7 @@ func TestGetPins(t *testing.T) {
 }
 
 func TestGetPin(t *testing.T) {
-	res, err := client.Get("http://localhost/api/getPin?id=17")
+	res, err := client.Get("http://localhost/api/getPin?information=17")
 	if err != nil {
 		t.Error(err)
 		return

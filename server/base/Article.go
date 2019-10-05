@@ -8,7 +8,7 @@ import (
 )
 
 type Article struct {
-	Id int64 `json:"id"`
+	Id int64 `json:"information"`
 	WriteBy int64 `json:"wby"`
 	Summary string `json:"sum"`
 	HomeContent int64 `json:"home"`
@@ -58,7 +58,7 @@ func RecycleArticle(article *Article, delete bool) {
 	if delete {
 		articleIdRecycle <- article.Id
 	}
-	articlePool.Put(articlePool)
+	articlePool.Put(article)
 }
 
 type ArticleKey int64

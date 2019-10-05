@@ -45,4 +45,9 @@ func Start(config *Config) {
 	http.HandleFunc("/api/getKML", getKml)
 	http.HandleFunc("/api/deleteKML", deleteKML)
 	http.HandleFunc("/api/listKML", listKML)
+	http.HandleFunc("/api/logout", logout)
+	http.HandleFunc("/api/addPinWithArticle", addPinWithArticle)
+	http.HandleFunc("/api/updateArticle", updateArticle)
+	http.HandleFunc("/api/addArticleWithImage", addArticleWithImage)
+	http.HandleFunc("/api/changeRole", changeRole)
 }

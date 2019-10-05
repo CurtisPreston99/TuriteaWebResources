@@ -51,8 +51,8 @@ func TestAddArticle(t *testing.T) {
 func TestAddArticleFragment(t *testing.T) {
 	login()
 	vs := url.Values{"resIds":{`[
-  {"t":0, "id":1},
-  {"t":1, "id":2}
+  {"t":0, "information":1},
+  {"t":1, "information":2}
 ]`}, "num":{"2"}, "content":{"abc"}}
 	res, err := client.PostForm("http://localhost/api/addArticleFragment", vs)
 	if err != nil {
@@ -97,7 +97,7 @@ func TestAddImage(t *testing.T) {
 
 func TestUpdateFragment(t *testing.T) {
 	login()
-	vs := url.Values{"resIds":{`[{"t":0, "id":1},{"t":1, "id":2}]`},"num":{"2"},"content":{"absd"},"id":{"1"}}
+	vs := url.Values{"resIds":{`[{"t":0, "information":1},{"t":1, "information":2}]`},"num":{"2"},"content":{"absd"},"information":{"1"}}
 	res, err := client.PostForm("http://localhost/api/update?type=0", vs)
 	if err != nil {
 		t.Fatal(err)
@@ -111,7 +111,7 @@ func TestUpdatePin(t *testing.T) {
 	login()
 	vs := url.Values{"data":{`[
 {
-	"id":27,
+	"information":27,
 	"owner": 0,
     "lat": 10.1,
     "lon": 10.2,
@@ -134,7 +134,7 @@ func TestUpdatePin(t *testing.T) {
 func TestUpdateArticle(t *testing.T) {
 	log.Println(time.Now())
 	login()
-	vs := url.Values{"data": {`{"id":2,
+	vs := url.Values{"data": {`{"information":2,
     "wby":1,
     "sum":"test",
     "home":3}`}}

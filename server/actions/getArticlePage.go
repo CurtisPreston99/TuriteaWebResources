@@ -1,8 +1,10 @@
 package actions
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 
@@ -10,6 +12,24 @@ import (
 	"TuriteaWebResources/server/buffer"
 	"TuriteaWebResources/server/dataLevel"
 )
+
+var template []byte
+func init() {
+	f, err := os.Open("resources/html template/articleTemplate.html")
+	if err != nil {
+		panic(err)
+	}
+	s, err := f.Stat()
+	if err != nil {
+		panic(err)
+	}
+	template = make([]byte, s.Size())
+	_, err = f.Read(template)
+	if err != nil {
+		panic(err)
+	}
+	f.Close()
+}
 
 func getArticlePage(w http.ResponseWriter, r *http.Request) {
 	log.Println("get article")
@@ -31,7 +51,26 @@ func getArticlePage(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(404)
 		return
 	}
-	home := b.(*base.Article).HomeContent
+	a := b.(*base.Article)
+	home := a.HomeContent
 	http.SetCookie(w, &http.Cookie{Path:"/", Name:"home", Value:strconv.FormatInt(home, 16)})
 	buffer.MainCache.LoadAsynchronous(dataLevel.ArticleContentKey(home))
+	// for test
+	//f, err := os.Open("resources/html template/articleTemplate.html")
+	//if err != nil {
+	//	panic(err)
+	//}
+	//
+	//_ , err = io.Copy(w, f)
+	//if err != nil {
+	//	w.WriteHeader(500)
+	//}
+	//f.Close()
+
+	//in deploy
+	_, err = w.Write([]byte(fmt.Sprintf(string(template), a.Summary, a.Id)))
+	if err != nil {
+		w.WriteHeader(500)
+		return
+	}
 }

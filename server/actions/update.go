@@ -61,12 +61,12 @@ func update(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		data := r.Form.Get("data")
-		jins, err := base.JsonToPins(strings.NewReader(data), uint16(num))
+		pins, err := base.JsonToPins(strings.NewReader(data), uint16(num))
 		if err != nil {
 			w.WriteHeader(400)
 			return
 		}
-		for _, v := range jins {
+		for _, v := range pins {
 			buffer.MainCache.Update(v)
 		}
 	case dataLevel.Article:

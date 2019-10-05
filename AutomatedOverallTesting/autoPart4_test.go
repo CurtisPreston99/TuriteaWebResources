@@ -26,6 +26,7 @@ func TestAddUser(t *testing.T) {
 	}
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&newUser)
+	fmt.Println(newUser)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -89,7 +90,7 @@ func TestUnlink(t *testing.T) {
 
 func TestDeleteMedia(t *testing.T) {
 	login()
-	res, err := client.Get("http://localhost/api/delete?type=3&id=2")
+	res, err := client.Get("http://localhost/api/delete?type=3&information=2")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -100,7 +101,7 @@ func TestDeleteMedia(t *testing.T) {
 
 func TestDeleteArticle(t *testing.T) {
 	login()
-	res, err := client.Get("http://localhost/api/delete?type=4&id=2")
+	res, err := client.Get("http://localhost/api/delete?type=4&information=2")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -111,7 +112,7 @@ func TestDeleteArticle(t *testing.T) {
 
 func TestDeletePin(t *testing.T) {
 	login()
-	res, err := client.Get("http://localhost/api/delete?type=2&id=1b")
+	res, err := client.Get("http://localhost/api/delete?type=2&information=1b")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -122,7 +123,7 @@ func TestDeletePin(t *testing.T) {
 
 func TestDeleteFragment(t *testing.T) {
 	login()
-	res, err := client.Get("http://localhost/api/delete?type=0&id=1")
+	res, err := client.Get("http://localhost/api/delete?type=0&information=1")
 	if err != nil {
 		t.Fatal(err)
 		return
