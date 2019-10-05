@@ -1,5 +1,5 @@
 var i = 0;
-$.getJSON("api/getVideo", function (data) {
+$.getJSON("/api/getVideo", function (data) {
     $.each(data, function (name, value) {
         if (i % 4 === 0) {
             $("table").append("<tr><td></td></tr>");

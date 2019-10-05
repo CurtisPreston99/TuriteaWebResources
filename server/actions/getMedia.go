@@ -12,7 +12,7 @@ import (
 func getMedia(w http.ResponseWriter, r *http.Request)  {
 	log.Println("call get media")
 	vs := r.URL.Query()
-	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
+	id, err := strconv.ParseInt(vs.Get("information"), 16, 64)
 	if err != nil {
 		w.WriteHeader(400)
 		return

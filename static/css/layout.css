@@ -294,3 +294,20 @@ footer address {
 #privacy-policy {
     color: blue;
 }
+
+.hidden_part {
+    display: none;
+}
+
+.inline_part {
+    display: inline;
+}
+
+.two_hidden {
+    display: none;
+}
+
+.slow {
+    display: none;
+}
+

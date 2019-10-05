@@ -8,7 +8,7 @@ import (
 )
 
 type Article struct {
-	Id int64 `json:"id"`
+	Id int64 `json:"information"`
 	WriteBy int64 `json:"wby"`
 	Summary string `json:"sum"`
 	HomeContent int64 `json:"home"`

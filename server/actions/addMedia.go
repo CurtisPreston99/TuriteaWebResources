@@ -1,10 +1,10 @@
 package actions
 
 import (
-	"fmt"
+	"encoding/base64"
 	"log"
 	"net/http"
-	"time"
+	"strconv"
 
 	"TuriteaWebResources/server/base"
 	"TuriteaWebResources/server/buffer"
@@ -24,22 +24,18 @@ func addImage(w http.ResponseWriter, r *http.Request) {
 	case normal:
 		fallthrough
 	case super:
-		f, head, err := r.FormFile("data")
+		err := r.ParseForm()
 		if err != nil {
 			w.WriteHeader(400)
 			return
 		}
-		err = r.ParseForm()
-		if err != nil {
-			return
-		}
+		data := r.Form.Get("data")
 		title := r.Form.Get("title")
-		if err != nil {
+		if len(data) & len(title) == 0 {
 			w.WriteHeader(400)
 			return
 		}
-		b := make([]byte, head.Size)
-		_, err = f.Read(b)
+		b, err := base64.StdEncoding.DecodeString(data)
 		if err != nil {
 			w.WriteHeader(400)
 			return
@@ -47,15 +43,13 @@ func addImage(w http.ResponseWriter, r *http.Request) {
 		id := base.GenMediaId()
 		if !buffer.MainCache.CreateMedia(base.GenMedia(id, imageLocal, title, "file")) {
 			w.WriteHeader(500)
+			base.RecycleMedia(&base.Media{Uid:id}, true)
 			return
 		}
 		buffer.MainCache.CreateImage(b, id)
-		_ = f.Close()
-		err = r.MultipartForm.RemoveAll()
-		if err != nil {
-			fmt.Println(time.Now().Format(time.Stamp), err)
-		}
-		_, _ = w.Write([]byte("1"))
+		//_, _ = w.Write([]byte(`<html><body><p information="imageId">`))
+		_, _ = w.Write([]byte(strconv.FormatInt(id, 16)))
+		//_, _ = w.Write([]byte(`</p></body></html>`))
 		makeCookie(w, uid)
 		se.renew(uid)
 	case public:

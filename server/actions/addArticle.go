@@ -35,23 +35,19 @@ func addArticle(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(400)
 			return
 		}
-		state := true
-		for i, v := range articles {
+		for _, v := range articles {
 			v.Id = base.GenArticleId()
 			v.WriteBy = id
 			v.HomeContent = buffer.MainCache.CreateArticleContent([]dataLevel.Resource{}, "")
 			if !buffer.MainCache.CreateArticle(v) {
-				_, _ = fmt.Fprint(w, i, " ")
+				_, _ = fmt.Fprint(w, "f", " ")
 				buffer.MainCache.Delete(dataLevel.ArticleContentKey(v.HomeContent))
 				base.RecycleArticle(v, true)
-				state = false
+			} else {
+				_, _ = fmt.Fprint(w, strconv.FormatInt(v.Id, 16), strconv.FormatInt(v.HomeContent ,16), " ")
 			}
 		}
-		if !state {
-			_, _ = w.Write([]byte("-1"))
-		} else {
-			_, _ = w.Write([]byte("ok"))
-		}
+
 		makeCookie(w, id)
 		se.renew(id)
 	case public:

@@ -38,7 +38,7 @@ func update(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(400)
 			return
 		}
-		cid, err := strconv.ParseInt(r.Form.Get("id"), 16, 64)
+		cid, err := strconv.ParseInt(r.Form.Get("information"), 16, 64)
 		if err != nil {
 			w.WriteHeader(400)
 			return
@@ -61,12 +61,12 @@ func update(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		data := r.Form.Get("data")
-		jins, err := base.JsonToPins(strings.NewReader(data), uint16(num))
+		pins, err := base.JsonToPins(strings.NewReader(data), uint16(num))
 		if err != nil {
 			w.WriteHeader(400)
 			return
 		}
-		for _, v := range jins {
+		for _, v := range pins {
 			buffer.MainCache.Update(v)
 		}
 	case dataLevel.Article:

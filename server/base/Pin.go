@@ -53,7 +53,7 @@ func pinIdProvider() {
 	}
 }
 const DefaultTime int64 = 0xffffffff
-var tagMap = [117]string{}
+var tagMap = &[117]string{}
 var TagNameToNumber = make(map[string]uint8, 117)
 func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name string, color string) *Pin {
 	pin := pinPool.Get().(*Pin)
@@ -79,7 +79,7 @@ func RecyclePin(pin *Pin, delete bool) {
 	pinPool.Put(pin)
 }
 
-func loadTags(m [117]string, rm map[string]uint8) error {
+func loadTags(m *[117]string, rm map[string]uint8) error {
 	//for test open this one and close other one
 	//fs, err := ioutil.ReadDir("../../cesium/Source/Assets/Textures/maki")
 	//for overallTesting open this
@@ -89,7 +89,7 @@ func loadTags(m [117]string, rm map[string]uint8) error {
 		return err
 	}
 	for i, f := range fs {
-		s := strings.Split(f.Name(), ".")[0]
+		s := strings.Split(f.Name(), ".png")[0]
 		m[uint8(i)] = s
 		rm[s] = uint8(i)
 	}

@@ -7,7 +7,7 @@ import (
 
 type Resource struct {
 	Type uint8 `json:"t"`
-	Id int64 `json:"id"`
+	Id int64 `json:"information"`
 }
 
 const (

@@ -12,7 +12,7 @@ import (
 
 func TestGetMedia(t *testing.T) {
 	client.Jar.SetCookies(u, cookieInit)
-	res, err := client.Get("http://localhost/api/media?id=2")
+	res, err := client.Get("http://localhost/api/media?information=2")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -35,7 +35,7 @@ func TestGetFragment(t *testing.T) {
 		{Type:dataLevel.Image, Id:0},
 		{Type:dataLevel.ArticleContent, Id:0},
 	}, "abc")
-	res, err := client.Get("http://localhost/api/fragment?id=2")
+	res, err := client.Get("http://localhost/api/fragment?information=2")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -54,7 +54,7 @@ func TestGetFragment(t *testing.T) {
 func TestGetImage(t *testing.T) {
 	buffer.MainCache.CreateImage([]byte{123:1}, 0)
 	client.Jar.SetCookies(u, cookieInit)
-	res, err := client.Get("http://localhost/api/getImage?id=0")
+	res, err := client.Get("http://localhost/api/getImage?information=0")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -72,7 +72,7 @@ func TestGetImage(t *testing.T) {
 
 func TestPinsByArticle(t *testing.T) {
 	client.Jar.SetCookies(u, cookieInit)
-	res, err := client.Get("http://localhost/api/pinsByArticle?id=2")
+	res, err := client.Get("http://localhost/api/pinsByArticle?information=2")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -90,7 +90,7 @@ func TestPinsByArticle(t *testing.T) {
 
 func TestArticlesByPin(t *testing.T) {
 	client.Jar.SetCookies(u, cookieInit)
-	res, err := client.Get("http://localhost/api/articlesByPin?id=1")
+	res, err := client.Get("http://localhost/api/articlesByPin?information=1")
 	if err != nil {
 		t.Fatal(err)
 	}

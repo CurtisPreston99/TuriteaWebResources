@@ -13,7 +13,7 @@ func getImageLocal(w http.ResponseWriter, r *http.Request) {
 	log.Println("call get image local")
 	//fmt.Println(r.URL)
 	q := r.URL.Query()
-	idSting := q.Get("id")
+	idSting := q.Get("information")
 	if len(idSting) == 0 {
 		w.WriteHeader(400)
 		return

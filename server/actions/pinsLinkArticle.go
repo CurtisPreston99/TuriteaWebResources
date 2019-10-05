@@ -13,7 +13,7 @@ import (
 func pinsByArticle(w http.ResponseWriter, r *http.Request) {
 	log.Println("call pins by article")
 	vs := r.URL.Query()
-	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
+	id, err := strconv.ParseInt(vs.Get("information"), 16, 64)
 	if err != nil {
 		w.WriteHeader(400)
 		return
@@ -42,7 +42,7 @@ func pinsByArticle(w http.ResponseWriter, r *http.Request) {
 func articlesByPin(w http.ResponseWriter, r *http.Request) {
 	log .Println("call articles by pin")
 	vs := r.URL.Query()
-	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
+	id, err := strconv.ParseInt(vs.Get("information"), 16, 64)
 	if err != nil {
 		w.WriteHeader(400)
 		return
