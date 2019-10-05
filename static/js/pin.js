@@ -108,7 +108,7 @@ function toAdvancePins() {
     } else {
         localStorage.setItem("mode", "update")
     }
-    window.location.href="../html/settings.html#tabs-3";
+    window.location.href="../html/settings.html#tabs-1";
 }
 
 function submitPinAd() {

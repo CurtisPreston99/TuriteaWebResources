@@ -27,6 +27,7 @@ Date:     20.08.2019
     <script src="../js/INaturalist.js"></script>
     <script src="../js/userfunctions.js"></script>
     <script src="../js/loadArticle.js"></script>
+    <script src="../js/kml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 
 
@@ -53,7 +54,7 @@ Date:     20.08.2019
             <li><a href="#tabs-1">Pins</a></li>
             <li><a href="#tabs-3">article</a></li>
             <li><a href="#tabs-4">upload INaturalist data</a></li>
-            <li><a href="#tabs-5">kml Data</a></li>
+            <li><a href="#tabs-5" onclick="getKMLList()">kml Data</a></li>
             <li><a href="#tabs-6">change password</a></li>
             <li><a href="#tabs-2" class="hidden_normal">Users</a></li>
             <li><a href="#tabs-7" class="hidden_normal" onclick="loadUsers()">manage user</a></li>
@@ -106,7 +107,7 @@ Date:     20.08.2019
             <button onclick="adduser()" name="add user">add user</button>
             <div id="userResult" class="two_hidden">
                 <div>role: <span id="role"></span></div>
-                <div>name: <span id="userName"></span> </div>
+                <div>name: <span id="userName"></span></div>
                 <div>password: <span id="password"></span></div>
             </div>
         </div>
@@ -114,7 +115,7 @@ Date:     20.08.2019
 
         <!-- edit article -->
         <div id="tabs-3">
-            <h3 id ="articleTitle">article</h3>
+            <h3 id="articleTitle">article</h3>
             summary:
             <br/>
             <textarea id="articleSum" width="100"></textarea>
@@ -123,7 +124,7 @@ Date:     20.08.2019
             <button onclick="submitArticle()">submit</button>
         </div>
 
-        <!-- tab 4 -->
+        <!-- csv -->
         <div id="tabs-4" onload="init()">
             <h3>add INaturalist data</h3>
             <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv">
@@ -131,12 +132,30 @@ Date:     20.08.2019
             <div id='INaturalistdata'></div>
         </div>
 
-
+        <!-- kml -->
         <div id="tabs-5">
-            <h3> kml data</h3>
 
+            <form action="../api/putKML" method="post" enctype="multipart/form-data" id="kmlup">
+                <input type="file" name="kml" id="kml">
+                <input type="submit" value="Upload Image" name="submit">
+            </form>
+
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>remove</td>
+                        <td>name</td>
+                    </tr>
+                    </thead>
+                    <tbody id="kmlList">
+
+                    </tbody>
+                </table>
+            </div>
         </div>
 
+        <!-- change password -->
         <div id="tabs-6">
             <h3> change password</h3>
             <table>
@@ -146,22 +165,28 @@ Date:     20.08.2019
                 </tr>
                 <tr>
                     <td>new password:</td>
-                    <td><input type="text" id="newPassword"/><td>
+                    <td><input type="text" id="newPassword"/>
+                    <td>
                 </tr>
             </table>
             <br/>
             <button onclick="updatePassword()">update passowrd</button>
         </div>
 
+        <!-- remove user -->
         <div id="tabs-7">
             <h3> remove user</h3>
-            <p><button onclick="loadUsers()">refresh</button></p>
-            <p><button onclick="popupYN('These users will be deleted', deleteUsers, function() {})">delete</button></p>
+            <p>
+                <button onclick="loadUsers()">refresh</button>
+            </p>
+            <p>
+                <button onclick="popupYN('These users will be deleted', deleteUsers, function() {})">delete</button>
+            </p>
             <table>
                 <thead>
-                    <tr>select</tr>
-                    <tr>name</tr>
-                    <tr>role</tr>
+                <tr>select</tr>
+                <tr>name</tr>
+                <tr>role</tr>
                 </thead>
                 <tbody id="userList">
 

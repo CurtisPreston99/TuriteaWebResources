@@ -17,6 +17,8 @@ var tag_types = ['airfield', 'airport', 'alcohol-shop', 'america-football', 'art
 
 var scratchRectangle = new Cesium.Rectangle();
 
+var kmlMap = {};
+
 function loadMap() {
     viewer = new Cesium.Viewer('cesiumContainer', {
             // imageryProvider : Cesium.createTileMapServiceImageryProvider({
@@ -42,29 +44,37 @@ function loadMap() {
 
     // Add toolbar to Cesium map & load/hide pins
 
+    $.getJSON("../api/listKML", function (data) {
+        console.log("kmlList");
+        console.log(data);
+        let toolbar = [{
+            text: "Remove all KML Data",
+            onselect: function () {
+                viewer.dataSources.removeAll();
+            }
+        }];
+        var options = {
+            camera: viewer.scene.camera,
+            canvas: viewer.scene.canvas,
+            clampToGround: true,
+        };
+        kmlMap = {};
+        $.each(data, function (name, value) {
+            kmlMap[value] = false;
+            console.log(value);
+            var obj = {};
+            obj.text = (name + 1).toString() + "  " + value;
+            obj.onselect = function () {
+                if (!kmlMap[value]) {
+                    viewer.dataSources.add(Cesium.KmlDataSource.load('../api/getKML?name=' + value, options))
+                } else {
 
-    // Add KML data to Cesium object
-    // kmlmenu.push({
-    //     text: "Remove all KML Data",
-    //     onselect: function () {
-    //         viewer.dataSources.removeAll();
-    //     }
-    // });
-    // $.getJSON("getKML", function (data) {
-    //     $.each(data, function (name, value) {
-    //         var obj = {};
-    //         var kml = new Cesium.KmlDataSource();
-    //         kml.load(value.url);
-    //         obj.text = value.name;
-    //         obj.onselect = function () {
-    //             viewer.dataSources.removeAll();
-    //             viewer.dataSources.add(kml);
-    //             viewer.zoomTo(kml);
-    //         };
-    //         kmlmenu.push(obj);
-    //     });
-    //     Sandcastle.addToolbarMenu(kmlmenu, 'toolbar');
-    // });
+                }
+            };
+            toolbar.push(obj);
+        });
+        Sandcastle.addToolbarMenu(toolbar, 'toolbar');
+    });
     var rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
     viewer.camera.setView({
         destination: rectangle
@@ -213,9 +223,7 @@ function selectAndCreate() {
 }
 
 function hidePins() {
-    viewer.entities.removeAll();
-    // console.log(viewer.entities.removed);
-    // viewer.entities.
+    viewer.entities.show = !viewer.entities.show;
 }
 
 function selectPosition(event) {

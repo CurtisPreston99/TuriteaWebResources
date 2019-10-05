@@ -60,12 +60,13 @@ func putKml(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(500)
 			return
 		}
-		_, _ = w.Write([]byte("ok"))
+
 		makeCookie(w, uid)
 		se.renew(uid)
 		lock.Lock()
 		kmlList[title] = 0
 		lock.Unlock()
+		http.Redirect(w, r, "../html/settings.html#tabs-5", http.StatusTemporaryRedirect)
 	case public:
 		w.WriteHeader(401)
 	}
@@ -150,19 +151,27 @@ func getKml(w http.ResponseWriter, r *http.Request) {
 	lock.RUnlock()
 	w.Header().Set("Content-type", "text/xml")
 	w.Header().Set("Cache-Control", "max-age=31536000")
-	f, err := os.Open(kmlPath + title)
+	var f *os.File
+	var err error
+	count := 0
+	retry:
+	f, err = os.Open(kmlPath + title)
 	if err != nil {
+		if count <= 3{
+			count++
+			goto retry
+		}
 		w.WriteHeader(404)
 		return
 	}
 	_, err = io.Copy(w, f)
 	if err != nil {
+		if count <= 3{
+			count++
+			goto retry
+		}
 		w.WriteHeader(500)
 		return
 	}
-	err = f.Close()
-	if err != nil {
-		w.WriteHeader(500)
-		return
-	}
+	_ = f.Close()
 }
