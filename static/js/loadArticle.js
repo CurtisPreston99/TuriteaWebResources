@@ -19,7 +19,7 @@ function loadMainFragment() {
         return
     }
     console.log(home);
-    $.get('../api/fragment?information=' + home, function (r) {
+    $.get('../api/fragment?id=' + home, function (r) {
         console.log(r);
         let f = JSON.parse(r);
         console.log(f);
@@ -28,31 +28,28 @@ function loadMainFragment() {
 
         for (let i = 0; i < res.length; i++) {
             if (res[i]["type"] === "f") {
-                eachFragment($("<div></div>"), res[i]["information"]);
+                eachFragment($("<div></div>"), res[i]["id"]);
             }
         }
         console.log(content);
-        homeDiv.append($(content));
+        homeDiv.append($("<p></p>").append(content));
         homeDiv.append($("<span hidden></span>").text(r));
     });
 }
 
 function eachFragment(node, id) {
-    $.get('../api/fragment?information=' + id, function (r) {
+    $.get('../api/fragment?id=' + id, function (r) {
         let f = JSON.stringify(r);
         let content = f["content"];
         let res = f["res"];
-        for (let i = 0; i < res.length; i++) {
-            if (res[i]["type"] === "f") {
-                eachFragment(node.clone(true), res[i]["information"]);
-            }
-        }
-        node.append($(content));
+        node.append($("<p></p>").append(content));
+        node.append($("<span hidden></span>").text(r));
         home.append(node);
     });
 }
 var articleEditor;
 var information = null;
+var article = null;
 function loadArticleNote() {
     articleEditor =$("#articleSummerNote");
     articleEditor.summernote({
@@ -61,13 +58,14 @@ function loadArticleNote() {
             theme: 'monokai'
         },
         placeholder: "feel free to edit"});
-    let article = JSON.parse(localStorage.getItem("editArticle"));
+    article = JSON.parse(localStorage.getItem("editArticle"));
     if (article) {
         $("#articleTitle").text("edit article");
+        console.log(article.content);
         articleEditor.summernote("code", article.content);
         $("#articleSum").val(article.sum);
-        information = article.id;
-        // console.log(information);
+        information = JSON.parse(article.home);
+        console.log(information);
     }
 }
 
@@ -85,16 +83,16 @@ function editArticle(self) {
 }
 
 function submitArticle() {
+    let delImage = [];
     if (information !== null) {
-        let f = JSON.parse(information);
-        let fid = f["fid"];
-        let res = f["res"];
+        let fid = information["id"];
+        console.log(fid);
+        let res = information["res"];
         // $.get("../api/delete?type=0&id="+fid);
         console.log("../api/delete?type=0&id="+fid);
         for (let i = 0; i < res.length; i++) {
             if (res[i]["type"] === "m") {
-                // $.get("../api/delete?type=1&id=" + res[i]["m"]["uid"].toString(16))
-                console.log("../api/delete?type=1&id=" + res[i]["m"]["uid"].toString(16))
+                delImage.push(res[i]["m"]["uid"].toString(16));
             }
         }
 
@@ -114,10 +112,10 @@ function submitArticle() {
         let src = img.attr("src");
         if (src.startsWith("data:")) {
             datas.push({"image":src.split(",")[1], "title":filName});
-            img.attr("src", "../api/getImage?information=%x");
+            img.attr("src", "../api/getImage?id=%x");
         }
     }
-    //console.log(help.html());
+    console.log(delImage);
     combination.images = JSON.stringify(datas);
     combination.imageNum = datas.length;
     combination.articles = JSON.stringify([{"sum":$("#articleSum").val()},]);
@@ -126,24 +124,38 @@ function submitArticle() {
     // for (let i = 0; i < help.length; i++) {
     //     combination.content += $(help[i]).html();
     // }
-    console.log(combination);
     if (information !== null) {
+        let id = article["id"];
+        combination.aid = id;
+        console.log(combination);
+
+        for (let i = 0; i < delImage.length; i++) {
+            let imgId = delImage[i];
+            if (combination.content.indexOf("../api/getImage?id=" + imgId) < 0) {
+                // $.get("../api/delete?type=1&id=" + imgId)
+                // $.get("../api/delete?type=3&id=" + imgId)
+                console.log("../api/delete?type=3&id=" + imgId);
+                console.log("../api/delete?type=1&id=" + imgId);
+            }
+        }
         $.post("../api/updateArticle", combination, function (r) {
             localStorage.setItem("editArticle", null);
+            information = null;
             // console.log("success");
-            window.location.href = "../article/" + r;
+            window.location.href = "../article/" + id;
         }).fail(function (r) {
             console.log(r);
-        })
+        });
     } else {
-        $.post("../api/addArticleWithImage", combination, function (r) {
-            localStorage.setItem("editArticle", null);
-            // console.log("success");
-            window.location.href = "../article/" + r;
-        }).fail(function (r) {
-            console.log(r);
-        })
+        console.log(combination);
+        // $.post("../api/addArticleWithImage", combination, function (r) {
+        //     localStorage.setItem("editArticle", null);
+        //     // console.log("success");
+        //     window.location.href = "../article/" + r;
+        // }).fail(function (r) {
+        //     console.log(r);
+        // })
     }
 
-    // information = null;
+
 }

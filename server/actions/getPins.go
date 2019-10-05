@@ -66,7 +66,7 @@ func getPins(w http.ResponseWriter, r *http.Request) {
 
 func getPin(w http.ResponseWriter, r *http.Request) {
 	log.Println("call get pin")
-	id, err := strconv.ParseInt(r.URL.Query().Get("information"), 16, 64)
+	id, err := strconv.ParseInt(r.URL.Query().Get("id"), 16, 64)
 	if err != nil {
 		w.WriteHeader(404)
 		return

@@ -58,7 +58,7 @@ func RecycleArticle(article *Article, delete bool) {
 	if delete {
 		articleIdRecycle <- article.Id
 	}
-	articlePool.Put(articlePool)
+	articlePool.Put(article)
 }
 
 type ArticleKey int64

@@ -38,7 +38,7 @@ func update(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(400)
 			return
 		}
-		cid, err := strconv.ParseInt(r.Form.Get("information"), 16, 64)
+		cid, err := strconv.ParseInt(r.Form.Get("id"), 16, 64)
 		if err != nil {
 			w.WriteHeader(400)
 			return

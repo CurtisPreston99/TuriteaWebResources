@@ -106,7 +106,7 @@ function deletePin() {
     }
     let id = pin.innerText;
 
-    $.get("../api/delete?type=2&information=" + id, function (result) {
+    $.get("../api/delete?type=2&id=" + id, function (result) {
         console.log(result);
         viewer.entities.removeById(id);
     }).fail(function (xhr) {
@@ -194,7 +194,7 @@ function submitPinAd() {
         let src = img.attr("src");
         if (src.startsWith("data:")) {
             datas.push({"image":src.split(",")[1], "title":filName});
-            img.attr("src", "../api/getImage?information=%x");
+            img.attr("src", "../api/getImage?id=%x");
         }
     }
     //console.log(help.html());

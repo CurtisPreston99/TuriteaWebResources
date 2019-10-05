@@ -15,7 +15,7 @@ import (
 type fragmentHelper struct {
 	Position int64 `json:"pos"`
 	Type string `json:"type"`
-	Id int64 `json:"information"`
+	Id int64 `json:"id"`
 	Media *base.Media `json:"m"`
 }
 
@@ -27,7 +27,7 @@ type helpFragment struct {
 func getFragment(w http.ResponseWriter, r *http.Request) {
 	log.Println("call get fragment")
 	vs := r.URL.Query()
-	id, err := strconv.ParseInt(vs.Get("information"), 16, 64)
+	id, err := strconv.ParseInt(vs.Get("id"), 16, 64)
 	if err != nil {
 		w.WriteHeader(400)
 		return
@@ -96,5 +96,5 @@ func getFragment(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
-	_, err = w.Write([]byte(fmt.Sprintf("], \"information\":%x}", ac.Id)))
+	_, err = w.Write([]byte(fmt.Sprintf("], \"id\":%x}", ac.Id)))
 }

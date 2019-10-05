@@ -95,7 +95,7 @@ function loadpins() {
         $.each(data, function (key, value) {
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
-                + "<p style='display: none' information='inDescription'>"
+                + "<p style='display: none' id='inDescription'>"
                 + value.uid.toString(16)
                 + "</p>"
                 + value.description;
