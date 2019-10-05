@@ -284,11 +284,7 @@ Date:     20.08.2019
     }
 
     let c = document.cookie;
-    if (c.includes("super=false")) {
-        let hiddenPart = $(".hidden_part");
-        hiddenPart.removeClass("hidden_part");
-        hiddenPart.addClass("inline_part");
-    } else if (c.includes("super=true")) {
+    if (c.includes("super=true")) {
         let hiddenPart = $(".hidden_part");
         hiddenPart.removeClass("hidden_part");
         hiddenPart.addClass("inline_part");

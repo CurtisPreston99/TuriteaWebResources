@@ -98,7 +98,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 			//http.Redirect(w, r, "../super/control.html", 307)
 			w.WriteHeader(200)
 		} else if u.Role == normal {
-			http.SetCookie(w, &http.Cookie{Path: "/", Value:"", Name:"super"})
+			http.SetCookie(w, &http.Cookie{Path: "/", Value:"false", Name:"super"})
 			//http.Redirect(w, r, "../normal/control.html", 307)
 			w.WriteHeader(200)
 		}

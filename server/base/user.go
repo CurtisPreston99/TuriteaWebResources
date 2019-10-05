@@ -15,7 +15,7 @@ var userIdChan = make(chan int64, 100)
 var userIdRecycle = make(chan int64, 100)
 
 func userIdProvider() {
-	var id int64 = 2
+	var id int64 = 4
 	for {
 		select {
 		case i := <-userIdRecycle:

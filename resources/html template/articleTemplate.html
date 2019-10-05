@@ -20,6 +20,12 @@
         $(function () {
             $("header").load("../html/header.html");
             $("footer").load("../html/footer.html");
+            let c = document.cookie;
+            if (c.includes("super=false")) {
+                let hiddenPart = $(".hidden_part");
+                hiddenPart.removeClass("hidden_part");
+                hiddenPart.addClass("inline_part");
+            }
         });
     </script>
 </head>
@@ -29,8 +35,8 @@
         <a href="../html/home.html"><button id="backToHome" hidden>back to home page</button></a>
         <div id="summary">%s</div>
         <div id="home">
-            <button onclick="editArticle(this.parentElement)">edit</button>
-            <button onclick="selectToLink(this.parentElement)" hidden>selectToLink</button>
+            <button onclick="editArticle(this.parentElement)" class="hidden_part">edit</button>
+            <button onclick="selectToLink(this.parentElement)" class="hidden_part" hidden>selectToLink</button>
         </div>
         <div id="at404" hidden>
             this page is gone, feel free to explore others.
