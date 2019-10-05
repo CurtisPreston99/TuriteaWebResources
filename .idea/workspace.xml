@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/html template/articleTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/html template/articleTemplate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/addArticle.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/addArticle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/deletet.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/deletet.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/getFragment.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/getFragment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/getImageLocal.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/getImageLocal.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/getMedia.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/getMedia.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/getPins.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/getPins.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/pinsLinkArticle.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/pinsLinkArticle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/update.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/updateArticle.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/updateArticle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/base/Article.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/base/Article.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/loadArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/loadArticle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/pin.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/pin.js" afterDir="false" />
-    </list>
+    <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,8 +200,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/html/settings.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="137" column="20" lean-forward="true" selection-start-line="137" selection-start-column="20" selection-end-line="137" selection-end-column="20" />
+            <state relative-caret-position="443">
+              <caret line="141" column="21" lean-forward="true" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -1171,8 +1154,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/html/settings.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="137" column="20" lean-forward="true" selection-start-line="137" selection-start-column="20" selection-end-line="137" selection-end-column="20" />
+        <state relative-caret-position="443">
+          <caret line="141" column="21" lean-forward="true" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
         </state>
       </provider>
     </entry>

@@ -148,13 +148,13 @@ function submitArticle() {
         });
     } else {
         console.log(combination);
-        // $.post("../api/addArticleWithImage", combination, function (r) {
-        //     localStorage.setItem("editArticle", null);
-        //     // console.log("success");
-        //     window.location.href = "../article/" + r;
-        // }).fail(function (r) {
-        //     console.log(r);
-        // })
+        $.post("../api/addArticleWithImage", combination, function (r) {
+            localStorage.setItem("editArticle", null);
+            // console.log("success");
+            window.location.href = "../article/" + r;
+        }).fail(function (r) {
+            console.log(r);
+        })
     }
 
 
