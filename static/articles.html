@@ -17,6 +17,9 @@ Date:     20.08.2019
         <script src="https://cesiumjs.org/releases/1.60/Build/Cesium/Cesium.js"></script>
         <link href="https://cesiumjs.org/releases/1.60/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
         <link rel="stylesheet" href="css/layout.css"/>
+        <link rel="stylesheet" href="css/articleList.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
+
         <script src="js/articlePage.js"></script>
 
         <script>
@@ -28,7 +31,12 @@ Date:     20.08.2019
     </head>
     <body>
         <header></header>
+        <h3> articles</h3>
+        <div id=articleLarge></div>
+        <div id="controls">
         <div id=articleTable></div>
+        <button onclick="displayArticleList()">go back to articles</button></div>
+
         <footer></footer>
     </body>
 

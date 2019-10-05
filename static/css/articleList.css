@@ -1,0 +1,14 @@
+tr div{
+
+  max-height: 40px;
+  overflow: hidden;
+  display: float;
+  float: center;
+  cursor: pointer;
+}
+
+
+#articleLarge{
+
+  background: #efefef;
+}
