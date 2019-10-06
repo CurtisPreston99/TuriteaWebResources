@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
+	"os"
+	"runtime"
 	"time"
 
 	"TuriteaWebResources/server/actions"
@@ -12,6 +13,10 @@ import (
 //var fileHandle = http.FileServer(http.Dir("."))
 
 func main() {
+	if runtime.GOOS == "linux" {
+		f, _ := os.Create(time.Now().Format(time.ANSIC) + ".log")
+		log.SetOutput(f)
+	}
 	config := &actions.Config{true, true}
 	actions.Start(config)
 	go func() {
@@ -22,7 +27,7 @@ func main() {
 	}()
 	err := http.ListenAndServe("0.0.0.0:80", nil)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return
 	}
 }

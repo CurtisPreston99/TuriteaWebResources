@@ -13,8 +13,8 @@ article, aside, figure, figcaption, footer, hgroup, header, section, nav, nav li
 
 }
 
-.cesium-infoBox{
-  overflow: auto;
+.cesium-infoBox {
+    overflow: auto;
 }
 
 * {
@@ -170,7 +170,7 @@ nav.main li a:hover:not(.active) {
 }
 
 .navbar a {
-    vertical-align:central;
+    vertical-align: central;
     float: left;
     font-size: 16px;
     color: white;
@@ -184,8 +184,8 @@ nav.main li a:hover:not(.active) {
     overflow: hidden;
 }
 
-.dropbtn  {
-    vertical-align:central;
+.dropbtn {
+    vertical-align: central;
     font-size: 16px;
     border: none;
     outline: none;
@@ -202,10 +202,10 @@ nav.main li a:hover:not(.active) {
 
 .dropdown-content {
     display: none;
-    position:absolute;
+    position: absolute;
     background-color: #F9F9F9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -234,7 +234,7 @@ Header #banner {
 }
 
 Header #banner h1 {
-    font-family: Arial, Helvetica,sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: calc(1em + 4vw);
     color: white;
     text-align: right;
@@ -294,9 +294,12 @@ footer address {
 #privacy-policy {
     color: blue;
 }
-#INaturalistdata{
-  overflow: scroll;
+
+#INaturalistdata {
+    overflow: scroll;
+    height: 27em;
 }
+
 .hidden_part {
     display: none;
 }
@@ -320,3 +323,5 @@ footer address {
 .inline_part_header {
     display: inline;
 }
+
+

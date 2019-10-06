@@ -342,7 +342,7 @@ func (s *SqlLinker) SelectNextTopArticles(begin int64, length uint8) []int64 {
 	}
 	var id int64
 	goal := make([]int64, 0, length)
-	if r.Next() {
+	for r.Next() {
 		err = r.Scan(&id)
 		if err != nil {
 			err = r.Close()

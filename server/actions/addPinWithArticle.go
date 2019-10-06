@@ -126,11 +126,6 @@ func addPinWithArticle(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		if !dataLevel.SQLWorker.LinkPinToArticle(onePin.Uid, v.Id) {
-			w.WriteHeader(500)
-			return
-		}
-
 	case public:
 		w.WriteHeader(401)
 	}

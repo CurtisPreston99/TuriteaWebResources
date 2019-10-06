@@ -61,37 +61,68 @@ function enable(x) {
 
 
 function display(table) {
-    let htmlTable = '<table>';
-    for (let i = 0; i < table.length; i++) {
-        line = table[i];
-        htmlTable = htmlTable + '<tr>';
+    let csvHead = $("#csvHead");
+    console.log(csvHead);
+    for (let i = 0; i < table[0].length; i++) {
+        csvHead.append($("<th>{0}</th>".format(i === 0?"add":table[0][i])));
+    }
+    let csvBody = $("#csvBody");
+    for (let i = 1; i < table.length; i++) {
+        let line = table[i];
+        let row = $("<tr></tr>");
         for (let e = 0; e < line.length; e++ ) {
             if (e === 0) {
-                if (i === 0) {
-                    htmlTable = htmlTable + '<th>' + 'add' + '</th>'
+                if (!table[i][e]) {
+                    row.append($("<td><button onclick='enable({})'>enable</button></td>".format(i)));
                 } else {
-                    if (!table[i][e]) {
-                        htmlTable = htmlTable + '<td><button onclick="enable(' + i + ')">enable</button></td>'
-
-                    } else {
-                        htmlTable = htmlTable + '<td><button onclick="enable(' + i + ')">remove</button></td>'
-                    }
+                    row.append($("<td><button onclick='enable({})'>remove</button></td>".format(i)));
                 }
-
             } else {
-                if (e > 0) {
-                    if (i === 0) {
-                        htmlTable = htmlTable + '<th>' + line[e] + '</th>'
-
-                    } else {
-                        htmlTable = htmlTable + '<td>' + line[e] + '</td>'
-                    }
-                }
+                row.append($("<td>{0}</td>".format(line[e])))
             }
         }
-        htmlTable = htmlTable + '</tr>'
+        csvBody.append(row);
     }
-    document.getElementById('INaturalistdata').innerHTML = htmlTable;
+    // let htmlTable = '<table>';
+    // for (let i = 0; i < table.length; i++) {
+    //     line = table[i];
+    //     if (i === 1) {
+    //         htmlTable = htmlTable + '<tbody id="csvBody"><tr>';
+    //     } else {
+    //         htmlTable += "<thead><tr>"
+    //     }
+    //     for (let e = 0; e < line.length; e++ ) {
+    //         if (e === 0) {
+    //             if (i === 0) {
+    //                 htmlTable = htmlTable + '<th class="csvHead">' + 'add' + '</th>'
+    //             } else {
+    //                 if (!table[i][e]) {
+    //                     htmlTable = htmlTable + '<td><button onclick="enable(' + i + ')">enable</button></td>'
+    //
+    //                 } else {
+    //                     htmlTable = htmlTable + '<td><button onclick="enable(' + i + ')">remove</button></td>'
+    //                 }
+    //             }
+    //
+    //         } else {
+    //             if (e > 0) {
+    //                 if (i === 0) {
+    //                     htmlTable = htmlTable + '<th>' + line[e] + '</th>'
+    //
+    //                 } else {
+    //                     htmlTable = htmlTable + '<td>' + line[e] + '</td>'
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     if (i === 0) {
+    //         htmlTable = htmlTable + '</thead></tr>'
+    //     } else {
+    //         htmlTable = htmlTable + '</tr>'
+    //     }
+    // }
+    // htmlTable += "</table>";
+    // document.getElementById('INaturalistdata').innerHTML = htmlTable;
 }
 
 

@@ -37,7 +37,7 @@ Date:     20.08.2019
 <nav class="navbar">
     <a href="../html/home.html"><i class="fas">&#xf015;</i>&nbsp;Home</a>
     <a href="../html/about.html"><i class="fas">&#xf129;</i>&nbsp;About Us</a>
-    <a href="../html/video.html"><i class="fas">&#xf1c8;</i>&nbsp;Video Library</a>
+    <a href="../html/articleList.html"><i class="fas">&#xf1c8;</i>&nbsp;articles</a>
     <div class="dropdown">
         <button class="dropbtn">
             <i class="fas">&#xf35d;</i>&nbsp;Useful Links
@@ -52,17 +52,6 @@ Date:     20.08.2019
             <a href='https://blog.planetaryecology.org/' target='_blank'>Planetary Ecology</a>
         </div>
     </div>
-    <!--<div class="dropdown">
-        <button class="dropbtn">
-            <i class="fas">&#xf0e8;</i>&nbsp;Site Map
-        </button>
-        <div class="dropdown-content">
-            <a href='../html/home.html'>Home</a>
-            <a href='../html/about.html'>About Us</a>
-            <a href='../html/video.html'>Video Library</a>
-            <a href='../html/settings.html' class="hidden_part">Settings</a>
-        </div>
-    </div>-->
 </nav>
 
 <!-- Login JQuery Dialog Box -->
@@ -101,7 +90,7 @@ Date:     20.08.2019
 </div>
 
 <div id="pin-dialog" class="dialog" title="Pins">
-    <input type="number" id="pinId" hidden/>
+    <input type="number" id="pinId" style="display: none"/>
     <div id='nameDiv'>
         name:<input type="text" id="name"/>
     </div>
@@ -114,9 +103,13 @@ Date:     20.08.2019
         latitude:<input type="text" id="latText"/>
     </div>
     <div>
-        description:<textarea id="description" rows="10" cols="30" > </textarea>
+        description:<textarea id="description" rows="10" cols="30"> </textarea>
     </div>
     <script>addIconOptions('iconSelect')</script>
+</div>
+
+<div id="YN">
+    <p></p>
 </div>
 
 <script>
@@ -249,14 +242,14 @@ Date:     20.08.2019
         $('#pin-dialog').dialog({
             autoOpen: false,
             modal: true,
-            width:600,
+            width: 600,
             buttons: {
-                advance:{
+                advance: {
                     text: "advance",
                     id: "advance",
-                    click:toAdvancePins
+                    click: toAdvancePins
                 },
-                submit : submitPin,
+                submit: submitPin,
             }
         })
     });
@@ -268,7 +261,7 @@ Date:     20.08.2019
         e.dialog('open');
     }
 
-    function  message(title, message) {
+    function message(title, message) {
         let v = $('#valid-dialog');
         v.dialog({title: title});
         $('#valid-dialog p').html(message);
@@ -330,16 +323,17 @@ Date:     20.08.2019
         }
     }
     $(".slow").removeClass("slow");
-    String.prototype.format = function()
-    {
+    String.prototype.format = function () {
         var args = arguments;
         return this.replace(/\{(\d+)\}/g,
-            function(m,i){
+            function (m, i) {
                 return args[i];
             });
     };
-    console.log(window.location.href);
-    if (window.location.href.includes("tabs-5")) {
+    let address = window.location.href;
+    if (address.includes("tabs-5")) {
         if (getKMLList) getKMLList();
+    } else if (address.includes("articleList.html")) {
+        loadArticleList();
     }
 </script>

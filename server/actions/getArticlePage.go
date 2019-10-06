@@ -37,8 +37,7 @@ func getArticlePage(w http.ResponseWriter, r *http.Request) {
 	//hw := bufio.NewWriter(w)
 	articleId := strings.SplitN(r.URL.Path, "/", 3)[2]
 	if len(articleId) == 0 {
-		w.WriteHeader(400)
-		// fixme redirect to 404 page
+		http.Redirect(w, r, "../html/404.html", http.StatusTemporaryRedirect)
 		return
 	}
 	id, err := strconv.ParseInt(articleId, 16, 64)
@@ -48,7 +47,7 @@ func getArticlePage(w http.ResponseWriter, r *http.Request) {
 	}
 	b, ok := buffer.MainCache.Load(base.ArticleKey(id))
 	if !ok {
-		w.WriteHeader(404)
+		http.Redirect(w, r, "../html/404.html", http.StatusTemporaryRedirect)
 		return
 	}
 	a := b.(*base.Article)
