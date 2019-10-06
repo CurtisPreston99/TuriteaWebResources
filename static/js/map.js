@@ -1,6 +1,6 @@
 Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1M2YwNTc4Ni0yNWYzLTQ2MTEtOGRkNC05OWFlODNlNTBkZWQiLCJpZCI6MTM5NTksInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NjQ0NzQwMTl9.X_iNRe8-4jhYrUyAh8QNt3d6aHAfysLye_m0zBHmuiM';
 
-
+var loadedIDS=[];
 var home = window.location.origin;
 const west = 175.60970056;
 const south = -40.38724452;
@@ -106,14 +106,22 @@ function loadpins() {
     console.log(area);
     $.getJSON("../api/getPins?" + area, function (data) {
         console.log(data);
-        viewer.entities.removeAll();
+        viewer.entities.remove(temPin)
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
+
         console.log(s+n);
         localStorage.setItem("viewerMiddle", JSON.stringify({lat:(s + n)/2, lon:(e + w) /2}));
         console.log("viewerMiddle", JSON.stringify({lat:((s + n)/2), lon:((e + w) /2)}));
+
+        let added=0;
         $.each(data, function (key, value) {
+          if(value!=null){
+    if(!loadedIDS.includes(value.uid)){
+      loadedIDS.push(value.uid)
+      added+=1;
+
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
                 + "<p style='display: none' id='inDescription'>"
@@ -149,7 +157,8 @@ function loadpins() {
                     heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
                 }, pin : value,
             });
-        });
+        }}});
+        console.log(added);
     });
 }
 
