@@ -30,6 +30,7 @@ function loadMap() {
             timeline: false,
             animation: false,
             homeButton: false,
+            fullscreenElement : cesiumContainer
 
         }
     );
