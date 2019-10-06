@@ -10,6 +10,7 @@ func Start(config *Config) {
 	rand.Seed(time.Now().Unix())
 
 	ConfigAction(config)
+	http.NotFoundHandler()
 	http.HandleFunc("/article/", getArticlePage)
 
 	//for test

@@ -1,21 +1,6 @@
-function popup(I) {
-    document.getElementById('popup').innerHTML = I;
-
-    $("#popup").dialog({
-        autoOpen: true,
-        modal: true,
-        width: 500,
-        buttons: {
-            Done: function () {
-                $(this).dialog("close");
-            }
-        }
-    });
-}
-
 function popupYN(I, fyes, fno) {
-    $("#valid-dialog p").text(I);
-    $("#valid-dialog").dialog({
+    $("#YN p").text(I);
+    $("#YN").dialog({
         autoOpen: true,
         modal: true,
         width: 500,
