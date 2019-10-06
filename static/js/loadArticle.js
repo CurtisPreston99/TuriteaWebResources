@@ -159,6 +159,21 @@ function submitArticle() {
             error("Not login or other error", "Please login thank you or check other things!");
         })
     }
+}
 
+function deleteArticle() {
+    let id = $("#articleId").text();
+    let fid = JSON.parse($("#home").children("span").html()).id;
+    console.log("../api/delete?type=4&id=" + id.toString(16));
+    console.log("../api/delete?type=0&id=" + fid.toString(16));
 
+    $.post("../api/delete?type=0&id=" + fid.toString(16), function () {
+        $.post("../api/delete?type=4&id=" + id.toString(16), function () {
+            window.location.href = "../html/articleList.html";
+        }).fail(function () {
+            error("Error", "delete part success<br/>please contact system management")
+        });
+    }).fail(function () {
+        error("Error", "Login first");
+    })
 }
