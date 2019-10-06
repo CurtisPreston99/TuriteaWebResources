@@ -1,10 +1,12 @@
 package dataLevel
 
 import (
+	"runtime"
+
 	"github.com/ChenXingyuChina/asynchronousIO"
 	"github.com/ChenXingyuChina/asynchronousIO/M2N"
+
 	"TuriteaWebResources/server/base"
-	"runtime"
 )
 
 var OnLoadResourceId func([]Resource)

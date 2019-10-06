@@ -10,7 +10,7 @@ function handleFiles(files) {
         // FileReader are supported.
         getAsText(files[0]);
     } else {
-        alert('FileReader are not supported in this browser.');
+        error("Sorry", "try to use a higher version browser")
     }
 }
 
@@ -24,11 +24,7 @@ function getAsText(fileToRead) {
 }
 
 function loadHandler(event) {
-    let csv = event.target.result;
-    processData(csv);
-}
-
-function processData(sheet) {
+    let sheet = event.target.result;
     console.log(sheet);
     table = CSVToArray(sheet, ",");
     console.log(table);
@@ -54,9 +50,7 @@ function processData(sheet) {
 }
 
 function errorHandler(evt) {
-    if (evt.target.error.name === "NotReadableError") {
-        alert("Canno't read file !");
-    }
+    error("Error", "Can't read this file")
 }
 
 function enable(x) {
@@ -114,7 +108,7 @@ function tabletoPins() {
 
     for (let i = 1; i < table.length; i++) {
         if (table[i][0]) {
-            pin = {};
+            let pin = {};
             pin["name"] = table[i][rows["common_name"]];
             pin["tag_type"] = "zoo";
             pin["lat"] = parseFloat(table[i][rows["latitude"]]);
@@ -131,7 +125,8 @@ function tabletoPins() {
     pins.data = JSON.stringify(data);
     let n = data.length;
     console.log(JSON.stringify(pins));
-    $.post("../api/addPins?num=" + n.toString(), pins, function (ret) {
+    $.post("../api/addPins?num=" + n.toString(16), pins, function (ret) {
+        message("Thank you", "upload success");
         console.log("posted");
         console.log(ret);
     });
@@ -162,7 +157,7 @@ function pinGenerateDiscription(line) {
     return html
 }
 
-
+// from internet
 function CSVToArray(strData, strDelimiter) {
     // Check to see if the delimiter is defined. If not,
     // then default to comma.

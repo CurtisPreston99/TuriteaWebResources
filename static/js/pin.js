@@ -137,6 +137,7 @@ function submitPinAd() {
     console.log(combination);
     $.post("../api/addPinWithArticle", combination, function (r) {
         localStorage.setItem("editPin", null);
+        localStorage.setItem("viewerMiddle", JSON.stringify({lat: pin["lat"], lon: pin["lon"]}));
         window.location.href = "../html/home.html";
     }).fail(function (r) {
         error("Not login or other error", "Please login thank you or check other things!");

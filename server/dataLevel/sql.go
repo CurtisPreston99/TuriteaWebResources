@@ -63,25 +63,10 @@ const (
 	Super
 )
 
-var SQLNormal = &SqlLinker{}
-var SQLPublic = &SqlLinker{}
-var SQLSuper = &SqlLinker{}
 var SQLWorker = &SqlLinker{}
 
 func init() {
-	err := SQLNormal.Connect("postgres", "Turitea", "localhost", "turiteaNormal", "massey")
-	if err != nil {
-		panic(err)
-	}
-	err = SQLSuper.Connect("postgres", "Turitea", "localhost", "turiteaSuper", "masseysuper")
-	if err != nil {
-		panic(err)
-	}
-	err = SQLPublic.Connect("postgres", "Turitea", "localhost", "turiteaPublic", "masseyPublic")
-	if err != nil {
-		panic(err)
-	}
-	err = SQLWorker.Connect("postgres", "Turitea", "localhost", "turiteaWorker", "tutiteaworker")
+	err := SQLWorker.Connect("postgres", "Turitea", "localhost", "turiteaWorker", "tutiteaworker")
 	if err != nil {
 		panic(err)
 	}

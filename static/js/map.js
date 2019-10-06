@@ -2,11 +2,11 @@ Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOi
 
 
 var home = window.location.origin;
-var west = 175.60970056;
-var south = -40.38724452;
-var east = 175.63276182;
-var north = -40.37842748;
-var pinBuilder = new Cesium.PinBuilder();
+const west = 175.60970056;
+const south = -40.38724452;
+const east = 175.63276182;
+const north = -40.37842748;
+const pinBuilder = new Cesium.PinBuilder();
 var viewer;
 var cesiumHandler;
 var kmlmenu = [];
@@ -16,8 +16,6 @@ var ellipsoid;
 var tag_types = ['airfield', 'airport', 'alcohol-shop', 'america-football', 'art-gallery', 'bakery', 'bank', 'bar', 'baseball', 'basketball', 'beer', 'bicycle', 'building', 'bus', 'cafe', 'camera', 'campsite', 'car', 'cemetery', 'cesium', 'chemist', 'cinema', 'circle', 'circle-stroked', 'city', 'clothing-store', 'college', 'commercial', 'cricket', 'cross', 'dam', 'danger', 'disability', 'dog-park', 'embassy', 'emergency-telephone', 'entrance', 'farm', 'fast-food', 'ferry', 'fire-station', 'fuel', 'garden', 'gift', 'golf', 'grocery', 'hairdresser', 'harbor', 'heart', 'heliport', 'hospital', 'ice-cream', 'industrial', 'land-use', 'laundry', 'library', 'lighthouse', 'lodging', 'logging', 'london-underground', 'marker', 'marker-stroked', 'minefield', 'mobilephone', 'monument', 'museum', 'music', 'oil-well', 'park2', 'parking-garage', 'parking', 'park', 'pharmacy', 'pitch', 'place-of-worship', 'playground', 'police', 'polling-place', 'post', 'prison', 'rail-above', 'rail-light', 'rail-metro', 'rail', 'rail-underground', 'religious-christian', 'religious-jewish', 'religious-muslim', 'restaurant', 'roadblock', 'rocket', 'school', 'scooter', 'shop', 'skiing', 'slaughterhouse', 'soccer', 'square', 'square-stroked', 'star', 'star-stroked', 'suitcase', 'swimming', 'telephone', 'tennis', 'theatre', 'toilets', 'town-hall', 'town', 'triangle', 'triangle-stroked', 'village', 'warehouse', 'waste-basket', 'water', 'wetland', 'zoo'];
 
 var scratchRectangle = new Cesium.Rectangle();
-
-var kmlMap = {};
 
 function loadMap() {
     viewer = new Cesium.Viewer('cesiumContainer', {
@@ -51,6 +49,7 @@ function loadMap() {
             text: "Remove all KML Data",
             onselect: function () {
                 viewer.dataSources.removeAll();
+                loadpins();
             }
         }];
         var options = {
@@ -58,27 +57,31 @@ function loadMap() {
             canvas: viewer.scene.canvas,
             clampToGround: true,
         };
-        kmlMap = {};
         $.each(data, function (name, value) {
-            kmlMap[value] = false;
             console.log(value);
             var obj = {};
             obj.text = (name + 1).toString() + "  " + value;
             obj.onselect = function () {
-                if (!kmlMap[value]) {
-                    viewer.dataSources.add(Cesium.KmlDataSource.load('../api/getKML?name=' + value, options))
-                } else {
-
-                }
+                viewer.dataSources.add(Cesium.KmlDataSource.load('../api/getKML?name=' + value, options));
             };
             toolbar.push(obj);
         });
         Sandcastle.addToolbarMenu(toolbar, 'toolbar');
     });
-    var rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
-    viewer.camera.setView({
-        destination: rectangle
-    });
+    let middle = localStorage.getItem("viewerMiddle");
+    if (middle) {
+        let m = JSON.parse(middle);
+        let rectangle = Cesium.Rectangle.fromDegrees(m["lon"]-0.005, m["lat"] - 0.005, m["lon"] + 0.005, m["lat"] + 0.005);
+        viewer.camera.setView({
+            destination: rectangle
+        });
+        // localStorage.setItem("viewerMiddle", null);
+    } else {
+        let rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
+        viewer.camera.setView({
+            destination: rectangle
+        });
+    }
     viewer.camera._changed.addEventListener(function () {
         loadpins()
     });
@@ -88,10 +91,14 @@ function loadMap() {
 
 function loadpins() {
     var rect = viewer.camera.computeViewRectangle(viewer.scene.globe.ellipsoid, scratchRectangle);
-    var area = "north=" + Cesium.Math.toDegrees(rect.north).toFixed(8) +
-        "&south=" + Cesium.Math.toDegrees(rect.south).toFixed(8) +
-        "&east=" + Cesium.Math.toDegrees(rect.east).toFixed(8) +
-        "&west=" + Cesium.Math.toDegrees(rect.west).toFixed(8) +
+    let n = Cesium.Math.toDegrees(rect.north);
+    let s = Cesium.Math.toDegrees(rect.south);
+    let e = Cesium.Math.toDegrees(rect.east);
+    let w = Cesium.Math.toDegrees(rect.west);
+    var area = "north=" + n.toFixed(8) +
+        "&south=" + s.toFixed(8) +
+        "&east=" + e.toFixed(8) +
+        "&west=" + w.toFixed(8) +
         "&timeBegin=0" +
         "&timeEnd=20000";
 
@@ -102,6 +109,9 @@ function loadpins() {
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
+        console.log(s+n);
+        localStorage.setItem("viewerMiddle", JSON.stringify({lat:(s + n)/2, lon:(e + w) /2}));
+        console.log("viewerMiddle", JSON.stringify({lat:((s + n)/2), lon:((e + w) /2)}));
         $.each(data, function (key, value) {
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
