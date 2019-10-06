@@ -15,9 +15,9 @@ func main() {
 	config := &actions.Config{true, true}
 	actions.Start(config)
 	go func() {
-		time.Tick(1 * time.Second)
-		_, _ =(&http.Client{}).Get("http://localhost/api/getPins?north=-40&south=-41&east=176&west=175&timeBegin=0&timeEnd=20000")
-		time.Tick(1 * time.Second)
+		time.Tick(1*time.Second)
+		_, _ = (&http.Client{}).Get("http://localhost/api/getPins?north=-40&south=-41&east=176&west=175&timeBegin=0&timeEnd=20000")
+		time.Tick(1*time.Second)
 		log.Println("server start")
 	}()
 	err := http.ListenAndServe("0.0.0.0:80", nil)

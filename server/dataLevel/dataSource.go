@@ -1,16 +1,17 @@
 package dataLevel
 
 import (
-	"TuriteaWebResources/server/base"
+	"runtime"
+
 	"github.com/ChenXingyuChina/asynchronousIO"
 	"github.com/ChenXingyuChina/asynchronousIO/M2N"
-	"runtime"
+
+	"TuriteaWebResources/server/base"
 )
 
 var OnLoadResourceId func([]Resource)
 var OnLoadMedia func(key ImageKey)
 var fileIO asynchronousIO.AsynchronousIOMachine
-
 func Init() {
 	dataSource := []asynchronousIO.DataSource{
 		// for unit test open this
@@ -22,7 +23,7 @@ func Init() {
 		//&articleContentDataSource{root: "../articles/%x.art", onLoadId: OnLoadResourceId,},
 
 		&imageDataSource{"./resources/temPictures/%x.img"},
-		&articleContentDataSource{root: "./articles/%x.art", onLoadId: OnLoadResourceId},
+		&articleContentDataSource{root: "./articles/%x.art", onLoadId: OnLoadResourceId,},
 		articleDataSource{},
 		mediaDataSource{},
 		pinDataSource{},
@@ -56,7 +57,7 @@ func DeleteImage(key ImageKey) func() error {
 	return fileIO.Delete(key, 0)
 }
 
-func LoadArticle(key base.ArticleKey) func() (asynchronousIO.Bean, error) {
+func LoadArticle(key base.ArticleKey) func() (asynchronousIO.Bean, error)  {
 	return fileIO.Load(key, 2)
 }
 func SaveArticle(resource *base.Article) {
@@ -69,7 +70,7 @@ func DeleteArticle(key base.ArticleKey) func() error {
 	return fileIO.Delete(key, 2)
 }
 
-func LoadMedia(key base.MediaKey) func() (asynchronousIO.Bean, error) {
+func LoadMedia(key base.MediaKey) func() (asynchronousIO.Bean, error)  {
 	return fileIO.Load(key, 3)
 }
 func SaveMedia(resource *base.Media) {
@@ -82,7 +83,7 @@ func DeleteMedia(key base.MediaKey) func() error {
 	return fileIO.Delete(key, 3)
 }
 
-func LoadPin(key base.PinKey) func() (asynchronousIO.Bean, error) {
+func LoadPin(key base.PinKey) func() (asynchronousIO.Bean, error)  {
 	return fileIO.Load(key, 4)
 }
 func SavePin(resource *base.Pin) {

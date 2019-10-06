@@ -30,14 +30,24 @@ func Start(config *Config) {
 	http.HandleFunc("/api/addSubscription", addSubscription)
 	http.HandleFunc("/api/changeSubscription", changeSubscription)
 	http.HandleFunc("/api/deleteSubscription", deleteSubscription)
-	http.HandleFunc("/api/sendfeedback", addFeedback)           // auto tested
-	http.HandleFunc("/api/addUser", addUser)                    // auto tested
-	http.HandleFunc("/api/deleteUser", deleteUser)              // auto tested
-	http.HandleFunc("/api/lastArticle", lastArticle)            // auto tested
-	http.HandleFunc("/api/pinsByArticle", pinsByArticle)        // auto tested
-	http.HandleFunc("/api/articlesByPin", articlesByPin)        // auto tested
-	http.HandleFunc("/api/linkPinToArticle", linkArticleAndPin) // auto tested
+	http.HandleFunc("/api/sendfeedback", addFeedback)              // auto tested
+	http.HandleFunc("/api/addUser", addUser)                       // auto tested
+	http.HandleFunc("/api/deleteUser", deleteUser)                 // auto tested
+	http.HandleFunc("/api/lastArticle", lastArticle)               // auto tested
+	http.HandleFunc("/api/pinsByArticle", pinsByArticle)           // auto tested
+	http.HandleFunc("/api/articlesByPin", articlesByPin)           // auto tested
+	http.HandleFunc("/api/linkPinToArticle", linkArticleAndPin)    // auto tested
 	http.HandleFunc("/api/unlinkArticleAndPin", unLinkPinAndArticle)
-	http.HandleFunc("/api/changePassword", changePassword) // auto tested
-	http.HandleFunc("/api/getImage", getImageLocal)        // auto tested
+	http.HandleFunc("/api/changePassword", changePassword)      // auto tested
+	http.HandleFunc("/api/getImage", getImageLocal)             // auto tested
+	http.HandleFunc("/api/allUser", allUser)                    // auto tested
+	http.HandleFunc("/api/putKML", putKml)
+	http.HandleFunc("/api/getKML", getKml)
+	http.HandleFunc("/api/deleteKML", deleteKML)
+	http.HandleFunc("/api/listKML", listKML)
+	http.HandleFunc("/api/logout", logout)
+	http.HandleFunc("/api/addPinWithArticle", addPinWithArticle)
+	http.HandleFunc("/api/updateArticle", updateArticle)
+	http.HandleFunc("/api/addArticleWithImage", addArticleWithImage)
+	http.HandleFunc("/api/changeRole", changeRole)
 }

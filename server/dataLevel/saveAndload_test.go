@@ -1,16 +1,17 @@
 package dataLevel
 
 import (
+	"github.com/ChenXingyuChina/asynchronousIO"
 	"TuriteaWebResources/server/base"
 	"fmt"
-	"github.com/ChenXingyuChina/asynchronousIO"
 	"io/ioutil"
 	"os"
 	"strings"
 	"testing"
 )
 
-var r = &ArticleResource{Id: 1, Content: []byte("abc"), ResourcesId: []Resource{{1, 1}, {1, 3}}}
+
+var r = &ArticleResource{Id:1, Content: []byte("abc"), ResourcesId: []Resource{{1,1}, {1,3}}}
 
 func TestSaveArticleContent(t *testing.T) {
 	s := SaveArticleContentAndNotify(r)
@@ -32,7 +33,7 @@ func TestLoadArticleContent(t *testing.T) {
 		if rs.Id != r.Id {
 			t.Fatal()
 		}
-		if strings.Compare(string(rs.Content), string(r.Content)) != 0 {
+		if strings.Compare(string(rs.Content), string(r.Content)) != 0{
 			t.Fatal(string(rs.Content))
 		}
 		for i, v := range rs.ResourcesId {
@@ -70,10 +71,17 @@ func init() {
 	d = data
 	Init()
 }
-
 var d []byte
 
-var ti = &ImageResource{Id: 1}
+var ti = &ImageResource{Id:1}
+
+func TestSaveImage(t *testing.T) {
+	s := SaveImageAndNotify(ti)
+	err := s()
+	if err != nil {
+		t.Fatal()
+	}
+}
 
 func TestLoadImage(t *testing.T) {
 	f := LoadImage(ImageKey(1))
@@ -82,21 +90,13 @@ func TestLoadImage(t *testing.T) {
 		t.Fatal(err)
 	}
 	if i, ok := i.(*ImageResource); ok {
-		if i.Id == 1 && string(i.Data) == string(d) {
+		if i.Id == 1 && string(i.Data) == string(d){
 			//fmt.Println(string(i.Data))
 			//fmt.Println(string(d))
 			return
 		}
 	}
 	t.Fatal()
-}
-
-func TestSaveImage(t *testing.T) {
-	s := SaveImageAndNotify(ti)
-	err := s()
-	if err != nil {
-		t.Fatal()
-	}
 }
 
 func TestSqlLinker_CreateArticle(t *testing.T) {
@@ -133,7 +133,6 @@ func TestSqlLinker_DeleteArticle(t *testing.T) {
 }
 
 var b asynchronousIO.Bean
-
 func TestLoadPin(t *testing.T) {
 	f := LoadPin(base.PinKey(1))
 	var err error

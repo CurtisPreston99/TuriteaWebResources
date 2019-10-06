@@ -58,6 +58,6 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		dataLevel.SQLNormal.CreatePin(0, 0, f2, f1, 18711, 0, "", "", "")
+		dataLevel.SQLWorker.CreatePin(0, 0, f2, f1, 18711, 0, "", "", "")
 	}
 }

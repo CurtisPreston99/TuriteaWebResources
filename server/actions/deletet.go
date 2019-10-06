@@ -29,7 +29,7 @@ func deleteData(w http.ResponseWriter, r *http.Request) {
 	}
 	var ResId int64
 	ResId, err = strconv.ParseInt(vs.Get("id"), 16, 64)
-	//fmt.Println(id)
+	//fmt.Println(information)
 	if err != nil {
 		w.WriteHeader(400)
 		return

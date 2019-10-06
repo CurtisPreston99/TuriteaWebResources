@@ -1,12 +1,3 @@
+.idea/
 
-.idea/codeStyles/codeStyleConfig.xml
-.idea/dataSources.local.xml
-.idea/dataSources.local.xml
-.idea/dataSources.local.xml
-.idea/go.imports.xml
-.idea/dataSources.local.xml
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/dataSources.local.xml
-.idea/workspace.xml
-.idea/workspace.xml
+updateFromSrc.sh

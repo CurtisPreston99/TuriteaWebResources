@@ -6,7 +6,7 @@ import (
 )
 
 type User struct {
-	Id   int64
+	Id int64
 	Name string
 	Role int
 }
@@ -15,13 +15,13 @@ var userIdChan = make(chan int64, 100)
 var userIdRecycle = make(chan int64, 100)
 
 func userIdProvider() {
-	var id int64 = 2
+	var id int64 = 4
 	for {
 		select {
 		case i := <-userIdRecycle:
 			userIdChan <- i
-		case userIdChan <- id:
-			id++
+		case userIdChan<-id:
+			id ++
 		}
 	}
 }
@@ -40,3 +40,5 @@ func RandomPassword() string {
 func RecycleUserId(uid int64) {
 	userIdRecycle <- uid
 }
+
+// compile the code of go as js assembly

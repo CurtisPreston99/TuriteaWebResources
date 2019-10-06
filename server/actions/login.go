@@ -19,7 +19,7 @@ const (
 )
 
 type sessions struct {
-	lock    *sync.RWMutex
+	lock *sync.RWMutex
 	session map[int64]*session
 }
 
@@ -30,7 +30,7 @@ func (s *sessions) sessionsCleaner() {
 		<-c
 		s.lock.Lock()
 		for k, v := range s.session {
-			if v.lastTime+d < time.Now().Unix() {
+			if v.lastTime + d < time.Now().Unix() {
 				delete(s.session, k)
 			}
 		}
@@ -39,12 +39,10 @@ func (s *sessions) sessionsCleaner() {
 }
 
 type session struct {
-	user     *base.User
+	user *base.User
 	lastTime int64
 }
-
 const d = int64(5 * time.Minute / time.Second)
-
 func (s *sessions) checkPermission(r *http.Request) (uint8, int64) {
 	c, err := r.Cookie("lastTime")
 	if err != nil {
@@ -63,7 +61,7 @@ func (s *sessions) checkPermission(r *http.Request) (uint8, int64) {
 	if !ok {
 		return public, -1
 	}
-	if one.lastTime+d < time.Now().Unix() {
+	if one.lastTime + d < time.Now().Unix() {
 		s.lock.Lock()
 		delete(s.session, i)
 		s.lock.Unlock()
@@ -96,10 +94,11 @@ func login(w http.ResponseWriter, r *http.Request) {
 		se.session[u.Id] = &session{u, time.Now().Unix()}
 		se.lock.Unlock()
 		if u.Role == super {
-			http.SetCookie(w, &http.Cookie{Value: "true", Name: "super"})
+			http.SetCookie(w, &http.Cookie{Path: "/", Value:"true", Name:"super"})
 			//http.Redirect(w, r, "../super/control.html", 307)
 			w.WriteHeader(200)
 		} else if u.Role == normal {
+			http.SetCookie(w, &http.Cookie{Path: "/", Value:"false", Name:"super"})
 			//http.Redirect(w, r, "../normal/control.html", 307)
 			w.WriteHeader(200)
 		}
@@ -111,15 +110,15 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 func genToken(uid int64) (string, string) {
 	r := rand.Int31n(33) + 3
-	id := strconv.FormatInt(uid+13, int(r))
+	id := strconv.FormatInt(uid + 13, int(r))
 	baseNumber := getBase(uint8(r))
 	return id, baseNumber
 }
 
 func getBase(baseNumber uint8) string {
 	goal := uint64(0)
-	for i := 0; i < 8; i++ {
-		if baseNumber&0x1 == 1 {
+	for i := 0; i < 8; i ++ {
+		if baseNumber & 0x1 == 1 {
 			r := rand.Int63n(256)
 			//r := 0
 			goal |= uint64(byte(r) | (1 << uint8(i)))
@@ -164,10 +163,11 @@ func parseBase(o string) (uint8, bool) {
 	return goal, true
 }
 
+
 func makeCookie(w http.ResponseWriter, uid int64) {
 	id, key := genToken(uid)
-	http.SetCookie(w, &http.Cookie{Name: "lastTime", Value: id, HttpOnly: true})
-	http.SetCookie(w, &http.Cookie{Name: "key", Value: key, HttpOnly: true})
+	http.SetCookie(w, &http.Cookie{Path: "/", Name: "lastTime", Value: id, HttpOnly: true})
+	http.SetCookie(w, &http.Cookie{Path: "/", Name: "key", Value: key, HttpOnly: true})
 }
 
 func changePassword(w http.ResponseWriter, r *http.Request) {
@@ -194,4 +194,9 @@ func changePassword(w http.ResponseWriter, r *http.Request) {
 	}
 	se.renew(id)
 	makeCookie(w, id)
+}
+
+func logout(w http.ResponseWriter, r *http.Request) {
+	http.SetCookie(w, &http.Cookie{Path: "/", Name: "lastTime", Value: "", HttpOnly: true})
+	http.SetCookie(w, &http.Cookie{Path: "/", Name: "key", Value: "", HttpOnly: true})
 }

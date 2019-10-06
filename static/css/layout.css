@@ -1,7 +1,7 @@
 /*
   158.258 Individual Assessment - Web Site Development Project
   Author:   Lance Gray (03364038)
-  Date:     19.09.2016  
+  Date:     19.09.2016
   Filename: layout.css
   Files:    None
 */
@@ -11,6 +11,10 @@
 article, aside, figure, figcaption, footer, hgroup, header, section, nav, nav li a, cite, img.logo, iframe {
     display: block;
 
+}
+
+.cesium-infoBox{
+  overflow: auto;
 }
 
 * {
@@ -35,7 +39,6 @@ body {
 
 body {
     background-color: #f1f1f1;
-    padding: 20px;
     font-family: Arial;
 }
 
@@ -129,7 +132,7 @@ nav.main {
     clear: both;
     width: 100%;
     background-color: #5f5f5f;
-    font-size: 0.8em; 
+    font-size: 0.8em;
 }
 
 nav.main li {
@@ -183,7 +186,7 @@ nav.main li a:hover:not(.active) {
 
 .dropbtn  {
     vertical-align:central;
-    font-size: 16px;  
+    font-size: 16px;
     border: none;
     outline: none;
     color: white;
@@ -260,7 +263,7 @@ footer address {
     margin: 10px 0px;
 }
 
-/*dialog styles*/ 
+/*dialog styles*/
 .dialog {
     display: none;
 }
@@ -288,6 +291,32 @@ footer address {
     font-size: 0.8em;
 }
 
-#privacy-policy { 
+#privacy-policy {
     color: blue;
+}
+#INaturalistdata{
+  overflow: scroll;
+}
+.hidden_part {
+    display: none;
+}
+
+.inline_part {
+    display: inline;
+}
+
+.two_hidden {
+    display: none;
+}
+
+.slow {
+    display: none;
+}
+
+.hidden_part_header {
+    display: none;
+}
+
+.inline_part_header {
+    display: inline;
 }

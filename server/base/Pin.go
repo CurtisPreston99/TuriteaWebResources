@@ -18,9 +18,9 @@ type Pin struct {
 	Longitude   float64 `json:"lon"`
 	Time        int64   `json:"time"`
 	Description string  `json:"description"`
-	TagType     string  `json:"tag_type"`
-	Name        string  `json:"name"`
-	Color       string  `json:"color"`
+	TagType     string   `json:"tag_type"`
+	Name string `json:"name"`
+	Color string `json:"color"`
 }
 
 func (p *Pin) GetKey() asynchronousIO.Key {
@@ -30,7 +30,6 @@ func (p *Pin) GetKey() asynchronousIO.Key {
 var pinPool *sync.Pool
 var pinIdChan = make(chan int64, 100)
 var pinIdRecycle = make(chan int64, 100)
-
 func init() {
 	pinPool = new(sync.Pool)
 	pinPool.New = func() interface{} {
@@ -47,18 +46,15 @@ func pinIdProvider() {
 	for {
 		select {
 		case pinIdChan <- id:
-			id++
+			id ++
 		case Id := <-pinIdRecycle:
-			pinIdChan <- Id
+			pinIdChan<-Id
 		}
 	}
 }
-
 const DefaultTime int64 = 0xffffffff
-
-var tagMap = [117]string{}
+var tagMap = &[117]string{}
 var TagNameToNumber = make(map[string]uint8, 117)
-
 func GenPin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name string, color string) *Pin {
 	pin := pinPool.Get().(*Pin)
 	pin.Uid = id
@@ -83,7 +79,7 @@ func RecyclePin(pin *Pin, delete bool) {
 	pinPool.Put(pin)
 }
 
-func loadTags(m [117]string, rm map[string]uint8) error {
+func loadTags(m *[117]string, rm map[string]uint8) error {
 	//for test open this one and close other one
 	//fs, err := ioutil.ReadDir("../../cesium/Source/Assets/Textures/maki")
 	//for overallTesting open this
@@ -93,7 +89,7 @@ func loadTags(m [117]string, rm map[string]uint8) error {
 		return err
 	}
 	for i, f := range fs {
-		s := strings.Split(f.Name(), ".")[0]
+		s := strings.Split(f.Name(), ".png")[0]
 		m[uint8(i)] = s
 		rm[s] = uint8(i)
 	}

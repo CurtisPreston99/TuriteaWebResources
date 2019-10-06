@@ -14,12 +14,14 @@ import (
 
 /*
 	these query in these file had been test
-*/
+ */
 
 const (
 	login = iota
 	createRole
 	deleteRole
+	allRole
+	changeRole
 	changePassword
 	createSubscription
 	deleteSubscription
@@ -61,32 +63,17 @@ const (
 	Super
 )
 
-var SQLNormal = &SqlLinker{}
-var SQLPublic = &SqlLinker{}
-var SQLSuper = &SqlLinker{}
 var SQLWorker = &SqlLinker{}
 
 func init() {
-	err := SQLNormal.Connect("postgres", "Turitea", "pg", "turiteaNormal", "massey")
-	if err != nil {
-		panic(err)
-	}
-	err = SQLSuper.Connect("postgres", "Turitea", "pg", "turiteaSuper", "masseysuper")
-	if err != nil {
-		panic(err)
-	}
-	err = SQLPublic.Connect("postgres", "Turitea", "pg", "turiteaPublic", "masseyPublic")
-	if err != nil {
-		panic(err)
-	}
-	err = SQLWorker.Connect("postgres", "Turitea", "pg", "turiteaWorker", "tutiteaworker")
+	err := SQLWorker.Connect("postgres", "Turitea", "localhost", "turiteaWorker", "tutiteaworker")
 	if err != nil {
 		panic(err)
 	}
 }
 
 type SqlLinker struct {
-	db      *sql.DB
+	db *sql.DB
 	stmtMap [stmtLength]*sql.Stmt
 }
 
@@ -107,7 +94,8 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 	if err != nil {
 		return err
 	}
-	s.stmtMap[deleteRole], err = s.db.Prepare("delete from users where name = $1")
+	// no meaning password hash just make it impossible for use to input
+	s.stmtMap[deleteRole], err = s.db.Prepare("update users set role = 0, name = concat(uid, 'deleted'), password_hash = '][/`!32%' where name = $1")
 	if err != nil {
 		return err
 	}
@@ -209,6 +197,14 @@ func (s *SqlLinker) Connect(driverName, dbName, host, userName, password string)
 		return err
 	}
 	s.stmtMap[getPinsInArea], err = s.db.Prepare("select uid from pins where (latitude between $1 and $2) and (longitude between $3 and $4) and (time between $5 and $6)")
+	if err != nil {
+		return err
+	}
+	s.stmtMap[allRole], err = s.db.Prepare("select name, role from users order by name")
+	if err != nil {
+		return err
+	}
+	s.stmtMap[changeRole], err = s.db.Prepare("update users set role = $1 where name=$2;")
 	return err
 }
 
@@ -239,7 +235,7 @@ func (s *SqlLinker) Login(name string, password string) *base.User {
 func (s *SqlLinker) CreateRole(role int, name string) string {
 	userId := base.GenUserId()
 	passWord := base.RandomPassword()
-	//fmt.Println(fmt.Sprintf("%x", md5.New().Sum([]byte(passWord))))
+	//fmt.Println(fmt.Sprintf("%x", md5.Sum([]byte(passWord))))
 	r, err := s.stmtMap[createRole].Query(userId, name, fmt.Sprintf("%x", md5.Sum([]byte(passWord))), role)
 	if err != nil {
 		base.RecycleUserId(userId)
@@ -262,8 +258,8 @@ func (s *SqlLinker) ChangePassword(passwordHash, newPassword string, uid int64) 
 	return true
 }
 
-func (s *SqlLinker) CreatePin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name, color string) bool {
-	r, err := s.stmtMap[createPin].Query(id, owner, latitude, longitude, t, tagType, description, name, color)
+func (s *SqlLinker) CreatePin(id, owner int64, latitude, longitude float64, t int64, tagType uint8, description, name, color string) bool{
+	r, err :=s.stmtMap[createPin].Query(id, owner, latitude, longitude, t, tagType, description, name, color)
 	if err != nil {
 		err = r.Close()
 		return false
@@ -324,7 +320,7 @@ func (s *SqlLinker) SelectTopArticles(top uint8) []int64 {
 	}
 	var id int64
 	var goal = make([]int64, 0, top)
-	for r.Next() {
+	for r.Next(){
 		err = r.Scan(&id)
 		if err != nil {
 			err = r.Close()
@@ -403,7 +399,7 @@ func (s *SqlLinker) LinkPinToArticle(pid, aid int64) bool {
 	return true
 }
 
-func (s *SqlLinker) UnLinkPinToArticle(pinId, articleId int64) bool {
+func (s *SqlLinker) UnLinkPinToArticle(pinId , articleId int64) bool {
 	r, err := s.stmtMap[unlinkPinToArticle].Query(pinId, articleId)
 	if err != nil {
 		return false
@@ -539,4 +535,34 @@ func (s *SqlLinker) GetPinsInArea(east, west, north, south float64, timeBegin, t
 		goal = append(goal, id)
 	}
 	return goal
+}
+
+func (s *SqlLinker) AllRole() ([]string, []int) {
+	rs, err := s.stmtMap[allRole].Query()
+	if err != nil {
+		return nil, nil
+	}
+	names := make([]string, 0, 10)
+	roles := make([]int, 0, 10)
+	var name string
+	var role int
+	for rs.Next() {
+		err = rs.Scan(&name, &role)
+		if err != nil {
+			return nil, nil
+		}
+		if role != 0 {
+			names = append(names, name)
+			roles = append(roles, role)
+		}
+	}
+	return names, roles
+}
+
+func (s *SqlLinker) ChangeRole(name string, newRole uint8) bool {
+	_, err := s.stmtMap[changeRole].Query(newRole, name)
+	if err != nil {
+		return false
+	}
+	return true
 }

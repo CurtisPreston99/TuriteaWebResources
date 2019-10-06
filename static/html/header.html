@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!--
+Project:  Turitea Stream Ecology
+Author:   CHEN, Xingyu; GRAY, Lance; PRESTON, Curtis
+Date:     20.08.2019
+-->
+
+<!-- Top menu bar -->
+<nav class="navbar">
+    <div class="dropdown">
+        <button class="dropbtn" onClick="$('#login-dialog').dialog('open');"><i class="fas">&#xf007;</i>&nbsp;Login
+        </button>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn hidden_part" onClick="logout()"><i class="fas">&#xf235;</i>&nbsp;Logout</button>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn hidden_part" onclick="settings()"><i class="fas">&#xf013;</i>&nbsp;Settings</button>
+    </div>
+    <div class="dropdown" style='float:right'>
+        <button class="dropbtn" onClick="$('#contactus-dialog').dialog('open');"><i class="fas">&#xf086;</i>&nbsp;Contact
+            Us
+        </button>
+    </div>
+    <div class="dropdown" style='float:right'>
+        <button class="dropbtn" onClick="$('#search-dialog').dialog('open');"><i class="fas">&#xf002;</i>&nbsp;Search
+        </button>
+    </div>
+</nav>
+
+<!-- Header Banner -->
+<div id="banner">
+    <h1>Turitea Project</h1>
+    <a href="https://www.massey.ac.nz" target='_blank'><img src="../media/logo.png" alt="Massey University Logo"></a>
+</div>
+
+<!-- Main menu bar -->
+<nav class="navbar">
+    <a href="../html/home.html"><i class="fas">&#xf015;</i>&nbsp;Home</a>
+    <a href="../html/about.html"><i class="fas">&#xf129;</i>&nbsp;About Us</a>
+    <a href="../html/video.html"><i class="fas">&#xf1c8;</i>&nbsp;Video Library</a>
+    <div class="dropdown">
+        <button class="dropbtn">
+            <i class="fas">&#xf35d;</i>&nbsp;Useful Links
+        </button>
+        <div class="dropdown-content">
+            <a href='https://inaturalist.nz/projects/turitea?tab=observations&subtab=map' target='_blank'>I Naturalist
+                (NZL)</a>
+            <a href='http://www.stratigraphy.org/' target='_blank'>International Commission on Stratigraphy</a>
+            <a href='https://www.landcareresearch.co.nz/resources/maps-satellites/lenz' target='_blank'>Landcare
+                Research (NZL) </a>
+            <a href="https://www.massey.ac.nz" target='_blank'>Massey University</a>
+            <a href='https://blog.planetaryecology.org/' target='_blank'>Planetary Ecology</a>
+        </div>
+    </div>
+    <!--<div class="dropdown">
+        <button class="dropbtn">
+            <i class="fas">&#xf0e8;</i>&nbsp;Site Map
+        </button>
+        <div class="dropdown-content">
+            <a href='../html/home.html'>Home</a>
+            <a href='../html/about.html'>About Us</a>
+            <a href='../html/video.html'>Video Library</a>
+            <a href='../html/settings.html' class="hidden_part">Settings</a>
+        </div>
+    </div>-->
+</nav>
+
+<!-- Login JQuery Dialog Box -->
+<div id="login-dialog" class="dialog" title="Login">
+    <form id="login-form">
+        <label for="name">Username:</label>
+        <input name="name" id="login-form-name" type="text" required="required">
+        <label for="pw">Password:</label>
+        <input name="pw" type="password" id="login-form-pw" required="required">
+    </form>
+</div>
+
+<!-- Contact Us (Feedback) Dialog Box  -->
+<div id="contactus-dialog" class="dialog" title="Contact Us">
+    <form id="contactus-form">
+        <label for="contactus-form-name">Name:</label>
+        <input name="name" id="contactus-form-name" type="text" required>
+        <label for="contactus-form-email">Email Address:</label>
+        <input name="email" id="contactus-form-email" type="email" required>
+        <label for="feedback">Feedback:</label>
+        <textarea name="feedback" id="contactus-form-feedback" required></textarea>
+    </form>
+    <p class="footnote">Please see our <a class="privacy-policy" href="../privacy_policy.pdf" target='_blank'>Privacy
+            Policy</a> which outlines the types of information we collect, and how we use it.</p>
+</div>
+
+<!-- Search Dialog Box  -->
+<div id="search-dialog" title="Search" style="display: none">
+    <script async src="https://cse.google.com/cse.js?cx=014152768497635151115:plkctbfrcj0"></script>
+    <div class="gcse-search" enableAutoComplete="true"></div>
+</div>
+
+<!-- Valid Dialog Box -->
+<div id="valid-dialog" class="dialog" title="Valid Message">
+    <p></p>
+</div>
+
+<!-- Error Dialog Box -->
+<div id="error-dialog" class="dialog" title="Error Message">
+    <p></p>
+</div>
+
+<div id="pin-dialog" class="dialog" title="Pins">
+    <input type="number" id="pinId" hidden/>
+    <div id='nameDiv'>
+        name:<input type="text" id="name"/>
+    </div>
+    <div id="icon">
+        icon:<select id="iconSelect"> </select>
+        color:<input type="color" id="colorSelectors" required>
+    </div>
+    <div id='longLat'>
+        longitude:<input type="text" id="longText"/>
+        latitude:<input type="text" id="latText"/>
+    </div>
+    <div>
+        description:<textarea id="description" rows="10" cols="30" > </textarea>
+    </div>
+    <script>addIconOptions('iconSelect')</script>
+</div>
+
+<script>
+    var hosturl = window.location.origin;
+
+    $(document).ready(function () {
+        // Login Dialog Box
+        $("#login-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+            buttons: {
+                Cancel: function () {
+                    $(this).dialog("close");
+                },
+                Login: function () {
+                    var formValues = $("#login-form").serialize();
+                    event.preventDefault();
+                    if (isNotValid(document.getElementById('login-form'))) {
+                        let e = $('#error-dialog');
+                        e.dialog({title: "Data Validation Error"});
+                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                        e.dialog('open');
+                        return;
+                    }
+
+                    loginDetails = {};
+                    loginDetails.name = document.getElementById('login-form-name').value;
+                    loginDetails.pw = calcMD5(document.getElementById('login-form-pw').value);
+                    var loginURL = "../api/login";
+                    console.log(loginDetails);
+                    $.post(loginURL, loginDetails, function () {
+                        let v = $('#valid-dialog');
+                        v.dialog({title: "Login Successful"});
+                        $('#valid-dialog p').html("Thank you. You have sucessfully logged in.<br><br>To logout again, press the [Logout] button from the top menu bar.");
+                        v.dialog('open');
+                        let c = document.cookie;
+                        if (c.includes("super=true")) {
+                            let hiddenPart = $(".hidden_part");
+                            hiddenPart.removeClass("hidden_part");
+                            hiddenPart.addClass("inline_part");
+                            $(".hidden_normal").show();
+                        } else if (c.includes("super=false")) {
+                            let hiddenPart = $(".hidden_part");
+                            hiddenPart.removeClass("hidden_part");
+                            hiddenPart.addClass("inline_part");
+                            $(".hidden_normal").hide();
+                            if (window.location.href.includes("settings.html")) {
+                                window.location.href = "../html/settings.html#tabs-1"
+                            }
+                        }
+
+                        // alert(document.cookie);
+                    }).fail(function (xhr) {
+                        let e = $('#error-dialog');
+                        e.dialog({title: "Login Failed"});
+                        $('#error-dialog p').html("The username or password that you entered is incorrect.<br><br>Please try again.");
+                        e.dialog('open');
+                    });
+                }
+            }
+        });
+
+        // Contact Us (Feedback) Dialog Box
+        $("#contactus-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+            buttons: {
+                Cancel: function () {
+                    $(this).dialog("close");
+                },
+                Submit: function () {
+                    var formValues = $("#contactus-form").serialize();
+                    if (isNotValid(document.getElementById('contactus-form'))) {
+                        $('#valid-dialog').dialog({title: "Data Validation Error"});
+                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                        $('#error-dialog').dialog('open');
+                        return;
+                    }
+                    $.get("../api/sendfeedback", formValues, function () {
+                        let v = $('#valid-dialog');
+                        v.dialog({title: "Message Sent"});
+                        $('#valid-dialog p').html("Thank you for the feedback about your experience using our website. We greatly appreciate your insight because it helps us to build a better experience for yourself and others.<br><br>If you have any more questions, comments, concerns or compliments, please feel free to contact us again.");
+                        v.dialog('open');
+                    }).fail(function (xhr) {
+                        let e = $('#error-dialog');
+                        e.dialog({title: "Message Failed"});
+                        $('#error-dialog p').html("Sorry, something went wrong.<br><br>Please try again.");
+                        e.dialog('open');
+                    });
+                }
+            }
+        });
+
+        // Search Dialog Box
+        $("#search-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 500,
+        });
+
+        // Valid Dialog Box
+        $("#valid-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 450,
+            buttons: {
+                OK: function () {
+                    $('#valid-dialog').dialog('close');
+                    $('#login-dialog').dialog('close');
+                    $('#contactus-dialog').dialog('close');
+                },
+            }
+        });
+
+        // Error Dialog Box
+        $("#error-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 450,
+            buttons: {
+                OK: function () {
+                    $(this).dialog('close');
+                },
+            }
+        });
+
+        // pin Dialog Box
+        $('#pin-dialog').dialog({
+            autoOpen: false,
+            modal: true,
+            width:600,
+            buttons: {
+                advance:{
+                    text: "advance",
+                    id: "advance",
+                    click:toAdvancePins
+                },
+                submit : submitPin,
+            }
+        })
+    });
+
+    function error(title, message) {
+        let e = $('#error-dialog');
+        e.dialog({title: title});
+        $('#error-dialog p').html(message);
+        e.dialog('open');
+    }
+
+    function  message(title, message) {
+        let v = $('#valid-dialog');
+        v.dialog({title: title});
+        $('#valid-dialog p').html(message);
+        v.dialog('open');
+    }
+
+    // Redirect to Settings Page
+    function settings() {
+        window.location.replace("../html/settings.html");
+    }
+
+    function delete_cookie(name, path, domain) {
+        document.cookie = name + "=" + ((path) ? ";path=" + path : "") +
+            ((domain) ? ";domain=" + domain : "") + ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+
+    }
+
+    // Clear Login Cookies
+    function logout() {
+        // document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        $.get("../api/logout", function () {
+            delete_cookie('super', '/', document.domain);
+            console.log(window.location.href);
+            if (window.location.href.includes("settings.html")) {
+                window.location.href = "../html/home.html"
+            }
+            let v = $('#valid-dialog');
+            v.dialog({title: "Logout Successful"});
+            $('#valid-dialog p').html("Thank you. You have sucessfully logged out.<br><br>To login again, press the [Login] button from the top menu bar.");
+            v.dialog('open');
+            $('.inline_part').switchClass("inline_part", "hidden_part");
+
+        });
+        // document.cookie = "lastTime=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+    }
+
+    function isNotValid(data) {
+        return !data.checkValidity();
+    }
+
+    let c = document.cookie;
+    if (c.includes("super=true")) {
+        let hiddenPart = $(".hidden_part");
+        hiddenPart.removeClass("hidden_part");
+        hiddenPart.addClass("inline_part");
+    } else if (c.includes("super=false")) {
+        let hiddenPart = $(".hidden_part");
+        hiddenPart.removeClass("hidden_part");
+        hiddenPart.addClass("inline_part");
+    }
+    var once = false;
+    if ($("#cesiumContainer").length > 0) {
+        if (!once) {
+            once = !once;
+            if (once) {
+                loadMap()
+            }
+        }
+    }
+    $(".slow").removeClass("slow");
+    String.prototype.format = function()
+    {
+        var args = arguments;
+        return this.replace(/\{(\d+)\}/g,
+            function(m,i){
+                return args[i];
+            });
+    };
+    console.log(window.location.href);
+    if (window.location.href.includes("tabs-5")) {
+        if (getKMLList) getKMLList();
+    }
+</script>
+

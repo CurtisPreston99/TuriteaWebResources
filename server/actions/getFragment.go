@@ -2,6 +2,7 @@ package actions
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -18,6 +19,11 @@ type fragmentHelper struct {
 	Media    *base.Media `json:"m"`
 }
 
+type helpFragment struct {
+	Content string `json:"content"`
+	Res fragmentHelper `json:"res"`
+}
+
 func getFragment(w http.ResponseWriter, r *http.Request) {
 	log.Println("call get fragment")
 	vs := r.URL.Query()
@@ -31,18 +37,18 @@ func getFragment(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(404)
 	}
 	ac := b.(*dataLevel.ArticleResource)
-	_, err = w.Write([]byte("{\"content\":\""))
+	_, err = w.Write([]byte("{\"content\":"))
 	if err != nil {
 		return
 	}
-	_, err = w.Write(ac.Content)
+	encoder := json.NewEncoder(w)
+	err = encoder.Encode(string(ac.Content))
 	if err != nil {
 		return
 	}
-	_, err = w.Write([]byte("\", \"res\": ["))
+	_, err = w.Write([]byte(", \"res\": ["))
 	var start = true
 	var helper = &fragmentHelper{}
-	encoder := json.NewEncoder(w)
 	for i, v := range ac.ResourcesId {
 		if !start {
 			_, err = w.Write([]byte(","))
@@ -90,5 +96,5 @@ func getFragment(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
-	_, err = w.Write([]byte("]}"))
+	_, err = w.Write([]byte(fmt.Sprintf("], \"id\":%x}", ac.Id)))
 }
