@@ -294,7 +294,9 @@ footer address {
 #privacy-policy {
     color: blue;
 }
-
+#INaturalistdata{
+  overflow: scroll;
+}
 .hidden_part {
     display: none;
 }
@@ -318,4 +320,3 @@ footer address {
 .inline_part_header {
     display: inline;
 }
-
