@@ -61,68 +61,37 @@ function enable(x) {
 
 
 function display(table) {
-    let csvHead = $("#csvHead");
-    console.log(csvHead);
-    for (let i = 0; i < table[0].length; i++) {
-        csvHead.append($("<th>{0}</th>".format(i === 0?"add":table[0][i])));
-    }
-    let csvBody = $("#csvBody");
-    for (let i = 1; i < table.length; i++) {
-        let line = table[i];
-        let row = $("<tr></tr>");
+    let htmlTable = '<table>';
+    for (let i = 0; i < table.length; i++) {
+        line = table[i];
+        htmlTable = htmlTable + '<tr>';
         for (let e = 0; e < line.length; e++ ) {
             if (e === 0) {
-                if (!table[i][e]) {
-                    row.append($("<td><button onclick='enable({})'>enable</button></td>".format(i)));
+                if (i === 0) {
+                    htmlTable = htmlTable + '<th>' + 'add' + '</th>'
                 } else {
-                    row.append($("<td><button onclick='enable({})'>remove</button></td>".format(i)));
+                    if (!table[i][e]) {
+                        htmlTable = htmlTable + '<td><button onclick="enable(' + i + ')">enable</button></td>'
+
+                    } else {
+                        htmlTable = htmlTable + '<td><button onclick="enable(' + i + ')">remove</button></td>'
+                    }
                 }
+
             } else {
-                row.append($("<td>{0}</td>".format(line[e])))
+                if (e > 0) {
+                    if (i === 0) {
+                        htmlTable = htmlTable + '<th>' + line[e] + '</th>'
+
+                    } else {
+                        htmlTable = htmlTable + '<td>' + line[e] + '</td>'
+                    }
+                }
             }
         }
-        csvBody.append(row);
+        htmlTable = htmlTable + '</tr>'
     }
-    // let htmlTable = '<table>';
-    // for (let i = 0; i < table.length; i++) {
-    //     line = table[i];
-    //     if (i === 1) {
-    //         htmlTable = htmlTable + '<tbody id="csvBody"><tr>';
-    //     } else {
-    //         htmlTable += "<thead><tr>"
-    //     }
-    //     for (let e = 0; e < line.length; e++ ) {
-    //         if (e === 0) {
-    //             if (i === 0) {
-    //                 htmlTable = htmlTable + '<th class="csvHead">' + 'add' + '</th>'
-    //             } else {
-    //                 if (!table[i][e]) {
-    //                     htmlTable = htmlTable + '<td><button onclick="enable(' + i + ')">enable</button></td>'
-    //
-    //                 } else {
-    //                     htmlTable = htmlTable + '<td><button onclick="enable(' + i + ')">remove</button></td>'
-    //                 }
-    //             }
-    //
-    //         } else {
-    //             if (e > 0) {
-    //                 if (i === 0) {
-    //                     htmlTable = htmlTable + '<th>' + line[e] + '</th>'
-    //
-    //                 } else {
-    //                     htmlTable = htmlTable + '<td>' + line[e] + '</td>'
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     if (i === 0) {
-    //         htmlTable = htmlTable + '</thead></tr>'
-    //     } else {
-    //         htmlTable = htmlTable + '</tr>'
-    //     }
-    // }
-    // htmlTable += "</table>";
-    // document.getElementById('INaturalistdata').innerHTML = htmlTable;
+    document.getElementById('INaturalistdata').innerHTML = htmlTable;
 }
 
 
@@ -165,7 +134,8 @@ function tabletoPins() {
     });
 }
 
-function pinGenerateDiscription(line) {
+function pinGenerateDiscription(line){
+  console.log(line);
     let html = "<p>";
     html = html + "<a href=" + line[header["url"]] + ' target="_blank">look at me on inaturalist.nz</a>';
     html = html + "</p><p>";
@@ -180,7 +150,10 @@ function pinGenerateDiscription(line) {
 
     httable = "<table>";
     for (let key in header) {
-        httable = httable += '<tr><td>' + key + '</td><td>' + line[key] + '</td></tr>'
+        if(!(line[header[key]]==="")){
+
+        httable = httable += '<tr><td>' + key + '</td><td>' + line[header[key]] + '</td></tr>'
+      }
     }
 
     httable = httable + "</table>";
