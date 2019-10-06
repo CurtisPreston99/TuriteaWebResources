@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+Project:  Turitea Stream Ecology
+Author:   CHEN, Xingyu; GRAY, Lance; PRESTON, Curtis
+Date:     20.08.2019
+-->
+<html>
+    <head>
+        <title>Observation Map</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="../js/md5.js"></script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script src="https://cesiumjs.org/releases/1.60/Apps/Sandcastle/Sandcastle-header.js"></script>
+        <script src="https://cesiumjs.org/releases/1.60/Build/Cesium/Cesium.js"></script>
+        <link href="https://cesiumjs.org/releases/1.60/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/layout.css"/>
+        <link rel="stylesheet" href="../css/style.css">
+
+        <script src="../js/map.js"></script>
+        <script src="../js/pin.js"></script>
+
+        <script>
+            $(function () {
+                $("header").load("header.html");
+                $("footer").load("footer.html");
+            });
+        </script>
+    </head>
+    <body>
+        <header></header>
+        <section>
+            <h1 class="slow">Observation Map</h1>
+            <hr class="slow">
+            <div id="toolbar" class="slow">
+                <button onclick="hidePins()" id="hideP" class="cesium-button">Hide Pins</button>
+                <button onclick="deletePin()" id="deleteP" class="cesium-button hidden_part" type="button">delete this pin</button>
+                <button id="updateP" onclick="updatePin()" class="cesium-button hidden_part" type="button">update this pin</button>
+                <button id="addP" onclick="addPinPrepare()" class="cesium-button hidden_part" type="button">add pin</button>
+                <button id="cancelAdd" onclick="cancelAdd()" class="cesium-button two_hidden hidden_part">cancel add</button>
+                <div class="hidden_part">
+                lat:<span id="lat" class="hidden_part">0.0</span>
+                lon:<span id="lon" class="hidden_part">0.0</span>
+                </div>
+            </div>
+            <div id='cesiumContainer'></div>
+        </section>
+        <footer class="slow"></footer>
+    </body>
+
+
+</html>

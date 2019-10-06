@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--
+Project:  Turitea Stream Ecology
+Author:   CHEN, Xingyu; GRAY, Lance; PRESTON, Curtis
+Date:     20.08.2019
+-->
+<html>
+<head>
+    <title>Settings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/layout.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+    <script src="../js/md5.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
+    <script src="../js/pin.js"></script>
+    <script src="../js/article.js"></script>
+    <script src="../js/INaturalist.js"></script>
+    <script src="../js/userfunctions.js"></script>
+    <script src="../js/loadArticle.js"></script>
+    <script src="../js/kml.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+
+
+    <script>
+        $(function () {
+            $("header").load("../html/header.html");
+            $("#footer").load("../html/footer.html");
+            $("#tabs").tabs();
+            let c = document.cookie;
+            if (c.includes("super=false")) {
+                $(".hidden_normal").hide();
+            }
+            // $("#summernote").summernote();
+        });
+    </script>
+</head>
+<body>
+<header></header>
+<section>
+    <h1>Settings</h1>
+    <hr>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Pins</a></li>
+            <li><a href="#tabs-3">article</a></li>
+            <li><a href="#tabs-4">upload INaturalist data</a></li>
+            <li><a href="#tabs-5" onclick="getKMLList()">kml Data</a></li>
+            <li><a href="#tabs-6">change password</a></li>
+            <li><a href="#tabs-2" class="hidden_normal">Users</a></li>
+            <li><a href="#tabs-7" class="hidden_normal" onclick="loadUsers()">manage user</a></li>
+        </ul>
+
+        <!-- pins -->
+        <div id="tabs-1">
+
+            <div id='form'>
+                <input type="number" id="pinIdAd" style="display: none"/>
+                <div id='nameDic'>
+                    name:<input type="text" id="nameAd"/>
+                </div>
+                <div id="icon">
+                    icon:<select id="iconSelectAd"> </select>
+                    <script>addIconOptions("iconSelectAd")</script>
+                    color:<input type="color" id="colorSelectorsAd" value="#ff0000" required/>
+                </div>
+                <div id='longLat'>
+                    longitude:<input type="number" id="longTextAd"/>
+                    latitude:<input type="number" id="latTextAd"/>
+                </div>
+                <div id="descriptionAd">
+                    description:
+                    <div id="summerNotePin"></div>
+                    <div id="helpDiv"></div>
+                </div>
+                <div>
+                    <button onclick="submitPinAd()">submit</button>
+                    <a href="../html/home.html">
+                        <button>cancel</button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- add users -->
+        <div id="tabs-2">
+            <h3> add user</h3>
+
+            user name:
+            <input id="adduserName" type="text" name="name">
+            user type:
+            <select id="roleselect" name="role">
+                <option value=1>Researcher</option>
+                <option value=2>Administer</option>
+            </select>
+            <br>
+            <button onclick="adduser()" name="add user">add user</button>
+            <div id="userResult" class="two_hidden">
+                <div>role: <span id="role"></span></div>
+                <div>name: <span id="userName"></span></div>
+                <div>password: <span id="password"></span></div>
+            </div>
+        </div>
+
+
+        <!-- edit article -->
+        <div id="tabs-3">
+            <h3 id="articleTitle">article</h3>
+            summary:
+            <br/>
+            <textarea id="articleSum" width="100"></textarea>
+            <div id="articleSummerNote"></div>
+            <script>loadArticleNote()</script>
+            <button onclick="submitArticle()">submit</button>
+        </div>
+
+        <!-- csv -->
+        <div id="tabs-4" onload="init()">
+            <h3>add INaturalist data</h3>
+            <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv">
+            <button onclick="tabletoPins()">upload</button>
+            <div id='INaturalistdata'>
+                <table>
+                    <thead id="csvHeader">
+                    <tr id="csvHead"></tr>
+                    </thead>
+                    <tbody id="csvBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- kml -->
+        <div id="tabs-5">
+
+            <form action="../api/putKML" method="post" enctype="multipart/form-data" id="kmlup">
+                <input type="file" name="kml" id="kml">
+                <input type="submit" value="Upload Image" name="submit">
+            </form>
+
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>remove</td>
+                        <td>name</td>
+                    </tr>
+                    </thead>
+                    <tbody id="kmlList">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- change password -->
+        <div id="tabs-6">
+            <h3> change password</h3>
+            <table>
+                <tr>
+                    <td>old password:</td>
+                    <td><input type="text" id="oldPassowrd"/></td>
+                </tr>
+                <tr>
+                    <td>new password:</td>
+                    <td><input type="text" id="newPassword"/>
+                    <td>
+                </tr>
+            </table>
+            <br/>
+            <button onclick="updatePassword()">update passowrd</button>
+        </div>
+
+        <!-- remove user -->
+        <div id="tabs-7">
+            <h3> remove user</h3>
+            <p>
+                <button onclick="loadUsers()">refresh</button>
+            </p>
+            <p>
+                <button onclick="popupYN('These users will be deleted', deleteUsers, function() {})">delete</button>
+            </p>
+            <table>
+                <thead>
+                <tr>select</tr>
+                <tr>name</tr>
+                <tr>role</tr>
+                </thead>
+                <tbody id="userList">
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</section>
+<script src="../js/article.js"></script>
+<script src="../js/ui.js"></script>
+<script>loadPinEditor()</script>
+<script>window.onbeforeunload = function () {
+        localStorage.setItem("editPin", null);
+        localStorage.setItem("editArticle", null);
+    }</script>
+<footer id="footer"></footer>
+</body>
+</html>
