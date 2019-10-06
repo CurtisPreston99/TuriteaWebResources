@@ -16,11 +16,11 @@ function handleFiles(files) {
 
 function getAsText(fileToRead) {
     var reader = new FileReader();
-    // Read file into memory as UTF-8
-    reader.readAsText(fileToRead);
     // Handle errors load
     reader.onload = loadHandler;
     reader.onerror = errorHandler;
+    // Read file into memory as UTF-8
+    reader.readAsText(fileToRead);
 }
 
 function loadHandler(event) {
@@ -37,7 +37,7 @@ function loadHandler(event) {
     let newTable = [];
     for (let i = 0; i < table.length; i++) {
         if (table[i][header["common_name"]] !== "" && table[i][header["common_name"]] !== null) {
-            if (table[i][header["latatude"]] !== "" && table[i][header["latitude"]] !== null) {
+            if (table[i][header["latitude"]] !== "" && table[i][header["latitude"]] !== null) {
                 if (table[i][header["longitude"]] !== "" && table[i][header["longitude"]] !== null) {
                     newTable.push(table[i]);
                 }
@@ -65,7 +65,7 @@ function display(table) {
     for (let i = 0; i < table.length; i++) {
         line = table[i];
         htmlTable = htmlTable + '<tr>';
-        for (let e = 0; e < line.length; e++) {
+        for (let e = 0; e < line.length; e++ ) {
             if (e === 0) {
                 if (i === 0) {
                     htmlTable = htmlTable + '<th>' + 'add' + '</th>'
@@ -129,6 +129,8 @@ function tabletoPins() {
         message("Thank you", "upload success");
         console.log("posted");
         console.log(ret);
+    }).fail(function () {
+        error("Error", "Please and retry.")
     });
 }
 
