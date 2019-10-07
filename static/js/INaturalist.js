@@ -32,7 +32,7 @@ function loadHandler(event) {
         if (table[i][header["common_name"]] !== "" && table[i][header["common_name"]] !== null) {
             if (table[i][header["latitude"]] !== "" && table[i][header["latitude"]] !== null) {
                 if (table[i][header["longitude"]] !== "" && table[i][header["longitude"]] !== null) {
-                    if (i !== 0 &&(isNaN(parseFloat(table[i][header["latitude"]])) || isNaN(parseFloat(table[i][header["longitude"]])))) {
+                    if (i !== 0 && (isNaN(parseFloat(table[i][header["latitude"]])) || isNaN(parseFloat(table[i][header["longitude"]])))) {
                         state = true;
                     } else {
                         newTable.push(table[i]);
@@ -128,7 +128,7 @@ function pinGenerateDiscription(line) {
     b.append($(`<p>{0}</p>`.format(line[header["description"]])));
     let t = $("<table></table>");
     let title = table[0];
-    for (let i = 0; i < title.length; i++ ){
+    for (let i = 0; i < title.length; i++) {
         let key = title[i];
         let value = line[header[key]];
         if (value) {
@@ -179,18 +179,18 @@ function CSVToArray(strData, strDelimiter) {
 
 
 // from internet
-function getNumberInNormalDistribution(mean,std_dev){
-    return mean+(randomNormalDistribution()*std_dev);
+function getNumberInNormalDistribution(mean, std_dev) {
+    return mean + (randomNormalDistribution() * std_dev);
 }
 
 // from internet
-function randomNormalDistribution(){
-    let u=0.0, v=0.0, w=0.0, c=0.0;
-    do{
-        u=Math.random()*2-1.0;
-        v=Math.random()*2-1.0;
-        w=u*u+v*v;
-    }while(w===0.0||w>=1.0);
+function randomNormalDistribution() {
+    let u = 0.0, v = 0.0, w = 0.0, c = 0.0;
+    do {
+        u = Math.random() * 2 - 1.0;
+        v = Math.random() * 2 - 1.0;
+        w = u * u + v * v;
+    } while (w === 0.0 || w >= 1.0);
     c = Math.sqrt((-2 * Math.log(w)) / w);
-    return u*c;
+    return u * c;
 }

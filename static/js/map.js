@@ -20,14 +20,12 @@ function loadMap() {
             terrainProvider: new Cesium.CesiumTerrainProvider({
                 url: Cesium.IonResource.fromAssetId(1)
             }),
-            fullscreenButton: false,
             baseLayerPicker: false,
             geocoder: false,
             timeline: false,
             animation: false,
             homeButton: false,
-            fullscreenElement : cesiumContainer
-
+            fullscreenElement: cesiumContainer
         }
     );
 
@@ -94,7 +92,7 @@ function loadpins() {
         "&timeEnd=20000";
 
     $.getJSON("../api/getPins?" + area, function (data) {
-        if (data.length === 0){
+        if (data.length === 0) {
             return
         }
         console.log(data);
