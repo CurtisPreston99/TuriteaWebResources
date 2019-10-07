@@ -17,11 +17,9 @@ function addIconOptions(element) {
 function getallData() {
     let pin = {};
     let n = $('#summerNotePin');
-    console.log(n);
     if (n.length !== 0) {
         pin["name"] = document.getElementById("nameAd").value;
         pin["tag_type"] = document.getElementById("iconSelectAd").value;
-        // console.log(lon);
         pin["lon"] = parseFloat($("#longTextAd")[0].value);
         pin["lat"] = parseFloat($("#latTextAd")[0].value);
         pin["color"] = document.getElementById("colorSelectorsAd").value;
@@ -29,7 +27,6 @@ function getallData() {
     } else {
         pin["name"] = document.getElementById("name").value;
         pin["tag_type"] = document.getElementById("iconSelect").value;
-        // console.log(lon);
         pin["lon"] = parseFloat($("#longText")[0].value);
         pin["lat"] = parseFloat($("#latText")[0].value);
         pin["color"] = document.getElementById("colorSelectors").value;
@@ -41,9 +38,7 @@ function getallData() {
 }
 
 
-// refactor by Chen Xingyu, make it can use and make it more easy to use for users
 function deletePin() {
-    // eval($("#inDescription").innerText);
     let pin = $(".cesium-infoBox-iframe")[0].contentDocument.getElementById("inDescription");
     if (pin === null) {
         error("No Select", "Please select a pin thank you");
@@ -51,7 +46,6 @@ function deletePin() {
     let id = pin.innerText;
 
     $.get("../api/delete?type=2&id=" + id, function (result) {
-        console.log(result);
         viewer.entities.removeById(id);
     }).fail(function (xhr) {
         error("Not login", "Please login thank you");
@@ -64,9 +58,7 @@ function submitPin() {
         let pins = {};
         pins.data = "[" + JSON.stringify(pin) + "]";
         pins.num = 1;
-        console.log("the pins" + pins.data);
         $.post("../api/update?type=2", pins, function () {
-            console.log("posted");
             let p = $("#pin-dialog");
             if (p.length !== 0) {
                 p.dialog('close');
@@ -82,9 +74,7 @@ function submitPin() {
         let pin = getallData();
         let pins = {};
         pins.data = '[' + JSON.stringify(pin) + ']';
-        console.log(pins);
         $.post("../api/addPins?num=1", pins, function () {
-            console.log("posted");
 
             loadpins();
             temPin = null;
@@ -108,7 +98,7 @@ function toAdvancePins() {
     } else {
         localStorage.setItem("mode", "update")
     }
-    window.location.href="../html/settings.html#tabs-1";
+    window.location.href = "../html/settings.html#tabs-1";
 }
 
 function submitPinAd() {
@@ -125,16 +115,15 @@ function submitPinAd() {
         let img = $(image);
         let src = img.attr("src");
         if (src.startsWith("data:")) {
-            datas.push({"image":src.split(",")[1], "title":filName});
+            datas.push({"image": src.split(",")[1], "title": filName});
             img.attr("src", "../api/getImage?id=%x");
         }
     }
     combination.images = JSON.stringify(datas);
     combination.imageNum = datas.length;
     combination.pins = JSON.stringify([pin,]);
-    combination.articles = JSON.stringify([{"sum":"pin name:" + pin.name + " at longitude: " + pin.lon.toString().substring(0, 7) + ", latitude: " + pin.lat.toString().substring(0, 7)},]);
+    combination.articles = JSON.stringify([{"sum": "pin name:" + pin.name + " at longitude: " + pin.lon.toString().substring(0, 7) + ", latitude: " + pin.lat.toString().substring(0, 7)},]);
     combination.content = help.html();
-    console.log(combination);
     $.post("../api/addPinWithArticle", combination, function (r) {
         localStorage.setItem("editPin", null);
         localStorage.setItem("viewerMiddle", JSON.stringify({lat: pin["lat"], lon: pin["lon"]}));

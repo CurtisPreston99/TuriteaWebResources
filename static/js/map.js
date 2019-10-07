@@ -19,12 +19,10 @@ var scratchRectangle = new Cesium.Rectangle();
 
 function loadMap() {
     viewer = new Cesium.Viewer('cesiumContainer', {
-            // imageryProvider : Cesium.createTileMapServiceImageryProvider({
-            //   url : Cesium.buildModuleUrl('Assets/Textures/NaturalEarthII')
-            // }),
             terrainProvider: new Cesium.CesiumTerrainProvider({
                 url: Cesium.IonResource.fromAssetId(1)
             }),
+            fullscreenButton: false,
             baseLayerPicker: false,
             geocoder: false,
             timeline: false,
@@ -34,17 +32,13 @@ function loadMap() {
         }
     );
 
-    // add
     ellipsoid = viewer.scene.globe.ellipsoid;
     cesiumHandler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
 
     viewer.infoBox.frame.removeAttribute('sandbox');
 
-    // Add toolbar to Cesium map & load/hide pins
 
     $.getJSON("../api/listKML", function (data) {
-        console.log("kmlList");
-        console.log(data);
         let toolbar = [{
             text: "Remove all KML Data",
             onselect: function () {
@@ -58,7 +52,6 @@ function loadMap() {
             clampToGround: true,
         };
         $.each(data, function (name, value) {
-            console.log(value);
             var obj = {};
             obj.text = (name + 1).toString() + "  " + value;
             obj.onselect = function () {
@@ -71,11 +64,10 @@ function loadMap() {
     let middle = localStorage.getItem("viewerMiddle");
     if (middle) {
         let m = JSON.parse(middle);
-        let rectangle = Cesium.Rectangle.fromDegrees(m["lon"]-0.005, m["lat"] - 0.005, m["lon"] + 0.005, m["lat"] + 0.005);
+        let rectangle = Cesium.Rectangle.fromDegrees(m["lon"] - 0.005, m["lat"] - 0.005, m["lon"] + 0.005, m["lat"] + 0.005);
         viewer.camera.setView({
             destination: rectangle
         });
-        // localStorage.setItem("viewerMiddle", null);
     } else {
         let rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
         viewer.camera.setView({
@@ -102,16 +94,16 @@ function loadpins() {
         "&timeBegin=0" +
         "&timeEnd=20000";
 
-    console.log(area);
     $.getJSON("../api/getPins?" + area, function (data) {
+        if (data.length === 0){
+            return
+        }
         console.log(data);
         viewer.entities.removeAll();
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
-        console.log(s+n);
-        localStorage.setItem("viewerMiddle", JSON.stringify({lat:(s + n)/2, lon:(e + w) /2}));
-        console.log("viewerMiddle", JSON.stringify({lat:((s + n)/2), lon:((e + w) /2)}));
+        localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
         $.each(data, function (key, value) {
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
@@ -126,7 +118,6 @@ function loadpins() {
                 tag_type = pinBuilder.fromColor(Cesium.Color.fromCssColorString(value.color), 48);
             }
 
-            // Add entities
             viewer.entities.add({
                 id: (value.uid).toString(16),
                 name: value.name,
@@ -146,13 +137,14 @@ function loadpins() {
                     image: tag_type,
                     verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
                     heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
-                }, pin : value,
+                }, pin: value,
             });
         });
     });
 }
 
 var temPin = null;
+
 function addTemporaryPin(lon, lat) {
     if (temPin === null) {
         temPin = {
@@ -174,16 +166,15 @@ function addTemporaryPin(lon, lat) {
                 heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
             },
             pin: {
-                "lat" : lat,
-                "lon" : lon,
-                "time" : 18711,
+                "lat": lat,
+                "lon": lon,
+                "time": 18711,
             },
         }
     } else {
         temPin.position = Cesium.Cartesian3.fromDegrees(lon, lat);
     }
     viewer.entities.removeById("tem");
-    console.log(viewer.entities.removed);
     $('#lon').text(lon);
     $('#lat').text(lat);
     viewer.entities.add(temPin);
@@ -195,7 +186,6 @@ function addPinPrepare() {
     b.text("select");
     b.off("click", addPinPrepare);
     b.on("click", selectAndCreate);
-    // b.click(selectAndCreate);
     cesiumHandler.setInputAction(selectPosition, Cesium.ScreenSpaceEventType.LEFT_CLICK);
     $("#cancelAdd").removeClass("two_hidden");
 }
@@ -215,7 +205,6 @@ function cancelAdd() {
 
 function selectAndCreate() {
     if (temPin === null) {
-        console.log("in");
         let e = $('#error-dialog');
         e.dialog({title: "error"});
         $('#error-dialog p').html("Please select a position!");
@@ -223,13 +212,11 @@ function selectAndCreate() {
         return;
     }
     let pinDetail = $("#pin-dialog");
-    pinDetail.dialog({title:"edit pin"});
+    pinDetail.dialog({title: "edit pin"});
     pinDetail.dialog('open');
     $("#advance").show();
     $("#longText").val(temPin.pin["lon"]);
     $("#latText").val(temPin.pin["lat"]);
-    // todo 创建一个 dialog 去更新点或者是创建点，并提供一个跳转到扩展模式的按钮
-    //temPin = null;
 }
 
 function hidePins() {
@@ -237,15 +224,12 @@ function hidePins() {
 }
 
 function selectPosition(event) {
-    var earthPosition  = viewer.camera.pickEllipsoid(event.position, ellipsoid);
+    var earthPosition = viewer.camera.pickEllipsoid(event.position, ellipsoid);
     if (Cesium.defined(earthPosition)) {
         let cartographic = ellipsoid.cartesianToCartographic(earthPosition);
-        //将弧度转为度的十进制度表示
         let longitude = parseFloat(Cesium.Math.toDegrees(cartographic.longitude));
         let latitude = parseFloat(Cesium.Math.toDegrees(cartographic.latitude));
         addTemporaryPin(longitude, latitude);
-        console.log(longitude);
-        console.log(latitude);
     }
 }
 
@@ -261,7 +245,7 @@ function updatePin() {
     let mark = viewer.entities.getById(id);
     let pin = mark.pin;
     let pinDetail = $("#pin-dialog");
-    pinDetail.dialog({title:"edit pin"});
+    pinDetail.dialog({title: "edit pin"});
     pinDetail.dialog('open');
     $("#advance").hide();
     $("#longText").val(pin["lon"]);
