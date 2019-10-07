@@ -1,33 +1,3 @@
-var last = 0;
-var min = 0xffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff;
-
-function loadArticleList() {
-    var list = $("#articleList");
-    let data = {begin:last, num:10};
-    last += 10;
-    $.get("../api/lastArticle", data, function (r) {
-        let articles = JSON.parse(r);
-        articles.sort(function (a, b) {
-            return b.id - a.id;
-        });
-        if (articles.length === 0) {
-            let n = $("#next");
-            n.attr("disabled", "true");
-            $(n[0]).text("no More Article");
-            return;
-        }
-        for (let i = 0; i < articles.length; i ++) {
-            if (articles[i].id < min) {
-                min = articles[i].id;
-                list.append($(`<li>
-                    <a href="../article/{0}">
-                    <p>{1}</p>
-                    </a>
-                </li>`.format(articles[i].id, articles[i].sum)));
-            } else {
-                message("Sorry", "No more article");
-                $("#next").hide();
-            }
-        }
-    });
-}
+var last=0,min=3.4028236692093846E38;
+function loadArticleList(){var c=$("#articleList"),d={begin:last,num:10};last+=10;$.get("../api/lastArticle",d,function(a){a=JSON.parse(a);a.sort(function(a,b){return b.id-a.id});if(0===a.length)a=$("#next"),a.attr("disabled","true"),$(a[0]).text("no More Article");else for(var b=0;b<a.length;b++)a[b].id<min?(min=a[b].id,c.append($('<li><a href="../article/{0}"><p>{1}</p></a></li>'.format(a[b].id,a[b].sum)))):(message("Sorry",
+"No more article"),$("#next").hide())})};

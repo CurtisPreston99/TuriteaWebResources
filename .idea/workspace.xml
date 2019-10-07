@@ -2,7 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/.settings/org.eclipse.jdt.groovy.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/Include/config/log.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/Libs/CustomKeywords.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/Libs/TempTestCase1570427566972.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/Libs/TempTestCase1570428456076.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/Libs/internal/GlobalVariable.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/Profiles/default.glbl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/Scripts/New Test Case/Script1570373080785.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/Test Cases/New Test Case.tc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/Turitea.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/console.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/settings/internal/com.kms.katalon.composer.testcase.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/settings/internal/com.kms.katalon.composer.testcase.settings.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/settings/internal/com.kms.katalon.execution.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/settings/internal/com.kms.katalon.execution.webui.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/settings/internal/com.kms.katalon.integration.analytics.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Turitea/settings/internal/com.kms.katalon.integration.qtest.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/js/INaturalist.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/INaturalist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/js/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/js/articleList.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/articleList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/js/kml.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/kml.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/js/loadArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/loadArticle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/js/pin.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/pin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/js/ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/js/userfunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/userfunctions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/article.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,78 +128,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/INaturalist.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="72" column="29" lean-forward="true" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-              <folding>
-                <element signature="n#!!block;n#getAsText#0" />
-                <element signature="n#!!block;n#errorHandler#0" />
-                <element signature="n#!!block;n#pinGenerateDiscription#0" />
-                <element signature="n#!!block;n#CSVToArray#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/pin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="127" column="46" selection-start-line="127" selection-start-column="46" selection-end-line="127" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/html/settings.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1860">
-              <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/ui.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/userfunctions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/map.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
-              <folding>
-                <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -201,6 +167,9 @@
       <find>c</find>
       <find>// .*\n</find>
       <find>console\.log\(.*\);\n</find>
+      <find>console\.log\(.*?\);</find>
+      <find>console.log\(.*?\)</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>pin</replace>
@@ -221,11 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/settings.html" />
-        <option value="$PROJECT_DIR$/static/home.html" />
-        <option value="$PROJECT_DIR$/static/header.html" />
-        <option value="$PROJECT_DIR$/static/html/index.html" />
-        <option value="$PROJECT_DIR$/static/js/video.js" />
         <option value="$PROJECT_DIR$/server/actions/updateArticle.go" />
         <option value="$PROJECT_DIR$/server/actions/addArticle.go" />
         <option value="$PROJECT_DIR$/server/actions/deletet.go" />
@@ -256,7 +220,6 @@
         <option value="$PROJECT_DIR$/static/css/articleList.css" />
         <option value="$PROJECT_DIR$/static/html/articleList.html" />
         <option value="$PROJECT_DIR$/static/html/header.html" />
-        <option value="$PROJECT_DIR$/static/js/ui.js" />
         <option value="$PROJECT_DIR$/static/js/articleList.js" />
         <option value="$PROJECT_DIR$/resources/html template/articleTemplate.html" />
         <option value="$PROJECT_DIR$/server/actions/getArticlePage.go" />
@@ -264,14 +227,20 @@
         <option value="$PROJECT_DIR$/server/actions/handler.go" />
         <option value="$PROJECT_DIR$/server/main.go" />
         <option value="$PROJECT_DIR$/static/css/layout.css" />
-        <option value="$PROJECT_DIR$/static/js/article.js" />
         <option value="$PROJECT_DIR$/static/js/kml.js" />
-        <option value="$PROJECT_DIR$/static/js/loadArticle.js" />
         <option value="$PROJECT_DIR$/static/js/pin.js" />
-        <option value="$PROJECT_DIR$/static/js/userfunctions.js" />
         <option value="$PROJECT_DIR$/static/html/settings.html" />
+        <option value="$PROJECT_DIR$/package/files/static/js/article.js" />
+        <option value="$PROJECT_DIR$/package/files/static/js/articleList.js" />
+        <option value="$PROJECT_DIR$/package/files/static/js/INaturalist.js" />
+        <option value="$PROJECT_DIR$/package/files/static/js/kml.js" />
+        <option value="$PROJECT_DIR$/package/files/static/js/loadArticle.js" />
+        <option value="$PROJECT_DIR$/static/js/ui.js" />
+        <option value="$PROJECT_DIR$/static/js/userfunctions.js" />
         <option value="$PROJECT_DIR$/static/js/INaturalist.js" />
+        <option value="$PROJECT_DIR$/static/js/loadArticle.js" />
         <option value="$PROJECT_DIR$/static/js/map.js" />
+        <option value="$PROJECT_DIR$/static/js/article.js" />
       </list>
     </option>
   </component>
@@ -303,7 +272,28 @@
             <path>
               <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
               <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="package" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="package" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="package" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="package" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
@@ -349,19 +339,19 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/data/kml/Turitea Pitfall Points (1).kml" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\GOCode\src\TuriteaWebResources\static\css" />
-      <recent name="G:\GOCode\src\TuriteaWebResources\static\js" />
-      <recent name="G:\GOCode\src\TuriteaWebResources\licenses" />
-      <recent name="G:\GOCode\src\TuriteaWebResources\static\home" />
-      <recent name="G:\GOCode\src\TuriteaWebResources" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\TuriteaWebResources\static\js" />
       <recent name="G:\GOCode\src\TuriteaWebResources\static" />
       <recent name="G:\GOCode\src\TuriteaWebResources\static\html" />
       <recent name="G:\GOCode\src\TuriteaWebResources\testResult" />
       <recent name="G:\GOCode\src\TuriteaWebResources\server" />
-      <recent name="G:\GOCode\src\TuriteaWebResources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\TuriteaWebResources\package\files\static\js" />
+      <recent name="G:\GOCode\src\TuriteaWebResources\static\js" />
+      <recent name="G:\GOCode\src\TuriteaWebResources\static\css" />
+      <recent name="G:\GOCode\src\TuriteaWebResources\licenses" />
+      <recent name="G:\GOCode\src\TuriteaWebResources\static\home" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -482,14 +472,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1391258" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14072494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32633787" />
+      <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.32328483" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.48773986" visible="true" weight="0.2889813" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49200428" weight="0.4012474" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -726,51 +715,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/static/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="210" column="4" selection-start-line="210" selection-start-column="4" selection-end-line="210" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/static/articles.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/saveAndload_test.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/addPinWithArticle.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Go1.11/go/src/database/sql/sql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-456">
-          <caret line="2650" column="16" selection-start-line="2650" selection-start-column="16" selection-end-line="2650" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/actions/lastArticle.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="48" column="51" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -940,49 +884,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/md5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/article.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/articleList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/csi.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/kml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/loadArticle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2460">
-          <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1027,47 +934,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/ui.js">
+    <entry file="file://$PROJECT_DIR$/package/files/static/js/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/userfunctions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/INaturalist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="72" column="29" lean-forward="true" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+        <state>
           <folding>
-            <element signature="n#!!block;n#getAsText#0" />
-            <element signature="n#!!block;n#errorHandler#0" />
-            <element signature="n#!!block;n#pinGenerateDiscription#0" />
-            <element signature="n#!!block;n#CSVToArray#0" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/pin.js">
+    <entry file="file://$PROJECT_DIR$/package/files/static/js/loadArticle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="127" column="46" selection-start-line="127" selection-start-column="46" selection-end-line="127" selection-end-column="46" />
+        <state relative-caret-position="270">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/files/static/js/kml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/md5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4484">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/files/static/js/articleList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/files/static/js/article.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/articleList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/loadArticle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2283" lean-forward="true" selection-end-column="2942" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/kml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
-          </folding>
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/pin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/userfunctions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/files/static/js/ui.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/article.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-655" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/files/static/js/INaturalist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="50" lean-forward="true" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/INaturalist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="195" column="1" selection-start-line="195" selection-start-column="1" selection-end-line="195" selection-end-column="1" />
         </state>
       </provider>
     </entry>

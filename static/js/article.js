@@ -1,4 +1,3 @@
-var home = window.location.origin;
 var editor;
 
 function loadPinEditor() {
