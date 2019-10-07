@@ -100,14 +100,9 @@ function loadpins() {
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
-        localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
-        let added=0;
+        localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2})); 
 
         $.each(data, function (key, value) {
-          if(value!=null){
-          if(!loadedIDS.includes(value.uid)){
-          loadedIDS.push(value.uid)
-          added+=1;
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
                 + "<p style='display: none' id='inDescription'>"
@@ -142,8 +137,7 @@ function loadpins() {
                     heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
                 }, pin: value,
             });
-          }}});
-  console.log(added);
+          });
     });
 }
 
