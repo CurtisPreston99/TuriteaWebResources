@@ -37,7 +37,6 @@ function getallData() {
     return pin;
 }
 
-
 function deletePin() {
     let pin = $(".cesium-infoBox-iframe")[0].contentDocument.getElementById("inDescription");
     if (pin === null) {
@@ -73,7 +72,6 @@ function submitPin() {
     } else {
         let pin = getallData();
         let pins = {};
-        console.log(pin);
         pins.data = '[' + JSON.stringify(pin) + ']';
         $.post("../api/addPins?num=1", pins, function () {
 
