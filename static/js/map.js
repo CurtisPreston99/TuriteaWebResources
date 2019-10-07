@@ -1,7 +1,5 @@
 Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1M2YwNTc4Ni0yNWYzLTQ2MTEtOGRkNC05OWFlODNlNTBkZWQiLCJpZCI6MTM5NTksInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NjQ0NzQwMTl9.X_iNRe8-4jhYrUyAh8QNt3d6aHAfysLye_m0zBHmuiM';
 
-
-var home = window.location.origin;
 const west = 175.60970056;
 const south = -40.38724452;
 const east = 175.63276182;
@@ -28,6 +26,7 @@ function loadMap() {
             timeline: false,
             animation: false,
             homeButton: false,
+            fullscreenElement : cesiumContainer
 
         }
     );
@@ -99,11 +98,12 @@ function loadpins() {
             return
         }
         console.log(data);
-        viewer.entities.removeAll();
+        viewer.entities.remove(temPin)
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
         localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
+
         $.each(data, function (key, value) {
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
@@ -140,6 +140,7 @@ function loadpins() {
                 }, pin: value,
             });
         });
+        console.log(added);
     });
 }
 
