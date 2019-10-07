@@ -2,431 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/package/files/articles/for articles.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/airfield.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/airport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/alcohol-shop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/america-football.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/art-gallery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/bakery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/bank.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/bar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/baseball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/basketball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/beer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/bicycle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/building.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/bus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/cafe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/camera.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/campsite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/car.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/cemetery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/cesium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/chemist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/cinema.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/circle-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/city.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/clothing-store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/college.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/commercial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/cricket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/cross.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/dam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/danger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/disability.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/dog-park.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/embassy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/emergency-telephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/entrance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/farm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/fast-food.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/ferry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/fire-station.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/fuel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/garden.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/gift.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/golf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/grocery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/hairdresser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/harbor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/heliport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/hospital.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/ice-cream.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/industrial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/land-use.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/laundry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/library.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/lighthouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/lodging.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/logging.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/london-underground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/marker-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/marker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/minefield.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/mobilephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/monument.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/museum.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/oil-well.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/park.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/park2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/parking-garage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/parking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/pharmacy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/pitch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/place-of-worship.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/playground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/police.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/polling-place.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/post.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/prison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/rail-above.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/rail-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/rail-metro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/rail-underground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/rail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/religious-christian.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/religious-jewish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/religious-muslim.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/restaurant.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/roadblock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/rocket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/school.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/scooter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/shop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/skiing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/slaughterhouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/soccer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/square-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/star-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/star.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/suitcase.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/swimming.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/telephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/tennis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/theatre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/toilets.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/town-hall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/town.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/triangle-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/triangle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/village.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/warehouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/waste-basket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/water.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/wetland.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/cesium/Source/Assets/Textures/maki/zoo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/resources/html template/articleTemplate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/resources/kml/Turitea Pitfall Points (1).kml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/resources/kml/Turitea Pitfall Points.kml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/airfield.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/airport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/alcohol-shop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/america-football.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/art-gallery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/bakery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/bank.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/bar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/baseball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/basketball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/beer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/bicycle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/building.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/bus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/cafe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/camera.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/campsite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/car.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/cemetery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/cesium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/chemist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/cinema.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/circle-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/city.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/clothing-store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/college.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/commercial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/cricket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/cross.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/dam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/danger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/disability.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/dog-park.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/embassy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/emergency-telephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/entrance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/farm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/fast-food.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/ferry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/fire-station.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/fuel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/garden.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/gift.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/golf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/grocery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/hairdresser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/harbor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/heliport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/hospital.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/ice-cream.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/industrial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/land-use.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/laundry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/library.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/lighthouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/lodging.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/logging.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/london-underground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/marker-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/marker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/minefield.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/mobilephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/monument.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/museum.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/oil-well.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/park.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/park2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/parking-garage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/parking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/pharmacy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/pitch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/place-of-worship.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/playground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/police.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/polling-place.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/post.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/prison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/rail-above.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/rail-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/rail-metro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/rail-underground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/rail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/religious-christian.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/religious-jewish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/religious-muslim.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/restaurant.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/roadblock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/rocket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/school.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/scooter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/shop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/skiing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/slaughterhouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/soccer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/square-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/star-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/star.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/suitcase.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/swimming.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/telephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/tennis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/theatre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/toilets.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/town-hall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/town.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/triangle-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/triangle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/village.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/warehouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/waste-basket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/water.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/wetland.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Build/CesiumUnminified/Assets/Textures/maki/zoo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/airfield.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/airport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/alcohol-shop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/america-football.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/art-gallery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/bakery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/bank.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/bar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/baseball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/basketball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/beer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/bicycle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/building.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/bus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/cafe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/camera.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/campsite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/car.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/cemetery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/cesium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/chemist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/cinema.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/circle-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/city.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/clothing-store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/college.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/commercial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/cricket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/cross.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/dam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/danger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/disability.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/dog-park.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/embassy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/emergency-telephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/entrance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/farm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/fast-food.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/ferry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/fire-station.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/fuel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/garden.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/gift.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/golf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/grocery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/hairdresser.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/harbor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/heliport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/hospital.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/ice-cream.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/industrial.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/land-use.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/laundry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/library.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/lighthouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/lodging.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/logging.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/london-underground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/marker-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/marker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/minefield.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/mobilephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/monument.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/museum.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/oil-well.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/park.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/park2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/parking-garage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/parking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/pharmacy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/pitch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/place-of-worship.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/playground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/police.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/polling-place.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/post.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/prison.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/rail-above.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/rail-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/rail-metro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/rail-underground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/rail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/religious-christian.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/religious-jewish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/religious-muslim.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/restaurant.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/roadblock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/rocket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/school.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/scooter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/shop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/skiing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/slaughterhouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/soccer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/square-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/square.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/star-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/star.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/suitcase.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/swimming.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/telephone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/tennis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/theatre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/toilets.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/town-hall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/town.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/triangle-stroked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/triangle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/village.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/warehouse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/waste-basket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/water.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/wetland.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/cesium/Source/Assets/Textures/maki/zoo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/css/articleList.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/css/banner (copy).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/html/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/html/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/html/articleList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/html/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/html/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/html/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/html/settings.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/js/INaturalist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/js/article.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/js/articleList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/js/kml.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/js/loadArticle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/js/ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/js/userfunctions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/files/static/test/kml.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/sqldata/base/13067/pg_internal.init" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/sqldata/pg_stat/global.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/sqldata/pg_stat_tmp/db_0.stat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/sqldata/pg_stat_tmp/db_13067.stat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/sqldata/pg_stat_tmp/db_16388.stat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/sqldata/pg_stat_tmp/global.stat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package/sqldata/postmaster.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/resources/temPictures/64.img" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/articleUpload.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/articleUpload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/css/banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/css/banner.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/css/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/feedback.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/js/pin.js" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/js/pin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/js/video.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/layout.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/observations-63358 (copy).csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/observations-63358.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/pin entry fourm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/pin_entry_fourm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/settings.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/subscribe.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/testpin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/video.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/base/16388/1249" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/base/16388/1249" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/base/16388/24584" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/base/16388/24584" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/base/16388/24588" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/base/16388/24588" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/base/16388/24590" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/base/16388/24590" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/base/16388/24613" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/base/16388/24613" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/base/16388/24619" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/base/16388/24619" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/base/16388/2606" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/base/16388/2606" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/base/16388/2610" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/base/16388/2610" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/base/16388/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/base/16388/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/global/pg_control" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/global/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/pg_stat/db_0.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/pg_stat/db_16388.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/pg_stat/global.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/pg_wal/000000010000000000000001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/sqldata/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/package/sqldata/pg_xact/0000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/package/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/turitea/main" beforeDir="false" afterPath="$PROJECT_DIR$/package/turitea/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/map.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -524,24 +100,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/main.go">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
+        <entry file="file://$PROJECT_DIR$/static/js/INaturalist.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="969">
+              <caret line="72" column="29" lean-forward="true" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+              <folding>
+                <element signature="n#!!block;n#getAsText#0" />
+                <element signature="n#!!block;n#errorHandler#0" />
+                <element signature="n#!!block;n#pinGenerateDiscription#0" />
+                <element signature="n#!!block;n#CSVToArray#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/tools/loadFromKML.go">
+        <entry file="file://$PROJECT_DIR$/static/js/pin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+            <state relative-caret-position="540">
+              <caret line="127" column="46" selection-start-line="127" selection-start-column="46" selection-end-line="127" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -549,58 +126,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/html/settings.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3960">
-              <caret line="132" column="37" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="37" />
+            <state relative-caret-position="1860">
+              <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/dataLevel/saveAndload_test.go">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/static/js/ui.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/dataLevel/sql_test.go">
+        <entry file="file://$PROJECT_DIR$/static/js/userfunctions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="150">
+              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/package/start.sh">
+        <entry file="file://$PROJECT_DIR$/static/js/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/html/header.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5940">
-              <caret line="198" column="43" selection-start-line="198" selection-start-column="43" selection-end-line="198" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="52" column="48" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/dataLevel/dataSource.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="390">
+              <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
+              <folding>
+                <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -636,6 +193,14 @@
       <find>hide</find>
       <find>information</find>
       <find>informa</find>
+      <find>(//)\b*console.log\(.*\);</find>
+      <find>(//).console.log\(.*\);</find>
+      <find>(//)\b*console.log\(.*\);?</find>
+      <find>// *.*\n?</find>
+      <find>^\n</find>
+      <find>c</find>
+      <find>// .*\n</find>
+      <find>console\.log\(.*\);\n</find>
     </findStrings>
     <replaceStrings>
       <replace>pin</replace>
@@ -675,18 +240,13 @@
         <option value="$PROJECT_DIR$/static/html/video.html" />
         <option value="$PROJECT_DIR$/static/html/about.html" />
         <option value="$PROJECT_DIR$/static/html/home.html" />
-        <option value="$PROJECT_DIR$/static/js/article.js" />
-        <option value="$PROJECT_DIR$/static/js/userfunctions.js" />
         <option value="$PROJECT_DIR$/server/actions/user.go" />
         <option value="$USER_HOME$/Desktop/static/js/map.js" />
         <option value="$USER_HOME$/Desktop/static/settings.html" />
-        <option value="$PROJECT_DIR$/static/js/kml.js" />
         <option value="$PROJECT_DIR$/server/actions/kml.go" />
-        <option value="$PROJECT_DIR$/static/js/pin.js" />
         <option value="$PROJECT_DIR$/server/dataLevel/sql_test.go" />
         <option value="$PROJECT_DIR$/server/tools/loadFromKML.go" />
         <option value="$PROJECT_DIR$/server/dataLevel/dataSource.go" />
-        <option value="$PROJECT_DIR$/static/js/map.js" />
         <option value="$USER_HOME$/Desktop/static/articles.html" />
         <option value="$PROJECT_DIR$/server/actions/addPinWithArticle.go" />
         <option value="$PROJECT_DIR$/server/actions/lastArticle.go" />
@@ -695,7 +255,6 @@
         <option value="$PROJECT_DIR$/server/base/Article.go" />
         <option value="$PROJECT_DIR$/static/css/articleList.css" />
         <option value="$PROJECT_DIR$/static/html/articleList.html" />
-        <option value="$PROJECT_DIR$/static/js/loadArticle.js" />
         <option value="$PROJECT_DIR$/static/html/header.html" />
         <option value="$PROJECT_DIR$/static/js/ui.js" />
         <option value="$PROJECT_DIR$/static/js/articleList.js" />
@@ -704,9 +263,15 @@
         <option value="$PROJECT_DIR$/static/html/404.html" />
         <option value="$PROJECT_DIR$/server/actions/handler.go" />
         <option value="$PROJECT_DIR$/server/main.go" />
-        <option value="$PROJECT_DIR$/static/js/INaturalist.js" />
-        <option value="$PROJECT_DIR$/static/html/settings.html" />
         <option value="$PROJECT_DIR$/static/css/layout.css" />
+        <option value="$PROJECT_DIR$/static/js/article.js" />
+        <option value="$PROJECT_DIR$/static/js/kml.js" />
+        <option value="$PROJECT_DIR$/static/js/loadArticle.js" />
+        <option value="$PROJECT_DIR$/static/js/pin.js" />
+        <option value="$PROJECT_DIR$/static/js/userfunctions.js" />
+        <option value="$PROJECT_DIR$/static/html/settings.html" />
+        <option value="$PROJECT_DIR$/static/js/INaturalist.js" />
+        <option value="$PROJECT_DIR$/static/js/map.js" />
       </list>
     </option>
   </component>
@@ -717,7 +282,7 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
   </component>
@@ -727,6 +292,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -737,63 +303,12 @@
             <path>
               <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
               <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="AutomatedOverallTesting" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="package" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="package" type="462c0819:PsiDirectoryNode" />
-              <item name="turitea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="html template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="buffer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="dataLevel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
               <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
@@ -807,17 +322,10 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -841,18 +349,18 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/data/kml/Turitea Pitfall Points (1).kml" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\GOCode\src\TuriteaWebResources\static" />
-      <recent name="G:\GOCode\src\TuriteaWebResources\static\html" />
-      <recent name="G:\GOCode\src\TuriteaWebResources\testResult" />
-      <recent name="G:\GOCode\src\TuriteaWebResources\server" />
-      <recent name="G:\GOCode\src\TuriteaWebResources" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\GOCode\src\TuriteaWebResources\static\css" />
       <recent name="G:\GOCode\src\TuriteaWebResources\static\js" />
       <recent name="G:\GOCode\src\TuriteaWebResources\licenses" />
       <recent name="G:\GOCode\src\TuriteaWebResources\static\home" />
+      <recent name="G:\GOCode\src\TuriteaWebResources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\TuriteaWebResources\static" />
+      <recent name="G:\GOCode\src\TuriteaWebResources\static\html" />
+      <recent name="G:\GOCode\src\TuriteaWebResources\testResult" />
+      <recent name="G:\GOCode\src\TuriteaWebResources\server" />
       <recent name="G:\GOCode\src\TuriteaWebResources" />
     </key>
   </component>
@@ -923,11 +431,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Test.TestLoadArticle in TuriteaWebResources/server/dataLevel" />
         <item itemvalue="Go Test.TestCreate in TuriteaWebResources/server/actions" />
         <item itemvalue="Go Test.TestCache_LoadNoExist in TuriteaWebResources/server/buffer" />
         <item itemvalue="Go Test.go test TuriteaWebResources/server/dataLevel" />
-        <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
   </component>
@@ -976,13 +484,13 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1881663" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1391258" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32633787" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.48773986" weight="0.2889813" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.48773986" visible="true" weight="0.2889813" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49200428" weight="0.4012474" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1051,6 +559,14 @@
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
             </State>
           </value>
         </entry>
@@ -1106,7 +622,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/server/buffer/DynamicBuffer.go</url>
-          <line>321</line>
+          <line>322</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -1136,12 +652,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/server/buffer/DynamicBuffer.go</url>
-          <line>256</line>
+          <line>257</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/server/buffer/DynamicBuffer.go</url>
-          <line>251</line>
+          <line>252</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -1210,30 +726,12 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/Logger.txt">
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" column="180" selection-start-line="10" selection-start-column="112" selection-end-line="10" selection-end-column="180" />
+        <state relative-caret-position="420">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="111" column="14" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/static/js/article.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-141" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/static/js/articlePage.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/Desktop/static/header.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1249,17 +747,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/saveAndload_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/actions/addPinWithArticle.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
           <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/html/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="50" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1281,6 +775,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="2319" column="23" selection-start-line="2319" selection-start-column="23" selection-end-line="2319" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="315" column="58" selection-start-line="315" selection-start-column="58" selection-end-line="315" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1342,33 +843,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/html/video.html" />
     <entry file="file://$PROJECT_DIR$/static/js/video.js" />
-    <entry file="file://$PROJECT_DIR$/static/js/ui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/actions/deletet.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-720" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/loadArticle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3120">
-          <caret line="177" column="6" selection-start-line="177" selection-start-column="6" selection-end-line="177" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!block;n#submitArticle#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/html/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/actions/getArticlePage.go">
@@ -1399,9 +876,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.log" />
     <entry file="file://$PROJECT_DIR$/../golang.org/x/tools/go/ssa/interp/testdata/src/runtime/runtime.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
@@ -1423,13 +898,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/html template/articleTemplate.html">
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="557">
+          <caret line="137" column="4" lean-forward="true" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1447,6 +919,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/html template/articleTemplate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8940">
+          <caret line="298" column="12" selection-start-line="298" selection-start-column="12" selection-end-line="298" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/md5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-53">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/article.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/articleList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/csi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/kml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/loadArticle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2460">
+          <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/html/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="50" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/html/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="117" column="7" selection-start-line="117" selection-start-column="7" selection-end-line="117" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/html/footer.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/html/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/html/about.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/html/articleList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1454,110 +1020,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/article.js">
+    <entry file="file://$PROJECT_DIR$/static/html/settings.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-599">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        <state relative-caret-position="1860">
+          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/articleList.js">
+    <entry file="file://$PROJECT_DIR$/static/js/ui.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        <state relative-caret-position="540">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/userfunctions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/INaturalist.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+        <state relative-caret-position="969">
+          <caret line="72" column="29" lean-forward="true" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
           <folding>
+            <element signature="n#!!block;n#getAsText#0" />
             <element signature="n#!!block;n#errorHandler#0" />
+            <element signature="n#!!block;n#pinGenerateDiscription#0" />
             <element signature="n#!!block;n#CSVToArray#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="298" column="12" selection-start-line="298" selection-start-column="12" selection-end-line="298" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/pin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4320">
-          <caret line="144" column="1" selection-start-line="144" selection-start-column="1" selection-end-line="144" selection-end-column="1" />
+        <state relative-caret-position="540">
+          <caret line="127" column="46" selection-start-line="127" selection-start-column="46" selection-end-line="127" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/main.go">
+    <entry file="file://$PROJECT_DIR$/static/js/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="390">
+          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
           <folding>
-            <element signature="e#14#97#0" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/tools/loadFromKML.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/html/settings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="132" column="37" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/saveAndload_test.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/html/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5940">
-          <caret line="198" column="43" selection-start-line="198" selection-start-column="43" selection-end-line="198" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="52" column="48" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/dataSource.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package/start.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

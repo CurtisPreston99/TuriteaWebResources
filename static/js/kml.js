@@ -1,6 +1,5 @@
 function getKMLList() {
     $.getJSON("../api/listKML", function (data) {
-        console.log(data);
         let list = $("#kmlList");
         list.empty();
         for (let i = 0; i < data.length; i++) {
@@ -16,7 +15,6 @@ function getKMLList() {
 
 
 function removeKML(name) {
-    console.log("removeing: " + name);
     $.get("../api/deleteKML?name=" + name, function () {
         message("success", "the kml has removed");
         getKMLList();
