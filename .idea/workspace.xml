@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/pin.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/pin.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/pin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+            <state relative-caret-position="660">
+              <caret line="84" column="23" lean-forward="true" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -154,8 +154,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="102" column="100" selection-start-line="102" selection-start-column="100" selection-end-line="102" selection-end-column="100" />
+            <state relative-caret-position="-4350">
+              <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
               <folding>
                 <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
               </folding>
@@ -168,6 +168,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="355">
               <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/html/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="251" column="30" selection-start-line="251" selection-start-column="30" selection-end-line="251" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -286,10 +295,10 @@
         <option value="$PROJECT_DIR$/static/js/article.js" />
         <option value="$PROJECT_DIR$/static/js/kml.js" />
         <option value="$PROJECT_DIR$/static/js/loadArticle.js" />
-        <option value="$PROJECT_DIR$/static/js/pin.js" />
         <option value="$PROJECT_DIR$/static/js/userfunctions.js" />
         <option value="$PROJECT_DIR$/static/html/settings.html" />
         <option value="$PROJECT_DIR$/static/js/INaturalist.js" />
+        <option value="$PROJECT_DIR$/static/js/pin.js" />
         <option value="$PROJECT_DIR$/static/js/map.js" />
       </list>
     </option>
@@ -450,11 +459,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Test.TestLoadArticle in TuriteaWebResources/server/dataLevel" />
         <item itemvalue="Go Test.TestCreate in TuriteaWebResources/server/actions" />
         <item itemvalue="Go Test.TestCache_LoadNoExist in TuriteaWebResources/server/buffer" />
         <item itemvalue="Go Test.go test TuriteaWebResources/server/dataLevel" />
-        <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
   </component>
@@ -998,13 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/html/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="117" column="7" selection-start-line="117" selection-start-column="7" selection-end-line="117" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/html/footer.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1059,20 +1061,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/html/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/pin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/article.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -1080,10 +1068,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/html/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/html/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="251" column="30" selection-start-line="251" selection-start-column="30" selection-end-line="251" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/pin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="84" column="23" lean-forward="true" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="102" column="100" selection-start-line="102" selection-start-column="100" selection-end-line="102" selection-end-column="100" />
+        <state relative-caret-position="-4350">
+          <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
           </folding>

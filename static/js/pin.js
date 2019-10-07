@@ -73,6 +73,7 @@ function submitPin() {
     } else {
         let pin = getallData();
         let pins = {};
+        console.log(pin);
         pins.data = '[' + JSON.stringify(pin) + ']';
         $.post("../api/addPins?num=1", pins, function () {
 
@@ -81,6 +82,7 @@ function submitPin() {
             viewer.entities.removeById("tem");
             $('#lon').text(0.0);
             $('#lat').text(0.0);
+            loadpins();
         }).fail(function (r) {
             error("Not login or other error", "Please login thank you or check other things!");
         });

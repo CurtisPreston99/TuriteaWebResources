@@ -95,12 +95,12 @@ function loadpins() {
         if (data.length === 0) {
             return
         }
-        console.log(data);
+        viewer.entities.removeAll();
         viewer.entities.remove(temPin);
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
-        localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2})); 
+        localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
 
         $.each(data, function (key, value) {
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
