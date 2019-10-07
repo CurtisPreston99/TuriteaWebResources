@@ -96,7 +96,7 @@ function loadpins() {
             return
         }
         console.log(data);
-        viewer.entities.remove(temPin)
+        viewer.entities.remove(temPin);
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
