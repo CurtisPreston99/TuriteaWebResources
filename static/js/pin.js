@@ -37,7 +37,6 @@ function getallData() {
     return pin;
 }
 
-
 function deletePin() {
     let pin = $(".cesium-infoBox-iframe")[0].contentDocument.getElementById("inDescription");
     if (pin === null) {
@@ -81,6 +80,7 @@ function submitPin() {
             viewer.entities.removeById("tem");
             $('#lon').text(0.0);
             $('#lat').text(0.0);
+            loadpins();
         }).fail(function (r) {
             error("Not login or other error", "Please login thank you or check other things!");
         });

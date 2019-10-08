@@ -102,7 +102,7 @@ function loadpins() {
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
-        let added=0;
+        localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
 
         $.each(data, function (key, value) {
 
