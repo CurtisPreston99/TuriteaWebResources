@@ -8,6 +8,7 @@ const pinBuilder = new Cesium.PinBuilder();
 var viewer;
 var cesiumHandler;
 var kmlmenu = [];
+var loadedIDS = [];
 var description = "";
 var image;
 var ellipsoid;
@@ -95,18 +96,19 @@ function loadpins() {
         if (data.length === 0) {
             return
         }
-        console.log(data);
         viewer.entities.remove(temPin);
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
-        localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
         let added=0;
 
         $.each(data, function (key, value) {
+
           if(value!=null){
-          if(!loadedIDS.includes(value.uid)){
-          loadedIDS.push(value.uid)
+            let id=value.lon.toString()+value.lat.toString()
+            console.log(id);
+          if(!loadedIDS.includes(id)){
+          loadedIDS.push(id)
           added+=1;
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
@@ -144,6 +146,7 @@ function loadpins() {
             });
           }}});
   console.log(added);
+  console.log(data.length)
     });
 }
 
