@@ -8,6 +8,7 @@ const pinBuilder = new Cesium.PinBuilder();
 var viewer;
 var cesiumHandler;
 var kmlmenu = [];
+var loadedIDS = new javascript.util.HashSet();
 var description = "";
 var image;
 var ellipsoid;
@@ -92,16 +93,24 @@ function loadpins() {
         "&timeEnd=20000";
 
     $.getJSON("../api/getPins?" + area, function (data) {
+      let t0 = performance.now();
+
         if (data.length === 0) {
             return
         }
-        viewer.entities.removeAll();
+        viewer.entities.remove(temPin);
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
         localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
 
         $.each(data, function (key, value) {
+
+          if(value!=null){
+            let id=value.lon.toString()+value.lat.toString()
+          if(!loadedIDS.contains(id)){
+          loadedIDS.add(id)
+          added+=1;
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
                 + "<p style='display: none' id='inDescription'>"
@@ -136,7 +145,13 @@ function loadpins() {
                     heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
                 }, pin: value,
             });
-          });
+          }}});
+  console.log(added);
+  console.log(data.length)
+
+  let t1 = performance.now();
+  console.log("took " + (t1 - t0) + " milliseconds.");
+
     });
 }
 
