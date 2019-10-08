@@ -4,7 +4,8 @@
 ## what is this tool
 this tool is for the sharing of infomation on the Turitea and its biology that lives there.
 ### this is a capstone project
-this is a group capstone project for massey univercity.
+this is a group capstone project for massey university.
+
 ![massey university logo](./Massey-University.png)
 
 
