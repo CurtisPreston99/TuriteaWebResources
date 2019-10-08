@@ -8,7 +8,7 @@ const pinBuilder = new Cesium.PinBuilder();
 var viewer;
 var cesiumHandler;
 var kmlmenu = [];
-var loadedIDS = [];
+var loadedIDS = new javascript.util.HashSet();
 var description = "";
 var image;
 var ellipsoid;
@@ -93,6 +93,8 @@ function loadpins() {
         "&timeEnd=20000";
 
     $.getJSON("../api/getPins?" + area, function (data) {
+      let t0 = performance.now();
+
         if (data.length === 0) {
             return
         }
@@ -106,9 +108,8 @@ function loadpins() {
 
           if(value!=null){
             let id=value.lon.toString()+value.lat.toString()
-            console.log(id);
-          if(!loadedIDS.includes(id)){
-          loadedIDS.push(id)
+          if(!loadedIDS.contains(id)){
+          loadedIDS.add(id)
           added+=1;
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
@@ -147,6 +148,10 @@ function loadpins() {
           }}});
   console.log(added);
   console.log(data.length)
+
+  let t1 = performance.now();
+  console.log("took " + (t1 - t0) + " milliseconds.");
+
     });
 }
 
