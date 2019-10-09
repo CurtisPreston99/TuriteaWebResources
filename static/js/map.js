@@ -110,7 +110,6 @@ function loadpins() {
             let id=value.lon.toString()+value.lat.toString()
           if(!loadedIDS.contains(id)){
           loadedIDS.add(id)
-          added+=1;
             description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                 + "<hr>"
                 + "<p style='display: none' id='inDescription'>"
@@ -146,7 +145,6 @@ function loadpins() {
                 }, pin: value,
             });
           }}});
-  console.log(added);
   console.log(data.length)
 
   let t1 = performance.now();
