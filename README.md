@@ -4,7 +4,8 @@
 ## what is this tool
 this tool is for the sharing of infomation on the Turitea and its biology that lives there.
 ### this is a capstone project
-this is a group capstone project for massey univercity.
+this is a group capstone project for massey university.
+
 ![massey university logo](./Massey-University.png)
 
 
@@ -20,4 +21,4 @@ this is a group capstone project for massey univercity.
 |travis-ci|we used travis as our CI tool this was used to alow for automated build testing in order to make sure our builds were compiling.|www.travis-ci.com|
 |go|we used go as our backend language for all operations such as file transfer and database interaction|[https://golang.org/](https://golang.org/)|
 |asynchronousIO|this was a go libary used by our backend for asynchronous loading|[https://github.com/ChenXingYuChina/asynchronousIO](https://github.com/ChenXingYuChina/asynchronousIO)|
-|||
+|lib/pq|an sql driver for PostgreSQL in go|[https://github.com/lib/pq](https://github.com/lib/pq)|

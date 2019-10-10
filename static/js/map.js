@@ -8,6 +8,7 @@ const pinBuilder = new Cesium.PinBuilder();
 var viewer;
 var cesiumHandler;
 var kmlmenu = [];
+var loadedIDS = new javascript.util.HashSet();
 var description = "";
 var image;
 var ellipsoid;
@@ -40,7 +41,7 @@ function loadMap() {
             text: "Remove all KML Data",
             onselect: function () {
                 viewer.dataSources.removeAll();
-                loadpins();
+                loadpins(true);
             }
         }];
         var options = {
@@ -61,7 +62,7 @@ function loadMap() {
     let middle = localStorage.getItem("viewerMiddle");
     if (middle) {
         let m = JSON.parse(middle);
-        let rectangle = Cesium.Rectangle.fromDegrees(m["lon"] - 0.005, m["lat"] - 0.005, m["lon"] + 0.005, m["lat"] + 0.005);
+        let rectangle = Cesium.Rectangle.fromDegrees(m["lon"] - 0.0005, m["lat"] - 0.0005, m["lon"] + 0.0005, m["lat"] + 0.0005);
         viewer.camera.setView({
             destination: rectangle
         });
@@ -74,11 +75,11 @@ function loadMap() {
     viewer.camera._changed.addEventListener(function () {
         loadpins()
     });
-    loadpins();
+    loadpins(true);
 }
 
 
-function loadpins() {
+function loadpins(reload = false) {
     var rect = viewer.camera.computeViewRectangle(viewer.scene.globe.ellipsoid, scratchRectangle);
     let n = Cesium.Math.toDegrees(rect.north);
     let s = Cesium.Math.toDegrees(rect.south);
@@ -92,51 +93,72 @@ function loadpins() {
         "&timeEnd=20000";
 
     $.getJSON("../api/getPins?" + area, function (data) {
+        let t0 = performance.now();
+
         if (data.length === 0) {
             return
         }
-        viewer.entities.removeAll();
+        if (reload) {
+            viewer.entities.removeAll();
+        }
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
         localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
 
         $.each(data, function (key, value) {
-            description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
-                + "<hr>"
-                + "<p style='display: none' id='inDescription'>"
-                + value.uid.toString(16)
-                + "</p>"
-                + value.description;
-            let tag_type;
-            if (tag_types.includes(value.tag_type)) {
-                tag_type = pinBuilder.fromMakiIconId(value.tag_type, Cesium.Color.fromCssColorString(value.color), 48);
-            } else {
-                tag_type = pinBuilder.fromColor(Cesium.Color.fromCssColorString(value.color), 48);
+
+            if (value != null) {
+                if (!reload) {
+                    let id = value.lon.toString() + value.lat.toString();
+                    if (loadedIDS.contains(id)) {
+                        return
+                    }
+                    loadedIDS.add(id);
+                }
+                description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
+                    + "<hr>"
+                    + "<p style='display: none' id='inDescription'>"
+                    + value.uid.toString(16)
+                    + "</p>"
+                    + value.description;
+                let tag_type;
+                if (tag_types.includes(value.tag_type)) {
+                    tag_type = pinBuilder.fromMakiIconId(value.tag_type, Cesium.Color.fromCssColorString(value.color), 48);
+                } else {
+                    tag_type = pinBuilder.fromColor(Cesium.Color.fromCssColorString(value.color), 48);
+                }
+
+                viewer.entities.add({
+                    id: (value.uid).toString(16),
+                    name: value.name,
+                    position: Cesium.Cartesian3.fromDegrees(value.lon, value.lat),
+
+                    description: description,
+                    point: {
+                        show: false, pixelSize: 4, color: Cesium.Color.BLACK,
+                        outlineColor: Cesium.Color.fromCssColorString(value.color), outlineWidth: 6
+                    },
+                    label: {
+                        show: false,
+                        text: (value.uid).toString(),
+                        font: '16pt Arial',
+                        fillColor: Cesium.Color.WHITE,
+                        style:
+                        Cesium.LabelStyle.FILL,
+                        verticalOrigin:
+                        Cesium.VerticalOrigin.BOTTOM,
+                        pixelOffset: new
+                        Cesium.Cartesian2(0, -12)
+                    }, billboard: {
+                        image: tag_type,
+                        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+                    }, pin: value,
+                });
             }
+        });
 
-            viewer.entities.add({
-                id: (value.uid).toString(16),
-                name: value.name,
-                position: Cesium.Cartesian3.fromDegrees(value.lon, value.lat),
-
-                description: description,
-                point: {
-                    show: false, pixelSize: 4, color: Cesium.Color.BLACK,
-                    outlineColor: Cesium.Color.fromCssColorString(value.color), outlineWidth: 6
-                },
-                label: {
-                    show: false, text: (value.uid).toString(), font: '16pt Arial', fillColor: Cesium.Color.WHITE, style:
-                    Cesium.LabelStyle.FILL, verticalOrigin:
-                    Cesium.VerticalOrigin.BOTTOM, pixelOffset: new
-                    Cesium.Cartesian2(0, -12)
-                }, billboard: {
-                    image: tag_type,
-                    verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-                    heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
-                }, pin: value,
-            });
-          });
     });
 }
 

@@ -63,7 +63,7 @@ function submitPin() {
                 p.dialog('close');
             }
             temPin = null;
-            loadpins();
+            loadpins(true);
         }).fail(function (r) {
             error("Not login or other error", "Please login thank you or check other things!");
         });
@@ -76,7 +76,7 @@ function submitPin() {
             viewer.entities.removeById("tem");
             $('#lon').text(0.0);
             $('#lat').text(0.0);
-            loadpins();
+            loadpins(true);
         }).fail(function (r) {
             error("Not login or other error", "Please login thank you or check other things!");
         });
