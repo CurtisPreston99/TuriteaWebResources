@@ -115,6 +115,8 @@ function loadpins(reload = false) {
                         return
                     }
                     loadedIDS.add(id);
+                } else {
+                    loadedIDS.empty();
                 }
                 description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                     + "<hr>"
