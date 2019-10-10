@@ -62,20 +62,16 @@ function submitPin() {
             if (p.length !== 0) {
                 p.dialog('close');
             }
-            viewer.entities.removeById("tem");
             temPin = null;
             loadpins();
         }).fail(function (r) {
             error("Not login or other error", "Please login thank you or check other things!");
         });
-
     } else {
         let pin = getallData();
         let pins = {};
         pins.data = '[' + JSON.stringify(pin) + ']';
         $.post("../api/addPins?num=1", pins, function () {
-
-            loadpins();
             temPin = null;
             viewer.entities.removeById("tem");
             $('#lon').text(0.0);
