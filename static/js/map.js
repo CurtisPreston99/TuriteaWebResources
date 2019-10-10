@@ -112,6 +112,7 @@ function loadpins(reload = false) {
                 if (!reload) {
                     if (loadedIDS === null) {
                         loadedIDS = new javascript.util.HashSet();
+                        viewer.entities.removeAll();
                     }
                     let id = value.lon.toString() + value.lat.toString();
                     if (loadedIDS.contains(id)) {
