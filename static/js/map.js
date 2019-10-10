@@ -8,7 +8,7 @@ const pinBuilder = new Cesium.PinBuilder();
 var viewer;
 var cesiumHandler;
 var kmlmenu = [];
-var loadedIDS = new javascript.util.HashSet();
+var loadedIDS = null;
 var description = "";
 var image;
 var ellipsoid;
@@ -62,7 +62,7 @@ function loadMap() {
     let middle = localStorage.getItem("viewerMiddle");
     if (middle) {
         let m = JSON.parse(middle);
-        let rectangle = Cesium.Rectangle.fromDegrees(m["lon"] - 0.0005, m["lat"] - 0.0005, m["lon"] + 0.0005, m["lat"] + 0.0005);
+        let rectangle = Cesium.Rectangle.fromDegrees(m["lon"] - 0.001, m["lat"] - 0.001, m["lon"] + 0.001, m["lat"] + 0.001);
         viewer.camera.setView({
             destination: rectangle
         });
@@ -110,13 +110,16 @@ function loadpins(reload = false) {
 
             if (value != null) {
                 if (!reload) {
+                    if (loadedIDS === null) {
+                        loadedIDS = new javascript.util.HashSet();
+                    }
                     let id = value.lon.toString() + value.lat.toString();
                     if (loadedIDS.contains(id)) {
                         return
                     }
                     loadedIDS.add(id);
                 } else {
-                    loadedIDS.empty();
+                    loadedIDS = null;
                 }
                 description = "<p>Coordinates: (" + value.lon + ", " + value.lat + ")</p>"
                     + "<hr>"
