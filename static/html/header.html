@@ -37,7 +37,7 @@ Date:     20.08.2019
 <nav class="navbar">
     <a href="../html/home.html"><i class="fas">&#xf015;</i>&nbsp;Home</a>
     <a href="../html/about.html"><i class="fas">&#xf129;</i>&nbsp;About Us</a>
-    <a href="../html/articleList.html"><i class="fas">&#xf1c8;</i>&nbsp;articles</a>
+    <a href="../html/articleList.html"><i class="fas">&#xf1c8;</i>&nbsp;Articles</a>
     <div class="dropdown">
         <button class="dropbtn">
             <i class="fas">&#xf35d;</i>&nbsp;Useful Links
@@ -131,7 +131,7 @@ Date:     20.08.2019
                     if (isNotValid(document.getElementById('login-form'))) {
                         let e = $('#error-dialog');
                         e.dialog({title: "Data Validation Error"});
-                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid. Please try again.");
                         e.dialog('open');
                         return;
                     }
@@ -144,7 +144,7 @@ Date:     20.08.2019
                     $.post(loginURL, loginDetails, function () {
                         let v = $('#valid-dialog');
                         v.dialog({title: "Login Successful"});
-                        $('#valid-dialog p').html("Thank you. You have sucessfully logged in.<br><br>To logout again, press the [Logout] button from the top menu bar.");
+                        $('#valid-dialog p').html("Thank you. You have sucessfully logged in. To logout again, press the [Logout] button from the top menu bar.");
                         v.dialog('open');
                         let c = document.cookie;
                         if (c.includes("super=true")) {
@@ -166,7 +166,7 @@ Date:     20.08.2019
                     }).fail(function (xhr) {
                         let e = $('#error-dialog');
                         e.dialog({title: "Login Failed"});
-                        $('#error-dialog p').html("The username or password that you entered is incorrect.<br><br>Please try again.");
+                        $('#error-dialog p').html("The username or password that you entered is incorrect. Please try again.");
                         e.dialog('open');
                     });
                 }
@@ -186,7 +186,7 @@ Date:     20.08.2019
                     var formValues = $("#contactus-form").serialize();
                     if (isNotValid(document.getElementById('contactus-form'))) {
                         $('#valid-dialog').dialog({title: "Data Validation Error"});
-                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid.<br><br>Please try again.");
+                        $('#error-dialog p').html("Sorry, your data is incomplete or invalid. Please try again.");
                         $('#error-dialog').dialog('open');
                         return;
                     }
@@ -198,7 +198,7 @@ Date:     20.08.2019
                     }).fail(function (xhr) {
                         let e = $('#error-dialog');
                         e.dialog({title: "Message Failed"});
-                        $('#error-dialog p').html("Sorry, something went wrong.<br><br>Please try again.");
+                        $('#error-dialog p').html("Sorry, something went wrong. Please try again.");
                         e.dialog('open');
                     });
                 }
@@ -290,7 +290,7 @@ Date:     20.08.2019
             }
             let v = $('#valid-dialog');
             v.dialog({title: "Logout Successful"});
-            $('#valid-dialog p').html("Thank you. You have sucessfully logged out.<br><br>To login again, press the [Login] button from the top menu bar.");
+            $('#valid-dialog p').html("Thank you. You have sucessfully logged out. To login again, press the [Login] button from the top menu bar.");
             v.dialog('open');
             $('.inline_part').switchClass("inline_part", "hidden_part");
 

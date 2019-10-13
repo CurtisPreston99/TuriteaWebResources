@@ -6,7 +6,7 @@ function handleFiles(files) {
     if (window.FileReader) {
         getAsText(files[0]);
     } else {
-        error("Sorry", "try to use a higher version browser")
+        error("Error Message", "Sorry, something went wrong. Try using a later version of your internet browser.")
     }
 }
 
@@ -42,7 +42,7 @@ function loadHandler(event) {
         }
     }
     if (state) {
-        error("Error", "Some of the pins has a wrong latitude or longitude<br/>the other pins are shown here")
+        error("Error Message", "Sorry, some of the pins had the wrong latitude and/or longitude and could not be loaded. The remainder are listed below.")
     }
     table = newTable;
     display(table)
@@ -50,7 +50,7 @@ function loadHandler(event) {
 }
 
 function errorHandler(evt) {
-    error("Error", "Can't read this file")
+    error("Error Message", "Sorry, the CSV file could not be read. Please try again.")
 }
 
 function enable(x) {

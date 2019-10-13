@@ -208,7 +208,7 @@ function addTemporaryPin(lon, lat) {
 
 function addPinPrepare() {
     let b = $('#addP');
-    b.text("select");
+    b.text("Edit Pin");
     b.off("click", addPinPrepare);
     b.on("click", selectAndCreate);
     cesiumHandler.setInputAction(selectPosition, Cesium.ScreenSpaceEventType.LEFT_CLICK);
@@ -218,7 +218,7 @@ function addPinPrepare() {
 function cancelAdd() {
     $("#cancelAdd").addClass("two_hidden");
     let b = $('#addP');
-    b.text("add pin");
+    b.text("Add Pin");
     b.off("click", selectAndCreate);
     b.on("click", addPinPrepare);
     temPin = null;
@@ -231,8 +231,8 @@ function cancelAdd() {
 function selectAndCreate() {
     if (temPin === null) {
         let e = $('#error-dialog');
-        e.dialog({title: "error"});
-        $('#error-dialog p').html("Please select a position!");
+        e.dialog({title: "Error Message"});
+        $('#error-dialog p').html("Sorry, you have to add a pin to the map first. Please try again.");
         e.dialog('open');
         return;
     }
@@ -262,8 +262,8 @@ function updatePin() {
     let node = $(".cesium-infoBox-iframe")[0].contentDocument.getElementById("inDescription");
     if (node === null) {
         let e = $('#error-dialog');
-        e.dialog({title: "No Select"});
-        $('#error-dialog p').html("Please select a pin thank you!");
+        e.dialog({title: "Error Message"});
+        $('#error-dialog p').html("Sorry, you have not selected a pin. Please try again.");
         e.dialog('open');
     }
     let id = node.innerText;
