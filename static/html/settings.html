@@ -55,13 +55,13 @@ Date:     20.08.2019
     <hr>
     <div id="tabs">
         <ul>
-            <li><a href="#tabs-1">Pins</a></li>
-            <li><a href="#tabs-3">article</a></li>
-            <li><a href="#tabs-4">upload INaturalist data</a></li>
-            <li><a href="#tabs-5" onclick="getKMLList()">kml Data</a></li>
-            <li><a href="#tabs-6">change password</a></li>
-            <li><a href="#tabs-2" class="hidden_normal">Users</a></li>
-            <li><a href="#tabs-7" class="hidden_normal" onclick="loadUsers()">manage user</a></li>
+            <li><a href="#tabs-1">Add Pin</a></li>
+            <li><a href="#tabs-3">Add Article</a></li>
+            <li><a href="#tabs-4">Load CSV Data</a></li>
+            <li><a href="#tabs-5" onclick="getKMLList()">Load KML Data</a></li>
+            <li><a href="#tabs-6">Change Password</a></li>
+            <li><a href="#tabs-2" class="hidden_normal">Add Users</a></li>
+            <li><a href="#tabs-7" class="hidden_normal" onclick="loadUsers()">Manage Users</a></li>
         </ul>
 
         <!-- pins -->
@@ -70,27 +70,24 @@ Date:     20.08.2019
             <div id='form'>
                 <input type="number" id="pinIdAd" style="display: none"/>
                 <div id='nameDic'>
-                    name:<input type="text" id="nameAd"/>
+                    Name:<input type="text" id="nameAd"/>
                 </div>
                 <div id="icon">
-                    icon:<select id="iconSelectAd"> </select>
+                    Icon:<select id="iconSelectAd"> </select>
                     <script>addIconOptions("iconSelectAd")</script>
-                    color:<input type="color" id="colorSelectorsAd" value="#ff0000" required/>
+                    Color:<input type="color" id="colorSelectorsAd" value="#ff0000" required/>
                 </div>
                 <div id='longLat'>
-                    longitude:<input type="number" id="longTextAd"/>
-                    latitude:<input type="number" id="latTextAd"/>
+                    Longitude:<input type="number" id="longTextAd"/>
+                    Latitude:<input type="number" id="latTextAd"/>
                 </div>
                 <div id="descriptionAd">
-                    description:
+                    Description:
                     <div id="summerNotePin"></div>
                     <div id="helpDiv"></div>
                 </div>
                 <div>
-                    <button onclick="submitPinAd()">submit</button>
-                    <a href="../html/home.html">
-                        <button>cancel</button>
-                    </a>
+                    <button onclick="submitPinAd()">Submit</button>
                 </div>
 
             </div>
@@ -98,41 +95,37 @@ Date:     20.08.2019
 
         <!-- add users -->
         <div id="tabs-2">
-            <h3> add user</h3>
-
-            user name:
+            Username:
             <input id="adduserName" type="text" name="name">
-            user type:
+            User Role:
             <select id="roleselect" name="role">
                 <option value=1>Researcher</option>
                 <option value=2>Administer</option>
             </select>
             <br>
-            <button onclick="adduser()" name="add user">add user</button>
+            <button onclick="adduser()" name="add user">Add User</button>
             <div id="userResult" class="two_hidden">
-                <div>role: <span id="role"></span></div>
-                <div>name: <span id="userName"></span></div>
-                <div>password: <span id="password"></span></div>
+                <div>Role: <span id="role"></span></div>
+                <div>Name: <span id="userName"></span></div>
+                <div>Password: <span id="password"></span></div>
             </div>
         </div>
 
 
         <!-- edit article -->
         <div id="tabs-3">
-            <h3 id="articleTitle">article</h3>
-            summary:
+            Summary:
             <br/>
             <textarea id="articleSum" width="100"></textarea>
             <div id="articleSummerNote"></div>
             <script>loadArticleNote()</script>
-            <button onclick="submitArticle()">submit</button>
+            <button onclick="submitArticle()">Submit</button>
         </div>
 
         <!-- csv -->
         <div id="tabs-4" onload="init()">
-            <h3>add INaturalist data</h3>
             <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" accept=".csv">
-            <button onclick="tabletoPins()">upload</button>
+            <button onclick="tabletoPins()">Upload</button>
             <div id='INaturalistdata'>
                 <table>
                     <thead id="csvHeader">
@@ -148,15 +141,15 @@ Date:     20.08.2019
 
             <form action="../api/putKML" method="post" enctype="multipart/form-data" id="kmlup">
                 <input type="file" name="kml" id="kml">
-                <input type="submit" value="Upload Image" name="submit">
+                <input type="submit" value="Upload" name="submit">
             </form>
 
             <div>
                 <table>
                     <thead>
                     <tr>
-                        <td>remove</td>
-                        <td>name</td>
+                        <td>Remove</td>
+                        <td>Name</td>
                     </tr>
                     </thead>
                     <tbody id="kmlList">
@@ -168,42 +161,36 @@ Date:     20.08.2019
 
         <!-- change password -->
         <div id="tabs-6">
-            <h3> change password</h3>
             <table>
                 <tr>
-                    <td>old password:</td>
+                    <td>Old Password:</td>
                     <td><input type="text" id="oldPassowrd"/></td>
                 </tr>
                 <tr>
-                    <td>new password:</td>
+                    <td>New Password:</td>
                     <td><input type="text" id="newPassword"/>
                     <td>
                 </tr>
             </table>
             <br/>
-            <button onclick="updatePassword()">update passowrd</button>
+            <button onclick="updatePassword()">Update Password</button>
         </div>
 
         <!-- remove user -->
         <div id="tabs-7">
-            <h3> remove user</h3>
-            <p>
-                <button onclick="loadUsers()">refresh</button>
-            </p>
-            <p>
-                <button onclick="popupYN('These users will be deleted', deleteUsers, function() {})">delete</button>
-            </p>
             <table>
                 <thead>
-                <tr>select</tr>
-                <tr>name</tr>
-                <tr>role</tr>
+                    <tr>
+                        <th>Select</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                    <tr>
                 </thead>
                 <tbody id="userList">
-
                 </tbody>
             </table>
-
+            <button onclick="loadUsers()">Refresh</button>
+            <button onclick="popupYN('The selected users will be deleted. Are you sure this is what you want to do?', deleteUsers, function() {})">Delete Selected Users</button>
         </div>
 
     </div>
