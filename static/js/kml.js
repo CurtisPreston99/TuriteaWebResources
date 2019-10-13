@@ -9,7 +9,7 @@ function getKMLList() {
                            </tr>`.format(data[i])));
         }
     }).fail(function () {
-        error("Error", "login first or this kml file<br/> has a same name with others in server")
+        error("Error Message", "Sorry, something went wrong. Please try again.")
     });
 }
 
@@ -19,7 +19,7 @@ function removeKML(name) {
         message("success", "the kml has removed");
         getKMLList();
     }).fail(function () {
-        error("Error", "Login first");
+        error("Error Message", "Sorry, something went wrong. Please try again.");
     });
 }
 

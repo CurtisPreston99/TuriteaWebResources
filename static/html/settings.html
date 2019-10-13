@@ -5,49 +5,43 @@ Author:   CHEN, Xingyu; GRAY, Lance; PRESTON, Curtis
 Date:     20.08.2019
 -->
 <html>
-<head>
-    <title>Settings</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/layout.css"/>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossorigin=""/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
-    <script src="../js/md5.js"></script>
-    <script src="../js/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-            crossorigin=""></script>
-    <script src="../js/pin.js"></script>
-    <script src="../js/article.js"></script>
-    <script src="../js/INaturalist.js"></script>
-    <script src="../js/userfunctions.js"></script>
-    <script src="../js/loadArticle.js"></script>
-    <script src="../js/kml.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
-
-
-    <script>
-        $(function () {
-            $("header").load("../html/header.html");
-            $("#footer").load("../html/footer.html");
-            $("#tabs").tabs();
-            let c = document.cookie;
-            if (c.includes("super=false")) {
-                $(".hidden_normal").hide();
-            }
-            // $("#summernote").summernote();
-        });
-    </script>
-</head>
+    <head>
+        <title>Observation Map</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+        <link rel="stylesheet" href="../css/layout.css"/>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+              integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+              crossorigin=""/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+        <script src="../js/md5.js"></script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+                integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+                crossorigin=""></script>
+        <script src="../js/pin.js"></script>
+        <script src="../js/article.js"></script>
+        <script src="../js/INaturalist.js"></script>
+        <script src="../js/userfunctions.js"></script>
+        <script src="../js/loadArticle.js"></script>
+        <script src="../js/kml.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+        <script>
+            $(function () {
+                $("header").load("../html/header.html");
+                $("#footer").load("../html/footer.html");
+                $("#tabs").tabs();
+                let c = document.cookie;
+                if (c.includes("super=false")) {
+                    $(".hidden_normal").hide();
+                }
+            });
+        </script>
+    </head>
 <body>
 <header></header>
 <section class="slow">
@@ -68,9 +62,9 @@ Date:     20.08.2019
         <div id="tabs-1">
 
             <div id='form'>
-                <input type="number" id="pinIdAd" style="display: none"/>
+                <input type="number" id="pinIdAd" style="display: none">
                 <div id='nameDic'>
-                    Name:<input type="text" id="nameAd"/>
+                    Name:<input type="text" id="nameAd">
                 </div>
                 <div id="icon">
                     Icon:<select id="iconSelectAd"> </select>
@@ -78,8 +72,8 @@ Date:     20.08.2019
                     Color:<input type="color" id="colorSelectorsAd" value="#ff0000" required/>
                 </div>
                 <div id='longLat'>
-                    Longitude:<input type="number" id="longTextAd"/>
-                    Latitude:<input type="number" id="latTextAd"/>
+                    Longitude:<input type="number" id="longTextAd">
+                    Latitude:<input type="number" id="latTextAd">
                 </div>
                 <div id="descriptionAd">
                     Description:
@@ -95,18 +89,30 @@ Date:     20.08.2019
 
         <!-- add users -->
         <div id="tabs-2">
-            Username:
-            <input id="adduserName" type="text" name="name">
-            User Role:
-            <select id="roleselect" name="role">
-                <option value=1>Researcher</option>
-                <option value=2>Administer</option>
-            </select>
-            <br>
-            <button onclick="adduser()" name="add user">Add User</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th></th>
+                    <tr>
+                <thead>
+                <tbody>
+                    <tr>
+                       <td><input id="adduserName" type="text" name="name"></td>
+                       <td>
+                           <select id="roleselect" name="role">
+                               <option value=1>Researcher</option>
+                               <option value=2>Administer</option>
+                           </select>
+                       </td>
+                       <td><button onclick="adduser()" name="add user">Add User</button></td>
+                    </tr>
+               <tbody>
+            </table>
             <div id="userResult" class="two_hidden">
-                <div>Role: <span id="role"></span></div>
                 <div>Name: <span id="userName"></span></div>
+                <div>Role: <span id="role"></span></div>
                 <div>Password: <span id="password"></span></div>
             </div>
         </div>
@@ -147,10 +153,10 @@ Date:     20.08.2019
             <div>
                 <table>
                     <thead>
-                    <tr>
-                        <td>Remove</td>
-                        <td>Name</td>
-                    </tr>
+                        <tr>
+                            <th>Remove</th>
+                            <th>Name</th>
+                        </tr>
                     </thead>
                     <tbody id="kmlList">
 
@@ -162,18 +168,21 @@ Date:     20.08.2019
         <!-- change password -->
         <div id="tabs-6">
             <table>
-                <tr>
-                    <td>Old Password:</td>
-                    <td><input type="text" id="oldPassowrd"/></td>
-                </tr>
-                <tr>
-                    <td>New Password:</td>
-                    <td><input type="text" id="newPassword"/>
-                    <td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Old Password</th>
+                        <th>New Password</th>
+                        <th></th>
+                    <tr>
+                <thead>
+                <tbody>
+                    <tr>
+                       <td><input type="text" id="oldPassowrd"></td>
+                       <td><input type="text" id="newPassword"></td>
+                       <td><button onclick="updatePassword()">Update Password</button></td>
+                    </tr>
+               <tbody>
             </table>
-            <br/>
-            <button onclick="updatePassword()">Update Password</button>
         </div>
 
         <!-- remove user -->
