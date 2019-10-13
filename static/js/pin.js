@@ -40,14 +40,14 @@ function getallData() {
 function deletePin() {
     let pin = $(".cesium-infoBox-iframe")[0].contentDocument.getElementById("inDescription");
     if (pin === null) {
-        error("No Select", "Please select a pin thank you");
+        error("Error Message", "Sorry, you have not selected a pin. Please try again.");
     }
     let id = pin.innerText;
 
     $.get("../api/delete?type=2&id=" + id, function (result) {
         viewer.entities.removeById(id);
     }).fail(function (xhr) {
-        error("Not login", "Please login thank you");
+        error("Error Message", "Sorry, something went wrong. Please try again.");
     });
 }
 
@@ -65,7 +65,7 @@ function submitPin() {
             temPin = null;
             loadpins(true);
         }).fail(function (r) {
-            error("Not login or other error", "Please login thank you or check other things!");
+            error("Error Message", "Sorry, something went wrong. Please try again.");
         });
     } else {
         let pin = getallData();
@@ -78,7 +78,7 @@ function submitPin() {
             $('#lat').text(0.0);
             loadpins(true);
         }).fail(function (r) {
-            error("Not login or other error", "Please login thank you or check other things!");
+            error("Error Message", "Sorry, something went wrong. Please try again.");
         });
         let p = $("#pin-dialog");
         if (p.length !== 0) {
@@ -125,6 +125,6 @@ function submitPinAd() {
         localStorage.setItem("viewerMiddle", JSON.stringify({lat: pin["lat"], lon: pin["lon"]}));
         window.location.href = "../html/home.html";
     }).fail(function (r) {
-        error("Not login or other error", "Please login thank you or check other things!");
+        error("Error Message", "Sorry, something went wrong. Please try again.");
     })
 }
