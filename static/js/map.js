@@ -134,7 +134,6 @@ function loadpins(reload) {
                 } else {
                     tag_type = pinBuilder.fromColor(Cesium.Color.fromCssColorString(value.color), 48);
                 }
-
                 viewer.entities.add({
                     id: (value.uid).toString(16),
                     name: value.name,
