@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="../js/md5.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://cesiumjs.org/releases/1.60/Apps/Sandcastle/Sandcastle-header.js"></script>
+    <script src="https://cesiumjs.org/releases/1.60/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesiumjs.org/releases/1.60/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/layout.css"/>
+    <script src="../js/map.js"></script>
+    <script src="../js/pin.js"></script>
+    <script src="../js/article.js"></script>
+    <script src="../js/ui.js"></script>
+    <title>article</title>
+    <script>
+        $(function () {
+            $("header").load("../html/header.html");
+            $("footer").load("../html/footer.html");
+        });
+    </script>
+</head>
+<body>
+    <header></header>
+    <section id="main">
+        <a href="../html/home.html"><button id="backToHome" hidden>back to home page</button></a>
+        <div id="summary">%s</div>
+        <div id="home">
+            <button onclick="editArticle(this.parentElement)" class="hidden_part">edit</button>
+            <button onclick="popupYN('Do you want to delete this article', deleteArticle, function(){})" class="hidden_part">delete</button>
+        </div>
+        <div id="at404" hidden>
+            this page is gone, feel free to explore others.
+        </div>
+    </section>
+    <script src="../js/loadArticle.js"></script>
+    <script>loadMainFragment()</script>
+    <p style="display: none" id="articleId">%x</p>
+    <footer></footer>
+</body>
+</html>

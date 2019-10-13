@@ -145,6 +145,9 @@ func Delete(key asynchronousIO.Key) func() error {
 }
 
 func recycleData(bean asynchronousIO.Bean) {
+	if bean == nil {
+
+	}
 	switch b := bean.(type) {
 	case *base.Pin:
 		base.RecyclePin(b, false)

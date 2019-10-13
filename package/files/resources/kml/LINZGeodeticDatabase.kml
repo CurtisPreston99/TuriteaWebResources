@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<NetworkLink>
+	<name>LINZ geodetic database</name>
+	<visibility>1</visibility>
+	<open>0</open>
+	<description><![CDATA[
+		Land Information New Zealand <a href="http://apps.linz.govt.nz/gdb/index.aspx">geodetic database</a>]]></description>
+	<Link>
+		<href>http://apps.linz.govt.nz/gdb/gdbkml.aspx?</href>
+		<refreshMode>OnChange</refreshMode>
+		<viewRefreshMode>onStop</viewRefreshMode>
+		<viewRefreshTime>1</viewRefreshTime>
+
+	</Link>
+</NetworkLink>
+</kml>

@@ -35,6 +35,7 @@ func getFragment(w http.ResponseWriter, r *http.Request) {
 	b, ok := buffer.MainCache.Load(dataLevel.ArticleContentKey(id))
 	if !ok {
 		w.WriteHeader(404)
+		return
 	}
 	ac := b.(*dataLevel.ArticleResource)
 	_, err = w.Write([]byte("{\"content\":"))

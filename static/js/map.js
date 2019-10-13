@@ -10,6 +10,7 @@ var cesiumHandler;
 var kmlmenu = [];
 var loadedIDS = null;
 var description = "";
+var reloadCondition;
 var image;
 var ellipsoid;
 var tag_types = ['airfield', 'airport', 'alcohol-shop', 'america-football', 'art-gallery', 'bakery', 'bank', 'bar', 'baseball', 'basketball', 'beer', 'bicycle', 'building', 'bus', 'cafe', 'camera', 'campsite', 'car', 'cemetery', 'cesium', 'chemist', 'cinema', 'circle', 'circle-stroked', 'city', 'clothing-store', 'college', 'commercial', 'cricket', 'cross', 'dam', 'danger', 'disability', 'dog-park', 'embassy', 'emergency-telephone', 'entrance', 'farm', 'fast-food', 'ferry', 'fire-station', 'fuel', 'garden', 'gift', 'golf', 'grocery', 'hairdresser', 'harbor', 'heart', 'heliport', 'hospital', 'ice-cream', 'industrial', 'land-use', 'laundry', 'library', 'lighthouse', 'lodging', 'logging', 'london-underground', 'marker', 'marker-stroked', 'minefield', 'mobilephone', 'monument', 'museum', 'music', 'oil-well', 'park2', 'parking-garage', 'parking', 'park', 'pharmacy', 'pitch', 'place-of-worship', 'playground', 'police', 'polling-place', 'post', 'prison', 'rail-above', 'rail-light', 'rail-metro', 'rail', 'rail-underground', 'religious-christian', 'religious-jewish', 'religious-muslim', 'restaurant', 'roadblock', 'rocket', 'school', 'scooter', 'shop', 'skiing', 'slaughterhouse', 'soccer', 'square', 'square-stroked', 'star', 'star-stroked', 'suitcase', 'swimming', 'telephone', 'tennis', 'theatre', 'toilets', 'town-hall', 'town', 'triangle', 'triangle-stroked', 'village', 'warehouse', 'waste-basket', 'water', 'wetland', 'zoo'];
@@ -26,7 +27,8 @@ function loadMap() {
             timeline: false,
             animation: false,
             homeButton: false,
-            fullscreenElement: cesiumContainer
+            fullscreenElement: cesiumContainer,
+            sceneModePicker:false
         }
     );
 
@@ -41,7 +43,7 @@ function loadMap() {
             text: "Remove all KML Data",
             onselect: function () {
                 viewer.dataSources.removeAll();
-                loadpins(true);
+                loadpins(reloadCondition);
             }
         }];
         var options = {
@@ -62,7 +64,7 @@ function loadMap() {
     let middle = localStorage.getItem("viewerMiddle");
     if (middle) {
         let m = JSON.parse(middle);
-        let rectangle = Cesium.Rectangle.fromDegrees(m["lon"] - 0.001, m["lat"] - 0.001, m["lon"] + 0.001, m["lat"] + 0.001);
+        let rectangle = Cesium.Rectangle.fromDegrees(m["lon"] - 0.0035, m["lat"] - 0.0035, m["lon"] + 0.0035, m["lat"] + 0.0035);
         viewer.camera.setView({
             destination: rectangle
         });
@@ -73,13 +75,14 @@ function loadMap() {
         });
     }
     viewer.camera._changed.addEventListener(function () {
-        loadpins()
+        loadpins(reloadCondition)
     });
-    loadpins(true);
+    loadpins(reloadCondition);
 }
 
 
-function loadpins(reload = false) {
+function loadpins(reload) {
+    reload = !reload;
     var rect = viewer.camera.computeViewRectangle(viewer.scene.globe.ellipsoid, scratchRectangle);
     let n = Cesium.Math.toDegrees(rect.north);
     let s = Cesium.Math.toDegrees(rect.south);
@@ -94,7 +97,7 @@ function loadpins(reload = false) {
 
     $.getJSON("../api/getPins?" + area, function (data) {
         let t0 = performance.now();
-
+        localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
         if (data.length === 0) {
             return
         }
@@ -104,10 +107,7 @@ function loadpins(reload = false) {
         if (temPin !== null) {
             viewer.entities.add(temPin);
         }
-        localStorage.setItem("viewerMiddle", JSON.stringify({lat: (s + n) / 2, lon: (e + w) / 2}));
-
         $.each(data, function (key, value) {
-
             if (value != null) {
                 if (!reload) {
                     if (loadedIDS === null) {
@@ -280,4 +280,11 @@ function updatePin() {
     $("#color").val(pin["color"]);
     $("#iconSelect").val(pin["tag_type"]);
     $("#pinId").val(pin["uid"]);
+}
+
+function homeView() {
+    let rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
+    viewer.camera.setView({
+        destination: rectangle
+    });
 }
