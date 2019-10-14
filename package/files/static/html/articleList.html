@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="shortcut icon" type="image/x-icon" href="../masseyLogo.ico">
-
-    <meta charset="UTF-8">
-    <title>article List</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="../js/md5.js"></script>
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/pin.js"></script>
-    <script src="../js/articleList.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <script src="https://cesiumjs.org/releases/1.60/Apps/Sandcastle/Sandcastle-header.js"></script>
-    <script src="https://cesiumjs.org/releases/1.60/Build/Cesium/Cesium.js"></script>
-    <link href="https://cesiumjs.org/releases/1.60/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/layout.css"/>
-    <link rel="stylesheet" href="../css/articleList.css"/>
-    <script>
-        $(function () {
-            $("header").load("header.html");
-            $("footer").load("footer.html");
-        });
-    </script>
-</head>
-<body>
-    <header></header>
-    <h1></h1>
-    <ul id="articleList">
-
-    </ul>
-    <button id="next" onclick="loadArticleList()">load more</button>
-    <footer></footer>
-</body>
+<!--
+Project:  Turitea Stream Ecology
+Author:   CHEN, Xingyu; GRAY, Lance; PRESTON, Curtis
+Date:     20.08.2019
+-->
+<html>
+    <head>
+        <title>Article List</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="../masseyLogo.ico">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="../js/md5.js"></script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/pin.js"></script>
+        <script src="../js/articleList.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script src="https://cesiumjs.org/releases/1.60/Apps/Sandcastle/Sandcastle-header.js"></script>
+        <script src="https://cesiumjs.org/releases/1.60/Build/Cesium/Cesium.js"></script>
+        <link href="https://cesiumjs.org/releases/1.60/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/layout.css"/>
+        <link rel="stylesheet" href="../css/articleList.css"/>
+        <script>
+            $(function () {
+                $("header").load("header.html");
+                $("footer").load("footer.html");
+            });
+        </script>
+    </head>
+    <body>
+        <header></header>
+        <h1></h1>
+        <ul id="articleList">
+        </ul>
+        <button id="next" onclick="loadArticleList()">Load More Articles</button>
+        <footer></footer>
+    </body>
 </html>

@@ -14,9 +14,9 @@ function adduser() {
         }
     }).fail(function (r) {
         if (r.status === 500) {
-            error("Data Validation Error", "The name is used by other account");
+            error("Error Message", "The name is used by other account");
         } else if (r.status === 403) {
-            error("Login Error", "please login first");
+            error("Error Message", "Sorry, something went wrong. Please try again.");
         }
     });
 }
@@ -28,7 +28,7 @@ function updatePassword() {
     $.post("../api/changePassword", passes, function (data) {
         message("Change Successful", "change password success");
     }).fail(function () {
-        error("Not login or other error", "Please login thank you or check other things!");
+        error("Error Message", "Sorry, something went wrong. Please try again.");
     });
 }
 
@@ -49,7 +49,7 @@ function loadUsers() {
             list.append($(row));
         }
     }).fail(function () {
-        error("Login Error", "Please login and retry");
+        error("Error Message", "Sorry, something went wrong. Please try again.");
     });
 }
 
@@ -58,7 +58,7 @@ async function removeUsers(names) {
         await $.get("../api/deleteUser?name=" + names[i],).fail(
             function () {
                 i = names.length;
-                error("Not login or other error", "Please login thank you or check other things!");
+                error("Error Message", "Sorry, something went wrong. Please try again.");
             }
         );
     }
@@ -85,7 +85,7 @@ function changeRole(name, role) {
         $.post("../api/changeRole", {"name": name, "newRole": 1}, function () {
             loadUsers()
         }).fail(function () {
-            error("Not login", "Please login first")
+            error("Error Message", "Sorry, something went wrong. Please try again.")
         });
     }
 }

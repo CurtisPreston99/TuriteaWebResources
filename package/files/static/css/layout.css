@@ -1,6 +1,6 @@
 /*
-  158.258 Individual Assessment - Web Site Development Project
-  Author:   Lance Gray (03364038)
+  Project:  Turitea Stream Ecology
+  Author:   CHEN, Xingu; GRAY, Lance; PRESTON, Curtis
   Date:     19.09.2016
   Filename: layout.css
   Files:    None
@@ -28,13 +28,14 @@ body * {
     margin: 0px;
     padding: 0px;
     text-decoration: none;
+    text-rendering:optimizeLegibility
 }
 
 body {
     /*background-image: url('background.jpg');*/
     min-width: 50%;
     max-width: 80%;
-    margin: auto;
+    margin: 20px auto;
 }
 
 body {
@@ -140,7 +141,7 @@ nav.main li {
     width: 10%;
     list-style: none;
     color: white;
-    Height: 50px;
+    height: 50px;
     text-align: center;
 }
 
@@ -198,6 +199,7 @@ nav.main li a:hover:not(.active) {
 
 .navbar a:hover, .dropdown:hover .dropbtn {
     background-color: #2D589C;
+    border-radius:6px;
 }
 
 .dropdown-content {
@@ -287,6 +289,55 @@ footer address {
     box-sizing: border-box;
 }
 
+/*table styles*/
+table {
+    border-collapse: collapse;
+    margin-bottom:10px;
+    width:100%;
+}
+
+td,th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;    
+}
+
+/*input styles*/
+input:not([type=checkbox]):not([type=radio]),select{
+    display:block;
+}
+
+button,input,select,textarea{
+    color:#000;
+    background-color: #f2f2f2;
+    font-family:inherit;
+    font-size:inherit;
+    margin-right:6px;
+    margin-bottom:6px;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    outline:none;
+}
+
+button,input:not([type=checkbox]):not([type=radio]),select,textarea{
+    -webkit-appearance:none;
+}
+
+button,input[type=button],input[type=submit]{
+    padding-right:30px;
+    padding-left:30px;
+}
+
+button:hover,select:hover,textarea:hover,input:hover {
+    background-color:#e6e6e6;
+}
+
+textarea {
+    width: 100%;
+}
+
+/*miscellaneous styles*/
 #disclaimer {
     font-size: 0.8em;
 }
@@ -323,5 +374,4 @@ footer address {
 .inline_part_header {
     display: inline;
 }
-
 

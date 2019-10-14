@@ -1,5 +1,5 @@
 var last = 0;
-var min = 0xffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff;
+var min = 0xffffffffffffffffffffffffffffffff;
 
 function loadArticleList() {
     var list = $("#articleList");
