@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/html/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/html/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/html/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/package/start.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +113,7 @@
         <entry file="file://$PROJECT_DIR$/static/html/home.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="301">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -122,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/static/html/header.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="333">
-              <caret line="285" column="44" lean-forward="true" selection-start-line="285" selection-start-column="44" selection-end-line="285" selection-end-column="44" />
+              <caret line="285" column="41" selection-start-line="285" selection-start-column="41" selection-end-line="285" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -315,7 +315,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -533,7 +533,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15511727" />
@@ -1105,14 +1105,14 @@
     <entry file="file://$PROJECT_DIR$/static/html/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/html/header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
-          <caret line="285" column="44" lean-forward="true" selection-start-line="285" selection-start-column="44" selection-end-line="285" selection-end-column="44" />
+          <caret line="285" column="41" selection-start-line="285" selection-start-column="41" selection-end-line="285" selection-end-column="41" />
         </state>
       </provider>
     </entry>
