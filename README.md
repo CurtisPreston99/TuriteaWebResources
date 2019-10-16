@@ -4,7 +4,7 @@
 ## What is this tool:
 This is a tool for sharing infomation about the ecology of the Turitea stream in the Manawatu region of New Zealand.
 ### About Us:
-The is a Capstone project undertaken at Massey University, New Zealand. It was sponsored by Prof. Steve Trewick of Massey University. The software development team members included Curtis Preston, Lance Gray, and Xingyu Chen.
+This is a Capstone project undertaken at Massey University, New Zealand. It was sponsored by Prof. Steve Trewick of Massey University. The software development team members included Curtis Preston, Lance Gray, and Xingyu Chen.
 
 ![massey university logo](./Massey-University.png)
 
