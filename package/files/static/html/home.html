@@ -4,7 +4,7 @@ Project:  Turitea Stream Ecology
 Author:   CHEN, Xingyu; GRAY, Lance; PRESTON, Curtis
 Date:     20.08.2019
 -->
-<html>
+<html lang="en">
     <head>
         <title>Observation Map</title>
         <meta charset="UTF-8">
@@ -36,9 +36,8 @@ Date:     20.08.2019
             <h1 class="slow">Observation Map</h1>
             <hr class="slow">
             <div id="toolbar" class="slow">
-                <button onclick="hidePins()" id="hideP" class="cesium-button">Hide Pins</button>
-                <button id="homeViewer" onclick="homeView()" class="cesium-button">home position</button>
                 <button onclick="hidePins()" id="hideP" class="cesium-button">Hide/Show Pins</button>
+                <button id="homeViewer" onclick="homeView()" class="cesium-button">Home Position</button>
                 <button onclick="deletePin()" id="deleteP" class="cesium-button hidden_part" type="button">Delete Pin</button>
                 <button id="updateP" onclick="updatePin()" class="cesium-button hidden_part" type="button">Update Pin</button>
                 <button id="addP" onclick="addPinPrepare()" class="cesium-button hidden_part" type="button">Add Pin</button>
@@ -51,6 +50,6 @@ Date:     20.08.2019
             </div>
             <div id='cesiumContainer'></div>
         </section>
-        <footer class="slow" name="foot" id="foot"></footer>
+        <footer class="slow" id="foot"></footer>
     </body>
 </html>
