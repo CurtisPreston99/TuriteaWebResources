@@ -87,6 +87,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 	name := r.Form.Get("name")
 	pw := r.Form.Get("pw")
+	log.Println(name, pw)
 	u := dataLevel.SQLWorker.Login(name, pw)
 	if u != nil {
 		makeCookie(w, u.Id)

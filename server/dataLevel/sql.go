@@ -222,6 +222,7 @@ func (s *SqlLinker) Login(name string, password string) *base.User {
 			return nil
 		}
 	} else {
+		log.Println("not has")
 		err = rs.Close()
 		return nil
 	}
