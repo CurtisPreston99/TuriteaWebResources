@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/media/turitea-stream1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/media/turitea-stream1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/media/turitea-stream2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/media/turitea-stream2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/media/turitea-stream3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/media/turitea-stream3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/files/static/media/turitea-stream4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/media/turitea-stream4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/turitea-stream1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/media/turitea-stream1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/turitea-stream2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/media/turitea-stream2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/turitea-stream3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/media/turitea-stream3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/turitea-stream4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/media/turitea-stream4.jpg" afterDir="false" />
     </list>
     <list id="0b060e6d-f286-4343-9974-973af8738bde" name="Revert &quot;HTML corrections to complie with W3C standards&quot;" comment="Revert &quot;HTML corrections to complie with W3C standards&quot;&#10;&#10;This reverts commit 2ce6318f" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -128,20 +135,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/dataLevel/resources.go">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataResource.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
@@ -150,22 +143,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3330">
-              <caret line="193" column="5" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
+            <state relative-caret-position="234">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/dataLevel/dataSource.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/static/media/turitea-stream1.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/media/turitea-stream2.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/media/turitea-stream3.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/media/turitea-stream4.jpg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -293,7 +297,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -339,6 +343,17 @@
               <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="dataLevel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -500,7 +515,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12846482" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -754,39 +770,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/js/pin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2340">
-          <caret line="78" column="16" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="849">
-          <caret line="4014" column="4" selection-start-line="4014" selection-start-column="4" selection-end-line="4014" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/userfunctions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/INaturalist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="n#!!block;n#getAsText#0" />
-            <element signature="n#!!block;n#errorHandler#0" />
-            <element signature="n#!!block;n#CSVToArray#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package/start.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -881,9 +864,6 @@
           <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package/files/articles/for articles.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/package/files/static/media/turitea-stream1.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -1052,12 +1032,27 @@
     <entry file="file://$PROJECT_DIR$/package/files/static/static/js/ui.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/package/files/articles/for articles.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3330">
-          <caret line="193" column="5" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
+        <state relative-caret-position="234">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/media/turitea-stream1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/media/turitea-stream2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/media/turitea-stream3.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/media/turitea-stream4.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>
