@@ -59,6 +59,7 @@ function loadMap() {
             };
             toolbar.push(obj);
         });
+        console.log("call add");
         Sandcastle.addToolbarMenu(toolbar, 'toolbar');
     });
     let middle = localStorage.getItem("viewerMiddle");

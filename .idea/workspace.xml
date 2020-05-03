@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de631f00-b696-47f7-9e51-e48544e2b456" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/js/Sandcastle-header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/49c1d089-ee5b-4431-983e-719523d1e8a6/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/49c1d089-ee5b-4431-983e-719523d1e8a6/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5f02484b-a121-4442-8d41-ad63ceba51f9/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5f02484b-a121-4442-8d41-ad63ceba51f9/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8caf3969-ec14-45cc-b5d9-20c877ab67d4/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8caf3969-ec14-45cc-b5d9-20c877ab67d4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/media/turitea-stream1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/media/turitea-stream1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/media/turitea-stream2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/media/turitea-stream2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/media/turitea-stream3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/media/turitea-stream3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/files/static/media/turitea-stream4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/package/files/static/media/turitea-stream4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/actions/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/actions/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dataLevel/sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/dataLevel/sql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/html/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/map.js" afterDir="false" />
     </list>
     <list id="0b060e6d-f286-4343-9974-973af8738bde" name="Revert &quot;HTML corrections to complie with W3C standards&quot;" comment="Revert &quot;HTML corrections to complie with W3C standards&quot;&#10;&#10;This reverts commit 2ce6318f" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -116,19 +101,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/html/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/html/header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1032">
-              <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+            <state relative-caret-position="528">
+              <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -137,16 +113,16 @@
         <entry file="file://$PROJECT_DIR$/server/dataLevel/articleResources.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1368">
-              <caret line="62" column="16" lean-forward="true" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/html/about.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="28" column="8" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="140" selection-end-column="18" />
+            <state relative-caret-position="552">
+              <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -169,7 +145,16 @@
         <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataResource.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
-              <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+              <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3330">
+              <caret line="193" column="5" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -186,15 +171,6 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataSource.go">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Go1.11/go/src/builtin/builtin.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -302,12 +278,12 @@
         <option value="$PROJECT_DIR$/static/js/pin.js" />
         <option value="$PROJECT_DIR$/server/dataLevel/dataSource.go" />
         <option value="$PROJECT_DIR$/server/actions/getFragment.go" />
-        <option value="$PROJECT_DIR$/static/html/header.html" />
         <option value="$PROJECT_DIR$/static/html/settings.html" />
         <option value="$PROJECT_DIR$/static/js/map.js" />
         <option value="$PROJECT_DIR$/static/html/home.html" />
         <option value="$PROJECT_DIR$/server/actions/login.go" />
         <option value="$PROJECT_DIR$/server/dataLevel/sql.go" />
+        <option value="$PROJECT_DIR$/static/html/header.html" />
       </list>
     </option>
   </component>
@@ -317,7 +293,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -338,6 +314,24 @@
             <path>
               <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
               <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="package" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="package" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
+              <item name="package" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -345,17 +339,6 @@
               <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="dataLevel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TuriteaWebResources" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TuriteaWebResources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -393,11 +376,11 @@
       <recent name="G:\GOCode\src\TuriteaWebResources" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\GOCode\src\TuriteaWebResources\package\files\static" />
       <recent name="G:\GOCode\src\TuriteaWebResources\static\css" />
       <recent name="G:\GOCode\src\TuriteaWebResources\static\js" />
       <recent name="G:\GOCode\src\TuriteaWebResources\licenses" />
       <recent name="G:\GOCode\src\TuriteaWebResources\static\home" />
-      <recent name="G:\GOCode\src\TuriteaWebResources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -518,7 +501,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12846482" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -772,13 +754,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/js/loadArticle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4260">
-          <caret line="142" column="26" selection-start-line="142" selection-start-column="26" selection-end-line="142" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/pin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2340">
@@ -1012,24 +987,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="193" column="5" lean-forward="true" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/html/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/html/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1032">
-          <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1060,7 +1021,7 @@
     <entry file="file://$PROJECT_DIR$/server/dataLevel/articleDataResource.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
-          <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -1070,14 +1031,31 @@
     <entry file="file://$PROJECT_DIR$/server/dataLevel/articleResources.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
-          <caret line="62" column="16" lean-forward="true" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/html/about.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="8" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="140" selection-end-column="18" />
+        <state relative-caret-position="552">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/html/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package/files/static/static/js/ui.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/dataLevel/sql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3330">
+          <caret line="193" column="5" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
         </state>
       </provider>
     </entry>
